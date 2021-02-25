@@ -1,0 +1,14 @@
+<div class="offnav"></div>
+<h1><%= @beer.name %></h1>
+<%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill %>
+<%= @beer.name %>
+<%= @beer.style %>
+<%= @beer.alcohol_level %>
+<%= @beer.color %>
+<%= @beer.bitterness %>
+<%= @beer.description %>
+<%= @beer.category %>
+
+<% if @beer.user == current_user %>
+  <%= link_to 'edit', edit_beer_path(@beer) %>
+<% end %>

@@ -1,0 +1,23 @@
+<div class="offnav"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>New Beer</h2>
+      <%= simple_form_for @beer do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :style, collection: 1..30 %>
+          <%= f.input :alcohol_level, collection: 0..12 %>
+          <%= f.input :color, collection: 0..100 %>
+          <%= f.input :bitterness, collection: 0..120 %>
+          <%= f.input :description %>
+          <%= f.input :photo, as: :file %>
+          <%= f.input :category, collection: 0..3 %>
+          <div class="infos">
+            <%= f.button :submit, "Create Beer", class: "btn btn-flat log"  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
