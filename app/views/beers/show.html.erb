@@ -7,7 +7,7 @@
 <%= @beer.color %>
 <%= @beer.bitterness %>
 <%= @beer.description %>
-<%= @beer.category %>
+<%= @beer.category.name %>
 
 <% if @beer.user == current_user %>
   <%= link_to 'edit', edit_beer_path(@beer) %>

@@ -12,7 +12,7 @@
           <%= f.input :bitterness, collection: 0..120 %>
           <%= f.input :description %>
           <%= f.input :photo, as: :file %>
-          <%= f.input :category, collection: 0..3 %>
+          <%= f.association :category %>
           <div class="infos">
             <%= f.button :submit, "Create Beer", class: "btn btn-flat log"  %>
           </div>
