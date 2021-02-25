@@ -2,7 +2,7 @@
 <h1><%= @beer.name %></h1>
 <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill %>
 <%= @beer.name %>
-<%= @beer.style %>
+<%= @beer.style.name %>
 <%= @beer.alcohol_level %>
 <%= @beer.color %>
 <%= @beer.bitterness %>
