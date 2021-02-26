@@ -41,6 +41,18 @@ class BeersController < ApplicationController
     redirect_to beers_path
   end
 
+  def target
+    @beers = Beer.where(category: 'Target')
+  end
+
+  def la_ptite_chopine
+    @beers = Beer.where(category: "La P'tite Chopine")
+  end
+
+  def design_en_featuring
+    @beers = Beer.where(category: 'Design Featuring')
+  end
+
   private
 
   def set_beer

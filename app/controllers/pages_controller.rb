@@ -8,17 +8,4 @@ class PagesController < ApplicationController
     @beers = Beer.all
   end
 
-  def target
-    @beers = Beer.all
-  end
-
-  def la_ptite_chopine
-    @beers = Beer.all
-  end
-
-  def design_en_featuring
-    @beers = Beer.all
-  end
-
-
 end
