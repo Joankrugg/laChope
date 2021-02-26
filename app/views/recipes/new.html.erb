@@ -1,0 +1,18 @@
+<div class="offnav"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>Recipe</h2>
+      <%= simple_form_for [ @beer, @recipe ] do |f| %>
+        <div class="form-inputs">
+            <%= f.input :step %>
+            <%= f.input :duration%>
+            <%= f.input :quantity %>
+          <div class="infos">
+            <%= f.button :submit, "Submit recipe", class: "btn btn-flat log"  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

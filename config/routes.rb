@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :beers do
-    resources :reviews
+    resources :recipes
     collection do
       get :target
       get :la_ptite_chopine

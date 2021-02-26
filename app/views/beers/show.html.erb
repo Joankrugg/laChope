@@ -17,6 +17,15 @@
   </div>
 </div>
 
+<%= link_to 'create recipe', new_beer_recipe_path(@beer) %>
+
+<ul class="list-group">
+  <% @beer.recipes.each do |r| %>
+    <li class="list-group-item"><%= r.step %></li>
+    <li class="list-group-item"><%= r.quantity %></li>
+    <li class="list-group-item"><%= r.duration %></li>
+  <% end %>
+</ul>
 
 
 <div class="container top">
