@@ -11,4 +11,5 @@ class Beer < ApplicationRecord
   validates :description, presence: :true
   validates :photo, presence: :true
   validates :category, presence: :true
+  has_many :recipes
 end
