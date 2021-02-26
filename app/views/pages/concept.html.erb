@@ -18,9 +18,16 @@
 
 
   <!-- Menu Section -->
+
   <div class="row">
     <div class="col-xs-8 col-lg-6 legend">
-      <h1 class="center">Our Menu</h1><br>
+      <h1 class="center">Our Menu</h1>
+      <% @beers.each do |b| %>
+        <% if b.category.name == 'Target' %>
+          <%= b.style.name %>
+        <% end %>
+      <% end %>
+      <br>
       <h4>Bread Basket</h4>
       <p class="text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
 

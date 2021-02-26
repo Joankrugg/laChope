@@ -1,0 +1,16 @@
+<div class="offnav"></div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  La P'tite Chopine
+</div>
+
+<% @beers.each do |b| %>
+  <% if b.category.name == "La P'tite Chopine" %>
+    <div class="card-product">
+      <%= cl_image_tag b.photo.key %>
+      <div class="card-product-infos">
+        <h2><%= b.name %></h2>
+        <p><%= b.description %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
