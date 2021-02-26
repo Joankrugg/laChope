@@ -1,14 +1,51 @@
 <div class="offnav"></div>
-<h1><%= @beer.name %></h1>
-<%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill %>
-<%= @beer.name %>
-<%= @beer.style.name %>
-<%= @beer.alcohol_level %>
-<%= @beer.color %>
-<%= @beer.bitterness %>
-<%= @beer.description %>
-<%= @beer.category.name %>
 
-<% if @beer.user == current_user %>
-  <%= link_to 'edit', edit_beer_path(@beer) %>
-<% end %>
+<div class="container top">
+  <div class="card-product">
+    <%= cl_image_tag @beer.photo.key %>
+    <div class="card-product-infos">
+      <%= @beer.name %>
+      <%= @beer.style.name %>
+      <%= @beer.alcohol_level %>
+      <%= @beer.color %>
+      <%= @beer.bitterness %>
+      <%= @beer.description %>
+      <% if @beer.user == current_user %>
+        <%= link_to 'edit', edit_beer_path(@beer) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container top">
+  <h2>Recette</h2>
+  <p>The table-hover class adds a hover effect (grey background color) on table rows:</p>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
