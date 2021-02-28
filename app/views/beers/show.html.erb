@@ -22,26 +22,22 @@
 <div class="container top bottom">
   <h2>Recette</h2>
   <p>The table-hover class adds a hover effect (grey background color) on table rows:</p>
-  <table class="table table-dark table-hover">
-    <thead>
-      <tr>
-        <th>Etape</th>
-        <th>Quantité</th>
-        <th>Durée</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @beer.recipes.each do |r| %>
-        <%= link_to edit_beer_recipe_path(@beer) do %>
-          <tr>
-            <td><%= r.step %></td>
-            <td><%= r.quantity %></td>
-            <td><%= r.duration %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row steps">
+    <div class="col-xs-3 col-sm-1 col-lg-1">Etape</div>
+    <div class="col-xs-3 col-sm-1 col-lg-1">Quantité</div>
+    <div class="col-xs-3 col-sm-1 col-lg-1">Durée</div>
+    <div class="col-xs-3 col-sm-1 col-lg-1">Température</div>
+  </div>
+  <% @beer.recipes.each do |r| %>
+    <%= link_to edit_beer_recipe_path(@beer) do %>
+      <div class="row steps">
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.step %></div>
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.quantity %></div>
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.duration %> Min</div>
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.temperature %> °C</div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 

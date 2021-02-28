@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_144805) do
+ActiveRecord::Schema.define(version: 2021_02_28_162437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_144805) do
     t.bigint "beer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "temperature"
     t.index ["beer_id"], name: "index_recipes_on_beer_id"
   end
 
