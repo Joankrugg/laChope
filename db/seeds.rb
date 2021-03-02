@@ -62,3 +62,8 @@
 #Style.create({name: 'Doppelbock'})
 #Style.create({name: 'Traditional bock'})
 #Style.create({name: 'Eisbock'})
+
+Unit.create({name:'l'})
+Unit.create({name:"cl"})
+Unit.create({name:'g'})
+Unit.create({name:'kg'})

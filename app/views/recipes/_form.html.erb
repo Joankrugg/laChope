@@ -6,9 +6,10 @@
       <%= simple_form_for [ @beer, @recipe ] do |f| %>
         <div class="form-inputs">
             <%= f.input :step %>
-            <%= f.input :duration%>
+            <%= f.input :duration %>
             <%= f.input :quantity %>
             <%= f.input :temperature %>
+            <%= f.association :unit %>
           <div class="infos">
             <%= f.button :submit, "Submit recipe", class: "btn btn-flat log"  %>
           </div>

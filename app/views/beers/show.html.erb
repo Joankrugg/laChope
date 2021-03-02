@@ -17,11 +17,13 @@
   </div>
 </div>
 
-<%= link_to 'create recipe', new_beer_recipe_path(@beer) %>
+<div class="container">
+  <%= link_to 'écrire une étape', new_beer_recipe_path(@beer) %>
+</div>
 
 <div class="container top bottom">
   <h2>Recette</h2>
-  <p>The table-hover class adds a hover effect (grey background color) on table rows:</p>
+
   <div class="row steps">
     <div class="col-xs-3 col-sm-1 col-lg-1">Etape</div>
     <div class="col-xs-3 col-sm-1 col-lg-1">Quantité</div>
@@ -32,9 +34,14 @@
     <%= link_to edit_beer_recipe_path(@beer) do %>
       <div class="row steps">
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.step %></div>
-        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.quantity %></div>
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.quantity %>
+          <% if r.unit.present? %>
+            <%= r.unit.name %>
+          <% end %>
+        </div>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.duration %> Min</div>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.temperature %> °C</div>
+
       </div>
     <% end %>
   <% end %>

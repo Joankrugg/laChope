@@ -4,6 +4,7 @@ class Beer < ApplicationRecord
   belongs_to :category
   belongs_to :style
   validates :name, presence: :true
+  validates :photo, presence: :true
   validates :style, presence: :true
   validates :alcohol_level, presence: :true
   validates :color, presence: :true
