@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_173045) do
+ActiveRecord::Schema.define(version: 2021_03_03_193910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,12 @@ ActiveRecord::Schema.define(version: 2021_03_03_173045) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "product_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.integer "step"
     t.integer "duration"
@@ -82,9 +88,11 @@ ActiveRecord::Schema.define(version: 2021_03_03_173045) do
     t.bigint "action_id"
     t.bigint "duration_unit_id"
     t.string "product"
+    t.bigint "product_type_id"
     t.index ["action_id"], name: "index_recipes_on_action_id"
     t.index ["beer_id"], name: "index_recipes_on_beer_id"
     t.index ["duration_unit_id"], name: "index_recipes_on_duration_unit_id"
+    t.index ["product_type_id"], name: "index_recipes_on_product_type_id"
     t.index ["unit_id"], name: "index_recipes_on_unit_id"
   end
 
@@ -120,5 +128,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_173045) do
   add_foreign_key "recipes", "actions"
   add_foreign_key "recipes", "beers"
   add_foreign_key "recipes", "duration_units"
+  add_foreign_key "recipes", "product_types"
   add_foreign_key "recipes", "units"
 end
