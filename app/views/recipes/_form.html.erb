@@ -5,12 +5,19 @@
       <h2>Recipe</h2>
       <%= simple_form_for [ @beer, @recipe ] do |f| %>
         <div class="form-inputs">
-            <%= f.input :step %>
-            <%= f.input :duration %>
-            <%= f.input :quantity %>
+          <div class="row">
+            <div class="col-lg-6"><%= f.input :step, input_html: { min: '1'} %></div>
+            <div class="col-lg-6"><%= f.association :action %></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6"><%= f.input :quantity, input_html: { min: '1'} %></div>
+            <div class="col-lg-6"><%= f.association :unit %></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6"><%= f.input :duration, input_html: { min: '1'} %></div>
+            <div class="col-lg-6"><%= f.association :duration_unit %></div>
+          </div>
             <%= f.input :temperature %>
-            <%= f.association :unit %>
-            <%= f.association :action %>
           <div class="infos">
             <%= f.button :submit, "Valider l'étape", class: "btn btn-flat log"  %>
           </div>

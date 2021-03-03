@@ -46,7 +46,11 @@
             <%= r.unit.name %>
           <% end %>
         </div>
-        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.duration %> Min</div>
+        <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.duration %>
+          <% if r.duration_unit.present? %>
+            <%= r.duration_unit.name %>
+          <% end %>
+        </div>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.temperature %> °C</div>
       </div>
     <% end %>
