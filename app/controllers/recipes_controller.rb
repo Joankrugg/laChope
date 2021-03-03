@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   def update
     if @recipe.update(recipe_params)
        @recipe.beer = @beer
-      redirect_to beers_path(@beer)
+      redirect_to beer_path(@beer)
     else
       render :edit
     end
