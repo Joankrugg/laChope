@@ -17,6 +17,10 @@
             <div class="col-lg-6"><%= f.input :duration, input_html: { min: '1'} %></div>
             <div class="col-lg-6"><%= f.association :duration_unit %></div>
           </div>
+          <div class="row">
+            <div class="col-lg-6"><%= f.input :product %></div>
+
+          </div>
             <%= f.input :temperature %>
           <div class="infos">
             <%= f.button :submit, "Valider l'étape", class: "btn btn-flat log"  %>

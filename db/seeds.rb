@@ -85,7 +85,7 @@
 #Action.create({name: 'Garde en Bouteille'})
 
 
-DurationUnit.create({name:'Min'})
-DurationUnit.create({name:"Days"})
-DurationUnit.create({name:'Weeks'})
-DurationUnit.create({name:'Months'})
+#DurationUnit.create({name:'Min'})
+#DurationUnit.create({name:"Days"})
+#DurationUnit.create({name:'Weeks'})
+#DurationUnit.create({name:'Months'})
