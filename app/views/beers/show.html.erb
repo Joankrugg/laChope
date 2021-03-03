@@ -26,14 +26,21 @@
 
   <div class="row steps">
     <div class="col-xs-3 col-sm-1 col-lg-1">Etape</div>
+    <div class="col-xs-3 col-sm-3 col-lg-2">Action</div>
     <div class="col-xs-3 col-sm-1 col-lg-1">Quantité</div>
     <div class="col-xs-3 col-sm-1 col-lg-1">Durée</div>
     <div class="col-xs-3 col-sm-1 col-lg-1">Température</div>
   </div>
-  <% @beer.recipes.each do |r| %>
-    <%= link_to edit_beer_recipe_path(@beer) do %>
+  <% s = @beer.recipes.sort_by { |step| step[:step] } %>
+  <% s.each do |r| %>
+    <%= link_to edit_beer_recipe_path(@beer, r) do %>
       <div class="row steps">
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.step %></div>
+        <% if r.action.present? %>
+          <div class="col-xs-3 col-sm-3 col-lg-2"><%= r.action.name %></div>
+        <% else %>
+          <div class="col-xs-3 col-sm-1 col-lg-1"></div>
+        <% end %>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.quantity %>
           <% if r.unit.present? %>
             <%= r.unit.name %>
@@ -41,7 +48,6 @@
         </div>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.duration %> Min</div>
         <div class="col-xs-3 col-sm-1 col-lg-1"><%= r.temperature %> °C</div>
-
       </div>
     <% end %>
   <% end %>

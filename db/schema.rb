@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_201624) do
+ActiveRecord::Schema.define(version: 2021_03_02_180127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_02_28_201624) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "temperature"
     t.bigint "unit_id"
+    t.bigint "action_id"
+    t.index ["action_id"], name: "index_recipes_on_action_id"
     t.index ["beer_id"], name: "index_recipes_on_beer_id"
     t.index ["unit_id"], name: "index_recipes_on_unit_id"
   end
@@ -100,6 +108,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_201624) do
   add_foreign_key "beers", "categories"
   add_foreign_key "beers", "styles"
   add_foreign_key "beers", "users"
+  add_foreign_key "recipes", "actions"
   add_foreign_key "recipes", "beers"
   add_foreign_key "recipes", "units"
 end

@@ -10,8 +10,9 @@
             <%= f.input :quantity %>
             <%= f.input :temperature %>
             <%= f.association :unit %>
+            <%= f.association :action %>
           <div class="infos">
-            <%= f.button :submit, "Submit recipe", class: "btn btn-flat log"  %>
+            <%= f.button :submit, "Valider l'étape", class: "btn btn-flat log"  %>
           </div>
         </div>
       <% end %>
