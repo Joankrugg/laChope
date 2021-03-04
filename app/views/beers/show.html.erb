@@ -22,9 +22,11 @@
   <div class="row steps">
     <h2>Etapes de la Recette</h2>
   </div>
-  <div class="row steps">
-    <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
-  </div>
+  <% if @beer.user == current_user %>
+    <div class="row steps">
+      <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
+    </div>
+  <% end %>
 </div>
 <% s = @beer.recipes.sort_by { |step| step[:step] } %>
   <% s.each do |r| %>
