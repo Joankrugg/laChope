@@ -1,0 +1,29 @@
+.steps{
+  justify-content: center;
+}
+
+
+
+.step{
+  background: $my-green;
+  color: white;
+  border-radius: 24px;
+  opacity: 0.7;
+  padding: 5px 15px 5px 15px;
+  text-decoration: none;
+
+}
+
+
+.step:hover{
+  background: $my-green;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 24px;
+  opacity: 1;
+}
+
+a:hover{
+  text-decoration: none;
+}

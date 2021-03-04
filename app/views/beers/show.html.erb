@@ -19,26 +19,55 @@
 
 
 <div class="container top bottom">
-  <h2>Recette</h2>
-  <%= link_to 'écrire une étape', new_beer_recipe_path(@beer) %>
-
-  <% s = @beer.recipes.sort_by { |step| step[:step] } %>
-
+  <div class="row steps">
+    <h2>Etapes de la Recette</h2>
+  </div>
+  <div class="row steps">
+    <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
+  </div>
+</div>
+<% s = @beer.recipes.sort_by { |step| step[:step] } %>
   <% s.each do |r| %>
+  <div class="container">
     <%= link_to edit_beer_recipe_path(@beer, r) do %>
       <div class="row steps">
-        <p><%= r.step %> - <%= r.action.name %>
-          <% if r.quantity.present? %>
-            <%= r.quantity %>
-          <% end %>
-          <% if r.unit.present? %>
-            <%= r.unit.name %>
-          <% end %>
+        <p class="step"><%= r.step %> - <%= r.action.name %>
           <% if r.product_type.present? %>
-            <%= r.product_type.name %>
+            <% if r.product_type.name == 'eau' %>
+              l'<%= r.product_type.name %>
+            <% elsif r.product_type.name == 'épices' %>
+              l'<%= r.product_type.name %>
+            <% elsif r.product_type.name == 'adjuvants' %>
+              l'<%= r.product_type.name %>
+            <% elsif r.product_type.name == 'houblon' %>
+              le <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'malt' %>
+              le <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'moût' %>
+              le <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'sucre' %>
+              le <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'fruit' %>
+              le <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'adjuvants' %>
+              les <%= r.product_type.name %>
+            <% elsif r.product_type.name == 'Drêches' %>
+              les <%= r.product_type.name %> avec
+            <% else %>
+              la <%= r.product_type.name %>
+            <% end %>
           <% end %>
           <% if r.product.present? %>
-             <%= r.product %>
+            <%= r.product %>
+          <% end %>
+          <% if r.quantity.present? %>
+            ( <%= r.quantity %>
+          <% end %>
+          <% if r.unit.present? %>
+            <%= r.unit.name %> )
+          <% end %>
+          <% if r.temperature.present? %>
+            à <%= r.temperature %> °C
           <% end %>
           <% if r.duration.present? %>
             pendant <%= r.duration %>
@@ -46,11 +75,10 @@
           <% if r.duration_unit.present? %>
              <%= r.duration_unit.name %>
           <% end %>
-          <% if r.temperature.present? %>
-            à <%= r.temperature %> °C </p>
-          <% end %>
+        </p>
       </div>
     <% end %>
+  </div>
   <% end %>
 </div>
 

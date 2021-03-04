@@ -20,10 +20,8 @@
   font-size: 27px;
   font-weight: bold;
   font-family: 'Kaushan Script', cursive;
-  color: white;
-  text-shadow: 0 0 3px #1A81FB;
+  color: $my-green;
   opacity: 0.7;
-  text-shadow: 1px 1px 2px black, 0 0 25px #353A40, 0 0 5px darkblue;
 }
 
 
@@ -31,8 +29,8 @@
   font-size: 27px;
   cursor: pointer;
   text-decoration: none;
-  color: #187EF8;
-
+  color: $my-green;
+  opacity: 1;
 }
 
 .offnav{
