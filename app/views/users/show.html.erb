@@ -1,10 +1,20 @@
 <div class="offnav"></div>
 <h1>Mon compte or @user.compte</h1>
-<p>photo</p>
+<% if @user.photo.present? %>
+  <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill %>
+<% else %>
+  <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
+<% end %>
 <p>activité</p>
 <p>réservation</p>
 <p>bières</p>
 <p>membre oui/non</p>
-<p>if @user == current_user >>> button edit profil</p>
 
-<%= link_to 'créer une bière', new_beer_path %>
+<% if @user == current_user %>
+  <%= render 'edit' %>
+  <%= link_to 'créer une bière', new_beer_path %>
+<% end %>
+
+
+
+

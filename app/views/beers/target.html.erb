@@ -1,16 +1,18 @@
 <div class="offnav"></div>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Target
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/da2krghvd/image/upload/v1614876232/Target_xaorog.jpg);">
+  <div class="container">
+    <% @beers.each do |b| %>
+      <% if b.category.name == 'Target' %>
+        <div class="card-product">
+          <%= cl_image_tag b.photo.key %>
+          <div class="card-product-infos">
+            <h2><%= b.name %></h2>
+            <p><%= b.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
-<% @beers.each do |b| %>
-  <% if b.category.name == 'Target' %>
-    <div class="card-product">
-      <%= cl_image_tag b.photo.key %>
-      <div class="card-product-infos">
-        <h2><%= b.name %></h2>
-        <p><%= b.description %></p>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+

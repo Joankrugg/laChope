@@ -24,7 +24,7 @@
             <%= link_to 'Design', design_en_featuring_beers_path, class: 'dropdown-item' %>
             <%= link_to 'Beers', beers_path, class: 'dropdown-item' %>
             <%= link_to 'Members', users_path, class: 'dropdown-item' %>
-            <%= link_to "Message", "#", class: "dropdown-item" %>
+            <%= link_to "Profil", current_user, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -36,3 +36,4 @@
     </ul>
   </div>
 </div>
+

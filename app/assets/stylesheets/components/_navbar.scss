@@ -5,6 +5,7 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  box-shadow: 2px 2px 4px #727d89;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,7 +21,7 @@
   font-size: 27px;
   font-weight: bold;
   font-family: 'Kaushan Script', cursive;
-  color: $my-green;
+  color: $my-blue;
   opacity: 0.7;
 }
 
@@ -29,7 +30,7 @@
   font-size: 27px;
   cursor: pointer;
   text-decoration: none;
-  color: $my-green;
+  color: $my-blue;
   opacity: 1;
 }
 

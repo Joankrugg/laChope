@@ -2,7 +2,7 @@
 
 <div class="container top">
   <div class="card-product">
-    <%= cl_image_tag @beer.photo.key %>
+    <%= cl_image_tag @beer.photo.key, height: 100, width: 80, crop: :fit %>
     <div class="card-product-infos">
       <%= @beer.name %>
       <%= @beer.style.name %>
