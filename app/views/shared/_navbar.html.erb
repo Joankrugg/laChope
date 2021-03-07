@@ -1,16 +1,11 @@
 <div class="navbar navbar-expand navbar-light navbar-lewagon">
-
-  <%= link_to "Le Cabinet & La P'tite Chopine", root_path, class: "brand" %>
-
-
-
-
+  <%= link_to "Le Cabinet Target & Ses Créations", root_path, class: "brand" %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <% if current_user.photo.present? %>
-            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>

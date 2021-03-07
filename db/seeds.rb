@@ -70,7 +70,7 @@
 
 #Action.create({name: 'Faire chauffer'})
 #Action.create({name: 'Moudre'})
-#Action.create({name: "Mélanger l'eau et "})
+Action.create({name: "Mélanger l'eau et "})
 #Action.create({name: 'Attendre et Maintenir'})
 #Action.create({name: 'Retirer pour décoction '})
 #Action.create({name: 'Maintenir'})
@@ -101,4 +101,4 @@
 #ProductType.create({name: 'épices'})
 #ProductType.create({name: 'adjuvants'})
 #ProductType.create({name: 'fruit'})
-ProductType.create({name: 'Drêches'})
+#ProductType.create({name: 'Drêches'})
