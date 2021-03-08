@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :recipes
     collection do
       get :target
-      get :la_ptite_chopine
-      get :design_en_featuring
+      get :spring
+      get :autumn
+      get :featuring
     end
   end
   get 'concept', to: 'pages#concept'

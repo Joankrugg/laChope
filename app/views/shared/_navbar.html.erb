@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand navbar-light navbar-lewagon">
-  <%= link_to "Le Cabinet Target & Ses Créations", root_path, class: "brand" %>
+  <%= link_to "Les Créations Du Cabinet Target", root_path, class: "brand" %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -13,10 +13,11 @@
             <% if current_user.admin == true %>
               <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
             <% end %>
-            <%= link_to 'Concept', concept_path, class: 'dropdown-item' %>
-            <%= link_to 'Target', target_beers_path, class: 'dropdown-item' %>
-            <%= link_to "La P'tite Chopine", la_ptite_chopine_beers_path, class: 'dropdown-item' %>
-            <%= link_to 'Design', design_en_featuring_beers_path, class: 'dropdown-item' %>
+            <%= link_to 'Concept du Cabinet', concept_path, class: 'dropdown-item' %>
+            <%= link_to 'Les Target Beers', target_beers_path, class: 'dropdown-item' %>
+            <%= link_to "Collection Printemps/été", spring_beers_path, class: 'dropdown-item' %>
+            <%= link_to 'Collection Automne/Hiver', autumn_beers_path, class: 'dropdown-item' %>
+            <%= link_to 'Designs en cours', featuring_beers_path, class: 'dropdown-item' %>
             <%= link_to 'Beers', beers_path, class: 'dropdown-item' %>
             <%= link_to 'Members', users_path, class: 'dropdown-item' %>
             <%= link_to "Profil", current_user, class: "dropdown-item" %>

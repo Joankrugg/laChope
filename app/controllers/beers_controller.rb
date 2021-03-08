@@ -45,12 +45,16 @@ class BeersController < ApplicationController
     @beers = Beer.where(category: 'Target')
   end
 
-  def la_ptite_chopine
-    @beers = Beer.where(category: "La P'tite Chopine")
+  def spring
+    @beers = Beer.where(category: "Collection Printemps/été")
   end
 
-  def design_en_featuring
-    @beers = Beer.where(category: 'Design Featuring')
+  def autumn
+    @beers = Beer.where(category: 'Collection Automne/Hiver')
+  end
+
+  def featuring
+    @beers = Beer.where(category: 'Featuring')
   end
 
   private
