@@ -1,4 +1,4 @@
-<div class="offnav"></div>
+<div class="offnavs"></div>
 <div class="container concept">
   <div class="row">
   <!-- About Section -->
@@ -17,9 +17,6 @@
 
   <hr>
 
-
-  <!-- Menu Section -->
-
   <div class="row">
     <div class="col-xs-8 col-lg-6 legend">
       <h1 class="center">Les bières</h1>
@@ -29,16 +26,22 @@
         <% end %>
       <% end %>
       <br>
-      <h4>Les Target beers</h4>
+      <%= link_to target_beers_path do %>
+        <h4>Les Target beers</h4>
+      <% end %>
       <p class="text-grey">Les bières de toute saison, celles qu'on aime boire et partager pour profiter du moment</p><br>
 
-      <h4>Collection Printemps/été 2021</h4>
+      <%= link_to spring_beers_path do %>
+        <h4>Collection Printemps/été 2021</h4>
+      <% end %>
       <p class="text-grey">Les bières assez légères aux arômes floraux et agrumes avec une amertume souple pour le côté rafraichissant</p><br>
-
-      <h4>Collection Automne/Hiver 2021</h4>
+      <%= link_to autumn_beers_path do %>
+        <h4>Collection Automne/Hiver 2021</h4>
+      <% end %>
       <p class="text-grey">Les bières plus fortes et plus lourde en bouche, elles nous rappellent les pubs et que les jours raccoursissent</p><br>
-
-      <h4>Bières Designées 2021</h4>
+      <%= link_to autumn_beers_path do %>
+        <h4>Bières Designées 2021</h4>
+      <% end %>
       <p class="text-grey">C'est que nos palais demandent, des expérimentations, l'utilisation dans un même brassin de techniques et houblons qui n'auraient pas pu coexister avant le XXème siècle</p><br>
 
     </div>

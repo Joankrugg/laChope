@@ -1,20 +1,28 @@
-<div class="offnav"></div>
-<h1>Mon compte or @user.compte</h1>
-<% if @user.photo.present? %>
-  <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill %>
-<% else %>
-  <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
-<% end %>
-<p>activité</p>
-<p>réservation</p>
-<p>bières</p>
-<p>membre oui/non</p>
+<div class="offnavs"></div>
+<div class="container">
+  <h1>Mon compte or @user.compte</h1>
+  <% if @user.photo.present? %>
+    <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill %>
+  <% else %>
+    <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
+  <% end %>
+  <p>activité</p>
+  <p>réservation</p>
+  <% if @user.beers.present? %>
+    <p>Vos bières</p>
+    <% @user.beers.each do |b| %>
+      <%= b.name %>
+    <% end %>
+  <% end %>
+  <p>membre oui/non</p>
 
-<% if @user == current_user %>
-  <%= render 'edit' %>
-  <%= link_to 'créer une bière', new_beer_path %>
-<% end %>
+  <% if @user == current_user %>
+    <%= render 'edit' %>
+    <%= link_to 'créer une bière', new_beer_path %>
+  <% end %>
 
 
-
-
+  <% if current_user.admin == true %>
+    <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
+  <% end %>
+</div>
