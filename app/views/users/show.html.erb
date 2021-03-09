@@ -1,25 +1,31 @@
 <div class="offnavs"></div>
-<div class="container">
+<div class="container top">
   <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-6">
-      <h1>Mon compte or @user.compte</h1>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4 card-show">
       <% if @user.photo.present? %>
-        <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill %>
+        <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
       <% else %>
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
       <% end %>
-    </div>
-    <div class="col-lg-4">
-      <p>activité</p>
-      <p>réservation</p>
-      <% if @user.beers.present? %>
-        <p>Vos bières</p>
-        <% @user.beers.each do |b| %>
-          <%= b.name %>
+      <div class="show-infos">
+        <p><%=@user.email %></p>
+        <p>activité</p>
+        <p>réservation</p>
+        <% if @user.beers.present? %>
+          <p>Vos bières</p>
+          <% @user.beers.each do |b| %>
+            <%= b.name %>
+          <% end %>
         <% end %>
-      <% end %>
-      <p>membre oui/non</p>
+        <p>membre oui/non</p>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6 card">
+
+
+
     </div>
   </div>
   <div class="row">
