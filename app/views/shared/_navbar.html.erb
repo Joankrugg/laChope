@@ -35,10 +35,27 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Membre", new_user_session_path, class: "btn-flat" %>
+          <%= link_to "Connexion", new_user_session_path, class: "btn-flat" %>
         </li>
       <% end %>
     </ul>
   </div>
 </div>
-
+<script>
+  $(document).ready(function(){
+    $(".fa-bars").on({
+      mouseenter: function(){
+        $(".dropdown-menu").show();
+      },
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $(".dropdown-menu").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
