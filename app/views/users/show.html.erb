@@ -14,6 +14,10 @@
         <% end %>
         <p><%=@user.email %></p>
 
+        <% if @user.website.present? %>
+          <%= link_to 'mon site', @user.website, target: :blank %></p>
+        <% end %>
+
         <% if @user.activities.present? %>
           <p>activité(s)</p>
           <% @user.activities.each do |a| %>
