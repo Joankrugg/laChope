@@ -17,6 +17,7 @@
         <%= simple_form_for @user do |f| %>
           <%= f.input :photo, as: :file %>
           <%= f.input :username %>
+          <%= f.association :activities, as: :check_boxes %>
           <%= f.button :submit, 'Valider' %>
         <% end %>
       </div>

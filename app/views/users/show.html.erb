@@ -13,7 +13,13 @@
           <p> <%= @user.username %></p>
         <% end %>
         <p><%=@user.email %></p>
-        <p>activité</p>
+
+        <% if @user.activities.present? %>
+          <p>activité(s)</p>
+          <% @user.activities.each do |a| %>
+            <p> <%= a.name %></p>
+          <% end %>
+        <% end %>
         <p>réservation</p>
         <% if @user.beers.present? %>
           <p>Vos bières</p>

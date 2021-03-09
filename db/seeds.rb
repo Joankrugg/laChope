@@ -102,3 +102,13 @@
 #ProductType.create({name: 'adjuvants'})
 #ProductType.create({name: 'fruit'})
 #ProductType.create({name: 'Drêches'})
+
+Activity.create({name: 'Amateur/trice de bière'})
+Activity.create({name: 'Brasseur/se amateur/e'})
+Activity.create({name: 'Brasseur/se professionnel/le'})
+Activity.create({name: 'Brasseur/se artiste'})
+Activity.create({name: 'Barman/maid'})
+Activity.create({name: 'Cuisinier/ère'})
+Activity.create({name: 'Zytholoque'})
+Activity.create({name: 'Bloggeur/se'})
+Activity.create({name: 'Influenceur/se'})

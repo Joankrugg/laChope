@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :beers
+  has_many :user_activities
+  has_many :activities, through: :user_activities
 end

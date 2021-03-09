@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_120555) do
+ActiveRecord::Schema.define(version: 2021_03_09_123852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2021_03_09_120555) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "beers", force: :cascade do |t|
@@ -108,6 +114,15 @@ ActiveRecord::Schema.define(version: 2021_03_09_120555) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_activities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_user_activities_on_activity_id"
+    t.index ["user_id"], name: "index_user_activities_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -131,4 +146,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_120555) do
   add_foreign_key "recipes", "duration_units"
   add_foreign_key "recipes", "product_types"
   add_foreign_key "recipes", "units"
+  add_foreign_key "user_activities", "activities"
+  add_foreign_key "user_activities", "users"
 end
