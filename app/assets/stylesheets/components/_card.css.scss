@@ -23,6 +23,15 @@
   align-items: center;
 }
 
+.card-product:hover {
+  overflow: hidden;
+  height: 120px;
+  background: $light-gray;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
 .card-product img {
   height: 100%;
   width: 120px;
@@ -59,6 +68,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.card-show:hover{
+  position: relative;
+  background-color: $light-gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .show-img{
   margin: 0;
   position: absolute;
@@ -66,7 +81,6 @@
   top: 20px;
   transform: translate(-50%, -50%);
 }
-
 
 .show-infos{
   margin-top: 70px;
