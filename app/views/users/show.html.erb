@@ -9,6 +9,9 @@
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
       <% end %>
       <div class="show-infos">
+        <% if @user.username.present? %>
+          <p> <%= @user.username %></p>
+        <% end %>
         <p><%=@user.email %></p>
         <p>activité</p>
         <p>réservation</p>
@@ -32,7 +35,7 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-6">
       <% if @user == current_user %>
-        <%= render 'edit' %>
+        <%= render 'form' %>
         <%= link_to 'créer une bière', new_beer_path %>
       <% end %>
 

@@ -16,6 +16,7 @@
       <div class="modal-body">
         <%= simple_form_for @user do |f| %>
           <%= f.input :photo, as: :file %>
+          <%= f.input :username %>
           <%= f.button :submit, 'Valider' %>
         <% end %>
       </div>
