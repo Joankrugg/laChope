@@ -18,7 +18,7 @@ class BeersController < ApplicationController
       @beer.save
       redirect_to beer_path(@beer)
     else
-      render new
+      render :new
     end
   end
 

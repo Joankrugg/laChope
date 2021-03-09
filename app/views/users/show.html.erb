@@ -32,10 +32,40 @@
           <% end %>
         <% end %>
         <p>membre oui/non</p>
+        <% if current_user.admin == true %>
+          <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
+        <% end %>
       </div>
     </div>
     <div class="col-lg-1"></div>
-    <div class="col-lg-6 card">
+    <div class="col-lg-6 card-show">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#beers">Menu 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active container" id="Profil">
+          <% if @user == current_user %>
+            <%= render 'form' %>
+          <% end %>
+        </div>
+        <div class="tab-pane container" id="beers">...
+          <% if @user == current_user %>
+            <%= link_to 'créer bière', new_beer_path  %>
+          <% end %>
+        </div>
+        <div class="tab-pane container" id="menu2">...</div>
+      </div>
 
 
 
@@ -49,10 +79,6 @@
         <%= link_to 'créer une bière', new_beer_path %>
       <% end %>
 
-
-      <% if current_user.admin == true %>
-        <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
-      <% end %>
     </div>
   </div>
 </div>
