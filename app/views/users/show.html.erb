@@ -24,6 +24,9 @@
             <p> <%= a.name %></p>
           <% end %>
         <% end %>
+        <% if @user.design.present? %>
+          <%= @user.design.alcohol_shape.name %>
+        <% end %>
         <p>réservation</p>
 
         <p>membre oui/non</p>
@@ -43,7 +46,7 @@
           <a class="nav-link" data-toggle="tab" href="#beers">Bières</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#Ideal">Idéal</a>
+          <a class="nav-link" data-toggle="tab" href="#ideal">Idéal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#known">Connues</a>
@@ -63,12 +66,16 @@
             <%= render 'form' %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="beers">...
+        <div class="tab-pane container" id="beers">
           <% if @user == current_user %>
             <%= render 'beers/form', beer: @beer %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="ideal">...</div>
+        <div class="tab-pane container" id="ideal">
+          <% if @user == current_user %>
+            <%= render 'designs/form', design: @design %>
+          <% end %>
+        </div>
         <div class="tab-pane container" id="known">...</div>
         <div class="tab-pane container" id="unknown">...</div>
       </div>
