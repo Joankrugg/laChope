@@ -39,6 +39,11 @@
               <%= f.name %>
             <% end %>
           <% end %>
+          <% if @user.design.feelings.present? %>
+            <% @user.design.feelings.each do |f| %>
+              <%= f.name %>
+            <% end %>
+          <% end %>
         <% end %>
         <p>réservation</p>
 

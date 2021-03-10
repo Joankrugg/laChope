@@ -5,4 +5,6 @@ class Design < ApplicationRecord
   belongs_to :design_color, optional: true
   has_many :design_flavours, :dependent => :destroy
   has_many :flavours, through: :design_flavours
+  has_many :design_feelings, :dependent => :destroy
+  has_many :feelings, through: :design_feelings
 end

@@ -3,6 +3,7 @@
       <%= f.association :alcohol_shape %>
       <%= f.association :main_taste %>
       <%= f.association :flavours, as: :check_boxes %>
+      <%= f.association :feelings, as: :check_boxes %>
       <%= f.association :design_color %>
     <div class="infos">
       <%= f.button :submit, "Save design", class: "btn btn-flat log"  %>
