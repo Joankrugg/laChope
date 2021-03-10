@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_140420) do
+ActiveRecord::Schema.define(version: 2021_03_10_173543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2021_03_10_140420) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "design_flavours", force: :cascade do |t|
+    t.bigint "design_id", null: false
+    t.bigint "flavour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["design_id"], name: "index_design_flavours_on_design_id"
+    t.index ["flavour_id"], name: "index_design_flavours_on_flavour_id"
+  end
+
   create_table "designs", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -88,6 +97,12 @@ ActiveRecord::Schema.define(version: 2021_03_10_140420) do
   end
 
   create_table "duration_units", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "flavours", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -165,6 +180,8 @@ ActiveRecord::Schema.define(version: 2021_03_10_140420) do
   add_foreign_key "beers", "categories"
   add_foreign_key "beers", "styles"
   add_foreign_key "beers", "users"
+  add_foreign_key "design_flavours", "designs"
+  add_foreign_key "design_flavours", "flavours"
   add_foreign_key "designs", "alcohol_shapes"
   add_foreign_key "designs", "main_tastes"
   add_foreign_key "designs", "users"

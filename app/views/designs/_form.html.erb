@@ -2,6 +2,7 @@
   <div class="form-inputs">
       <%= f.association :alcohol_shape%>
       <%= f.association :main_taste %>
+      <%= f.association :flavours, as: :check_boxes %>
     <div class="infos">
       <%= f.button :submit, "Save design", class: "btn btn-flat log"  %>
     </div>
