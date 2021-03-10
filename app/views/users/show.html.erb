@@ -25,7 +25,20 @@
           <% end %>
         <% end %>
         <% if @user.design.present? %>
-          <%= @user.design.alcohol_shape.name %>
+          <% if @user.design.alcohol_shape.present? %>
+            <%= @user.design.alcohol_shape.name %>
+          <% end %>
+          <% if @user.design.design_color.present? %>
+            <%= @user.design.design_color.name %>
+          <% end %>
+          <% if @user.design.main_taste.present? %>
+            <%= @user.design.main_taste.name %>
+          <% end %>
+          <% if @user.design.flavours.present? %>
+            <% @user.design.flavours.each do |f| %>
+              <%= f.name %>
+            <% end %>
+          <% end %>
         <% end %>
         <p>réservation</p>
 
