@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @beer = Beer.new
   end
 
   def edit

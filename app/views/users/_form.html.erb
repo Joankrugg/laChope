@@ -1,27 +1,11 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Edit profil
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <%= simple_form_for @user do |f| %>
-          <%= f.input :photo, as: :file %>
-          <%= f.input :username %>
-          <%= f.association :activities, as: :check_boxes %>
-          <%= f.input :website %>
-          <%= f.button :submit, 'Valider' %>
-        <% end %>
-      </div>
-    </div>
+<h2>Profil</h2>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :username %>
+  <%= f.association :activities, as: :check_boxes %>
+  <%= f.input :website %>
+  <div class="infos">
+    <%= f.button :submit, "Valider", class: "btn btn-flat log"  %>
   </div>
-</div>
+<% end %>
+

@@ -1,25 +1,16 @@
-<div class="offnavs"></div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 mx-auto form">
-      <h2>New Beer</h2>
-      <%= simple_form_for @beer do |f| %>
-        <div class="form-inputs">
-          <%= f.input :name, required: false  %>
-          <%= f.input :photo, as: :file, required: false  %>
-          <%= f.association :style, required: false  %>
-          <%= f.input :alcohol_level, input_html: { min: '0'}, required: false  %>
-          <%= f.input :color, input_html: { min: '1', max:'120'}, required: false  %>
-          <%= f.input :bitterness, input_html: { min: '1', max:'120'}, required: false %>
-          <%= f.input :description, required: false  %>
-          <%= f.association :category, required: false  %>
-          <div class="infos">
-            <%= f.button :submit, "Create Beer", class: "btn btn-flat log"  %>
-          </div>
-        </div>
-      <% end %>
+<%= simple_form_for @beer do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, required: false  %>
+    <%= f.input :photo, as: :file, required: false  %>
+    <%= f.association :style, required: false  %>
+    <%= f.input :alcohol_level, input_html: { min: '0'}, required: false  %>
+    <%= f.input :color, input_html: { min: '1', max:'120'}, required: false  %>
+    <%= f.input :bitterness, input_html: { min: '1', max:'120'}, required: false %>
+    <%= f.input :description, required: false  %>
+    <%= f.association :category, required: false  %>
+    <div class="infos">
+      <%= f.button :submit, "Create Beer", class: "btn btn-flat log"  %>
     </div>
   </div>
-</div>
-
+<% end %>
 

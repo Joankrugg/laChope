@@ -37,29 +37,40 @@
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#home">Profil</a>
+          <a class="nav-link active" data-toggle="tab" href="#profil">Profil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#beers">Bières</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+          <a class="nav-link" data-toggle="tab" href="#Ideal">Idéal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#known">Connues</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#unknown">à goûter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#tips">à goûter</a>
         </li>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div class="tab-pane active container" id="Profil">
+        <div class="tab-pane active container" id="profil">
           <% if @user == current_user %>
             <%= render 'form' %>
           <% end %>
         </div>
         <div class="tab-pane container" id="beers">...
           <% if @user == current_user %>
-            <%= link_to 'créer bière', new_beer_path  %>
+            <%= render 'beers/form', beer: @beer %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="menu2">...</div>
+        <div class="tab-pane container" id="ideal">...</div>
+        <div class="tab-pane container" id="known">...</div>
+        <div class="tab-pane container" id="unknown">...</div>
       </div>
     </div>
   </div>
