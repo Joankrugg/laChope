@@ -1,6 +1,7 @@
 <%= simple_form_for @design do |f| %>
   <div class="form-inputs">
       <%= f.association :alcohol_shape%>
+      <%= f.association :main_taste %>
     <div class="infos">
       <%= f.button :submit, "Save design", class: "btn btn-flat log"  %>
     </div>

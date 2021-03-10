@@ -113,8 +113,13 @@
 #Activity.create({name: 'Bloggeur/se'})
 #Activity.create({name: 'Influenceur/se'})
 
-AlcoholShape.create({name:'Sans Alcool ≤ 1°'})
-AlcoholShape.create({name:"1° ≤ Légère ≤ 4°"})
-AlcoholShape.create({name:'4° ≤ Classique ≤ 6°'})
-AlcoholShape.create({name:'6°≤ Forte ≤ 9°'})
-AlcoholShape.create({name:'9°≤ Très forte '})
+#AlcoholShape.create({name:'Sans Alcool ≤ 1°'})
+#AlcoholShape.create({name:"1° ≤ Légère ≤ 4°"})
+#AlcoholShape.create({name:'4° ≤ Classique ≤ 6°'})
+#AlcoholShape.create({name:'6°≤ Forte ≤ 9°'})
+#AlcoholShape.create({name:'9°≤ Très forte '})
+
+MainTaste.create({name:'Acide'})
+MainTaste.create({name:'Amère'})
+MainTaste.create({name:'Salée'})
+MainTaste.create({name:'Sucrée'})

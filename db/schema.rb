@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_131856) do
+ActiveRecord::Schema.define(version: 2021_03_10_140420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,11 +81,19 @@ ActiveRecord::Schema.define(version: 2021_03_10_131856) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "alcohol_shape_id"
+    t.bigint "main_taste_id"
     t.index ["alcohol_shape_id"], name: "index_designs_on_alcohol_shape_id"
+    t.index ["main_taste_id"], name: "index_designs_on_main_taste_id"
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
   create_table "duration_units", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "main_tastes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -158,6 +166,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_131856) do
   add_foreign_key "beers", "styles"
   add_foreign_key "beers", "users"
   add_foreign_key "designs", "alcohol_shapes"
+  add_foreign_key "designs", "main_tastes"
   add_foreign_key "designs", "users"
   add_foreign_key "recipes", "actions"
   add_foreign_key "recipes", "beers"

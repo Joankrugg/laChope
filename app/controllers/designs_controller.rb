@@ -38,6 +38,6 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:alcohol_shape_id)
+    params.require(:design).permit(:alcohol_shape_id, :main_taste_id)
   end
 end
