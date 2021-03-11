@@ -23,6 +23,7 @@ class BeersController < ApplicationController
   end
 
   def show
+    @fancy = Fancy.new
   end
 
   def edit
