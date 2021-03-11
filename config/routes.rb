@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ratings/create'
+  get 'ratings/update'
   get 'fancies/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :designs
   resources :beers do
     resources :fancies, only: [:create, :update]
+    resources :ratings, only: [:create, :update]
     resources :recipes
     collection do
       get :target

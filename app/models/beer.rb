@@ -15,4 +15,6 @@ class Beer < ApplicationRecord
   has_many :recipes
   has_many :fancies
   has_many :users, through: :fancies
+  has_many :ratings
+  has_many :users, through: :ratings
 end

@@ -1,0 +1,4 @@
+<%= simple_form_for ([ beer, rating ]) do |f| %>
+  <%= f.input :stars, collection: 1..5 %>
+  <%= f.button :submit %>
+<% end %>
