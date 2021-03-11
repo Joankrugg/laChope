@@ -13,7 +13,7 @@
       <% if @beer.user == current_user %>
         <%= link_to 'edit', edit_beer_path(@beer) %>
       <% else %>
-        <%= render 'fancies/form', beer: @beer, fancy: @fancy%>
+        <%= render 'fancies/form', beer: @beer, fancy: @fancy %>
       <% end %>
     </div>
   </div>

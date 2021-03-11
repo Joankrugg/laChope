@@ -3,6 +3,7 @@ class FanciesController < ApplicationController
     @fancy = Fancy.new(fancy_params)
     @beer = Beer.find(params[:beer_id])
     @fancy.beer = @beer
+    @fancy.user = current_user
     if @fancy.save
       redirect_to beer_path(@beer)
     else
