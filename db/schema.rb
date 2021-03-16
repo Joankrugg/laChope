@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_141316) do
+ActiveRecord::Schema.define(version: 2021_03_16_150522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 2021_03_16_141316) do
   end
 
   create_table "alcohol_shapes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "balances", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -108,7 +114,9 @@ ActiveRecord::Schema.define(version: 2021_03_16_141316) do
     t.bigint "alcohol_shape_id"
     t.bigint "main_taste_id"
     t.bigint "design_color_id"
+    t.bigint "balance_id"
     t.index ["alcohol_shape_id"], name: "index_designs_on_alcohol_shape_id"
+    t.index ["balance_id"], name: "index_designs_on_balance_id"
     t.index ["design_color_id"], name: "index_designs_on_design_color_id"
     t.index ["main_taste_id"], name: "index_designs_on_main_taste_id"
     t.index ["user_id"], name: "index_designs_on_user_id"
@@ -229,6 +237,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_141316) do
   add_foreign_key "design_flavours", "designs"
   add_foreign_key "design_flavours", "flavours"
   add_foreign_key "designs", "alcohol_shapes"
+  add_foreign_key "designs", "balances"
   add_foreign_key "designs", "design_colors"
   add_foreign_key "designs", "main_tastes"
   add_foreign_key "designs", "users"
