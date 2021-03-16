@@ -162,14 +162,14 @@
 #DesignColor.create({name: 'Café'})
 #DesignColor.create({name: 'Noire'})
 
-Feeling.create({name: 'Mousseuse'})
-Feeling.create({name: 'Pétillante'})
-Feeling.create({name: 'Astringeante'})
-Feeling.create({name: 'Fluide'})
-Feeling.create({name: 'Epaisse'})
-Feeling.create({name: 'Ronde'})
-Feeling.create({name: 'Fine'})
-Feeling.create({name: 'Sèche'})
-Feeling.create({name: 'Plate'})
+#Feeling.create({name: 'Mousseuse'})
+#Feeling.create({name: 'Pétillante'})
+#Feeling.create({name: 'Astringeante'})
+#Feeling.create({name: 'Fluide'})
+#Feeling.create({name: 'Epaisse'})
+#Feeling.create({name: 'Ronde'})
+#Feeling.create({name: 'Fine'})
+#Feeling.create({name: 'Sèche'})
+#Feeling.create({name: 'Plate'})
 
 

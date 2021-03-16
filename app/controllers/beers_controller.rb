@@ -44,7 +44,7 @@ class BeersController < ApplicationController
   end
 
   def target
-    @beers = Beer.where(category: 'Target')
+    @beers = Beer.where(target: true)
   end
 
   def spring
@@ -55,8 +55,16 @@ class BeersController < ApplicationController
     @beers = Beer.where(category: 'Collection Automne/Hiver')
   end
 
-  def featuring
-    @beers = Beer.where(category: 'Featuring')
+  def lagers
+    @beers = Beer.where(category: 'Lagers')
+  end
+
+  def ales
+    @beers = Beer.where(category: 'Ales')
+  end
+
+  def mixed
+    @beers = Beer.where(category: 'Mixed Styles')
   end
 
   private
@@ -66,6 +74,6 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :bitterness, :description, :photo, :category_id)
+    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :bitterness, :description, :photo, :category_id, :target)
   end
 end

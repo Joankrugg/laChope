@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @beer = Beer.new
     @design = Design.new
+    @beers = Beer.all
   end
 
   def edit

@@ -94,8 +94,83 @@
             <%= render 'designs/form', design: @design %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="known">...</div>
-        <div class="tab-pane container" id="unknown">...</div>
+        <div class="tab-pane container" id="known">
+          <% if @user.ratings.present?  %>
+            <% @user.ratings.each do |b| %>
+              <%= b.beer.name %>
+              <%= b.stars %>
+            <% end %>
+          <% end %>
+
+        </div>
+        <div class="tab-pane container" id="unknown">
+          <% very_strong_beers = [] %>
+          <% strong_beers = [] %>
+          <% regular_beers = [] %>
+          <% light_beers = [] %>
+          <% alcohol_free_beers = [] %>
+          <% blanche = [] %>
+          <% yellow = [] %>
+          <% blonde = [] %>
+          <% golden = [] %>
+          <% ambre = [] %>
+          <% rousse = [] %>
+          <% brune = [] %>
+          <% ruby = [] %>
+          <% coffee = [] %>
+          <% black = [] %>
+          <% b = @beers %>
+          <% b.each do |beer| %>
+            <% if beer.alcohol_level > 9 %>
+              <% very_strong_beers << beer %>
+            <% elsif 6 < beer.alcohol_level &&  beer.alcohol_level <= 9  == true %>
+              <% strong_beers << beer %>
+            <% elsif 4 < beer.alcohol_level &&  beer.alcohol_level <= 6  == true %>
+              <% regular_beers << beer %>
+            <% elsif 1 < beer.alcohol_level &&  beer.alcohol_level <= 4  == true %>
+              <% light_beers << beer %>
+            <% else %>
+              <% alcohol_free_beers << beer %>
+            <% end %>
+          <% end %>
+          <% b.each do |beer| %>
+            <% if beer.color > 70 %>
+              <% black << beer %>
+            <% elsif 57 < beer.color &&  beer.color <= 70  == true %>
+              <% coffee << beer %>
+            <% elsif 39 < beer.color &&  beer.color <= 57  == true %>
+              <% brune << beer %>
+            <% elsif 38 < beer.color &&  beer.color <= 42  == true %>
+              <% ruby << beer %>
+            <% elsif 30 < beer.color &&  beer.color <= 36  == true %>
+              <% rousse << beer %>
+            <% elsif 26 < beer.color &&  beer.color <= 33  == true %>
+              <% ambre << beer %>
+            <% elsif 16 < beer.color &&  beer.color <= 26  == true %>
+              <% golden << beer %>
+            <% elsif 6 < beer.color &&  beer.color <= 20  == true %>
+              <% blonde << beer %>
+            <% elsif 4 < beer.color &&  beer.color <= 8 == true %>
+              <% yellow << beer %>
+            <% elsif 4 < beer.color &&  beer.color <= 6 == true %>
+              <% blanche << beer %>
+            <% else %>
+              <% alcohol_free_beers << beer %>
+            <% end %>
+          <% end %>
+          <% very_strong_beers.each do |vsb| %>
+            <p>VSB</p>
+            <%= vsb.name %>
+          <% end %>
+          <p>à goûter absolument</p>
+          <% strong_beers.each do |sb| %>
+            <p>SB</p>
+            <%= sb.name %>
+          <% end %>
+          <p>à goûter très certainement</p>
+          <p>à goûter probablement</p>
+          <p>à découvrir sait-on jamais</p>
+        </div>
       </div>
     </div>
   </div>
