@@ -1,12 +1,30 @@
 <%= simple_form_for @design do |f| %>
   <div class="form-inputs">
-      <%= f.association :alcohol_shape %>
-      <%= f.association :main_taste %>
-      <%= f.association :balance %>
-      <%= f.association :flavours, as: :check_boxes %>
-      <%= f.association :feelings, as: :check_boxes %>
-      <%= f.association :design_color %>
-      <%= f.association :category %>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :category %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :balance %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :alcohol_shape %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :design_color %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :feelings, as: :check_boxes %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :flavours, as: :check_boxes %>
+      </div>
+    </div>
+    <%= f.association :main_taste %>
     <div class="infos">
       <%= f.button :submit, "Save design", class: "btn btn-flat log"  %>
     </div>

@@ -1,9 +1,16 @@
-<h2>Profil</h2>
 <%= simple_form_for @user do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :username %>
-  <%= f.association :activities, as: :check_boxes %>
-  <%= f.input :website %>
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :username %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :photo, as: :file, required: false  %>
+      </div>
+    </div>
+    <%= f.association :activities, as: :check_boxes %>
+    <%= f.input :website %>
+  </div>
   <div class="infos">
     <%= f.button :submit, "Valider", class: "btn btn-flat log"  %>
   </div>
