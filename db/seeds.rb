@@ -172,9 +172,9 @@
 #Feeling.create({name: 'Sèche'})
 #Feeling.create({name: 'Plate'})
 
-Balance.create({name:'très maltée'})
-Balance.create({name:'maltée'})
-Balance.create({name:'équilibrée'})
-Balance.create({name:'houblonnée'})
-Balance.create({name:'très houblonnée'})
+#Balance.create({name:'très maltée'})
+#Balance.create({name:'maltée'})
+#Balance.create({name:'équilibrée'})
+#Balance.create({name:'houblonnée'})
+#Balance.create({name:'très houblonnée'})
 
