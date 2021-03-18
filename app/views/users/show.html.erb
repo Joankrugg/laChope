@@ -122,6 +122,11 @@
           <% balanced = [] %>
           <% slighty_hoppy = [] %>
           <% extra_hoppy = [] %>
+          <% sour = [] %>
+          <% neutral = [] %>
+          <% sweet = [] %>
+          <% bitter = [] %>
+          <% plural = [] %>
 
           <% b = @beers %>
           <% b.each do |beer| %>
@@ -140,19 +145,19 @@
           <% end %>
 
           <% b.each do |beer| %>
-            <% if beer.style == 'Berliner Weiss' or 'Tripel'  or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Flanders Red' or 'Dubbel' or 'English Mild' or 'Sweet Stout' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Weizenbock' %>
+            <% if beer.style == 'Berliner Weiss' or 'Tripel'  or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Flanders Red' or 'Dubbel' or 'English Mild' or 'Sweet Stout' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Weizenbock' or 'American Pilsner' or 'American Light' or 'American Standard' or 'American Premium' or 'Munich Dunkel' or 'Helles Bock' or 'Doppelbock' or 'Traditional Bock' or 'Eisbock' or 'Scotch Ale' or 'Bière De Garde' or 'English old Ale' or 'Cream Ale' %>
               <% extra_malty << beer %>
             <% end %>
-            <% if beer.style == 'Belgian Gold' or 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Oud Bruin' or 'Robust Porter' or 'American Wheat' or 'Saison'  or 'Pale Ale' or 'Flanders Red' or 'Dubbel' or 'Scottish Light' or 'Sweet Stout' or 'English Mild' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Brown Porter' %>
+            <% if beer.style == 'Belgian Gold' or 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Oud Bruin' or 'Robust Porter' or 'American Wheat' or 'Saison'  or 'Pale Ale' or 'Flanders Red' or 'Dubbel' or 'Scottish Light' or 'Sweet Stout' or 'English Mild' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Brown Porter' or' American Pilsner' or 'American Standard' or 'American Premium' or 'American Dark' or 'Munich Helles' or 'Dortmunder' or 'Munich Dunkel' or 'Schwartzbier' or 'Helles Bock' or 'Traditional Bock' or 'Eisbock' or 'Rauchbier' or 'Bière De Garde' or 'Oktoberfest' or 'Vienna' or 'Cream Ale' or 'Steam Beer' or 'Scotch Ale'%>
               <% slighty_malty << beer %>
             <% end %>
-            <% if beer.style == 'Belgian White' or 'Oud Bruin' or 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Belgian Pale Ale' or 'American Pale Ale' or 'Scottish Light' or 'English Mild' or 'Sweet Stout' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Foreign Extra Stout' or 'Brown Porter' %>
+            <% if beer.style == 'Belgian White' or 'Oud Bruin' or 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Belgian Pale Ale' or 'American Pale Ale' or 'Scottish Light' or 'English Mild' or 'Sweet Stout' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Foreign Extra Stout' or 'Brown Porter' or 'German Pilsner' or 'American Pilsner' or 'American Dark' or 'Munich Helles' or 'Dortmunder' or 'Schwartzbier' or 'Helles Bock' or 'Eisbock' or 'Rauchbier' or 'Kölsch' or 'Altbier'  or 'Oktoberfest' or 'Barley Wine' or 'Cream Ale' or 'Steam Beer' or 'Scotch Ale' %>
               <% balanced << beer %>
             <% end %>
-            <% if beer.style == 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Imperial Stout' or 'Belgian Pale Ale' or 'American Pale Ale' or 'Ordinary Bitter' or 'Extra Special Bitter' or 'Scottish Light' or 'Sweet Stout' or 'English Mild' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Foreign Extra Stout' or 'Brown Porter' or 'India Pale Ale' or 'American Brown' or 'Special Bitter'%>
+            <% if beer.style == 'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'American Wheat' or 'Saison' or 'Pale Ale' or 'Imperial Stout' or 'Belgian Pale Ale' or 'American Pale Ale' or 'Ordinary Bitter' or 'Extra Special Bitter' or 'Scottish Light' or 'Sweet Stout' or 'English Mild' or 'Belgian Dark Ale' or 'Scottish Heavy' or 'Foreign Extra Stout' or 'Brown Porter' or 'India Pale Ale' or 'American Brown' or 'Special Bitter' or 'German Pilsner' or 'American Pilsner' or 'Schwartzbier' or 'Kölsch' or 'Altbier' or 'Barley Wine' or 'Cream Ale'  %>
               <% slighty_hoppy<< beer %>
             <% end %>
-            <% if beer.style ==  'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'Imperial Stout' or 'Ordinary Bitter' or 'Extra Special Bitter' or 'English Mild' or 'Sweet Stout' or 'Dry Stout' or 'Oatmeal Stout' or 'Russian Imperial Stout' or 'Foreign Extra Stout' or 'India Pale Ale' or 'American Brown' or 'Special Bitter' %>
+            <% if beer.style ==  'English Brown' or 'American Amber Ale' or 'Scottish Export' or 'Robust Porter' or 'Imperial Stout' or 'Ordinary Bitter' or 'Extra Special Bitter' or 'English Mild' or 'Sweet Stout' or 'Dry Stout' or 'Oatmeal Stout' or 'Russian Imperial Stout' or 'Foreign Extra Stout' or 'India Pale Ale' or 'American Brown' or 'Special Bitter' or 'German Pilsner' or 'American Pilsner' or 'Kölsch' or 'Altbier' or 'Barley Wine' %>
               <% extra_hoppy << beer %>
             <% end %>
           <% end %>
@@ -189,9 +194,27 @@
           <% end %>
 
           <% b.each do |beer| %>
+            <% if beer.style == 'Berliner Weiss' or 'Belgian White' or 'Lambic' or 'Gueuze' or 'Faro' or 'Fruit' or 'Flanders Red' or 'Oud Bruins' %>
+              <% sour << beer %>
+            <% end %>
+            <% if beer.style == 'American Wheat' or 'American Light' or 'American Standard' or 'American Premium' or 'American Dark' %>
+              <% neutral << beer %>
+            <% end %>
+            <% if beer.style == 'Weizenbier' or 'Dunkelweizen' or 'Weizenbock' or 'Scottish Light' or 'Scottish Heavy' or 'Scottish Export' or 'English Mild' or 'American Brown' or 'Brown Porter' or 'Robust Porter' or 'Helles Bock' or 'Doppelbock' or 'Traditional Bock' or 'Eisbock' or 'Altbier' or 'Bière De Garde' or 'Oktoberfest' or 'Vienna' or 'Ranchbier' or 'English Strong Ale' or 'Cream Ale' or 'Barley Wine' or 'Steam Beer' or 'Scotch Ale' %>
+              <% sweet << beer %>
+            <% end %>
+            <% if beer.style ==  'Pale Ale' or 'American Pale Ale' or 'India Pale Ale' or 'American Amber Ale' or 'Ordinary Bitter' or 'Special Bitter' or 'Extra Special Bitter' or 'Dry Stout' or 'Sweet Stout' or 'Oatmeal Stout' or 'Foreign Extra Stout' or 'Imperial Stout' or 'Russian Imperial Stout' or 'German Pilsner' or 'Bohemian Pilsner' or 'American Pilsner' %>
+              <% bitter << beer %>
+            <% end %>
+            <% if beer.style ==  'Belgian Gold' or 'Saison' or 'Belgian Pale' or 'Belgian Dark Ale' or 'Dubbel' or 'Munich Helles' or 'Dortmunder' or 'Munich Dunkel' or 'Schwartzbier' %>
+              <% plural << beer %>
+            <% end %>
           <% end %>
-          <% yellow.each do |y| %>
+
+          <% b.each do |beer| %>
+          <% end %>
           <p>à goûter absolument</p>
+          <% yellow.each do |y| %>
             <%= link_to y do %>
               <div class="beer-link">
                 <%= y.name %>
@@ -199,8 +222,8 @@
               </div>
             <% end %>
           <% end %>
-          <% blonde.each do |b| %>
           <p>à goûter forcément</p>
+          <% blonde.each do |b| %>
             <%= link_to b do %>
               <div class="beer-link">
                 <%= b.name %>
@@ -208,8 +231,8 @@
               </div>
             <% end %>
           <% end %>
-          <% ales.each do |a| %>
           <p>ales à goûter forcément</p>
+          <% ales.each do |a| %>
             <%= link_to a do %>
               <div class="beer-link">
                 <%= a.name %>
