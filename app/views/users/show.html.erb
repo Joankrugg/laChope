@@ -6,7 +6,7 @@
       <% if @user.photo.present? %>
         <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
       <% else %>
-        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: "img-fluid profil-picture", height: 250, width: 250, crop: :fill %>
+        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
       <% end %>
       <div class="show-infos">
         <% if @user.username.present? %>
@@ -61,22 +61,22 @@
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#profil">Profil</a>
+          <a class="nav-link tabs active" data-toggle="tab" href="#profil">Profil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#beers">Bières</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#ideal">Idéal</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#ideal">Idéal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#known">Connues</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#known">Connues</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#unknown">à goûter</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#unknown">à goûter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#tips">à goûter</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#tips">à goûter</a>
         </li>
       </ul>
 
@@ -239,7 +239,7 @@
           <p>à goûter absolument</p>
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
+          <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
           <% five_stars = first_choices.keys %>
           <% five_stars.each do |f| %>
             <%= f %>
@@ -248,7 +248,7 @@
           <p>à goûter forcément</p>
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% second_choices = sorted_must.select! { |key, value| value >= 4 } %>
+          <% second_choices = sorted_must.select! { |key, value| value == 4 } %>
           <% four_stars = second_choices.keys %>
           <% four_stars.each do |f| %>
             <%= f %>
@@ -256,7 +256,7 @@
           <p>à goûter très certainement</p>
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% third_choices = sorted_must.select! { |key, value| value >= 3 } %>
+          <% third_choices = sorted_must.select! { |key, value| value == 3 } %>
           <% three_stars = third_choices.keys %>
           <% three_stars.each do |f| %>
             <%= f %>
@@ -264,7 +264,7 @@
           <p>à goûter probablement</p>
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% fourth_choices = sorted_must.select! { |key, value| value >= 2 } %>
+          <% fourth_choices = sorted_must.select! { |key, value| value == 2 } %>
           <% two_stars = fourth_choices.keys %>
           <% two_stars.each do |f| %>
             <%= f %>

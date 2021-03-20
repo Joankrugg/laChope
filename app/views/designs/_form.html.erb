@@ -16,17 +16,18 @@
         <%= f.association :design_color %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :feelings, as: :check_boxes %>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :flavours, as: :check_boxes %>
-      </div>
-    </div>
     <%= f.association :main_taste %>
+
+    <%= f.association :feelings, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+
+    <%= f.association :flavours, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+
     <div class="infos">
-      <%= f.button :submit, "Save design", class: "btn btn-flat log"  %>
+      <%= f.button :submit, "Valider", class: "btn btn-flat log" %>
     </div>
   </div>
 <% end %>

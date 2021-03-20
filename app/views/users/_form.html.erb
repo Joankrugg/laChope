@@ -8,11 +8,13 @@
         <%= f.input :photo, as: :file, required: false  %>
       </div>
     </div>
-    <%= f.association :activities, as: :check_boxes %>
+    <%= f.association :activities, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
     <%= f.input :website %>
   </div>
   <div class="infos">
-    <%= f.button :submit, "Valider", class: "btn btn-flat log"  %>
+    <%= f.button :submit, "Valider", class: "btn btn-flat log" %>
   </div>
 <% end %>
 

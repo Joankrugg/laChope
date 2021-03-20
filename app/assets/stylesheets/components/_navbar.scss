@@ -17,7 +17,7 @@
 }
 
 .brand{
-  font-size: 27px;
+  font-size: 25px;
   font-weight: bold;
   font-family: 'Kaushan Script', cursive;
   color: $my-blue;
@@ -26,16 +26,13 @@
 
 
 .brand:hover{
-  font-size: 27px;
   cursor: pointer;
   text-decoration: none;
-  color: $my-blue;
-  opacity: 1;
 }
 
 .navbar-lewagon-2 {
   justify-content: right;
-  background: #429FA6;
+  background: white;
   position: fixed;
   top: 56px;
   width: 100%;
@@ -52,7 +49,7 @@
 }
 
 .nav-link-2{
-  color: white;
+  color: $my-green;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 18px;
@@ -61,10 +58,6 @@
 
 .nav-link-2:hover{
   cursor: pointer;
-  border-radius: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 18px;
 }
 
 .right {
