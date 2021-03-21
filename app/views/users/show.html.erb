@@ -259,7 +259,9 @@
           <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
           <% five_stars = first_choices.keys %>
           <% five_stars.each do |f| %>
-            <%= f %>
+            <% if f.present? %>
+              <%= f %>
+            <% end %>
           <% end %>
 
           <p>à goûter forcément</p>
@@ -268,7 +270,9 @@
           <% second_choices = sorted_must.select! { |key, value| value == 4 } %>
           <% four_stars = second_choices.keys %>
           <% four_stars.each do |f| %>
-            <%= f %>
+            <% if f.present? %>
+              <%= f %>
+            <% end %>
           <% end %>
           <p>à goûter très certainement</p>
           <% must = results.flatten.group_by(&:itself) %>
@@ -276,7 +280,9 @@
           <% third_choices = sorted_must.select! { |key, value| value == 3 } %>
           <% three_stars = third_choices.keys %>
           <% three_stars.each do |f| %>
-            <%= f %>
+            <% if f.present? %>
+              <%= f %>
+            <% end %>
           <% end %>
           <p>à goûter probablement</p>
           <% must = results.flatten.group_by(&:itself) %>
@@ -284,7 +290,9 @@
           <% fourth_choices = sorted_must.select! { |key, value| value == 2 } %>
           <% two_stars = fourth_choices.keys %>
           <% two_stars.each do |f| %>
-            <%= f %>
+            <% if f.present? %>
+              <%= f %>
+            <% end %>
           <% end %>
           <p>à découvrir sait-on jamais</p>
         </div>
