@@ -32,7 +32,7 @@
 
 .navbar-lewagon-2 {
   justify-content: right;
-  background: white;
+  background: $light-gray;
   position: fixed;
   top: 56px;
   width: 100%;
@@ -66,6 +66,7 @@
 }
 .fas {
   font-size: 32px;
+  color: $my-blue;
 }
 
 .browse{

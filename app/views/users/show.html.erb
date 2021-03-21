@@ -9,37 +9,37 @@
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
       <% end %>
       <div class="show-infos">
+        <div class="user">Nom d'utilisateur</div>
         <% if @user.username.present? %>
-          <p> <%= @user.username %></p>
+          <p class='profil'><%= @user.username %></p>
+        <% else %>
+          <p class='profil'><%=@user.email %></p>
         <% end %>
-        <p><%=@user.email %></p>
 
-        <% if @user.website.present? %>
-          <%= link_to 'mon site', @user.website, target: :blank %></p>
-        <% end %>
 
         <% if @user.activities.present? %>
-          <p>activité(s)</p>
+          <div class="user">Activité(s)</div>
           <% @user.activities.each do |a| %>
-            <p> <%= a.name %></p>
+            <p class='profil'><%= a.name %></p>
           <% end %>
         <% end %>
         <% if @user.design.present? %>
+          <div class="user">Critères de recherche actuels</div>
           <% if @user.design.category.present? %>
-            <%= @user.design.category.name %>
+            <p class='profil'><%= @user.design.category.name %></p>
           <% end %>
           <% if @user.design.alcohol_shape.present? %>
-            <%= @user.design.alcohol_shape.name %>
+            <p class='profil'><%= @user.design.alcohol_shape.name %></p>
           <% end %>
           <% if @user.design.design_color.present? %>
-            <%= @user.design.design_color.name %>
+            <p class='profil'><%= @user.design.design_color.name %></p>
           <% end %>
           <% if @user.design.main_taste.present? %>
-            <%= @user.design.main_taste.name %>
+            <p class='profil'><%= @user.design.main_taste.name %></p>
           <% end %>
           <% if @user.design.flavours.present? %>
             <% @user.design.flavours.each do |f| %>
-              <%= f.name %>
+              <p class='profil'><%= f.name %></p>
             <% end %>
           <% end %>
           <% if @user.design.feelings.present? %>
@@ -48,8 +48,15 @@
             <% end %>
           <% end %>
         <% end %>
-        <p>réservation</p>
 
+        <div class="user">réservation</div>
+
+        <% if @user.website.present? %>
+          <div class="user">Site Internet</div>
+          <%= link_to @user.website, target: :blank do %>
+            <p class='profil'>Mon site</p>
+          <% end %>
+        <% end %>
         <p>membre oui/non</p>
         <% if current_user.admin == true %>
           <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
@@ -253,47 +260,45 @@
             <% end %>
           <% end %>
 
-          <p>à goûter absolument</p>
+
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
           <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
           <% if !first_choices.nil? %>
             <% five_stars = first_choices.keys %>
-            <% five_stars.each do |f| %>
-              <%= f %>
+            <% if five_stars != [] %>
+              <p class='user first-tab'>à goûter absolument</p>
+              <% five_stars.each do |f| %>
+                <p class='profil'><%= f %></p>
+              <% end %>
             <% end %>
           <% end %>
-          <p>à goûter forcément</p>
+
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
           <% second_choices = sorted_must.select! { |key, value| value == 4 } %>
           <% if !second_choices.nil? %>
             <% four_stars = second_choices.keys %>
-            <% four_stars.each do |f| %>
-              <%= f %>
+            <% if four_stars != [] %>
+              <p class='user first-tab'>à goûter très certainement</p>
+              <% four_stars.each do |f| %>
+                <p class='profil'><%= f %></p>
+              <% end %>
             <% end %>
           <% end %>
-          <p>à goûter très certainement</p>
+
           <% must = results.flatten.group_by(&:itself) %>
           <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
           <% third_choices = sorted_must.select! { |key, value| value == 3 } %>
           <% if !third_choices.nil? %>
             <% three_stars = third_choices.keys %>
-            <% three_stars.each do |f| %>
-              <%= f %>
+            <% if three_stars != [] %>
+              <p class='user first-tab'>à goûter évidemment</p>
+              <% three_stars.each do |f| %>
+                <p class='profil'><%= f %></p>
+              <% end %>
             <% end %>
           <% end %>
-          <p>à goûter probablement</p>
-          <% must = results.flatten.group_by(&:itself) %>
-          <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% fourth_choices = sorted_must.select! { |key, value| value == 2 } %>
-          <% if !fourth_choices.nil? %>
-            <% two_stars = fourth_choices.keys %>
-            <% two_stars.each do |f| %>
-              <%= f %>
-            <% end %>
-          <% end %>
-          <p>à découvrir sait-on jamais</p>
         </div>
       </div>
     </div>
