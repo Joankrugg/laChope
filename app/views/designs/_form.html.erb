@@ -2,21 +2,31 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :category %>
+        <%= f.association :category, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
       </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :balance %>
+        <%= f.association :balance, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :alcohol_shape %>
+        <%= f.association :alcohol_shape, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
       </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :design_color %>
+        <%= f.association :design_color, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
       </div>
     </div>
-    <%= f.association :main_taste %>
+    <%= f.association :main_taste, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
 
     <%= f.association :feelings, as: :check_boxes,
                   input_html: { class: "tag-selector" },
