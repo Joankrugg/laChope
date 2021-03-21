@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :designs
+
   resources :beers do
     resources :fancies, only: [:create, :update]
     resources :ratings, only: [:create, :update]
@@ -19,5 +20,6 @@ Rails.application.routes.draw do
     end
   end
   get 'concept', to: 'pages#concept'
+  resources :articles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
