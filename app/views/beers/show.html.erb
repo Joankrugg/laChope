@@ -10,7 +10,7 @@
       <%= @beer.color %>
       <%= @beer.bitterness %>
       <%= @beer.description %>
-      <% if @beer.user == current_user %>
+      <% if @beer.user == current_user && @beer.user.admin? %>
         <%= link_to 'edit', edit_beer_path(@beer) %>
       <% else %>
         <%= render 'ratings/form', beer: @beer, rating: @rating %>
@@ -24,7 +24,7 @@
   <div class="row steps">
     <h2>Etapes de la Recette</h2>
   </div>
-  <% if @beer.user == current_user %>
+  <% if @beer.user == current_user && @beer.user.admin? %>
     <div class="row steps">
       <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
     </div>

@@ -67,41 +67,49 @@
     <div class="col-lg-6 card-show bottom">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link tabs active" data-toggle="tab" href="#profil">Profil</a>
-        </li>
-        <% if @user.activities.present? %>
-          <% acts = [] %>
-          <% @user.activities.each do |a|  %>
-            <% acts << a.name %>
-          <% end %>
-          <% if acts.include?('Brasseur/se amateur/e') %>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-            </li>
-          <% elsif acts.include?('Brasseur/se professionnel/le') %>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-            </li>
-          <% elsif acts.include?('Brasseur/se artiste') %>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-            </li>
-          <% else %>
+        <% if @user == current_user %>
+          <li class="nav-item">
+            <a class="nav-link tabs active" data-toggle="tab" href="#profil">Profil</a>
+          </li>
+        <% end %>
+        <% if @user == current_user && @user.admin? %>
+          <% if @user.activities.present? %>
+            <% acts = [] %>
+            <% @user.activities.each do |a|  %>
+              <% acts << a.name %>
+            <% end %>
+            <% if acts.include?('Brasseur/se amateur/e') %>
+              <li class="nav-item">
+                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
+              </li>
+            <% elsif acts.include?('Brasseur/se professionnel/le') %>
+              <li class="nav-item">
+                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
+              </li>
+            <% elsif acts.include?('Brasseur/se artiste') %>
+              <li class="nav-item">
+                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
+              </li>
+            <% else %>
+            <% end %>
           <% end %>
         <% end %>
-        <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#ideal">Idéal</a>
-        </li>
+        <% if @user == current_user %>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#ideal">Idéal</a>
+          </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link tabs" data-toggle="tab" href="#known">Connues</a>
         </li>
         <li class="nav-item">
           <a class="nav-link tabs" data-toggle="tab" href="#unknown">à goûter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#articles">Articles</a>
-        </li>
+        <% if @user == current_user && @user.admin? %>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#articles">Articles</a>
+          </li>
+        <% end %>
       </ul>
 
       <!-- Tab panes -->

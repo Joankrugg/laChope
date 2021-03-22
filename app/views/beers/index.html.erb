@@ -1,18 +1,75 @@
 <div class="offnavs"></div>
 <div class="container">
-  <div class="row">
-    <% @beers.each do |b| %>
-      <div class="col-xs-6 col-sm-6 col-lg-3">
-        <div class="card beers-shadow ">
-          <%= cl_image_tag b.photo.key, class: 'card-img-top img-responsive', height: '250px', width: '225', alt: 'Card image' %>
-          <div class="card-body">
-            <h4 class="card-title"><%= b.name%></h4>
-            <p class="card-text"><%= b.style.name %></p>
-            <%= link_to b do %>
-              <p class="btn btn-flat"> En Savoir Plus </p>
-            <% end %>
+  <% lagers = [] %>
+  <% ales = [] %>
+  <% mixed_styles = [] %>
+  <% @beers.each do |b| %>
+    <% if b.category.name == 'Lagers'%>
+      <% lagers << b %>
+    <% elsif b.category.name == 'Ales'%>
+      <% ales << b %>
+    <% else %>
+      <% mixed_styles << b %>
+    <% end %>
+  <% end %>
+  <% if lagers != [] %>
+    <h2 class='center'> Lagers </h2>
+    <div class="row">
+      <% lagers.each do |b| %>
+        <div class="col-xs-6 col-sm-6 col-lg-3">
+          <div class="card beers-shadow ">
+            <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'card-img-top img-responsive' %>
+            <div class="card-body">
+              <h4 class="card-title"><%= b.name%></h4>
+              <p class="card-text"><%= b.style.name %></p>
+              <p class="card-text"><%= b.user.username %></p>
+              <%= link_to b do %>
+                <p class="btn btn-flat"> En Savoir Plus </p>
+              <% end %>
+            </div>
           </div>
         </div>
+      <% end %>
+    </div>
+  <% end %>
+    <% if ales != [] %>
+      <h2 class='center'> Ales </h2>
+      <div class="row">
+        <% ales.each do |b| %>
+          <div class="col-xs-6 col-sm-6 col-lg-3">
+            <div class="card beers-shadow ">
+              <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'card-img-top img-responsive' %>
+              <div class="card-body">
+                <h4 class="card-title"><%= b.name%></h4>
+                <p class="card-text"><%= b.style.name %></p>
+                <p class="card-text"><%= b.user.username %></p>
+                <%= link_to b do %>
+                  <p class="btn btn-flat"> En Savoir Plus </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% if mixed_styles != [] %>
+      <h2 class='center'> Mixed Styles</h2>
+      <div class="row">
+        <% mixed_styles.each do |b| %>
+          <div class="col-xs-6 col-sm-6 col-lg-3">
+            <div class="card beers-shadow ">
+              <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'card-img-top img-responsive' %>
+              <div class="card-body">
+                <h4 class="card-title"><%= b.name%></h4>
+                <p class="card-text"><%= b.style.name %></p>
+                <p class="card-text"><%= b.user.username %></p>
+                <%= link_to b do %>
+                  <p class="btn btn-flat"> En Savoir Plus </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
