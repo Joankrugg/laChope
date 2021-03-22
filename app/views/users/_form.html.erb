@@ -14,6 +14,9 @@
     <%= f.association :activities, as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
+    <%= f.association :sexe, as: :radio_buttons, required: false,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
     <%= f.input :website %>
   </div>
   <div class="infos">

@@ -190,8 +190,11 @@
 #Balance.create({name:'houblonnée'})
 #Balance.create({name:'très houblonnée'})
 
-Theme.create({name:'Actualité'})
-Theme.create({name:"Note d'intention"})
-Theme.create({name:'Histoire'})
-Theme.create({name:'Technique'})
+#Theme.create({name:'Actualité'})
+#Theme.create({name:"Note d'intention"})
+#Theme.create({name:'Histoire'})
+#Theme.create({name:'Technique'})
 
+Sexe.create({name:"Femme"})
+Sexe.create({name:'Homme'})
+Sexe.create({name:'Non Binaire'})
