@@ -10,6 +10,9 @@
       <div class="col-xs-6 col-sm-6 col-lg-6">
         <%= f.input :photo, as: :file, required: false  %>
       </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :city, required: false  %>
+      </div>
     </div>
     <%= f.association :activities, as: :check_boxes,
                   input_html: { class: "tag-selector" },
