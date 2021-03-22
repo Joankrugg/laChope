@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_103846) do
+ActiveRecord::Schema.define(version: 2021_03_22_160356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(version: 2021_03_22_103846) do
     t.bigint "category_id"
     t.bigint "style_id"
     t.boolean "target", default: false, null: false
+    t.bigint "tasting_id"
     t.index ["category_id"], name: "index_beers_on_category_id"
     t.index ["style_id"], name: "index_beers_on_style_id"
+    t.index ["tasting_id"], name: "index_beers_on_tasting_id"
     t.index ["user_id"], name: "index_beers_on_user_id"
   end
 
@@ -217,6 +219,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_103846) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tastings", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "global_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -252,9 +261,11 @@ ActiveRecord::Schema.define(version: 2021_03_22_103846) do
     t.integer "age"
     t.bigint "sexe_id"
     t.string "city"
+    t.bigint "tasting_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["sexe_id"], name: "index_users_on_sexe_id"
+    t.index ["tasting_id"], name: "index_users_on_tasting_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -262,6 +273,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_103846) do
   add_foreign_key "articles", "users"
   add_foreign_key "beers", "categories"
   add_foreign_key "beers", "styles"
+  add_foreign_key "beers", "tastings"
   add_foreign_key "beers", "users"
   add_foreign_key "design_feelings", "designs"
   add_foreign_key "design_feelings", "feelings"
@@ -285,4 +297,5 @@ ActiveRecord::Schema.define(version: 2021_03_22_103846) do
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
   add_foreign_key "users", "sexes", column: "sexe_id"
+  add_foreign_key "users", "tastings"
 end

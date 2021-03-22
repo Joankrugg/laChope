@@ -25,6 +25,7 @@ class BeersController < ApplicationController
   def show
     @fancy = Fancy.new
     @rating = Rating.new
+    @tasting = Tasting.new
   end
 
   def edit

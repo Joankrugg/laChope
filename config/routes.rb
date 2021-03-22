@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tastings/create'
+  get 'tastings/update'
   get 'ratings/create'
   get 'ratings/update'
   get 'fancies/create'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   resources :designs
 
   resources :beers do
+    resources :tastings, only: [:create, :update]
     resources :fancies, only: [:create, :update]
     resources :ratings, only: [:create, :update]
     resources :recipes

@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :beers, through: :ratings
   has_many :articles, dependent: :destroy
   belongs_to :sexe
+  has_many :tastings
+  has_many :beers, through: :tastings
 end
