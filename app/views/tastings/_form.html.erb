@@ -1,6 +1,9 @@
 <%= simple_form_for ([ beer, tasting ]) do |f| %>
   <%= f.input :date %>
   <%= f.input :global_rating, input_html:{ min: '0', max:'5'} %>
+  <%= f.association :flavours, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
   <p class='center'>
     <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
   </p>

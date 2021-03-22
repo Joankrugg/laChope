@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_160356) do
+ActiveRecord::Schema.define(version: 2021_03_22_212300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,6 +217,15 @@ ActiveRecord::Schema.define(version: 2021_03_22_160356) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tasting_flavours", force: :cascade do |t|
+    t.bigint "tasting_id", null: false
+    t.bigint "flavour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flavour_id"], name: "index_tasting_flavours_on_flavour_id"
+    t.index ["tasting_id"], name: "index_tasting_flavours_on_tasting_id"
+  end
+
   create_table "tastings", force: :cascade do |t|
     t.datetime "date"
     t.integer "global_rating"
@@ -293,6 +302,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_160356) do
   add_foreign_key "recipes", "duration_units"
   add_foreign_key "recipes", "product_types"
   add_foreign_key "recipes", "units"
+  add_foreign_key "tasting_flavours", "flavours"
+  add_foreign_key "tasting_flavours", "tastings"
   add_foreign_key "tastings", "beers"
   add_foreign_key "tastings", "users"
   add_foreign_key "user_activities", "activities"
