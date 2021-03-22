@@ -195,6 +195,6 @@
 #Theme.create({name:'Histoire'})
 #Theme.create({name:'Technique'})
 
-Sexe.create({name:"Femme"})
-Sexe.create({name:'Homme'})
-Sexe.create({name:'Non Binaire'})
+#Sexe.create({name:"Femme"})
+#Sexe.create({name:'Homme'})
+#Sexe.create({name:'Non Binaire'})
