@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :designs
-
   resources :beers do
     resources :tastings, only: [:create, :update]
     resources :fancies, only: [:create, :update]

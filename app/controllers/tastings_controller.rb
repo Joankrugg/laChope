@@ -23,3 +23,5 @@ class TastingsController < ApplicationController
 
 
 end
+
+

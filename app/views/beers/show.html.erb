@@ -87,18 +87,23 @@
     </div>
   </div>
 </div>
+<% if @beer.user != current_user %>
+  <div class="container bottom top">
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11 card">
 
-<div class="container bottom top">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11 card">
+        <%= render 'tastings/form', beer: @beer, tasting: @tasting %>
 
-      <%= render 'tastings/form', beer: @beer, tasting: @tasting %>
-
+      </div>
     </div>
   </div>
+<% end %>
+
+<div class="container bottom top center">
+  <% if @beer.tastings.present? %>
+    <% @beer.tastings.each do |b| %>
+      <%= b.global_rating %>
+    <% end %>
+  <% end %>
 </div>
-
-
-
-
