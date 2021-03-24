@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_105436) do
+ActiveRecord::Schema.define(version: 2021_03_24_110936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -244,8 +244,10 @@ ActiveRecord::Schema.define(version: 2021_03_24_105436) do
     t.bigint "user_id"
     t.bigint "balance_id"
     t.bigint "main_taste_id"
+    t.bigint "design_color_id"
     t.index ["balance_id"], name: "index_tastings_on_balance_id"
     t.index ["beer_id"], name: "index_tastings_on_beer_id"
+    t.index ["design_color_id"], name: "index_tastings_on_design_color_id"
     t.index ["main_taste_id"], name: "index_tastings_on_main_taste_id"
     t.index ["user_id"], name: "index_tastings_on_user_id"
   end
@@ -321,6 +323,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_105436) do
   add_foreign_key "tasting_flavours", "tastings"
   add_foreign_key "tastings", "balances"
   add_foreign_key "tastings", "beers"
+  add_foreign_key "tastings", "design_colors"
   add_foreign_key "tastings", "main_tastes"
   add_foreign_key "tastings", "users"
   add_foreign_key "user_activities", "activities"

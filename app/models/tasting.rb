@@ -7,4 +7,5 @@ class Tasting < ApplicationRecord
   has_many :feelings, through: :tasting_feelings
   belongs_to :balance
   belongs_to :main_taste
+  belongs_to :design_color
 end

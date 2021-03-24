@@ -11,6 +11,11 @@
   <%= f.association :main_taste, as: :radio_buttons,
           input_html: { class: "tag-selector" },
           item_wrapper_class: 'tag-item' %>
+
+  <%= f.association :design_color, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
   <%= f.association :feelings, as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
