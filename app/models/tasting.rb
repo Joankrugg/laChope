@@ -4,4 +4,5 @@ class Tasting < ApplicationRecord
   has_many :tasting_flavours
   has_many :flavours, through: :tasting_flavours
   belongs_to :balance
+  belongs_to :main_taste
 end
