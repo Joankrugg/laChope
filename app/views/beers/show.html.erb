@@ -14,7 +14,7 @@
         <% if @beer.user == current_user && @beer.user.admin? %>
           <%= link_to 'edit', edit_beer_path(@beer) %>
         <% else %>
-          <%= render 'ratings/form', beer: @beer, rating: @rating %>
+          <%= render 'tastings/form', beer: @beer, tasting: @tasting %>
         <% end %>
       </div>
     </div>
@@ -87,23 +87,35 @@
     </div>
   </div>
 </div>
-<% if @beer.user != current_user %>
-  <div class="container bottom top">
-    <div class="row">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-11 card">
 
-        <%= render 'tastings/form', beer: @beer, tasting: @tasting %>
-
-      </div>
-    </div>
-  </div>
-<% end %>
 
 <div class="container bottom top center">
   <% if @beer.tastings.present? %>
-    <% @beer.tastings.each do |b| %>
-      <%= b.global_rating %>
-    <% end %>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11 card">
+        <% @beer.tastings.sort_by(&:id).each do |b| %>
+          <%= link_to edit_beer_tasting_path(@beer, b) do %>
+            <div class="col-lg-12 card">
+              <p class="card-text">Note Globale / 5 :<%= b.global_rating %></p>
+              <p class="card-text">Couleur : <%= b.design_color.name %></p>
+              <p class="card-text">Balance : <%= b.balance.name %></p>
+              <p class="card-text">Classe : <%= b.main_taste.name %></p>
+              <p class="card-text">Temps : <%= b.weather.name %></p>
+              <p class="card-text">Contexte : <%= b.context.name %></p>
+
+              <p class="card-text">Arômes : </p>
+              <% b.flavours.each do |n| %>
+                <p class="card-text"><%= n.name %></p>
+              <% end %>
+              <p class="card-text">Sensation : </p>
+              <% b.feelings.each do |n| %>
+                <p class="card-text"><%= n.name %></p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

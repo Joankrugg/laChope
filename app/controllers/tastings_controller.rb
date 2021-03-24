@@ -12,7 +12,20 @@ class TastingsController < ApplicationController
     end
   end
 
+  def edit
+    @beer = Beer.find(params[:beer_id])
+    @tasting = @beer.tastings.find(params[:id])
+  end
+
   def update
+    @beer = Beer.find(params[:beer_id])
+    @tasting = @beer.tastings.find(params[:id])
+    if @tasting.update(tasting_params)
+       @tasting.beer = @beer
+      redirect_to beer_path(@beer)
+    else
+      render :edit
+    end
   end
 
   private

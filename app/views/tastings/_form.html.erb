@@ -1,34 +1,58 @@
-<%= simple_form_for ([ beer, tasting ]) do |f| %>
-  <%= f.input :date %>
-  <%= f.input :global_rating, input_html:{ min: '0', max:'5'} %>
-  <%= f.association :flavours, as: :check_boxes,
+
+<!-- Button to Open the Modal -->
+<p class='center'>
+<button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#tasting">
+  Enregistrer une Dégustation
+</button>
+</p>
+
+<!-- The Modal -->
+<div class="modal" id="tasting">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Dégustation</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <%= simple_form_for ([ beer, tasting ]) do |f| %>
+          <%= f.input :date %>
+          <%= f.input :global_rating, input_html:{ min: '0', max:'5'} %>
+          <%= f.association :flavours, as: :check_boxes,
+                          input_html: { class: "tag-selector" },
+                          item_wrapper_class: 'tag-item' %>
+
+          <%= f.association :balance, as: :radio_buttons,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+          <%= f.association :main_taste, as: :radio_buttons,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
 
-  <%= f.association :balance, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-  <%= f.association :main_taste, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-
-  <%= f.association :design_color, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-
-  <%= f.association :weather, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-
-  <%= f.association :context, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-
-  <%= f.association :feelings, as: :check_boxes,
+          <%= f.association :design_color, as: :radio_buttons,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
 
-  <p class='center'>
-    <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
-  </p>
-<% end %>
+          <%= f.association :weather, as: :radio_buttons,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+
+          <%= f.association :context, as: :radio_buttons,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+
+          <%= f.association :feelings, as: :check_boxes,
+                          input_html: { class: "tag-selector" },
+                          item_wrapper_class: 'tag-item' %>
+
+          <p class='center'>
+            <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

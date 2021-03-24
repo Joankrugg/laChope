@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :designs
   resources :beers do
-    resources :tastings, only: [:create, :update]
+    resources :tastings, only: [:create, :edit, :update]
     resources :fancies, only: [:create, :update]
     resources :ratings, only: [:create, :update]
     resources :recipes
