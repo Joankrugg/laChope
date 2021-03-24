@@ -8,4 +8,6 @@ class Tasting < ApplicationRecord
   belongs_to :balance
   belongs_to :main_taste
   belongs_to :design_color
+  belongs_to :weather
+  belongs_to :context
 end

@@ -198,3 +198,16 @@
 #Sexe.create({name:"Femme"})
 #Sexe.create({name:'Homme'})
 #Sexe.create({name:'Non Binaire'})
+
+Weather.create({name:'Caniculaire'})
+Weather.create({name:'Ensoleillé'})
+Weather.create({name:'Nuageux'})
+Weather.create({name:'Pluvieux'})
+Weather.create({name:'Hivernal'})
+
+Context.create({name:'Déjeuner'})
+Context.create({name:'Dîner'})
+Context.create({name:'Apéro'})
+Context.create({name:'Soirée'})
+Context.create({name:'Dégustation'})
+Context.create({name:'Soif'})

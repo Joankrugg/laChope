@@ -18,7 +18,7 @@ class TastingsController < ApplicationController
   private
 
   def tasting_params
-    params.require(:tasting).permit(:date, :balance_id, :main_taste_id, :design_color_id, :global_rating, flavour_ids:[], feeling_ids:[])
+    params.require(:tasting).permit(:date, :balance_id, :main_taste_id, :weather_id, :context_id, :design_color_id, :global_rating, flavour_ids:[], feeling_ids:[])
   end
 
 

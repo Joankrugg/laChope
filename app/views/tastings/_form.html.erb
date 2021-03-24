@@ -16,6 +16,14 @@
           input_html: { class: "tag-selector" },
           item_wrapper_class: 'tag-item' %>
 
+  <%= f.association :weather, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
+  <%= f.association :context, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
   <%= f.association :feelings, as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
