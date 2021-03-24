@@ -4,6 +4,11 @@
   <%= f.association :flavours, as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
+
+  <%= f.association :balance, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item' %>
+
   <p class='center'>
     <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
   </p>
