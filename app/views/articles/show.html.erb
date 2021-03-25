@@ -1,0 +1,11 @@
+<div class="offnavs"></div>
+<div class="container top">
+  <h1 class="title">Articles</h1>
+  <% if @article.user == current_user && @article.user.admin? %>
+    <%=link_to edit_article_path(@article) do %>
+      <h2 class='center'><%= @article.title %></h2>
+    <% end %>
+  <% end %>
+  <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill, class: "img-responsive" %>
+  <p class="content"><%= @article.content  %></p>
+</div>
