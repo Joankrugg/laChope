@@ -1,7 +1,51 @@
-<div class="navbar navbar-expand navbar-light navbar-lewagon-2">
-  <div class="right">
-    <a href="#"><i class="fab fa-instagram nav-link-2"></i></a>
-    <a href="#"><i class="fab fa-twitter nav-link-2"></i></a>
-    <a href="#"><i class="fab fa-linkedin nav-link-2"></i></a>
+
+
+<ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2">
+  <div class="container">
+    <li class="nav-item nav-2">
+      <div class="dropdown">
+        <p class="dropbtn"><i class="far fa-heart"></i> Bières</p>
+        <div class="dropdown-content">
+          <%= link_to 'Bières', beers_path %>
+          <%= link_to 'Targets', target_beers_path %>
+          <%= link_to 'Collection Printemps/été', spring_beers_path %>
+          <%= link_to 'Collection Automne/hiver', autumn_beers_path %>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item nav-2">
+      <div class="dropdown">
+        <p class="dropbtn"><i class="far fa-newspaper"></i> Articles</p>
+        <div class="dropdown-content">
+          <%= link_to 'Articles', articles_path %>
+          <a href="#">Actualités</a>
+          <a href="#">Histoire</a>
+          <a href="#">Notes d'intention</a>
+          <a href="#">Technique</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item nav-2">
+      <div class="dropdown">
+        <p class="dropbtn"><i class="fas fa-users"></i> Recrues</p>
+        <div class="dropdown-content">
+          <a href="#">Le Collectif</a>
+          <a href="#">Les adhérents</a>
+          <a href="#">Les participants</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item nav-2">
+      <div class="dropdown">
+        <p class="dropbtn"><i class="far fa-envelope"></i> Mails</p>
+        <div class="dropdown-content">
+          <% unless user_signed_in? %>
+            <%= link_to 'Connexion', new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </li>
   </div>
-</div>
+</ul>
+
+

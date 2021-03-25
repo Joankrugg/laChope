@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand navbar-light navbar-lewagon">
-  <i class="fas fa-bars", id= "navbarDropdown", data-toggle="dropdown"></i>
+  <div class="brand", id= "navbarDropdown", data-toggle="dropdown">Les Créations Du Cabinet Target</div>
   <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
     <div class="nav-title">Les Amis Du Cabinet</div>
     <%= link_to 'Members', users_path, class: 'dropdown-item browse' %>
@@ -18,7 +18,6 @@
     <a class="dropdown-item browse" href="https://justbeerapp.com/">Just beer App</a>
     <a class="dropdown-item browse" href="https://www.happybeertime.com/">HappyBeerTime</a>
   </div>
-  <%= link_to "Les Créations Du Cabinet Target", root_path, class: "brand" %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
