@@ -48,4 +48,13 @@
   color: white;
 }
 
-
+.photo{
+  margin-top: 32px;
+  color: $my-blue;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border :solid 1px;
+  font-weight: lighter;
+  background: white;
+  transition: background 0.3s ease;
+}

@@ -10,4 +10,13 @@ class Tasting < ApplicationRecord
   belongs_to :design_color
   belongs_to :weather
   belongs_to :context
+  validates :date, presence: true
+  validates :global_rating, presence: true
+  validates :flavours, presence: true
+  validates :balance, presence: true
+  validates :main_taste, presence: true
+  validates :design_color, presence: true
+  validates :weather, presence: true
+  validates :context, presence: true
+  validates :feelings, presence: true
 end

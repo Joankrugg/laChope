@@ -1,26 +1,32 @@
 <%= simple_form_for @user do |f| %>
   <div class="form-inputs">
     <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-12">
+        <label class="btn photo">
+          Choisir une photo
+          <span style="display:none;">
+            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+          </span>
+        </label>
+      </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.input :username %>
+        <%= f.input :username, required: false, label: "Nom d'utilisateur"%>
       </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
         <%= f.input :age, input_html: { min: '18', max:'80'}, required: false  %>
       </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.input :photo, as: :file, required: false  %>
+        <%= f.association :sexe, required: false %>
       </div>
       <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.input :city, required: false  %>
+        <%= f.input :city, required: false, label: "Ville"  %>
       </div>
     </div>
-    <%= f.association :activities, as: :check_boxes,
+    <%= f.association :activities, as: :check_boxes, label: "Activités",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-    <%= f.association :sexe, as: :radio_buttons, required: false,
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-    <%= f.input :website %>
+
+    <%= f.input :website, label: "Site Internet" %>
   </div>
   <div class="infos">
     <p class='center'>
