@@ -41,6 +41,8 @@
         <div class="dropdown-content">
           <% unless user_signed_in? %>
             <%= link_to 'Connexion', new_user_session_path %>
+          <% else %>
+            <%= link_to 'Conversation', conversations_path %>
           <% end %>
         </div>
       </div>

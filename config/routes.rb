@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :personal_messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show]
   resources :designs
   resources :beers do
     resources :tastings, only: [:create, :edit, :update]

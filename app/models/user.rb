@@ -17,4 +17,11 @@ class User < ApplicationRecord
   belongs_to :sexe
   has_many :tastings
   has_many :beers, through: :tastings
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+  has_many :personal_messages, dependent: :destroy
+  def name
+    email.split('@')[0]
+  end
+
 end
