@@ -37,6 +37,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def actu
+    @articles = Article.where(:theme == 'Actualité')
+  end
+
+  def history
+    @articles = Article.where(:theme == 'Histoire')
+  end
+
+  def science
+    @articles = Article.where(:theme == 'Technique')
+  end
+
+  def note_of_intent
+    @articles = Article.where(:theme == "Note d'intention")
+  end
+
   def destroy
     @article.destroy
     redirect_to articles_path

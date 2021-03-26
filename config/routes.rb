@@ -24,6 +24,13 @@ Rails.application.routes.draw do
     end
   end
   get 'concept', to: 'pages#concept'
-  resources :articles
+    resources :articles do
+      collection do
+      get :history
+      get :actu
+      get :note_of_intent
+      get :science
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

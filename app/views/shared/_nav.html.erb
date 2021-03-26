@@ -18,10 +18,10 @@
         <p class="dropbtn"><i class="far fa-newspaper"></i> Articles</p>
         <div class="dropdown-content">
           <%= link_to 'Articles', articles_path %>
-          <a href="#">Actualités</a>
-          <a href="#">Histoire</a>
-          <a href="#">Notes d'intention</a>
-          <a href="#">Technique</a>
+          <%= link_to 'Actualités', actu_articles_path %>
+          <%= link_to 'Technique', science_articles_path %>
+          <%= link_to 'Histoire', history_articles_path %>
+          <%= link_to "Note d'intention", note_of_intent_articles_path %>
         </div>
       </div>
     </li>
