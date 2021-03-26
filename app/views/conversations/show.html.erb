@@ -7,12 +7,11 @@
       <%= render @conversation.personal_messages.sort_by(&:created_at).reverse! %>
     </div>
 
-    <%= form_for @personal_message, remote: true do |f| %>
+    <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
-      <%= f.label :body %>
-      <%= f.text_area :body %>
+      <%= f.input :body, required: false, label: false %>
 
-      <%= f.submit %>
+      <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
     <% end %>
   </div>
 </div>
