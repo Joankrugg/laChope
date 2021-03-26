@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
     @personal_message = PersonalMessage.new
   end
 
+
   private
 
   def set_conversation

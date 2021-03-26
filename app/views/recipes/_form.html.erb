@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8 mx-auto form">
       <h2>Recipe</h2>
-      <%= simple_form_for [ @beer, @recipe ] do |f| %>
+      <%= simple_form_for [ @beer, @recipe ], remote: true do |f| %>
         <div class="form-inputs">
           <div class="row">
             <div class="col-lg-6"><%= f.input :step, required: false, input_html: { min: '1'} %></div>

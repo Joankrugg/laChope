@@ -102,8 +102,35 @@
     <% if @beer.tastings.present? %>
       <% @beer.tastings.sort_by(&:id).reverse!.each do |b| %>
         <div class="col-lg-1"></div>
-        <div class="col-lg-11 card-show bottom">
-          <%= link_to edit_beer_tasting_path(@beer, b) do %>
+        <% if b.user == current_user %>
+          <div class="col-lg-11 card-show bottom">
+            <%= link_to edit_beer_tasting_path(@beer, b) do %>
+              <% unless b.user.photo.present? %>
+                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250,crop: :fill, class: "show-img avatar-bordered" %></div>
+              <% else %>
+                  <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250,crop: :fill, class: "show-img avatar-large" %></div>
+                </div>
+              <% end %>
+              <div class="show-infos">
+                <p class="card-text">Note Globale / 5 :<%= b.global_rating %></p>
+                <p class="card-text">Couleur : <%= b.design_color.name %></p>
+                <p class="card-text">Balance : <%= b.balance.name %></p>
+                <p class="card-text">Classe : <%= b.main_taste.name %></p>
+                <p class="card-text">Temps : <%= b.weather.name %></p>
+                <p class="card-text">Contexte : <%= b.context.name %></p>
+              </div>
+              <p class="card-text">Arômes : </p>
+              <% b.flavours.each do |n| %>
+                <p class="card-text"><%= n.name %></p>
+              <% end %>
+              <p class="card-text">Sensation : </p>
+              <% b.feelings.each do |n| %>
+                <p class="card-text"><%= n.name %></p>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-lg-11 card-show bottom">
             <% unless b.user.photo.present? %>
               <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250,crop: :fill, class: "show-img avatar-bordered" %></div>
             <% else %>
@@ -126,8 +153,9 @@
             <% b.feelings.each do |n| %>
               <p class="card-text"><%= n.name %></p>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+
       <% end %>
     <% end %>
   </div>

@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
     @beer = Beer.find(params[:beer_id])
     @recipe.beer = @beer
     @recipe.save
-    redirect_to beer_path(@beer)
+    redirect_to beer_path(@beer, anchor: "@recipe")
   end
 
   def edit
