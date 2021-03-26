@@ -1,4 +1,5 @@
 class PersonalMessagesController < ApplicationController
+
   before_action :find_conversation!
 
   def new
@@ -34,3 +35,4 @@ class PersonalMessagesController < ApplicationController
     end
   end
 end
+

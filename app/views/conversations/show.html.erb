@@ -4,7 +4,7 @@
 
   <div id="conversation-main">
     <div id="conversation-body">
-      <%= render @conversation.personal_messages %>
+      <%= render @conversation.personal_messages.sort_by(&:created_at).reverse! %>
     </div>
 
     <%= form_for @personal_message do |f| %>
@@ -16,3 +16,4 @@
     <% end %>
   </div>
 </div>
+
