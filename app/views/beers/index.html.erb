@@ -22,6 +22,7 @@
             <div class="card-body">
               <h4 class="card-title"><%= b.name.upcase %></h4>
               <p class="card-text"><%= b.style.name %></p>
+              <p class="card-text"><%= b.category.name %></p>
               <% if b.user.photo.present? %>
                 <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
               <% end %>
@@ -46,6 +47,7 @@
               <div class="card-body">
                 <h4 class="card-title"><%= b.name.upcase %></h4>
                 <p class="card-text"><%= b.style.name %></p>
+                <p class="card-text"><%= b.category.name %></p>
                 <% if b.user.photo.present? %>
                   <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
                 <% end %>
@@ -70,6 +72,7 @@
               <div class="card-body">
                 <h4 class="card-title"><%= b.name.upcase %></h4>
                 <p class="card-text"><%= b.style.name %></p>
+                <p class="card-text"><%= b.category.name %></p>
                 <% if b.user.photo.present? %>
                   <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
                 <% end %>

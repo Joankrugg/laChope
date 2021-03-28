@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-
+    @beers = Beer.all
+    @articles = Article.all
   end
 
   def edit
@@ -38,19 +39,19 @@ class ArticlesController < ApplicationController
   end
 
   def actu
-    @articles = Article.where(:theme == 'Actualité')
+    @articles = Article.where(theme_id: 1)
   end
 
   def history
-    @articles = Article.where(:theme == 'Histoire')
+    @articles = Article.where(theme_id: 3)
   end
 
   def science
-    @articles = Article.where(:theme == 'Technique')
+    @articles = Article.where(theme_id: 4)
   end
 
   def note_of_intent
-    @articles = Article.where(:theme == "Note d'intention")
+    @articles = Article.where(theme_id: 2)
   end
 
   def destroy

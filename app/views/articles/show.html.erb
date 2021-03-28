@@ -1,11 +1,128 @@
 <div class="offnavs"></div>
 <div class="container top">
-  <h1 class="title">Articles</h1>
-  <% if @article.user == current_user && @article.user.admin? %>
-    <%=link_to edit_article_path(@article) do %>
-      <h2 class='center'><%= @article.title %></h2>
-    <% end %>
-  <% end %>
-  <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill, class: "img-responsive" %>
-  <p class="content"><%= @article.content  %></p>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <h1 class="title card center"><%= @article.theme.name.upcase %></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="card">
+        <h4 class='article-top-title top center'><%= @article.title.upcase %></h4>
+        <div class="article-top center">
+          <p class="article-top-infos"><%= @article.created_at.strftime("%d/%m/%Y") %> | <%= @article.theme.name %> | par <%= @article.user.username %></p>
+        </div>
+        <% if @article.user == current_user && @article.user.admin? %>
+          <%= link_to edit_article_path(@article) do %>
+            <%= cl_image_tag @article.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% end %>
+        <% else %>
+          <%= cl_image_tag @article.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-3 bottom">
+      <div class="card">
+        <% if @article.user.photo.present? %>
+          <%= cl_image_tag @article.user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+        <% end %>
+        <div class="show-infos">
+          <div class="user">Auteur</div>
+          <% if @article.user.username.present? %>
+            <p class='profil'><%= @article.user.username %></p>
+          <% else %>
+            <p class='profil'><%=@article.user.email %></p>
+          <% end %>
+
+
+          <% if @article.user.activities.present? %>
+            <div class="user">Activité(s)</div>
+            <% @article.user.activities.each do |a| %>
+              <p class='profil'><%= a.name %></p>
+            <% end %>
+          <% end %>
+
+
+          <% if @article.user.website.present? %>
+            <div class="user">Site Internet</div>
+            <%= link_to @article.user.website, target: :blank do %>
+              <p class='profil'>Mon site</p>
+            <% end %>
+          <% end %>
+          <p>membre oui/non</p>
+        </div>
+      </div>
+      <div class="card article-side top">
+        <h4 class="title-top">Nouveautés</h4>
+        <% @articles.each do |a| %>
+          <%= link_to a do %>
+            <div class="row article-link">
+              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
+              <div class="col-lg-8">
+                <p class='article-link-text'><%= a.title %></p>
+                <p class='article-link-text'><%= a.theme.name %></p>
+                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
+                <div class="line center"></div><br>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container bottom">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8 ">
+      <p class="card content"><%= @article.content %></p>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card article-side bottom">
+        <h4 class="title-top">ALES</h4>
+        <% ales = [] %>
+        <% @beers.each do |b| %>
+          <% if b.category.name == 'Ales' %>
+            <% ales << b %>
+          <% end %>
+        <% end %>
+        <% ales.each do |t| %>
+          <%= link_to t do %>
+            <div class="beer-link">
+              <p class='beer-link-text'>Nom : <%= t.name %></p>
+              <p class='beer-link-text'>Style : <%= t.style.name %></p>
+              <div class="line"></div><br>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card article-side bottom">
+        <h4 class="title-top">LAGERS</h4>
+        <% lagers = [] %>
+        <% @beers.each do |b| %>
+          <% if b.category.name == 'Lagers' %>
+            <% lagers << b %>
+          <% end %>
+        <% end %>
+        <% lagers.each do |t| %>
+          <%= link_to t do %>
+            <div class="beer-link">
+              <p class='beer-link-text'>Nom : <%= t.name %></p>
+              <p class='beer-link-text'>Style : <%= t.style.name %></p>
+              <div class="line center"></div><br>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

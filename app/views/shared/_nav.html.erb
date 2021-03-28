@@ -1,5 +1,3 @@
-
-
 <ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2">
   <div class="container">
     <li class="nav-item nav-2">
@@ -7,6 +5,9 @@
         <p class="dropbtn"><i class="far fa-heart"></i> Bières</p>
         <div class="dropdown-content">
           <%= link_to 'Bières', beers_path %>
+          <%= link_to 'Lagers', lagers_beers_path %>
+          <%= link_to 'Ales', ales_beers_path %>
+          <%= link_to 'Mixed', mixed_beers_path %>
           <%= link_to 'Targets', target_beers_path %>
           <%= link_to 'Collection Printemps/été', spring_beers_path %>
           <%= link_to 'Collection Automne/hiver', autumn_beers_path %>
@@ -17,11 +18,12 @@
       <div class="dropdown">
         <p class="dropbtn"><i class="far fa-newspaper"></i> Articles</p>
         <div class="dropdown-content">
-          <%= link_to 'Articles', articles_path %>
+          <%= link_to 'Derniers Articles', articles_path %>
           <%= link_to 'Actualités', actu_articles_path %>
+          <%= link_to "Note d'intention", note_of_intent_articles_path %>
           <%= link_to 'Technique', science_articles_path %>
           <%= link_to 'Histoire', history_articles_path %>
-          <%= link_to "Note d'intention", note_of_intent_articles_path %>
+
         </div>
       </div>
     </li>

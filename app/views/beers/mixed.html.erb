@@ -1,0 +1,31 @@
+<div class="offnavs"></div>
+<% mixed = [] %>
+<% @beers.each do |b| %>
+  <% if b.category.name == 'Mixed Styles' %>
+    <% mixed << b %>
+  <% end %>
+<% end %>
+<div class="container top">
+  <div class="row">
+    <% mixed.each do |m| %>
+      <div class="mx-auto col-xs-9 col-sm-6 col-lg-4 index">
+        <div class="card beers-shadow">
+          <%= cl_image_tag m.photo.key, height: 200, width: 250, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+          <div class="card-body">
+            <h4 class="card-title"><%= m.name.upcase %></h4>
+            <p class="card-text"><%= m.style.name %></p>
+            <p class="card-text"><%= m.category.name %></p>
+            <% if m.user.photo.present? %>
+              <%= cl_image_tag m.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+            <% end %>
+            <div class="middle">
+              <%= link_to m do %>
+                <p class="btn btn-ghost"> Description </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

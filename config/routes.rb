@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :recipes
     collection do
       get :target
+      get :lagers
+      get :ales
+      get :mixed
       get :spring
       get :autumn
       get :featuring

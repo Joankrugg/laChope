@@ -1,15 +1,21 @@
 <div class="navbar navbar-expand navbar-light navbar-lewagon">
   <div class="brand", id= "navbarDropdown", data-toggle="dropdown">Les Créations Du Cabinet Target</div>
   <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-    <div class="nav-title">Les Amis Du Cabinet</div>
+    <div class="nav-title">Les Bières</div>
+    <%= link_to 'Toutes les Bières', beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Les Lagers', lagers_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Les Ales', ales_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Les Styles Mixtes', mixed_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Les Targets', target_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Collection Printemps/été', spring_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Collection Automne/hiver', autumn_beers_path, class: 'dropdown-item browse'  %>
     <%= link_to 'Members', users_path, class: 'dropdown-item browse' %>
-    <div class="nav-title">Créations Du Cabinet</div>
-    <%= link_to 'Le Cabinet Target', concept_path, class: 'dropdown-item browse' %>
-    <%= link_to 'Les Target Beers', target_beers_path, class: 'dropdown-item browse' %>
-    <%= link_to "Collection Printemps/été", spring_beers_path, class: 'dropdown-item browse' %>
-    <%= link_to 'Collection Automne/Hiver', autumn_beers_path, class: 'dropdown-item browse' %>
-    <%= link_to 'Les Designs en cours', featuring_beers_path, class: 'dropdown-item browse' %>
-    <%= link_to 'Les Différentes Bières', beers_path, class: 'dropdown-item browse' %>
+    <div class="nav-title">Les Articles</div>
+    <%= link_to 'Derniers Articles', articles_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Actualités', actu_articles_path, class: 'dropdown-item browse'  %>
+    <%= link_to "Notes d'intention", note_of_intent_articles_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Science & Techniques', science_articles_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Histoire', history_articles_path, class: 'dropdown-item browse'  %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item browse" %>
     <div class="nav-title">Liens Utiles</div>
     <a class="dropdown-item browse" href="https://www.littlebock.fr/">Little Bock</a>
@@ -42,7 +48,7 @@
 </div>
 <script>
   $(document).ready(function(){
-    $(".fa-bars").on({
+    $(".brand").on({
       mouseenter: function(){
         $(".dropdown-menu").show();
       },

@@ -57,15 +57,15 @@ class BeersController < ApplicationController
   end
 
   def lagers
-    @beers = Beer.where(category: 'Lagers')
+    @beers = Beer.all
   end
 
   def ales
-    @beers = Beer.where(category: 'Ales')
+    @beers = Beer.all
   end
 
   def mixed
-    @beers = Beer.where(category: 'Mixed Styles')
+    @beers = Beer.all
   end
 
   private
