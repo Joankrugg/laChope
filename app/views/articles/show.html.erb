@@ -60,7 +60,7 @@
           <p>membre oui/non</p>
         </div>
       </div>
-      <div class="card article-side top">
+      <div class="card sides top">
         <h4 class="title-top">Nouveautés</h4>
         <% @articles.each do |a| %>
           <%= link_to a do %>
@@ -87,7 +87,7 @@
     </div>
 
     <div class="col-lg-3">
-      <div class="card article-side bottom">
+      <div class="card sides bottom">
         <h4 class="title-top">ALES</h4>
         <% ales = [] %>
         <% @beers.each do |b| %>
@@ -105,7 +105,7 @@
           <% end %>
         <% end %>
       </div>
-      <div class="card article-side bottom">
+      <div class="card sides bottom">
         <h4 class="title-top">LAGERS</h4>
         <% lagers = [] %>
         <% @beers.each do |b| %>
