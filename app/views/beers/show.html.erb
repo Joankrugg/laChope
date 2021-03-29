@@ -91,14 +91,6 @@
 
 <div class="container bottom top">
   <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11 card-show">
-      <p class="card-text"><%= @beer.description %></p>
-    </div>
-  </div>
-</div>
-<div class="container bottom top">
-  <div class="row">
     <% if @beer.tastings.present? %>
       <% @beer.tastings.sort_by(&:id).reverse!.each do |b| %>
         <div class="col-lg-1"></div>
@@ -155,7 +147,6 @@
             <% end %>
           </div>
         <% end %>
-
       <% end %>
     <% end %>
   </div>

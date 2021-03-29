@@ -97,7 +97,7 @@
         <% end %>
         <% ales.each do |t| %>
           <%= link_to t do %>
-            <div class="beer-link">
+            <div class="beer-link card-infos">
               <p class='beer-link-text'>Nom : <%= t.name %></p>
               <p class='beer-link-text'>Style : <%= t.style.name %></p>
               <div class="line"></div><br>
@@ -115,7 +115,7 @@
         <% end %>
         <% lagers.each do |t| %>
           <%= link_to t do %>
-            <div class="beer-link">
+            <div class="beer-link card-infos">
               <p class='beer-link-text'>Nom : <%= t.name %></p>
               <p class='beer-link-text'>Style : <%= t.style.name %></p>
               <div class="line center"></div><br>

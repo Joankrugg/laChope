@@ -37,7 +37,7 @@
           <h4 class="title-top">A Lire</h4>
           <% @articles.each do |a| %>
             <%= link_to a do %>
-              <div class="row article-link">
+              <div class="row article-link card-infos">
                 <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
                 <div class="col-lg-8">
                   <p class='article-link-text'><%= a.title %></p>
