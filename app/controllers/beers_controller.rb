@@ -3,6 +3,7 @@ class BeersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @beers = Beer.all
+    @articles = Article.all
   end
 
   def new
@@ -26,6 +27,7 @@ class BeersController < ApplicationController
     @fancy = Fancy.new
     @rating = Rating.new
     @tasting = Tasting.new
+
   end
 
   def edit
