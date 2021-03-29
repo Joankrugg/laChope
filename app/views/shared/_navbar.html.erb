@@ -1,5 +1,8 @@
-<div class="navbar navbar-expand navbar-light navbar-lewagon">
-  <div class="brand", id= "navbarDropdown", data-toggle="dropdown">Les Créations Du Cabinet Target</div>
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon">
+  <i class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </i>
+  <div class="collapse navbar-collapse brand", id= "navbarDropdown", data-toggle="dropdown">Les Créations Du Cabinet Target</div>
   <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
     <div class="nav-title">Les Bières</div>
     <%= link_to 'Toutes les Bières', beers_path, class: 'dropdown-item browse'  %>
@@ -24,7 +27,7 @@
     <a class="dropdown-item browse" href="https://justbeerapp.com/">Just beer App</a>
     <a class="dropdown-item browse" href="https://www.happybeertime.com/">HappyBeerTime</a>
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
@@ -49,6 +52,15 @@
 <script>
   $(document).ready(function(){
     $(".brand").on({
+      mouseenter: function(){
+        $(".dropdown-menu").show();
+      },
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $(".navbar-toggler").on({
       mouseenter: function(){
         $(".dropdown-menu").show();
       },

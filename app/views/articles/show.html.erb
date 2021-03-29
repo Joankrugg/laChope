@@ -35,7 +35,7 @@
           <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
         <% end %>
         <div class="show-infos">
-          <div class="user">Auteur</div>
+          <div class="legend center col-lg-8 mx-auto">Auteur</div>
           <% if @article.user.username.present? %>
             <p class='profil'><%= @article.user.username %></p>
           <% else %>
@@ -44,7 +44,7 @@
 
 
           <% if @article.user.activities.present? %>
-            <div class="user">Activité(s)</div>
+            <div class="legend center col-lg-8 mx-auto">Activité(s)</div>
             <% @article.user.activities.each do |a| %>
               <p class='profil'><%= a.name %></p>
             <% end %>
@@ -52,7 +52,7 @@
 
 
           <% if @article.user.website.present? %>
-            <div class="user">Site Internet</div>
+            <div class="legend center col-lg-8 mx-auto">Site Internet</div>
             <%= link_to @article.user.website, target: :blank do %>
               <p class='profil'>Mon site</p>
             <% end %>
