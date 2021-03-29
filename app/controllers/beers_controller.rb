@@ -48,6 +48,7 @@ class BeersController < ApplicationController
 
   def target
     @beers = Beer.where(target: true)
+    @articles = Article.all
   end
 
   def spring
