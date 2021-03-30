@@ -13,7 +13,7 @@
               <%= link_to b do  %>
                 <div class="card shadow">
                   <p class='center target-top-title card-text'><%= b.name.upcase %></p>
-                  <p class='center'><%= b.style.name %> | by : <% b.user.username %></p>
+                  <p class='center'><%= b.style.name %> | by : <%= b.user.username %></p>
                   <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
                   <div class="card-infos">
                     <p class='card-text center'>Category: <%= b.category.name %></p>
