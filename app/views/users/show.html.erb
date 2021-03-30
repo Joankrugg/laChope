@@ -121,7 +121,7 @@
         </div>
         <div class="tab-pane container" id="beers">
           <% if @user == current_user %>
-            <%= render 'beers/form', beer: @beer %>
+            <%= render 'beers/user_form', beer: @beer %>
           <% end %>
         </div>
         <div class="tab-pane container" id="ideal">

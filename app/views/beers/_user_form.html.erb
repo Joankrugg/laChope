@@ -1,0 +1,36 @@
+<%= simple_form_for @beer do |f| %>
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :name, required: false  %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :photo, as: :file, required: false  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :color, input_html: { min: '1', max:'80'}, required: false  %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.association :category, required: false  %>
+      </div>
+    </div>
+    <%= f.association :style, required: false, as: :radio_buttons,
+          input_html: { class: "tag-selector" },
+          item_wrapper_class: 'tag-item'  %>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :alcohol_level, input_html: { min: '0'}, required: false  %>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-lg-6">
+        <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false %>
+      </div>
+    </div>
+    <%= f.input :description, required: false  %>
+    <div class="infos">
+      <p class='center'><%= f.button :submit, "Create Beer", class: "btn btn-ghost bottom"  %></p>
+    </div>
+  </div>
+<% end %>
