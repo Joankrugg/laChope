@@ -96,20 +96,16 @@
       <div class="col-lg-3">
         <h2 class='center'>A Découvrir</h2>
         <div class="card sides bottom index-side">
-          <h4 class="title-top">ALES</h4>
-          <% ales = [] %>
+          <h4 class="title-top">TARGET</h4>
           <% @beers.each do |b| %>
-            <% if b.category.name == 'Ales' %>
-              <% ales << b %>
-            <% end %>
-          <% end %>
-          <% ales.each do |t| %>
-            <%= link_to t do %>
-              <div class="beer-link card-infos">
-                <p class='beer-link-text'>Nom : <%= t.name %></p>
-                <p class='beer-link-text'>Style : <%= t.style.name %></p>
-                <div class="line"></div><br>
-              </div>
+            <% if b.target? %>
+              <%= link_to b do %>
+                <div class="beer-link card-infos">
+                  <p class='beer-link-text'>Nom : <%= b.name %></p>
+                  <p class='beer-link-text'>Style : <%= b.style.name %></p>
+                  <div class="line"></div><br>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         </div>

@@ -53,10 +53,12 @@ class BeersController < ApplicationController
 
   def spring
     @beers = Beer.where(category: "Collection Printemps/été")
+    @articles = Article.all
   end
 
   def autumn
     @beers = Beer.where(category: 'Collection Automne/Hiver')
+    @articles = Article.all
   end
 
   def lagers
