@@ -57,7 +57,7 @@ class BeersController < ApplicationController
   end
 
   def autumn
-    @beers = Beer.where(category: 'Collection Automne/Hiver')
+    @beers = Beer.where(autumn_collection: true)
     @articles = Article.all
   end
 
