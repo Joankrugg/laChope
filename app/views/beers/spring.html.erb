@@ -11,7 +11,7 @@
             <% if @beers.present? %>
               <% @beers.each do |b| %>
                 <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
-                  <%= link_to b do  %>
+                  <%= link_to b do %>
                     <div class="card shadow">
                       <p class='center target-top-title card-text'><%= b.name.upcase %></p>
                       <p class='center'><%= b.style.name %> | by : <%= b.user.username %></p>
