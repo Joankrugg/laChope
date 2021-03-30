@@ -3,21 +3,41 @@
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-4 bottom index">
-      <div class="card shadow">
-        <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
-        <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
-        <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
-        <div class="card-infos">
-          <p class='card-text center'>Category: <%= @beer.category.name %></p>
-          <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
-          <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
-          <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
+      <% if @beer.user == current_user && @beer.user.admin? %>
+        <%= link_to edit_beer_path (@beer) do  %>
+          <div class="card shadow">
+            <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
+            <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
+            <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
+            <div class="card-infos">
+              <p class='card-text center'>Category: <%= @beer.category.name %></p>
+              <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
+              <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
+              <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
+            </div>
+            <div class="middle">
+              <p class="center">DESCRIPTION</p>
+              <p class=""> <%= @beer.description %> </p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="card shadow">
+          <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
+          <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
+          <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
+          <div class="card-infos">
+            <p class='card-text center'>Category: <%= @beer.category.name %></p>
+            <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
+            <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
+            <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
+          </div>
+          <div class="middle">
+            <p class="center">DESCRIPTION</p>
+            <p class=""> <%= @beer.description %> </p>
+          </div>
         </div>
-        <div class="middle">
-          <p class="center">DESCRIPTION</p>
-          <p class=""> <%= @beer.description %> </p>
-        </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-lg-1"></div>
     <div class="col-lg-6 card-show bottom">
