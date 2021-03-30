@@ -21,7 +21,7 @@
             <% lagers.each do |b| %>
               <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
                 <div class="card beers-shadow">
-                  <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                  <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
                     <h4 class="card-title"><%= b.name.upcase %></h4>
                     <p class="card-text"><%= b.style.name %></p>
@@ -47,7 +47,7 @@
             <% ales.each do |b| %>
               <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
                 <div class="card beers-shadow ">
-                  <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                  <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
                     <h4 class="card-title"><%= b.name.upcase %></h4>
                     <p class="card-text"><%= b.style.name %></p>
@@ -73,7 +73,7 @@
             <% mixed_styles.each do |b| %>
               <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
                 <div class="card beers-shadow ">
-                  <%= cl_image_tag b.photo.key, height: 200, width: 250, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                  <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
                     <h4 class="card-title"><%= b.name.upcase %></h4>
                     <p class="card-text"><%= b.style.name %></p>
