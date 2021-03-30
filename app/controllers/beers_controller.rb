@@ -52,7 +52,7 @@ class BeersController < ApplicationController
   end
 
   def spring
-    @beers = Beer.where(category: "Collection Printemps/été")
+    @beers = Beer.where(spring_collection: true)
     @articles = Article.all
   end
 
