@@ -51,13 +51,20 @@
 
 <script>
   $(document).ready(function(){
-    $(".fa-bars").on({
-      mouseenter: function(){
-        $(".dropdown-menu").show();
-      },
+    $(".fa-bars").click(function(){
+      $(".dropdown-menu").toggle();
     });
   });
 </script>
+
+<script>
+  $(document).ready(function(){
+    $(".fa-bars").hover(function(){
+      $(".dropdown-menu").show();
+    });
+  });
+</script>
+
 <script>
   $(document).ready(function(){
     $(".dropdown-menu").on({
