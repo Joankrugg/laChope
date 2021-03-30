@@ -40,71 +40,73 @@
       <% end %>
     </div>
     <div class="col-lg-1"></div>
-    <div class="col-lg-6 card-show bottom">
-      <div class="row steps">
-        <h2>Etapes de la Recette</h2>
-      </div>
-      <% if @beer.user == current_user && @beer.user.admin? %>
+    <div class="col-lg-6">
+      <div class='card-show bottom'>
         <div class="row steps">
-          <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
+          <h2>Etapes de la Recette</h2>
         </div>
-      <% else %>
-        <p class="card-text">Recette en cours d'édition</p>
-      <% end %>
-      <% s = @beer.recipes.sort_by { |step| step[:step] } %>
-      <% s.each do |r| %>
-        <div class="container">
-          <%= link_to edit_beer_recipe_path(@beer, r) do %>
-            <div class="row steps">
-              <p class="step"><%= r.step %> - <%= r.action.name %>
-                <% if r.product_type.present? %>
-                  <% if r.product_type.name == 'eau' %>
-                    l'<%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'épices' %>
-                    l'<%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'adjuvants' %>
-                    l'<%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'houblon' %>
-                    le <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'malt' %>
-                    le <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'moût' %>
-                    le <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'sucre' %>
-                    le <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'fruit' %>
-                    le <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'adjuvants' %>
-                    les <%= r.product_type.name %>
-                  <% elsif r.product_type.name == 'Drêches' %>
-                    les <%= r.product_type.name %> avec
-                  <% else %>
-                    la <%= r.product_type.name %>
+        <% if @beer.user == current_user && @beer.user.admin? %>
+          <div class="row steps">
+            <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
+          </div>
+        <% else %>
+          <p class="card-text">Recette en cours d'édition</p>
+        <% end %>
+        <% s = @beer.recipes.sort_by { |step| step[:step] } %>
+        <% s.each do |r| %>
+          <div class="container">
+            <%= link_to edit_beer_recipe_path(@beer, r) do %>
+              <div class="row steps">
+                <p class="step"><%= r.step %> - <%= r.action.name %>
+                  <% if r.product_type.present? %>
+                    <% if r.product_type.name == 'eau' %>
+                      l'<%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'épices' %>
+                      l'<%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'adjuvants' %>
+                      l'<%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'houblon' %>
+                      le <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'malt' %>
+                      le <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'moût' %>
+                      le <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'sucre' %>
+                      le <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'fruit' %>
+                      le <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'adjuvants' %>
+                      les <%= r.product_type.name %>
+                    <% elsif r.product_type.name == 'Drêches' %>
+                      les <%= r.product_type.name %> avec
+                    <% else %>
+                      la <%= r.product_type.name %>
+                    <% end %>
                   <% end %>
-                <% end %>
-                <% if r.product.present? %>
-                  <%= r.product %>
-                <% end %>
-                <% if r.quantity.present? %>
-                  ( <%= r.quantity %>
-                <% end %>
-                <% if r.unit.present? %>
-                  <%= r.unit.name %> )
-                <% end %>
-                <% if r.temperature.present? %>
-                  à <%= r.temperature %> °C
-                <% end %>
-                <% if r.duration.present? %>
-                  pendant <%= r.duration %>
-                <% end %>
-                <% if r.duration_unit.present? %>
-                   <%= r.duration_unit.name %>
-                <% end %>
-              </p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+                  <% if r.product.present? %>
+                    <%= r.product %>
+                  <% end %>
+                  <% if r.quantity.present? %>
+                    ( <%= r.quantity %>
+                  <% end %>
+                  <% if r.unit.present? %>
+                    <%= r.unit.name %> )
+                  <% end %>
+                  <% if r.temperature.present? %>
+                    à <%= r.temperature %> °C
+                  <% end %>
+                  <% if r.duration.present? %>
+                    pendant <%= r.duration %>
+                  <% end %>
+                  <% if r.duration_unit.present? %>
+                     <%= r.duration_unit.name %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -118,9 +120,9 @@
           <div class="col-lg-11 card-show bottom">
             <%= link_to edit_beer_tasting_path(@beer, b) do %>
               <% unless b.user.photo.present? %>
-                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250,crop: :fill, class: "show-img avatar-bordered" %></div>
+                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "show-img avatar-bordered" %></div>
               <% else %>
-                  <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250,crop: :fill, class: "show-img avatar-large" %></div>
+                  <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "show-img avatar-large" %></div>
                 </div>
               <% end %>
               <div class="show-infos">
@@ -144,9 +146,9 @@
         <% else %>
           <div class="col-lg-11 card-show bottom">
             <% unless b.user.photo.present? %>
-              <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250,crop: :fill, class: "show-img avatar-bordered" %></div>
+              <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "show-img avatar-bordered" %></div>
             <% else %>
-                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250,crop: :fill, class: "show-img avatar-large" %></div>
+                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "show-img avatar-large" %></div>
               </div>
             <% end %>
             <div class="show-infos">
