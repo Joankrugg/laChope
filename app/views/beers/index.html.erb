@@ -13,17 +13,17 @@
     <% end %>
   <% end %>
     <div class="row">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-8">
+      <div class="col-xs-12 col-sm-12 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-lg-8">
         <% if lagers != [] %>
           <h2 class='center'>Lagers</h2>
           <div class="row">
             <% lagers.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
                 <div class="card beers-shadow">
                   <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
-                    <h4 class="card-title"><%= b.name.upcase %></h4>
+                    <h5 class="card-title"><%= b.name.upcase %></h5>
                     <p class="card-text"><%= b.style.name %></p>
                     <p class="card-text"><%= b.category.name %></p>
                     <% if b.user.photo.present? %>
@@ -45,11 +45,11 @@
           <h2 class='center'>Ales </h2>
           <div class="row">
             <% ales.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
                 <div class="card beers-shadow ">
                   <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
-                    <h4 class="card-title"><%= b.name.upcase %></h4>
+                    <h5 class="card-title"><%= b.name.upcase %></h5>
                     <p class="card-text"><%= b.style.name %></p>
                     <p class="card-text"><%= b.category.name %></p>
                     <% if b.user.photo.present? %>
@@ -71,11 +71,11 @@
           <h2 class='center'>Mixed Styles</h2>
           <div class="row">
             <% mixed_styles.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-12 col-lg-6 index">
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
                 <div class="card beers-shadow ">
                   <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
                   <div class="card-body">
-                    <h4 class="card-title"><%= b.name.upcase %></h4>
+                    <h5 class="card-title"><%= b.name.upcase %></h5>
                     <p class="card-text"><%= b.style.name %></p>
                     <p class="card-text"><%= b.category.name %></p>
                     <% if b.user.photo.present? %>
@@ -93,7 +93,7 @@
           </div>
         <% end %>
       </div>
-      <div class="col-lg-3">
+      <div class="col-xs-12 col-sm-12 col-lg-3">
         <h2 class='center'>A Découvrir</h2>
         <div class="card sides bottom index-side">
           <h4 class="title-top">TARGET</h4>
