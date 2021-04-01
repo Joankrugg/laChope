@@ -24,6 +24,7 @@
         <% else %>
           <%= cl_image_tag @article.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
         <% end %>
+        <p class='content'><%= @article.content %></p>
       </div>
     </div>
 
@@ -60,69 +61,10 @@
           <p>membre oui/non</p>
         </div>
       </div>
-      <div class="card sides top">
-        <h4 class="title-top">Nouveautés</h4>
-        <% @articles.each do |a| %>
-          <%= link_to a do %>
-            <div class="row article-link">
-              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
-              <div class="col-lg-8">
-                <p class='article-link-text'><%= a.title %></p>
-                <p class='article-link-text'><%= a.theme.name %></p>
-                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
-                <div class="line center"></div><br>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'articles/articles_side' %>
+      <%= render 'beers/ales_side' %>
+      <%= render 'beers/lagers_side' %>
     </div>
   </div>
 </div>
-<div class="container bottom">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-8 ">
-      <p class="card content"><%= @article.content %></p>
-    </div>
 
-    <div class="col-lg-3">
-      <div class="card sides bottom">
-        <h4 class="title-top">ALES</h4>
-        <% ales = [] %>
-        <% @beers.each do |b| %>
-          <% if b.category.name == 'Ales' %>
-            <% ales << b %>
-          <% end %>
-        <% end %>
-        <% ales.each do |t| %>
-          <%= link_to t do %>
-            <div class="beer-link card-infos">
-              <p class='beer-link-text'>Nom : <%= t.name %></p>
-              <p class='beer-link-text'>Style : <%= t.style.name %></p>
-              <div class="line"></div><br>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="card sides bottom">
-        <h4 class="title-top">LAGERS</h4>
-        <% lagers = [] %>
-        <% @beers.each do |b| %>
-          <% if b.category.name == 'Lagers' %>
-            <% lagers << b %>
-          <% end %>
-        <% end %>
-        <% lagers.each do |t| %>
-          <%= link_to t do %>
-            <div class="beer-link card-infos">
-              <p class='beer-link-text'>Nom : <%= t.name %></p>
-              <p class='beer-link-text'>Style : <%= t.style.name %></p>
-              <div class="line center"></div><br>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>

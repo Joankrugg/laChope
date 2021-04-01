@@ -1,21 +1,14 @@
-<% @articles.each do |u| %>
-  <div class="col-lg-4 col-sm-6 index">
-    <%= link_to u do %>
-      <% unless u.photo.present? %>
-        <div class="members">
-          <div class="article-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), class: " image img-fluid" %></div>
-          <div class="middle">
-            <p class='infos center'><%= u.title %></p>
-          </div>
+<div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+  <% @articles.each do |b| %>
+    <%= link_to b do  %>
+      <div class="card shadow bottom">
+        <p class='center target-top-title card-text'><%= b.title.upcase %></p>
+        <p class='center'> by : <%= b.user.username %></p>
+        <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
+        <div class="card-infos">
+          <p class='card-text center'>Category: <%= b.theme.name %></p>
         </div>
-      <% else %>
-        <div class="members">
-          <div class="article-card"><%= image_tag u.photo, class: "image img-fluid" %></div>
-          <div class="middle">
-            <p class='infos center'><%= u.title %></p>
-          </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

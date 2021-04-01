@@ -63,14 +63,18 @@ class BeersController < ApplicationController
 
   def lagers
     @beers = Beer.all
+    @articles = Article.all
   end
 
   def ales
     @beers = Beer.all
+    @articles = Article.all
+
   end
 
   def mixed
     @beers = Beer.all
+    @articles = Article.all
   end
 
   private
