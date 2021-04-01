@@ -1,0 +1,18 @@
+<div class="card sides top bottom">
+  <% lagers = [] %>
+  <h4 class="title-top">LAGERS</h4>
+  <% @beers.each do |b| %>
+    <% if b.category.name == 'Lagers' %>
+      <% lagers << b %>
+    <% end %>
+  <% end %>
+  <% lagers.each do |t| %>
+    <%= link_to t do %>
+      <div class="beer-link card-infos">
+        <p class='beer-link-text'>Nom : <%= t.name %></p>
+        <p class='beer-link-text'>Style : <%= t.style.name %></p>
+        <div class="line"></div><br>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -18,69 +18,21 @@
         <% if lagers != [] %>
           <h2 class='center'>Lagers</h2>
           <div class="row">
-            <% lagers.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
-                <%= link_to b do %>
-                  <div class="card beers-shadow">
-                    <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                    <div class="card-body">
-                      <h5 class="card-title"><%= b.name.upcase %></h5>
-                      <p class="card-text"><%= b.style.name %></p>
-                      <p class="card-text"><%= b.category.name %></p>
-                      <% if b.user.photo.present? %>
-                        <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
+            <%= render 'lagers' %>
           </div>
         <% end %>
 
         <% if ales != [] %>
           <h2 class='center'>Ales </h2>
           <div class="row">
-            <% ales.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
-                <%= link_to b do %>
-                  <div class="card beers-shadow ">
-                    <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                    <div class="card-body">
-                      <h5 class="card-title"><%= b.name.upcase %></h5>
-                      <p class="card-text"><%= b.style.name %></p>
-                      <p class="card-text"><%= b.category.name %></p>
-                      <% if b.user.photo.present? %>
-                        <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
+            <%= render 'ales' %>
           </div>
         <% end %>
 
         <% if mixed_styles != [] %>
           <h2 class='center'>Mixed Styles</h2>
           <div class="row">
-            <% mixed_styles.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
-                <%= link_to b do %>
-                  <div class="card beers-shadow ">
-                    <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                    <div class="card-body">
-                      <h5 class="card-title"><%= b.name.upcase %></h5>
-                      <p class="card-text"><%= b.style.name %></p>
-                      <p class="card-text"><%= b.category.name %></p>
-                      <% if b.user.photo.present? %>
-                        <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
+            <%= render 'mixed' %>
           </div>
         <% end %>
       </div>

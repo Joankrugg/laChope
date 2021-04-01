@@ -22,10 +22,6 @@
                     <p class='card-text center'>Color: <%= b.color %> EBC</p>
                     <p class='card-text center'>Bitterness: <%= b.bitterness %> IBU</p>
                   </div>
-                  <div class="middle">
-                    <p class="center">DESCRIPTION</p>
-                    <p class=""> <%= b.description %> </p>
-                  </div>
                 </div>
               <% end %>
             </div>
@@ -35,22 +31,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-lg-3">
       <h2 class='center'>A Découvrir</h2>
-      <div class="card sides bottom index-side">
-        <h4 class="title-top">A Lire</h4>
-        <% @articles.each do |a| %>
-          <%= link_to a do %>
-            <div class="row article-link card-infos">
-              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
-              <div class="col-lg-8">
-                <p class='article-link-text'><%= a.title %></p>
-                <p class='article-link-text'><%= a.theme.name %></p>
-                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
-                <div class="line center"></div><br>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'articles/articles_side' %>
     </div>
   </div>
 </div>

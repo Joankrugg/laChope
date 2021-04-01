@@ -1,0 +1,23 @@
+<% ales = [] %>
+<% @beers.each do |b| %>
+  <% if b.category.name == 'Ales'%>
+    <% ales << b %>
+  <% end %>
+<% end %>
+<% ales.each do |a| %>
+  <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
+    <%= link_to a do %>
+      <div class="card beers-shadow">
+        <%= cl_image_tag a.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= a.name.upcase %></h5>
+          <p class="card-text"><%= a.style.name %></p>
+          <p class="card-text"><%= a.category.name %></p>
+          <% if a.user.photo.present? %>
+            <%= cl_image_tag a.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

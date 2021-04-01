@@ -10,65 +10,12 @@
     <div class="col-xs-12 col-sm-12 col-lg-1"></div>
     <div class="col-xs-12 col-sm-12 col-lg-8">
       <div class="row">
-        <% lagers.each do |l| %>
-          <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
-            <div class="card beers-shadow">
-              <%= cl_image_tag l.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
-              <div class="card-body">
-                <h4 class="card-title"><%= l.name.upcase %></h4>
-                <p class="card-text"><%= l.style.name %></p>
-                <p class="card-text"><%= l.category.name %></p>
-                <% if l.user.photo.present? %>
-                  <%= cl_image_tag l.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                <% end %>
-                <div class="middle">
-                  <%= link_to l do %>
-                    <p class="btn btn-ghost"> Description </p>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <%= render 'lagers' %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-lg-3">
-      <div class="card sides top bottom">
-        <h4 class="title-top">ALES</h4>
-        <% ales = [] %>
-        <% @beers.each do |b| %>
-          <% if b.category.name == 'Ales' %>
-            <% ales << b %>
-          <% end %>
-        <% end %>
-        <% ales.each do |t| %>
-          <%= link_to t do %>
-            <div class="beer-link card-infos">
-              <p class='beer-link-text'>Nom : <%= t.name %></p>
-              <p class='beer-link-text'>Style : <%= t.style.name %></p>
-              <div class="line"></div><br>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="card sides top bottom">
-        <h4 class="title-top">STYLES MIXTES</h4>
-        <% mixed_styles = [] %>
-        <% @beers.each do |b| %>
-          <% if b.category.name == 'Mixed Styles' %>
-            <% mixed_styles << b %>
-          <% end %>
-        <% end %>
-        <% mixed_styles.each do |t| %>
-          <%= link_to t do %>
-            <div class="beer-link card-infos">
-              <p class='beer-link-text'>Nom : <%= t.name %></p>
-              <p class='beer-link-text'>Style : <%= t.style.name %></p>
-              <div class="line"></div><br>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'ales_side' %>
+      <%= render 'mixed_side' %>
     </div>
   </div>
 </div>
