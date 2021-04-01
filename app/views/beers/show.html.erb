@@ -205,7 +205,6 @@
                   </div>
                 </div>
               </div>
-            </div>
             <% end %>
           </div>
         <% else %>
@@ -299,17 +298,19 @@
           </div>
         <% end %>
       <% end %>
-    <% else %>
-      <% if user.signed_in? %>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-11">
-          <div class="row">
-            <div class="col-lg-4 mx-auto">
-              <%= render 'tastings/form' %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     <% end %>
   </div>
 </div>
+<% if user_signed_in? && @beer.tastings == nil %>
+<div class="container bottom top">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <div class="row">
+        <div class="col-lg-4 mx-auto">
+          <%= render 'tastings/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
