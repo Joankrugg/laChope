@@ -15,10 +15,6 @@
               <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
               <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
             </div>
-            <div class="middle">
-              <p class="center">DESCRIPTION</p>
-              <p class="description"> <%= @beer.description %> </p>
-            </div>
           </div>
         <% end %>
       <% else %>
@@ -31,10 +27,6 @@
             <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
             <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
             <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
-          </div>
-          <div class="middle">
-            <p class="center">DESCRIPTION</p>
-            <p class=""> <%= @beer.description %> </p>
           </div>
         </div>
       <% end %>
@@ -109,6 +101,15 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <div class="card">
+        <p class="center">DESCRIPTION</p>
+        <p class=""> <%= @beer.description %> </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container bottom top">
@@ -117,59 +118,196 @@
       <% @beer.tastings.sort_by(&:id).reverse!.each do |b| %>
         <div class="col-lg-1"></div>
         <% if b.user == current_user %>
-          <div class="col-lg-11 card-show bottom">
+          <div class="col-lg-11">
             <%= link_to edit_beer_tasting_path(@beer, b) do %>
+              <div class="card bottom tasting-card">
               <% unless b.user.photo.present? %>
-                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "show-img avatar-bordered" %></div>
+                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
+                </div>
               <% else %>
-                  <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "show-img avatar-large" %></div>
+                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %>
                 </div>
               <% end %>
-              <div class="show-infos">
-                <p class="card-text">Note Globale / 5 :<%= b.global_rating %></p>
-                <p class="card-text">Couleur : <%= b.design_color.name %></p>
-                <p class="card-text">Balance : <%= b.balance.name %></p>
-                <p class="card-text">Classe : <%= b.main_taste.name %></p>
-                <p class="card-text">Temps : <%= b.weather.name %></p>
-                <p class="card-text">Contexte : <%= b.context.name %></p>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">NOTE GLOBALE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.global_rating %> / 5</p>
+                </div>
               </div>
-              <p class="card-text">Arômes : </p>
-              <% b.flavours.each do |n| %>
-                <p class="card-text"><%= n.name %></p>
-              <% end %>
-              <p class="card-text">Sensation : </p>
-              <% b.feelings.each do |n| %>
-                <p class="card-text"><%= n.name %></p>
-              <% end %>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">COULEUR :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.design_color.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">BALANCE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.balance.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">CLASSE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.main_taste.name %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">TEMPS :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.weather.name %></p>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">CONTEXTE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.context.name %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">AROMES : </p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <div class="list">
+                    <% b.flavours.each do |n| %>
+                      | <%= n.name %> |
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">SENSATIONS : </p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <div class="list">
+                    <% b.feelings.each do |n| %>
+                      | <%= n.name %> |
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
             <% end %>
           </div>
         <% else %>
-          <div class="col-lg-11 card-show bottom">
-            <% unless b.user.photo.present? %>
-              <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "show-img avatar-bordered" %></div>
-            <% else %>
-                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "show-img avatar-large" %></div>
+          <div class="col-lg-11">
+            <div class="card bottom tasting-card">
+              <% unless b.user.photo.present? %>
+                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
+                </div>
+              <% else %>
+                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %>
+                </div>
+              <% end %>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">NOTE GLOBALE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.global_rating %> / 5</p>
+                </div>
               </div>
-            <% end %>
-            <div class="show-infos">
-              <p class="card-text">Note Globale / 5 :<%= b.global_rating %></p>
-              <p class="card-text">Couleur : <%= b.design_color.name %></p>
-              <p class="card-text">Balance : <%= b.balance.name %></p>
-              <p class="card-text">Classe : <%= b.main_taste.name %></p>
-              <p class="card-text">Temps : <%= b.weather.name %></p>
-              <p class="card-text">Contexte : <%= b.context.name %></p>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">COULEUR :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.design_color.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">BALANCE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.balance.name %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">CLASSE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.main_taste.name %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">TEMPS :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.weather.name %></p>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">CONTEXTE :</p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-text"><%= b.context.name %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">AROMES : </p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <div class="list">
+                    <% b.flavours.each do |n| %>
+                      | <%= n.name %> |
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <p class="tasting-card-title">SENSATIONS : </p>
+                </div>
+                <div class='col-xs-6 col-sm-6 col-lg-6'>
+                  <div class="list">
+                    <% b.feelings.each do |n| %>
+                      | <%= n.name %> |
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="card-text">Arômes : </p>
-            <% b.flavours.each do |n| %>
-              <p class="card-text"><%= n.name %></p>
-            <% end %>
-            <p class="card-text">Sensation : </p>
-            <% b.feelings.each do |n| %>
-              <p class="card-text"><%= n.name %></p>
-            <% end %>
           </div>
         <% end %>
       <% end %>
+    <% else %>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11">
+        <div class="row">
+          <div class="col-lg-4 mx-auto">
+            <%= render 'tastings/form' %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@
           <% @beers.each do |b| %>
             <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
               <%= link_to b do  %>
-                <div class="card shadow">
+                <div class="card shadow bottom">
                   <p class='center target-top-title card-text'><%= b.name.upcase %></p>
                   <p class='center'><%= b.style.name %> | by : <%= b.user.username %></p>
                   <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
@@ -20,10 +20,6 @@
                     <p class='card-text center'>Alcool: <%= b.alcohol_level %> % Vol</p>
                     <p class='card-text center'>Color: <%= b.color %> EBC</p>
                     <p class='card-text center'>Bitterness: <%= b.bitterness %> IBU</p>
-                  </div>
-                  <div class="middle">
-                    <p class="center">DESCRIPTION</p>
-                    <p class=""> <%= b.description %> </p>
                   </div>
                 </div>
               <% end %>

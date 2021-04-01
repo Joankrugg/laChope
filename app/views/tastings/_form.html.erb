@@ -1,9 +1,7 @@
 
 <!-- Button to Open the Modal -->
-<p class='center'>
-<button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#tasting">
+<p class="center btn btn-ghost" data-toggle="modal" data-target="#tasting">
   Enregistrer une Dégustation
-</button>
 </p>
 
 <!-- The Modal -->
@@ -18,7 +16,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <%= simple_form_for ([ beer, tasting ]) do |f| %>
+        <%= simple_form_for ([ @beer, @tasting ]) do |f| %>
           <%= f.input :date, required: false %>
           <%= f.input :global_rating, input_html:{ min: '0', max:'5'}, required: false %>
           <%= f.association :flavours, as: :check_boxes,
