@@ -19,4 +19,10 @@ class Beer < ApplicationRecord
   has_many :users, through: :ratings
   has_many :tastings
   has_many :users, through: :tastings
+
+  def average_stars
+    star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }
+    tasting_number = star_number.size > 0 ? star_number.sum.fdiv(star_number.size).round : 0
+    ('<i class="fa fa-star" aria-hidden="true"></i>' * tasting_number + '<i class="fa fa-star-o" aria-hidden="true"></i>' * (5 - tasting_number)).html_safe
+  end
 end
