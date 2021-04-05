@@ -2,7 +2,7 @@
 <div class="container top">
   <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-lg-4 bottom index">
+    <div class="col-lg-4 bottom">
       <% if @beer.user == current_user && @beer.user.admin? %>
         <%= link_to edit_beer_path (@beer) do  %>
           <div class="card shadow">
