@@ -5,7 +5,7 @@
   <% end %>
 <% end %>
 <% mixed.each do |ms| %>
-  <div class="mx-auto col-xs-12 col-sm-6 col-lg-6">
+  <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
     <%= link_to ms do %>
       <div class="card beers-shadow">
         <%= cl_image_tag ms.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
