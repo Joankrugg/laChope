@@ -5,7 +5,7 @@
   <% end %>
 <% end %>
 <% ales.each do |a| %>
-  <div class="mx-auto col-xs-12 col-sm-6 col-lg-6 index">
+  <div class="mx-auto col-xs-12 col-sm-6 col-lg-6">
     <%= link_to a do %>
       <div class="card beers-shadow">
         <%= cl_image_tag a.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>

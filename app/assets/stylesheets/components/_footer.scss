@@ -24,6 +24,11 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
+.footer-copyright {
   color: $my-green;
+  font-size: 14px;
+}
+
+.fa-copyright{
+  font-size: 12px;
 }
