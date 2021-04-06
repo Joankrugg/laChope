@@ -12,7 +12,7 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/nav' %>
+    <%= render 'shared/nav_tabs', :beers => @beers %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>

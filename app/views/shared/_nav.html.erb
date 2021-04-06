@@ -1,9 +1,9 @@
-<ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2">
+<ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2 menu">
   <div class="container">
     <li class="nav-item nav-2">
       <div class="dropdown">
         <p class="dropbtn"><i class="far fa-heart"></i> Bières</p>
-        <div class="dropdown-content">
+        <div class="dropdown-content w-auto">
           <%= link_to 'Bières', beers_path %>
           <%= link_to 'Lagers', lagers_beers_path %>
           <%= link_to 'Ales', ales_beers_path %>
@@ -28,7 +28,7 @@
       </div>
     </li>
     <li class="nav-item nav-2">
-      <div class="dropdown">
+      <div class="dropdown col-lg-12">
         <p class="dropbtn"><i class="fas fa-users"></i> Recrues</p>
         <div class="dropdown-content">
           <a href="#">Le Collectif</a>
