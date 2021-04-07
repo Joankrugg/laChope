@@ -4,17 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_one_attached :photo
   has_many :beers, dependent: :destroy
   has_many :user_activities
   has_many :activities, through: :user_activities
   has_one :design, :dependent => :destroy
-  has_many :fancies
+  has_one :fancy
   has_many :beers, through: :fancies
   has_many :ratings
   has_many :beers, through: :ratings
   has_many :articles, dependent: :destroy
-  belongs_to :sexe
+  belongs_to :sexe, optional: :true
   has_many :tastings
   has_many :beers, through: :tastings
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'

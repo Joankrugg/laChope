@@ -29,6 +29,32 @@
             <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
             <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
             <p class='card-text center rate'><%= @beer.average_stars %></p>
+            <% if @beer.fancies.nil? && @beer.user != current_user %>
+              <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+              <div class="modern">
+                <%= f.input :heart, as: :boolean, label: "à goûter", input_html: { class: "toggle" }  %>
+              </div>
+                <p class='card-text center'><%= f.button :submit, "Valider" %></p>
+              <% end %>
+            <% end %>
+            <% a = [] %>
+            <% if @beer.fancies.present? && @beer.user != current_user %>
+              <% @beer.fancies.each do |bf| %>
+                <% if bf.user == current_user %>
+                  <% a << bf %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if a.present? %>
+              <p class='card-text center'><i class="fa fa-heart"></i></p>
+            <% else %>
+              <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+                <div class="modern">
+                  <%= f.input :heart, as: :boolean, label: "à goûter", input_html: { class: "toggle", id: 'modern' }  %>
+                </div>
+                <p class='card-text center'><%= f.button :submit, "Valider" %></p>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <% end %>

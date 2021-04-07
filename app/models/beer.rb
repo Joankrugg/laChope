@@ -13,11 +13,11 @@ class Beer < ApplicationRecord
   validates :photo, presence: :true
   validates :category, presence: :true
   has_many :recipes
-  has_many :fancies
+  has_many :fancies, dependent: :destroy
   has_many :users, through: :fancies
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :users, through: :ratings
-  has_many :tastings
+  has_many :tastings, dependent: :destroy
   has_many :users, through: :tastings
 
   def average_stars

@@ -1,16 +1,15 @@
-<div class="offnavs"></div>
+<div class="offnav"></div>
 <ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2 menu">
-  <li class="nav-item nav-2">
+  <li class="nav-item">
     <a class="nav-link" data-toggle="pill" id="beers-link"><i class="far fa-heart"></i> Bières</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link nav-2" data-toggle="pill" id="articles-link"><i class="far fa-newspaper"></i> Articles</a>
+    <a class="nav-link" data-toggle="pill" id="articles-link"><i class="far fa-newspaper"></i> Articles</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link nav-2" data-toggle="pill" href="#mails"><i class="far fa-envelope"></i> Mails</a>
+    <a class="nav-link" data-toggle="pill" href="#mails"><i class="far fa-envelope"></i> Mails</a>
   </li>
 </ul>
-
 
 <!-- Tab panes -->
 <div class="tab-content">
@@ -58,9 +57,11 @@
           <div class="link">
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
             <p class="text-link-title"> Targets </p>
-            <% beers.each do |beer| %>
-              <% if beer.target? %>
-                <p class="text-link"><%= beer.name %> </p>
+            <% if beers.present? %>
+              <% beers.each do |beer| %>
+                <% if beer.target? %>
+                  <p class="text-link"><%= beer.name %> </p>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -82,14 +83,36 @@
     </div>
   </div>
   <div class="tab-pane container" id="articles">
-    <div class="card">
+    <div class="card p-top">
       <div class="row">
         <div class="col-lg-1"></div>
-        <div class="col-lg-2 link"><%= link_to 'Derniers Articles', articles_path %></div>
-        <div class="col-lg-2 link"><%= link_to 'Actualités', actu_articles_path %></div>
-        <div class="col-lg-2 link"><%= link_to "Note d'intention", note_of_intent_articles_path %></div>
-        <div class="col-lg-2 link"><%= link_to 'Technique', science_articles_path %></div>
-        <div class="col-lg-2 link"><%= link_to 'Histoire', history_articles_path %></div>
+        <div class="col-lg-2 link">
+          <%= link_to articles_path do %>
+            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+            <p class="text-link-title">Derniers Articles</p>
+          <% end %>
+          <% if articles.present? %>
+            <%= link_to articles.last do %>
+              <p class="text-link"><%= articles.last.title %> </p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-lg-2 link">
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+          <p class="text-link-title"> <%= link_to 'Actualités', actu_articles_path %></p>
+        </div>
+        <div class="col-lg-2 link">
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+          <p class="text-link-title"> <%= link_to "Note d'intention", note_of_intent_articles_path %></p>
+        </div>
+        <div class="col-lg-2 link">
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+          <p class="text-link-title"> <%= link_to 'Technique', science_articles_path %></p>
+        </div>
+        <div class="col-lg-2 link">
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+          <p class="text-link-title"> <%= link_to 'Histoire', history_articles_path %></p>
+        </div>
         <div class="col-lg-1"></div>
       </div>
     </div>

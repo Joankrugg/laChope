@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   resources :designs
