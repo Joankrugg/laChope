@@ -157,7 +157,6 @@
   });
 </script>
 
-
 <script>
   $(document).ready(function(){
     $("#beers").on({
@@ -215,6 +214,22 @@
   $(document).ready(function(){
     $("#mails-link").click(function(){
       $("#mails").toggle();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#mails-link").hover(function(){
+      $("#articles").hide();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#articles-link").hover(function(){
+      $("#mails").hide();
     });
   });
 </script>
