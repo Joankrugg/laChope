@@ -11,8 +11,7 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/nav_tabs', :beers => @beers, :articles => @articles %>
+    <%= render 'shared/navbar', :beers => @beers, :articles => @articles %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>

@@ -40,15 +40,6 @@
 .dropdown:hover .dropbtn {color: white;}
 
 
-.nav-pills {
-  position: fixed;
-  top: 56px;
-  background-image: linear-gradient(-180deg, $black, $my-blue);
-  width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
 .text-link-title{
   margin-left: 10px;
   color: black;
@@ -72,11 +63,18 @@
 }
 
 .second-nav-link{
-  color: $my-green;
+  color: #3C3C3C;
+  margin-left: 20px;
+  padding: 10px;
+  font-size: 15px;
 }
 
 .second-nav-link:hover{
-  color: white;
+  color: #3C3C3C;
+  background-color: $light-gray;
+  padding: 10px;
+  border-radius: 4px;
+  transition: ease-in-out 0,5s;
 }
 
 .rounded{
@@ -84,7 +82,7 @@
 }
 
 .second-nav{
-  top: 93px;
+  top: 54px;
   width: 100%;
   position: fixed;
   overflow-y:scroll;
