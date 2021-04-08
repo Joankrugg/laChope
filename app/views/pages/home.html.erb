@@ -1,49 +1,46 @@
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div class="offnavs"></div>
+<div class="container banner bottom">
+  <div class="row">
+    <%= cl_image_tag("hop-xanthohumol-bier-metabool-syndroom-obesitas-flavonoi%CC%88den_t0mvmd.jpg", :height=>500, :width=>1120, :crop=>"fit", class: 'img-fluid') %>
+    <div class="centered">
+      <h1>Le Cabinet<strong> Target</strong></h1>
+      <p>Collectif Hédoniste et Artistique.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
+</div>
 
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/da2krghvd/image/upload/v1614865984/banner_wikxzy.jpg);">
-        <div class="container">
-          <h1>Le Cabinet <strong>Target</strong> propose ses <strong>Créations</strong>!</h1>
-          <p>Découvrez les étapes de l'élaboration des collections.</p>
-          <p><%= link_to 'Visiteur', concept_path, id: 'call-action' %> <%= link_to "S'incrire", new_user_registration_path, id: 'call-action' %></p>
+<div class="container bottom">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card">
+        <%= cl_image_tag("brewery-1536x1024_xir7ax.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive') %>
+        <div class="card-body">
+          <h4 class="card-title">Visiteur</h4>
+          <p class="card-text">Some example text.</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/da2krghvd/image/upload/v1614876232/Target_xaorog.jpg);">
-        <div class="container">
-          <h1>Le Cabinet <strong>Target</strong> propose le <strong>Partage</strong>!</h1>
-          <p>Partage de recettes, savoirs et bons plans autour d'articles d'utilisateurs</p>
-          <p><%= link_to 'Visiteur', concept_path, id: 'call-action' %> <%= link_to "S'incrire", new_user_registration_path, id: 'call-action' %></p>
+    <div class="col-lg-4">
+      <div class="card">
+        <%= cl_image_tag("bieres-beers_dd7sqm.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive') %>
+        <div class="card-body">
+          <h4 class="card-title">Membre</h4>
+          <p class="card-text">Some example text.</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/da2krghvd/image/upload/v1615213133/hop-vines-409870_1920_agzlsj.jpg);">
-        <div class="container">
-          <h1>Le Cabinet <strong>Target</strong> propose le <strong>Design collaboratif</strong>!</h1>
-          <p>Contactez d'autres amateurs pour élaborer de nouvelles créations </p>
-          <p><%= link_to 'Visiteur', concept_path, id: 'call-action' %> <%= link_to "S'incrire", new_user_registration_path, id: 'call-action' %></p>
+    <div class="col-lg-4">
+      <div class="card">
+        <%= cl_image_tag("ef2f62de90464d8b6aeea5702951fd36_omwnp6.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive')%>
+        <div class="card-body">
+          <h4 class="card-title">Membre Premium</h4>
+          <p class="card-text">Some example text.</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-
 </div>

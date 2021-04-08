@@ -1,22 +1,32 @@
 .banner {
-  background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  height: 800px;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
+.centered h1 {
+  background-color: white;
+  position: absolute;
+  top: 25%;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  color: #3C3C3C;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
-  text-align: center;
 }
 
-.banner p {
+.centered p{
   font-size: 20px;
-  color: white;
+  position: absolute;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  top: 55%;
+  right: 15px;
+  color: #3C3C3C;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
