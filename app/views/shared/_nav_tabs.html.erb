@@ -7,7 +7,7 @@
     <a class="second-nav-link" data-toggle="pill" id="articles-link"><i class="far fa-newspaper"></i> Articles</a>
   </li>
   <li class="nav-item">
-    <a class="second-nav-link" data-toggle="pill" href="#mails"><i class="far fa-envelope"></i> Mails</a>
+    <a class="second-nav-link" data-toggle="pill" id="mails-link"><i class="far fa-envelope"></i> Mails</a>
   </li>
 </ul>
 
@@ -118,11 +118,18 @@
     </div>
   </div>
   <div class="tab-pane container" id="mails">
-    <% unless user_signed_in? %>
-      <%= link_to 'Connexion', new_user_session_path %>
-    <% else %>
-      <%= link_to 'Conversation', conversations_path %>
-    <% end %>
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <% unless user_signed_in? %>
+            <%= link_to 'Connexion', new_user_session_path %>
+          <% else %>
+            <%= link_to 'Conversation', conversations_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -196,3 +203,28 @@
   });
 </script>
 
+<script>
+  $(document).ready(function(){
+    $("#mails-link").hover(function(){
+      $("#mails").show();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#mails-link").click(function(){
+      $("#mails").toggle();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#mails").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
