@@ -103,7 +103,10 @@
           <a class="nav-link tabs" data-toggle="tab" href="#known">Connues</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#unknown">à goûter</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#advice">Conseil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tabs" data-toggle="tab" href="#journal">journal</a>
         </li>
         <% if @user == current_user && @user.admin? %>
           <li class="nav-item">
@@ -132,13 +135,22 @@
         <div class="tab-pane container" id="known">
           <% if @user.ratings.present?  %>
             <% @user.ratings.each do |b| %>
-              <%= b.beer.name %>
-              <%= b.stars %>
+              <p class='fancy-card-text'><%= b.beer.name %>
+              <%=  %><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * b.stars + '<i class="fa fa-star-o" aria-hidden="true"></i>' * (5 - b.stars)).html_safe %></p>
             <% end %>
           <% end %>
-
         </div>
-        <div class="tab-pane container" id="unknown">
+
+        <div class="tab-pane container" id="journal">
+          <% if @user.fancies.present? %>
+            <% @user.fancies.each do |uf|%>
+              <%= link_to uf.beer do %>
+                <p class='fancy-card-text'><%= uf.beer.name %></p>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="tab-pane container" id="advice">
           <% ales = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Lambic', 'Gueuze', 'Faro', 'Fruit Beer', 'Flanders Red', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout' ] %>
 
           <% lagers = ['German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock'] %>

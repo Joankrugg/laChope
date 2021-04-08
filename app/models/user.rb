@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :user_activities
   has_many :activities, through: :user_activities
   has_one :design, :dependent => :destroy
-  has_one :fancy
+  has_many :fancies
   has_many :beers, through: :fancies
   has_many :ratings
   has_many :beers, through: :ratings

@@ -297,3 +297,15 @@
 .rate{
  color: $my-green;
 }
+
+.fancy-card-text{
+  text-align: center;
+  margin-bottom: 5px;
+  color: #3C3C3C;
+}
+
+.fancy-card-text:hover{
+  background-color: white;
+  cursor: pointer;
+  color: $my-green;
+}
