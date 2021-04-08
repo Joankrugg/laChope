@@ -68,16 +68,28 @@
 
 .text-link:hover{
   background-color: $light-gray;
+  cursor: pointer;
 }
 
-.nav-link{
+.second-nav-link{
   color: $my-green;
 }
 
-.nav-link:hover{
+.second-nav-link:hover{
   color: white;
 }
 
 .rounded{
   border-radius: 10px;
+}
+
+.second-nav{
+  top: 93px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+.active{
+  background-color: none;
 }

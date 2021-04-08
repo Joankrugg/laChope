@@ -1,18 +1,18 @@
 <div class="offnav"></div>
 <ul class="navbar navbar-expand nav nav-pills nav-justified navbar-lewagon-2 menu">
   <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" id="beers-link"><i class="far fa-heart"></i> Bières</a>
+    <a class="second-nav-link" data-toggle="pill" id="beers-link"><i class="far fa-heart"></i> Bières</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" id="articles-link"><i class="far fa-newspaper"></i> Articles</a>
+    <a class="second-nav-link" data-toggle="pill" id="articles-link"><i class="far fa-newspaper"></i> Articles</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" href="#mails"><i class="far fa-envelope"></i> Mails</a>
+    <a class="second-nav-link" data-toggle="pill" href="#mails"><i class="far fa-envelope"></i> Mails</a>
   </li>
 </ul>
 
 <!-- Tab panes -->
-<div class="tab-content">
+<div class="tab-content second-nav">
   <div class="tab-pane container" id="beers">
     <div class="card p-top">
       <div class="row">
@@ -20,7 +20,7 @@
           <div class="link">
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
             <p class="text-link-title"> Ales </p>
-            <p class="text-link"> Wheat Beers </p>
+            <p class="text-link">Wheat beers</p>
             <p class="text-link"> Lambics & Sours</p>
             <p class="text-link"> Belgian Ales </p>
             <p class="text-link"> Pale Ales </p>
@@ -136,6 +136,14 @@
 
 <script>
   $(document).ready(function(){
+    $("#beers-link").click(function(){
+      $("#beers").toggle();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
     $("#beers-link").hover(function(){
       $("#articles").hide();
     });
@@ -163,6 +171,14 @@
 
 <script>
   $(document).ready(function(){
+    $("#articles-link").click(function(){
+      $("#articles").toggle();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
     $("#articles-link").hover(function(){
       $("#beers").hide();
     });
@@ -179,3 +195,4 @@
     });
   });
 </script>
+
