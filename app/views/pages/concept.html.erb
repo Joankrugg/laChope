@@ -6,21 +6,59 @@
      <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1544549071/redwv10k9nm0xtzemtb5.jpg", class: 'img-responsive', width: 400 %>
     </div>
 
-    <div class="col-xs-8 col-lg-6 legend">
-      <h1 class="center">Le cabinet</h1><br>
-      <h5 class="center">Tradition since 1889</h5>
-      <p class="large">Depuis plusieurs années déjà le Cabinet et le lieu de création privilégié pour les productions artistiques. Musique, vidéos, objets mais aujourd'hui des boissons y trouvent leur place. Pourquoi ariste et pas artisan brasseur ? Il n'y a rien de pompeux la dedans; la démarche est juste différente et la nomenclature est stricte sur le sujet. Autodidacte, chaque production s'adresse aux différents sens mais aussi à l'intellect. La recherche d'une expression et la quantité extrêment limitée de mes productions et expérimentations fait de chaque bouteille de bière une oeuvre personelle. Mes productions s'inscrivent entre celles de l'artiste tatoueur et la haute couture. <span class="w3-tag w3-light-grey"></span></p>
-      <p class="w3-large w3-text-grey w3-hide-medium">Certaines bières sont des flash, d'autres entrerons dans une collection, enfin d'autres se font en collaboration avec d'autres brasseurs, artiste ou amateur de bière Afin de créer un design authentique.
-      Quoi de plus agréable que de concevoir exactement ce que l'on a envie de boire?</p>
+    <div class="col-xs-8 col-lg-6 shadow">
+      <h1 class="center">LE CABINET TARGET</h1><br>
+      <h5 class="center">Pico Brasserie</h5>
+      <p class="large">Le Cabinet Target... c'est d'abord l'élaboration d'une pico brasserie afin de pouvoir mettre en place tous les processus de l'élaboration d'une bière de qualité à la maison. L'avènement du bio indique une réelle volonté de bien consommer, mais pour autant, tous les labels du monde ne sauraient égaler le Do It Yourself ou encore les circuits très courts. C'est donc par la volonté de maîtriser encore plus ce qui a attrait au plaisir alimentaire que le Cabinet Target est né</p>
+      <h5 class="center">Une démarche artitistique</h5>
+      <p class="large">Il ne s'agit pas pour nous d'élaborer une autre brasserie artisanale, même si c'est le genre d'initiative qui a le vent en poupe aujourd'hui. En effet, l'objectif est de s'adresser autant à l'intellect qu'aux sens. Tout d'abord mettre en place une note d'intention pour l'élaboration d'une target, puis l'intégrer à une note d'intention plus générale pour créer une collection unique comme le ferait un grand couturier. La collection s'incrit dans une saisonnalité et dans une quantité limitée.
+      <h5 class="center">Un Collectif</h5>
+      <p class="large">Le cabinet Target est à l'image de ceux qui aiment la bière, celles et ceux qui la boivent, la font, s'interessent aux principes physiques et biologiques, qui la vendent et j'en passe. Nous avons tous une bonne raison de partager quelque chose autour de la bière</p>
     </div>
   </div>
 
   <hr>
 
   <div class="row">
-    <div class="col-xs-8 col-lg-6 legend">
-      <h1 class="center">Les bières</h1>
-      <% @beers.each do |b| %>
+    <div class="col-xs-8 col-lg-6 shadow">
+      <h1 class="center">Les Possibilités</h1>
+      <h5 class="center">Des articles</h5>
+      <p class="large">Découvrez des articles classés selon différentes rubriques
+        <%= link_to 'Actualités', actu_articles_path  %>,
+        <%= link_to "Notes d'intention", note_of_intent_articles_path  %>,
+        <%= link_to 'Science & Techniques', science_articles_path  %> et
+        <%= link_to 'Histoire', history_articles_path  %>
+      </p>
+      <h5 class="center">Des Bières</h5>
+      <p class="large">Bien évidemment, vous retrouvererez les bières Targets et les différentes collections mais également les bières des membres du cabinet</p>
+      <%= link_to target_beers_path do %>
+        <p class="large">Les Target beers</p>
+      <% end %>
+      <h5 class="center">Des Recettes</h5>
+      <p class="large">Retrouvez les recettes des bières des membres, pour les refaire ou même aller les goûter.
+      <h5 class="center">Des Conseils de dégustations</h5>
+      <p class="large">Créez votre bière idéale avec des termes courant pour être orienté vers des styles de bière en particulier</p>
+      <h5 class="center">Etablissez votre journal de dégustations faites et à venir</h5>
+      <p class="large">Faîtes des rapports de dégustation, mettez de côté les bières que vous souhaitez goûter et notez celles que vous avez déjà testées</p>
+      <h5 class="center">Collaborez avec d'autres membres du collectif</h5>
+      <p class="large"></p>Faîtes des design collectifs, créez une brasserie artisanale ou un circuit ultra court ou des design spéciaux pour des satisfaire des requêtes
+      <h5 class="center">Parlez de votre activité</h5>
+    </div>
+
+    <div class="col-xs-4 col-lg-6 portrait">
+      <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: 'img-responsive', width: 400 %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+  <!-- About Section -->
+    <div class="col-xs-4 col-lg-6 portrait">
+     <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: 'img-responsive', width: 400 %>
+    </div>
+
+    <div class="col-xs-8 col-lg-6 shadow">
+      <h1 class="center">About Me</h1><br>
+       <% @beers.each do |b| %>
         <% if b.category.name == 'Target' %>
           <%= b.style.name %>
         <% end %>
@@ -43,25 +81,6 @@
         <h4>Bières Designées 2021</h4>
       <% end %>
       <p class="text-grey">C'est que nos palais demandent, des expérimentations, l'utilisation dans un même brassin de techniques et houblons qui n'auraient pas pu coexister avant le XXème siècle</p><br>
-
-    </div>
-
-    <div class="col-xs-4 col-lg-6 portrait">
-      <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: 'img-responsive', width: 400 %>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-  <!-- About Section -->
-    <div class="col-xs-4 col-lg-6 portrait">
-     <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: 'img-responsive', width: 400 %>
-    </div>
-
-    <div class="col-xs-8 col-lg-6 legend">
-      <h1 class="center">About Me</h1><br>
-      <h5 class="center">Pub regular</h5>
-      <p class="large">Barman depuis 2006, j'ai naturellement appris connaître les produits que je servais mais egalement à identifier ce que les clients recherchaient ; chaque demande est unique car nous n'avons pas tous le même vocabulaire pour décrire un produit selon nos connaissances, expériences et intêrets. Pourtant, j'ai souvent vu des discusions, amitiés et relations démarrer à partir d'une discussion autour d'un verre de vin, de bière ou autre. En outre, mon expression artistique s'articule autour du besoin de détente et communication que nous avons tous quelles que soient nos origines, nos identités, nos croyances, quels que soient nos parcours.
-      <p class="w3-large w3-text-grey w3-hide-medium">Ajoutez à ça, quelques années de productions musicales rock n roll et mon histoire avec la bière devient une relation plus qu'intime ; elle a pu accompagner tous mes états d'âmes. La bière, plus que jamais, un produit à apprécier mais à consommer avec Modération</p>
     </div>
   </div>
 
