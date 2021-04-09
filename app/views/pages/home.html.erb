@@ -14,8 +14,8 @@
         <%= cl_image_tag("brewery-1536x1024_xir7ax.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive') %>
         <div class="card-body">
           <h4 class="card-title">Visiteur</h4>
-          <p class="card-text">Some example text.</p>
-          <a href="#" class="btn btn-primary">See Profile</a>
+          <p class="card-text">Visitez la Pico-Brasserie du Cabinet, les productions, les articles, documentez-vous sur la bière que vous soyez profane ou non.</p>
+          <%= link_to 'Visite', concept_path, class: 'center btn btn-ghost' %>
         </div>
       </div>
     </div>
@@ -24,8 +24,8 @@
         <%= cl_image_tag("bieres-beers_dd7sqm.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive') %>
         <div class="card-body">
           <h4 class="card-title">Membre</h4>
-          <p class="card-text">Some example text.</p>
-          <a href="#" class="btn btn-primary">See Profile</a>
+          <p class="card-text">Découvrez les bières et collections, découvrez les recettes des bières validée par le cabinet, gérez votre journal de dégustations et participez à l'élagissement de nos connaissances en matière de bières et de brasserie.</p>
+          <%= link_to 'Rejoindre', new_user_registration_path, class: 'center btn btn-ghost' %>
         </div>
       </div>
     </div>
@@ -34,8 +34,8 @@
         <%= cl_image_tag("ef2f62de90464d8b6aeea5702951fd36_omwnp6.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive')%>
         <div class="card-body">
           <h4 class="card-title">Membre Premium</h4>
-          <p class="card-text">Some example text.</p>
-          <a href="#" class="btn btn-primary">See Profile</a>
+          <p class="card-text">Designez votre bière idéale, faîtes des requêtes, écrivez des articles, faîtes la promotion de vos productions. Rejoignez le collectif</p>
+          <%= link_to 'Rejoindre', new_user_registration_path, class: 'center btn btn-ghost' %>
         </div>
       </div>
     </div>
