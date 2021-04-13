@@ -1,6 +1,6 @@
 /* Dropdown Button */
 .dropbtn {
-  color: $my-green;
+  color: $my-brown;
   padding-top: 14px;
   font-size: 16px;
   border: none;
@@ -16,7 +16,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-image: linear-gradient(-180deg, $black, $my-blue);
+  background-image: linear-gradient(-180deg, black, $my-brown);
   width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -24,7 +24,7 @@
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: $my-green;
+  color: $my-brown;
   padding: 12px 16px;
   text-decoration: none;
   display: block;

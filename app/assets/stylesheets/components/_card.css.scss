@@ -1,12 +1,10 @@
 /*user cards*/
-
 .user{
   text-align: center;
-  color: $light-gray;
-  background-color: $my-blue;
+  color: #3C3C3C;
+  background: $light-gray;
   border-radius: 3px;
 }
-
 
 /*beer cards*/
 
@@ -59,7 +57,7 @@
   font-size: 14px
 }
 .article-link-text:hover{
-  color: $my-green;
+  color: $my-brown;
 }
 .content{
   margin-left: 40px;
@@ -90,7 +88,7 @@
 }
 
 .tasting-card-title:hover{
-  background-image: linear-gradient(-180deg, $my-blue, $my-green);
+  background-image: linear-gradient(-180deg, $my-brown, $my-yellow);
   color: white;
   opacity: 0.7;
 }
@@ -244,8 +242,8 @@
 
 
 .title-top{
-  color: white;
-  background-image: linear-gradient(-180deg, $black, $my-blue);
+  color: $gray;
+  background-color: $my-gray;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;

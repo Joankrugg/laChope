@@ -95,7 +95,7 @@
         <div class="col-xs-6 col-sm-4 col-lg-2">
           <%= link_to ales_beers_path do %>
             <div class="link">
-              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Ales </p>
               <p class="text-link">Wheat beers</p>
               <p class="text-link"> Lambics & Sours</p>
@@ -112,7 +112,7 @@
         <div class="col-xs-6 col-sm-4 col-lg-2">
           <%= link_to lagers_beers_path do %>
             <div class="link">
-              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--s_3dEzRG--/q_jpegmini/v1618324165/30_LevureLager_r0wjpl.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Lagers </p>
               <p class="text-link"> Pilsner </p>
               <p class="text-link"> American Lager</p>
@@ -124,7 +124,7 @@
         <div class="col-xs-6 col-sm-4 col-lg-2 ">
           <%= link_to mixed_beers_path do %>
             <div class="link">
-              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Mixed </p>
               <p class="text-link"> Alt </p>
               <p class="text-link"> French Ale</p>
@@ -153,11 +153,29 @@
         <div class="col-xs-6 col-sm-4 col-lg-2 ">
           <div class="link">
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614876232/Target_xaorog.jpg", height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title"> Collection Printemps/été </p>
-            <p class="text-link"> Repas de Famille </p>
+            <%= link_to spring_beers_path do %>
+              <p class="text-link-title"> Collection Printemps/été </p>
+              <p class="text-link"> Repas de Famille </p>
+              <% if beers.present? %>
+                <% beers.each do |beer| %>
+                  <% if beer.spring_collection? %>
+                    <p class="text-link"><%= beer.name %> </p>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
           <div class="link">
-            <p class="text-link-title"> Collection Automne/hiver </p>
+            <%= link_to autumn_beers_path do %>
+              <p class="text-link-title"> Collection Automne/hiver </p>
+              <% if beers.present? %>
+                <% beers.each do |beer| %>
+                  <% if beer.autumn_collection? %>
+                    <p class="text-link"><%= beer.name %> </p>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

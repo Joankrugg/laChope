@@ -24,7 +24,7 @@
           <% end %>
         <% end %>
         <% if @user.design.present? %>
-          <div class="user">Critères de recherche actuels</div>
+          <div class="user">Style de bière recherché</div>
           <% if @user.design.category.present? %>
             <p class='profil'><%= @user.design.category.name %></p>
           <% end %>
@@ -74,29 +74,14 @@
         <% end %>
         <% if @user == current_user && @user.admin? %>
           <% if @user.activities.present? %>
-            <% acts = [] %>
-            <% @user.activities.each do |a|  %>
-              <% acts << a.name %>
-            <% end %>
-            <% if acts.include?('Brasseur/se amateur/e') %>
-              <li class="nav-item">
-                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-              </li>
-            <% elsif acts.include?('Brasseur/se professionnel/le') %>
-              <li class="nav-item">
-                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-              </li>
-            <% elsif acts.include?('Brasseur/se artiste') %>
-              <li class="nav-item">
-                <a class="nav-link tabs" data-toggle="tab" href="#beers">Bières</a>
-              </li>
-            <% else %>
-            <% end %>
+            <li class="nav-item">
+              <a class="nav-link tabs" data-toggle="tab" href="#new_beer">Bières</a>
+            </li>
           <% end %>
         <% end %>
         <% if @user == current_user %>
           <li class="nav-item">
-            <a class="nav-link tabs" data-toggle="tab" href="#ideal">Idéal</a>
+            <a class="nav-link tabs" data-toggle="tab" href="#ideal">Style</a>
           </li>
         <% end %>
         <li class="nav-item">
@@ -122,7 +107,7 @@
             <%= render 'form' %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="beers">
+        <div class="tab-pane container" id="new_beer">
           <% if @user == current_user %>
             <%= render 'beers/user_form', beer: @beer %>
           <% end %>
