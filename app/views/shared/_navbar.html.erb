@@ -91,55 +91,64 @@
   <div class="tab-pane container" id="beers">
     <div class="card p-top shadow">
       <div class="row">
+        <div class="col-lg-1"></div>
         <div class="col-xs-6 col-sm-4 col-lg-2">
-          <div class="link">
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title"> Ales </p>
-            <p class="text-link">Wheat beers</p>
-            <p class="text-link"> Lambics & Sours</p>
-            <p class="text-link"> Belgian Ales </p>
-            <p class="text-link"> Pale Ales </p>
-            <p class="text-link"> Bitters </p>
-            <p class="text-link"> Scottish Ales </p>
-            <p class="text-link"> Brown Ales </p>
-            <p class="text-link"> Porters </p>
-            <p class="text-link"> Stouts </p>
-          </div>
+          <%= link_to ales_beers_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title"> Ales </p>
+              <p class="text-link">Wheat beers</p>
+              <p class="text-link"> Lambics & Sours</p>
+              <p class="text-link"> Belgian Ales </p>
+              <p class="text-link"> Pale Ales </p>
+              <p class="text-link"> Bitters </p>
+              <p class="text-link"> Scottish Ales </p>
+              <p class="text-link"> Brown Ales </p>
+              <p class="text-link"> Porters </p>
+              <p class="text-link"> Stouts </p>
+            </div>
+          <% end %>
         </div>
         <div class="col-xs-6 col-sm-4 col-lg-2">
-          <div class="link">
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title"> Lagers </p>
-            <p class="text-link"> Pilsner </p>
-            <p class="text-link"> American Lager</p>
-            <p class="text-link"> European Lager </p>
-            <p class="text-link"> Bock </p>
-          </div>
+          <%= link_to lagers_beers_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title"> Lagers </p>
+              <p class="text-link"> Pilsner </p>
+              <p class="text-link"> American Lager</p>
+              <p class="text-link"> European Lager </p>
+              <p class="text-link"> Bock </p>
+            </div>
+          <% end %>
         </div>
         <div class="col-xs-6 col-sm-4 col-lg-2 ">
-          <div class="link">
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title"> Mixed </p>
-            <p class="text-link"> Alt </p>
-            <p class="text-link"> French Ale</p>
-            <p class="text-link"> German Amber </p>
-            <p class="text-link"> American Special </p>
-            <p class="text-link"> Smoked Beer </p>
-            <p class="text-link"> Strong Ale </p>
-          </div>
+          <%= link_to mixed_beers_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title"> Mixed </p>
+              <p class="text-link"> Alt </p>
+              <p class="text-link"> French Ale</p>
+              <p class="text-link"> German Amber </p>
+              <p class="text-link"> American Special </p>
+              <p class="text-link"> Smoked Beer </p>
+              <p class="text-link"> Strong Ale </p>
+            </div>
+          <% end %>
         </div>
         <div class="col-xs-6 col-sm-4 col-lg-2 ">
-          <div class="link">
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title"> Targets </p>
-            <% if beers.present? %>
-              <% beers.each do |beer| %>
-                <% if beer.target? %>
-                  <p class="text-link"><%= beer.name %> </p>
+          <%= link_to target_beers_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title"> Targets </p>
+              <% if beers.present? %>
+                <% beers.each do |beer| %>
+                  <% if beer.target? %>
+                    <p class="text-link"><%= beer.name %> </p>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
         <div class="col-xs-6 col-sm-4 col-lg-2 ">
           <div class="link">
@@ -147,10 +156,7 @@
             <p class="text-link-title"> Collection Printemps/été </p>
             <p class="text-link"> Repas de Famille </p>
           </div>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-lg-2 ">
           <div class="link">
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded'  %>
             <p class="text-link-title"> Collection Automne/hiver </p>
           </div>
         </div>
@@ -161,10 +167,12 @@
     <div class="card p-top">
       <div class="row">
         <div class="col-lg-1"></div>
-        <div class="col-lg-2 link">
+        <div class="col-lg-2">
           <%= link_to articles_path do %>
-            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-            <p class="text-link-title">Derniers Articles</p>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title">Derniers Articles</p>
+            </div>
           <% end %>
           <% if articles.present? %>
             <%= link_to articles.last do %>
@@ -172,21 +180,37 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-lg-2 link">
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-          <p class="text-link-title"> <%= link_to 'Actualités', actu_articles_path %></p>
+        <div class="col-lg-2">
+          <%= link_to actu_articles_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title">Actualités</p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-lg-2 link">
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-          <p class="text-link-title"> <%= link_to "Note d'intention", note_of_intent_articles_path %></p>
+        <div class="col-lg-2 ">
+          <%= link_to note_of_intent_articles_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title">Note d'intention</p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-lg-2 link">
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-          <p class="text-link-title"> <%= link_to 'Technique', science_articles_path %></p>
+        <div class="col-lg-2">
+          <%= link_to science_articles_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title">Technique</p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-lg-2 link">
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
-          <p class="text-link-title"> <%= link_to 'Histoire', history_articles_path %></p>
+        <div class="col-lg-2">
+          <%= link_to history_articles_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
+              <p class="text-link-title">Histoire</p>
+            </div>
+          <% end %>
         </div>
         <div class="col-lg-1"></div>
       </div>

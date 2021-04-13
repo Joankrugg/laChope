@@ -5,21 +5,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h1 class="">Bienvenu.e.es Au Cabinet Target</h1>
-        <H4 class="">Micro-brasserie Collaborative</h4>
-        <p class="">Collectif hédoniste et artistique</p>
+        <h1 class="">Le Cabinet Target</h1>
+        <H4 class="">Micro-brasserie Participative</h4>
+        <p class="">Collectif culturel artistique et hédoniste</p>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
-              <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-            </div>
-            <div class="col-12 col-md-3">
-              <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-            </div>
-          </div>
-        </form>
+        <p class="card-text"><%= link_to "S'inscrire", new_user_registration_path, class: 'btn btn-ghost' %></p>
       </div>
     </div>
   </div>
@@ -28,9 +19,13 @@
 <div class="container top bottom">
   <div class="card shadow p-top p-bottom">
     <p class= "card-text">
-      Le Cabinet Target est une Micro-brasserie collaborative qui avance avec son temps.
-      Plus que jamais, le 'consommer responsable' ou 'éthique' gagne nos assiettes... mais qu'en est-il de nos verres? <br>
-      Une veritable réflexion s'articule autour du plaisir et de la responsabilité de consommer ; l'étiquette qui conditionne un achat est aux antipodes d'une reflexion bien menée. <br>Aussi, nous décidons de mettre en place un circuit ultra court de la production à la Dégustation. Le DIY valeur depuis toujours encensée par les véritables indépendants dont nous sommes absolument tous acteurs que nous soyons producteur ou consommateur
+      Le Cabinet Target est une Micro-brasserie qui avance avec son temps.<br>
+      Consommer responsable<br>
+      Autant que possible, l'idée de savoir exactement ce que l'on mange et ce qu'on boit devrait être au centre de nos préoccupations. Beaucoup d'enseignes l'ont bien compris et vous épargne la gymnastique intellectuelle du quotidien en se cachant derrière de jolis labels qui s'éloigneront peu à peu de leurs fondements au bénéfice de la rentabilité.<br>
+      Artiste brasseur de village et pas brasseur artisanal. <br>
+      Une démarche artistique et intellectuelle générale accompagne les productions du cabinet. C'est égagalement le cas plus spécifiquement pour chacun des brassins qui s'accompagne d'une note d'intention que je me ferai un plaisir de partager vous lors d'une dégustation<br>
+      Circuit ultra court<br>
+      Le DIY est la colonne vertébrale du projet, encensée par les véritables indépendants ; nous sommes tous acteurs de la vie que nous menons, producteurs comme consommateurs
     </p>
   </div>
 </div>
@@ -44,7 +39,7 @@
           <div class="features-icons-icon d-flex ">
             <i class="fa fa-check-square m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Consommation Responsable</h3>
+          <h3>Accompagnement culturel</h3>
           <p class="lead mb-0">Les recettes de chaque bière sont accessibles au membres ainsi que tous les ingrédients utilisés</p>
         </div>
       </div>
@@ -53,8 +48,8 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-cogs m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Développement technique et artistique</h3>
-          <p class="lead mb-0">Des journaux de dégustations vous sont proposés afin de permettre l'amélioration de chaque projet ou la mise en place de nouveaux</p>
+          <h3>Assistance Zythologique et technique</h3>
+          <p class="lead mb-0">Développez votre palet et votre connaissance de l'univers brassicole grâce à l'algorythme de découverte des styles de bière et aux articles</p>
         </div>
       </div>
       <div class="col-lg-4">
@@ -70,8 +65,42 @@
   </div>
 </section>
 
+<div class="container top">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-12">
+      <h2 class='center'>Exemples</h2>
+      <div class="row">
+        <% @beers.sample(3).each do |b| %>
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 index">
+            <%= link_to b do %>
+              <div class="card beers-shadow">
+                <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= b.name.upcase %></h5>
+                  <p class="card-text"><%= b.style.name %></p>
+                  <p class="card-text"><%= b.category.name %></p>
+                  <% if b.user.photo.present? %>
+                    <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-12 mx-auto">
+      <p class="card-text"><%= link_to "connaître mon style de bière", new_user_registration_path, class: 'btn btn-ghost' %></p>
+    </div>
+  </div>
+</div>
 <!-- Image Showcases -->
-<section class="showcase">
+<section class="showcase top">
   <div class="container-fluid p-0">
     <div class="row no-gutters">
 
@@ -134,9 +163,9 @@
       <div class="card shadow">
         <%= cl_image_tag("ef2f62de90464d8b6aeea5702951fd36_omwnp6.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive')%>
         <div class="card-body">
-          <h4 class="card-title">Membre Premium</h4>
-          <p class="card-text">Designez votre bière idéale, faîtes des requêtes, écrivez des articles, faîtes la promotion de vos productions. Rejoignez le collectif</p>
-          <p class="card-text"><%= link_to 'Adhérer', new_user_registration_path, class: 'btn btn-ghost card-img-top' %></p>
+          <h4 class="card-title">Membre</h4>
+          <p class="card-text">Designez votre bière idéale, faîtes des requêtes. Rejoignez le collectif</p>
+          <p class="card-text"><%= link_to "S'inscrire", new_user_registration_path, class: 'btn btn-ghost' %></p>
         </div>
       </div>
     </div>
