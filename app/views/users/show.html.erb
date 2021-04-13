@@ -95,7 +95,7 @@
         </li>
         <% if @user == current_user && @user.admin? %>
           <li class="nav-item">
-            <a class="nav-link tabs" data-toggle="tab" href="#articles">Articles</a>
+            <a class="nav-link tabs" data-toggle="tab" href="#new_article">Articles</a>
           </li>
         <% end %>
       </ul>
@@ -305,7 +305,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="tab-pane container" id="articles">
+        <div class="tab-pane container" id="new_article">
           <% if @user == current_user %>
             <%= render 'articles/form', article: @article %>
           <% end %>
