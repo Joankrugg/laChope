@@ -2,21 +2,24 @@
 <div class="container top">
   <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-lg-4 card-show bottom">
+    <div class="col-lg-10 card-show bottom">
       <% if @user.photo.present? %>
         <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
       <% else %>
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
       <% end %>
       <div class="show-infos">
+        <% if @user == current_user %>
+          <div class="user" data-toggle="modal" data-target="#exampleModal">
+            edition
+          </div>
+        <% end %>
         <div class="user">Nom d'utilisateur</div>
         <% if @user.username.present? %>
           <p class='profil'><%= @user.username %></p>
         <% else %>
           <p class='profil'><%=@user.email %></p>
         <% end %>
-
-
         <% if @user.activities.present? %>
           <div class="user">Activité(s)</div>
           <% @user.activities.each do |a| %>
@@ -61,17 +64,36 @@
         <% if current_user.admin == true %>
           <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
         <% end %>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title center" id="exampleModalLabel">PROFIL</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= render 'form' %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container top">
+  <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-lg-6 card-show bottom">
+    <div class="col-lg-10 card-show bottom">
       <!-- Nav tabs -->
-      <ul class="nav nav-tabs">
-        <% if @user == current_user %>
-          <li class="nav-item">
-            <a class="nav-link tabs active" data-toggle="tab" href="#profil">Profil</a>
-          </li>
-        <% end %>
+      <ul class="nav nav-tabs justify-content-center">
         <% if @user == current_user && @user.admin? %>
           <% if @user.activities.present? %>
             <li class="nav-item">
@@ -81,18 +103,22 @@
         <% end %>
         <% if @user == current_user %>
           <li class="nav-item">
-            <a class="nav-link tabs" data-toggle="tab" href="#ideal">Style</a>
+            <a class="nav-link tabs" data-toggle="tab" href="#ideal">Style recherché</a>
           </li>
         <% end %>
         <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#known">Connues</a>
+          <a class="nav-link tabs" data-toggle="tab" href="#advice">Conseils de style</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#advice">Conseil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tabs" data-toggle="tab" href="#journal">journal</a>
-        </li>
+        <% if @user.ratings.present? %>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#known">Targets Goûtées</a>
+          </li>
+        <% end %>
+        <% if @user.fancies.present? %>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#journal">Souhaits de dégustations</a>
+          </li>
+        <% end %>
         <% if @user == current_user && @user.admin? %>
           <li class="nav-item">
             <a class="nav-link tabs" data-toggle="tab" href="#new_article">Articles</a>
@@ -103,9 +129,7 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div class="tab-pane active container" id="profil">
-          <% if @user == current_user %>
-            <%= render 'form' %>
-          <% end %>
+
         </div>
         <div class="tab-pane container" id="new_beer">
           <% if @user == current_user %>
@@ -288,19 +312,13 @@
               <p class='user first-tab'>à goûter très certainement</p>
               <% four_stars.each do |f| %>
                 <p class='profil'><%= f %></p>
-              <% end %>
-            <% end %>
-          <% end %>
-
-          <% must = results.flatten.group_by(&:itself) %>
-          <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-          <% third_choices = sorted_must.select! { |key, value| value == 3 } %>
-          <% if !third_choices.nil? %>
-            <% three_stars = third_choices.keys %>
-            <% if three_stars != [] %>
-              <p class='user first-tab'>à goûter évidemment</p>
-              <% three_stars.each do |f| %>
-                <p class='profil'><%= f %></p>
+                <% @beers.each do |b| %>
+                  <% if f == b.style.name %>
+                    <%= link_to b do %>
+                      <p class='profil'><%= b.name %></p>
+                    <% end %>
+                  <% end %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
@@ -314,7 +332,3 @@
     </div>
   </div>
 </div>
-
-
-
-

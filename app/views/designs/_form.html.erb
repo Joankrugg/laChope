@@ -1,41 +1,40 @@
 <%= simple_form_for @design do |f| %>
   <div class="form-inputs">
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :category, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :balance, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-      </div>
+    <div class="center">
+      <%= f.association :category, as: :radio_buttons,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
     </div>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :alcohol_shape, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-lg-6">
-        <%= f.association :design_color, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item' %>
-      </div>
+    <div class="center">
+      <%= f.association :balance, as: :radio_buttons,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
     </div>
-    <%= f.association :main_taste, as: :radio_buttons,
+    <div class="center">
+      <%= f.association :alcohol_shape, as: :radio_buttons,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
+    </div>
+    <div class="center">
+      <%= f.association :design_color, as: :radio_buttons,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
+    </div>
+    <div class="center">
+      <%= f.association :main_taste, as: :radio_buttons,
           input_html: { class: "tag-selector" },
           item_wrapper_class: 'tag-item' %>
-
-    <%= f.association :feelings, as: :check_boxes,
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-
-    <%= f.association :flavours, as: :check_boxes,
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-
+    </div>
+    <div class="center">
+      <%= f.association :feelings, as: :check_boxes,
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item' %>
+    </div>
+    <div class="center">
+      <%= f.association :flavours, as: :check_boxes,
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item' %>
+    </div>
     <div class="infos">
       <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
     </div>
