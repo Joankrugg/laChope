@@ -313,16 +313,33 @@
     </div>
   <% end %>
 
-  <% if @user.ratings.present?  %>
+  <% if @user.tastings.present?  %>
     <div class="row">
       <div class="col-lg-1"></div>
-      <div class="col-lg-10 card-show p-top bottom">
+      <div class="col-lg-10 p-top bottom">
         <p class='user'>Targets Goûtées</p>
-        <% @user.ratings.each do |b| %>
-          <p class='fancy-card-text'><%= b.beer.name %>
-          <%=  %><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * b.stars + '<i class="fa fa-star-o" aria-hidden="true"></i>' * (5 - b.stars)).html_safe %></p>
-        <% end %>
       </div>
+    </div>
+    <div class="row">
+      <% gb = @user.tastings.map {|t|t.beer}.uniq %>
+      <% gb.each do |b| %>
+        <div class="mx-auto col-xs-12 col-sm-6 col-lg-3 index">
+          <%= link_to b do %>
+            <div class="card beers-shadow">
+              <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+              <div class="card-body">
+                <h5 class="card-title"><%= b.name.upcase %></h5>
+                <p class="card-text"><%= b.style.name %></p>
+                <p class="card-text"><%= b.category.name %></p>
+                <% if b.user.photo.present? %>
+                  <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                <% end %>
+              </div>
+              <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 
@@ -330,32 +347,27 @@
     <div class="row">
       <div class="col-lg-1"></div>
       <div class="col-lg-10 p-top bottom">
-        <div class="row">
-          <div class="col-lg-1"></div>
-          <div class="col-lg-10">
-            <p class='user'>Souhaits de dégustations</p>
-          </div>
-        </div>
-        <div class="row">
-          <% @user.fancies.each do |uf| %>
-            <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-              <%= link_to uf.beer do  %>
-                <div class="card shadow bottom">
-                  <p class='center target-top-title card-text'><%= uf.beer.name.upcase %></p>
-                  <p class='center'><%= uf.beer.style.name %> | by : <%= uf.beer.user.username %></p>
-                  <%= cl_image_tag uf.beer.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
-                  <div class="card-infos">
-                    <p class='card-text center'>Category: <%= uf.beer.category.name %></p>
-                    <p class='card-text center'>Alcool: <%= uf.beer.alcohol_level %> % Vol</p>
-                    <p class='card-text center'>Color: <%= uf.beer.color %> EBC</p>
-                    <p class='card-text center'>Bitterness: <%= uf.beer.bitterness %> IBU</p>
-                  </div>
-                </div>
-              <% end %>
+        <p class='user'>Souhaits de dégustations</p>
+      </div>
+    </div>
+    <div class="row">
+      <% @user.fancies.each do |uf| %>
+        <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+          <%= link_to uf.beer do  %>
+            <div class="card shadow bottom">
+              <p class='center target-top-title card-text'><%= uf.beer.name.upcase %></p>
+              <p class='center'><%= uf.beer.style.name %> | by : <%= uf.beer.user.username %></p>
+              <%= cl_image_tag uf.beer.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
+              <div class="card-infos">
+                <p class='card-text center'>Category: <%= uf.beer.category.name %></p>
+                <p class='card-text center'>Alcool: <%= uf.beer.alcohol_level %> % Vol</p>
+                <p class='card-text center'>Color: <%= uf.beer.color %> EBC</p>
+                <p class='card-text center'>Bitterness: <%= uf.beer.bitterness %> IBU</p>
+              </div>
             </div>
           <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

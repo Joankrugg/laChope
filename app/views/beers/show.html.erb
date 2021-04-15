@@ -3,60 +3,55 @@
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-4 bottom">
-      <% if @beer.user == current_user && @beer.user.admin? %>
-        <%= link_to edit_beer_path (@beer) do  %>
+      <% if user_signed_in? %>
+        <% if @beer.user == current_user.admin? %>
+          <%= link_to edit_beer_path (@beer) do  %>
+            <div class="card shadow">
+              <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
+              <p class='center'><%= @beer.style.name %> | by : <%= @beer.user.username %></p>
+              <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
+              <div class="card-infos">
+                <p class='card-text center'>Category: <%= @beer.category.name %></p>
+                <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
+                <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
+                <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
+                <p class='card-text center'>Moyenne des notes: <%= @beer.average_stars %></p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
           <div class="card shadow">
             <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
-            <p class='center'><%= @beer.style.name %> | by : <%= @beer.user.username %></p>
+            <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
             <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
             <div class="card-infos">
               <p class='card-text center'>Category: <%= @beer.category.name %></p>
               <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
               <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
               <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
-              <p class='card-text center'>Moyenne des notes: <%= @beer.average_stars %></p>
+              <p class='card-text center rate'><%= @beer.average_stars %></p>
+              <% if @beer.fancies.nil? %>
+                <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+                  <div class="modern">
+                    <%= f.input :heart, as: :boolean, label: "à goûter", input_html: { class: "toggle" }  %>
+                  </div>
+                  <p class='card-text center'><%= f.button :submit, "Valider" %></p>
+                <% end %>
+              <% end %>
+              <% a = [] %>
+              <% if @beer.fancies.present? %>
+                <% @beer.fancies.each do |bf| %>
+                  <% if bf.user == current_user %>
+                    <% a << bf %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if a.present? %>
+                <p class='card-text center'><i class="fa fa-heart"></i></p>
+              <% end %>
             </div>
           </div>
         <% end %>
-      <% else %>
-        <div class="card shadow">
-          <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
-          <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
-          <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
-          <div class="card-infos">
-            <p class='card-text center'>Category: <%= @beer.category.name %></p>
-            <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
-            <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
-            <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
-            <p class='card-text center rate'><%= @beer.average_stars %></p>
-            <% if @beer.fancies.nil? && @beer.user != current_user %>
-              <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-              <div class="modern">
-                <%= f.input :heart, as: :boolean, label: "à goûter", input_html: { class: "toggle" }  %>
-              </div>
-                <p class='card-text center'><%= f.button :submit, "Valider" %></p>
-              <% end %>
-            <% end %>
-            <% a = [] %>
-            <% if @beer.fancies.present? && @beer.user != current_user %>
-              <% @beer.fancies.each do |bf| %>
-                <% if bf.user == current_user %>
-                  <% a << bf %>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if a.present? %>
-              <p class='card-text center'><i class="fa fa-heart"></i></p>
-            <% else %>
-              <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-                <div class="modern">
-                  <%= f.input :heart, as: :boolean, label: "à goûter", input_html: { class: "toggle", id: 'modern' }  %>
-                </div>
-                <p class='card-text center'><%= f.button :submit, "Valider" %></p>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
       <% end %>
     </div>
     <div class="col-lg-1"></div>
@@ -135,6 +130,11 @@
       <div class="card">
         <p class="center top">DESCRIPTION</p>
         <p class="description"> <%= @beer.description %> </p>
+        <% if user_signed_in? %>
+          <div class="center">
+            <%= render 'tastings/form' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -143,106 +143,99 @@
 <div class="container bottom top">
   <div class="row">
     <% if @beer.tastings.present? %>
-      <% @beer.tastings.sort_by(&:id).reverse!.each do |b| %>
-        <div class="col-lg-1"></div>
-        <% if b.user == current_user %>
-          <div class="col-lg-11">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11">
+        <% @beer.tastings.sort_by(&:id).reverse!.each do |b| %>
+          <% if b.user == current_user %>
             <%= link_to edit_beer_tasting_path(@beer, b) do %>
               <div class="card bottom tasting-card">
-              <% unless b.user.photo.present? %>
-                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
-                </div>
-              <% else %>
-                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %>
-                </div>
-              <% end %>
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">NOTE GLOBALE :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text rate"><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * b.global_rating + '<i class="fa fa-star-o" aria-hidden="true"></i>' * (5 - b.global_rating)).html_safe %></p>
-                </div>
-              </div>
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">COULEUR :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text"><%= b.design_color.name %></p>
-                </div>
-              </div>
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">BALANCE :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text"><%= b.balance.name %></p>
-                </div>
-              </div>
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">CLASSE :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text"><%= b.main_taste.name %></p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">TEMPS :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text"><%= b.weather.name %></p>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">CONTEXTE :</p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-text"><%= b.context.name %></p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">AROMES : </p>
-                </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <div class="list">
-                    <% b.flavours.each do |n| %>
-                      | <%= n.name %> |
-                    <% end %>
+                <% if b.user.photo.present? %>
+                  <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %>
+                  </div>
+                <% else %>
+                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
+                  </div>
+                <% end %>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">NOTE GLOBALE :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text rate"><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * b.global_rating + '<i class="fa fa-star-o" aria-hidden="true"></i>' * (5 - b.global_rating)).html_safe %></p>
                   </div>
                 </div>
-              </div>
-
-              <div class="row">
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <p class="tasting-card-title">SENSATIONS : </p>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">COULEUR :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text"><%= b.design_color.name %></p>
+                  </div>
                 </div>
-                <div class='col-xs-6 col-sm-6 col-lg-6'>
-                  <div class="list">
-                    <% b.feelings.each do |n| %>
-                      | <%= n.name %> |
-                    <% end %>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">BALANCE :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text"><%= b.balance.name %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">CLASSE :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text"><%= b.main_taste.name %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">TEMPS :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text"><%= b.weather.name %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">CONTEXTE :</p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-text"><%= b.context.name %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">AROMES : </p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <div class="list">
+                      <% b.flavours.each do |n| %>
+                        | <%= n.name %> |
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <p class="tasting-card-title">SENSATIONS : </p>
+                  </div>
+                  <div class='col-xs-6 col-sm-6 col-lg-6'>
+                    <div class="list">
+                      <% b.feelings.each do |n| %>
+                        | <%= n.name %> |
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
             <% end %>
-          </div>
-        <% else %>
-          <div class="col-lg-11">
+          <% else %>
             <div class="card bottom tasting-card">
-              <% unless b.user.photo.present? %>
-                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
-                </div>
+              <% if b.user.photo.present? %>
+                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %></div>
               <% else %>
-                <div class="user-card"><%= image_tag b.user.photo, height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-large" %>
+                <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 250, width: 250, crop: :fill, class: "tasting-user-img avatar-bordered" %>
                 </div>
               <% end %>
               <div class="row">
@@ -277,7 +270,6 @@
                   <p class="tasting-card-text"><%= b.main_taste.name %></p>
                 </div>
               </div>
-
               <div class="row">
                 <div class='col-xs-6 col-sm-6 col-lg-6'>
                   <p class="tasting-card-title">TEMPS :</p>
@@ -286,8 +278,6 @@
                   <p class="tasting-card-text"><%= b.weather.name %></p>
                 </div>
               </div>
-
-
               <div class="row">
                 <div class='col-xs-6 col-sm-6 col-lg-6'>
                   <p class="tasting-card-title">CONTEXTE :</p>
@@ -296,7 +286,6 @@
                   <p class="tasting-card-text"><%= b.context.name %></p>
                 </div>
               </div>
-
               <div class="row">
                 <div class='col-xs-6 col-sm-6 col-lg-6'>
                   <p class="tasting-card-title">AROMES : </p>
@@ -309,7 +298,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="row">
                 <div class='col-xs-6 col-sm-6 col-lg-6'>
                   <p class="tasting-card-title">SENSATIONS : </p>
@@ -323,22 +311,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<% if user_signed_in? && @beer.tastings == nil %>
-<div class="container bottom top">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11">
-      <div class="row">
-        <div class="col-lg-4 mx-auto">
-          <%= render 'tastings/form' %>
-        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+

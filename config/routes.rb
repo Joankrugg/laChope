@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'tastings/create'
-  get 'tastings/update'
-  get 'ratings/create'
-  get 'ratings/update'
-  get 'fancies/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'

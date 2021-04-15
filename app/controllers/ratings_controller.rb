@@ -1,8 +1,8 @@
 class RatingsController < ApplicationController
   def create
 
-    @beer = Beer.find(params[:beer_id])
     @rating = Rating.new(rating_params)
+    @beer = Beer.find(params[:beer_id])
     @rating.beer = @beer
     @rating.user = current_user
     if @rating.save
