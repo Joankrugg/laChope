@@ -2,8 +2,13 @@
 .user{
   text-align: center;
   color: #3C3C3C;
-  background: $light-gray;
+  background-color: #92B6C3;
   border-radius: 3px;
+}
+.user:hover{
+  background-color: $my-blue;
+  color: white;
+  cursor: pointer;
 }
 
 /*beer cards*/
