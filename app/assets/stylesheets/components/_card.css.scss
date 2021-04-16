@@ -17,6 +17,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 40px;
   margin-bottom: 70px;
+  border-radius: 5px;
 }
 
 .beer-image {
@@ -119,6 +120,18 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+.user-show-card{
+  position: relative;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.user-show-card:hover{
+  background-color: $light-gray;
+}
+
 .show-img{
   margin: 0;
   position: absolute;
@@ -136,6 +149,7 @@
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
+  color: #3C3C3C;
 }
 
 .first-tab{
