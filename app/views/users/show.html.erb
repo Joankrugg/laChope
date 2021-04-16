@@ -392,61 +392,213 @@
       <div class="tab-content">
         <div class="tab-pane active container" id="yeast">
           <p class='user'>Targets Sélectionnées sur critères de fermentation</p>
-          <% targets_y.each do |t| %>
-            <%= t.name %>
-          <% end %>
+          <div class="row">
+            <% targets_y.each do |y| %>
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                <%= link_to y do  %>
+                  <div class="card beers-shadow">
+                    <%= cl_image_tag y.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= y.name.upcase %></h5>
+                      <p class="card-text"><%= y.style.name %></p>
+                      <p class="card-text"><%= y.category.name %></p>
+                      <% if y.user.photo.present? %>
+                        <%= cl_image_tag y.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                      <% end %>
+                    </div>
+                    <p class='center' style='color: #3C3C3C;'><%= y.average_stars %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
         <div class="tab-pane container" id="balance">
           <p class='user'>Targets Sélectionnées sur critères de fermentation</p>
-          <% targets_y.each do |t| %>
-            <%= t.name %>
-          <% end %>
+          <div class="row">
+            <% targets_b.each do |b| %>
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                <%= link_to b.beer do  %>
+                  <div class="card beers-shadow">
+                    <%= cl_image_tag b.beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= b.beer.name.upcase %></h5>
+                      <p class="card-text"><%= b.beer.style.name %></p>
+                      <p class="card-text"><%= b.beer.category.name %></p>
+                      <% if b.beer.user.photo.present? %>
+                        <%= cl_image_tag b.beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                      <% end %>
+                    </div>
+                    <p class='center' style='color: #3C3C3C;'><%= b.beer.average_stars %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
         <div class="tab-pane container" id="main_taste">
           <p class='user'>Targets Sélectionnées sur critères de classe</p>
-          <% targets_mt.each do |b| %>
-            <%= b.beer.name %>
-          <% end %>
+          <div class="row">
+            <% targets_mt.each do |b| %>
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                <%= link_to b.beer do  %>
+                  <div class="card beers-shadow">
+                    <%= cl_image_tag b.beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= b.beer.name.upcase %></h5>
+                      <p class="card-text"><%= b.beer.style.name %></p>
+                      <p class="card-text"><%= b.beer.category.name %></p>
+                      <% if b.beer.user.photo.present? %>
+                        <%= cl_image_tag b.beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                      <% end %>
+                    </div>
+                    <p class='center' style='color: #3C3C3C;'><%= b.beer.average_stars %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
         <div class="tab-pane container" id="color">
           <p class='user'>Targets Sélectionnées sur critères de couleur</p>
-          <% targets_c.each do |b| %>
-            <%= b.beer.name %>
-          <% end %>
+          <div class="row">
+            <% targets_c.each do |b| %>
+              <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                <%= link_to b.beer do  %>
+                  <div class="card beers-shadow">
+                    <%= cl_image_tag b.beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= b.beer.name.upcase %></h5>
+                      <p class="card-text"><%= b.beer.style.name %></p>
+                      <p class="card-text"><%= b.beer.category.name %></p>
+                      <% if b.beer.user.photo.present? %>
+                        <%= cl_image_tag b.beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                      <% end %>
+                    </div>
+                    <p class='center' style='color: #3C3C3C;'><%= b.beer.average_stars %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
         <div class="tab-pane container" id="alcohol_level">
           <p class='user'>Targets Sélectionnées sur critères de niveau d'alcool</p>
           <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
-            <% vst.each do |b| %>
-              <%= b.name %>
-            <% end %>
+            <div class="row">
+              <% vst.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= link_to b do  %>
+                    <div class="card beers-shadow">
+                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= b.name.upcase %></h5>
+                        <p class="card-text"><%= b.style.name %></p>
+                        <p class="card-text"><%= b.category.name %></p>
+                        <% if b.user.photo.present? %>
+                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                        <% end %>
+                      </div>
+                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
           <% if @user.design.alcohol_shape.name == '6°≤ Forte ≤ 9°'%>
-            <% st.each do |b| %>
-              <%= b.name %>
-            <% end %>
+            <div class="row">
+              <% st.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= link_to b do  %>
+                    <div class="card beers-shadow">
+                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= b.name.upcase %></h5>
+                        <p class="card-text"><%= b.style.name %></p>
+                        <p class="card-text"><%= b.category.name %></p>
+                        <% if b.user.photo.present? %>
+                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                        <% end %>
+                      </div>
+                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
           <% if @user.design.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
-            <% rt.each do |b| %>
-              <%= b.name %>
-            <% end %>
+            <div class="row">
+              <% rt.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= link_to b do  %>
+                    <div class="card beers-shadow">
+                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= b.name.upcase %></h5>
+                        <p class="card-text"><%= b.style.name %></p>
+                        <p class="card-text"><%= b.category.name %></p>
+                        <% if b.user.photo.present? %>
+                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                        <% end %>
+                      </div>
+                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
           <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
-            <% lt.each do |b| %>
-              <%= b.name %>
-            <% end %>
+            <div class="row">
+              <% lt.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= link_to b do  %>
+                    <div class="card beers-shadow">
+                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= b.name.upcase %></h5>
+                        <p class="card-text"><%= b.style.name %></p>
+                        <p class="card-text"><%= b.category.name %></p>
+                        <% if b.user.photo.present? %>
+                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                        <% end %>
+                      </div>
+                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
           <% if @user.design.alcohol_shape.name == 'Sans Alcool ≤ 1°' %>
-            <% aft.each do |b| %>
-              <%= b.name %>
-            <% end %>
+            <div class="row">
+              <% aft.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= link_to b do  %>
+                    <div class="card beers-shadow">
+                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                      <div class="card-body">
+                        <h5 class="card-title"><%= b.name.upcase %></h5>
+                        <p class="card-text"><%= b.style.name %></p>
+                        <p class="card-text"><%= b.category.name %></p>
+                        <% if b.user.photo.present? %>
+                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                        <% end %>
+                      </div>
+                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-
 
 <% if @user.tastings.present?  %>
   <div class="container">
