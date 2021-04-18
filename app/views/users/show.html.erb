@@ -13,28 +13,87 @@
           <div class="show-infos">
             <% if @user == current_user %>
               <div class="user" data-toggle="modal" data-target="#profil">
-                NOM D'UTILISATEUR
+                PROFIL
+              </div>
+            <% else %>
+              <div class="user">PROFIL</div>
+            <% end %>
+          </div>
+          <div class="design">
+            <% if @user.username.present? %>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="design-item-category">Nom d'utilisateur: </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class= "design-item"><%= @user.username %></div>
+                </div>
               </div>
             <% end %>
-            <% if @user.username.present? %>
-              <p class='profil'><%= @user.username %></p>
-            <% else %>
-              <p class='profil'><%=@user.email %></p>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="design-item-category">Email: </div>
+              </div>
+              <div class="col-lg-6">
+                <div class= "design-item"><%= @user.email %></div>
+              </div>
+            </div>
+            <% if @user.city.present? %>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="design-item-category">Ville: </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class= "design-item"><%= @user.city %></div>
+                </div>
+              </div>
             <% end %>
-            <% if current_user.admin == true %>
-              <%= link_to "Administration", rails_admin_path, class: "dropdown-item" %>
+            <% if @user.sexe.present? %>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="design-item-category">Genre: </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class= "design-item"><%= @user.sexe.name %></div>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.sexe.present? %>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="design-item-category">Âge: </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class= "design-item"><%= @user.age %> ans</div>
+                </div>
+              </div>
             <% end %>
             <% if @user.activities.present? %>
-              <div class="user">ACTIVITÉ(S)</div>
-              <% @user.activities.each do |a| %>
-                <p class='profil'><%= a.name %></p>
-              <% end %>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="design-item-category">Activité(s): </div>
+                </div>
+                <div class="col-lg-12">
+                  <% @user.activities.each do |a| %>
+                    <div class= "design-item"><%= a.name %></div>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
             <% if @user.website.present? %>
-              <div class="user">SITE INTERNET</div>
-              <%= link_to @user.website, target: :blank do %>
-                <p class='profil'>Mon site</p>
-              <% end %>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="design-item-category">Site internet </div>
+                </div>
+                <div class="col-lg-12">
+                  <%= link_to @user.website, target: :blank do %>
+                    <div class= "design-item"><%= @user.website %></div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if current_user.admin == true %>
+              <div class="design-item-category"><%= link_to "Administration", rails_admin_path %></div>
             <% end %>
           </div>
         </div>
@@ -43,45 +102,98 @@
             <% if @user == current_user %>
               <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DE BIÈRE RECHERCHÉ</div>
             <% end %>
+          </div>
+          <div class="design">
             <% if @user.design.present? %>
               <% if @user.design.category.present? %>
-                <p class='profil'><%= @user.design.category.name %></p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Fermentation:</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item"><%= @user.design.category.name %></div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.balance.present? %>
-                <p class='profil'><%= @user.design.balance.name %></p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Équilibre: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item"><%= @user.design.balance.name %></div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.alcohol_shape.present? %>
-                <p class='profil'><%= @user.design.alcohol_shape.name %></p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Niveau d'alcool: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item"><%= @user.design.alcohol_shape.name %></div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.design_color.present? %>
-                <p class='profil'><%= @user.design.design_color.name %></p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Couleur: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item"><%= @user.design.design_color.name %></div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.main_taste.present? %>
-                <p class='profil'><%= @user.design.main_taste.name %></p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Saveur principale: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item"><%= @user.design.main_taste.name %></div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.flavours.present? %>
-                <% @user.design.flavours.each do |f| %>
-                  <p class='profil'><%= f.name %></p>
-                <% end %>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Arômes:  </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item">
+                      <% @user.design.flavours.each do |f| %>
+                        <%= f.name %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
               <% if @user.design.feelings.present? %>
-                <% @user.design.feelings.each do |f| %>
-                  <p class='profil'><%= f.name %></p>
-                <% end %>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="design-item-category">Sensations: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "design-item">
+                      <% @user.design.feelings.each do |f| %>
+                        <%= f.name %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
             <% else %>
               <p class='profil'>Cliquez sur STYLE DE BIÈRE RECHERCHÉ pour définir vos critères</p>
             <% end %>
+            <% if @user == current_user && @user.admin? %>
+              <div class="user" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
+              <div class="user" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>
+            <% end %>
           </div>
         </div>
       </div>
-      <div class="show-infos">
-        <% if @user == current_user && @user.admin? %>
-          <div class="center bottom">
-            <div class="btn btn-ghost" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
-            <div class="btn btn-ghost" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>
-          </div>
-        <% end %>
+
         <!-- Modals -->
         <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

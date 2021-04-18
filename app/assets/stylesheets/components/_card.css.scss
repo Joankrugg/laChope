@@ -1,9 +1,10 @@
 /*user cards*/
 .user{
   text-align: center;
-  color: #3C3C3C;
+  color: white;
   background-color: #92B6C3;
   border-radius: 3px;
+  margin-bottom: 5px;
 }
 .user:hover{
   background-color: $my-blue;
@@ -130,6 +131,11 @@
 
 .user-show-card:hover{
   background-color: $light-gray;
+
+  .design-item-category{
+  background-color: white;
+
+  }
 }
 
 .show-img{
@@ -146,6 +152,29 @@
 }
 
 .profil{
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #3C3C3C;
+}
+
+
+.design-item-category{
+  padding-left: 10px;
+  font-size: 15px;
+  margin-top: 5px;
+  background-color: $light-gray;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  color: #3C3C3C;
+}
+
+.design-item-category{
+  background-color: #92B6C3;
+}
+
+.design-item{
+  padding-left: 10px;
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
