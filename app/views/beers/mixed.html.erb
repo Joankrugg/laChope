@@ -10,7 +10,11 @@
     <div class="col-xs-12 col-sm-12 col-lg-1"></div>
     <div class="col-xs-12 col-sm-12 col-lg-8">
       <div class="row">
-        <%= render 'mixed'  %>
+        <% mixed_styles.each do |b| %>
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+            <%= render 'beer_card', beer: b %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">

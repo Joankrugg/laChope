@@ -18,21 +18,33 @@
         <% if lagers != [] %>
           <h2 class='center'>Lagers</h2>
           <div class="row">
-            <%= render 'lagers' %>
+            <% lagers.each do |b| %>
+              <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+                <%= render 'beer_card', beer: b %>
+              </div>
+            <% end %>
           </div>
         <% end %>
 
         <% if ales != [] %>
           <h2 class='center'>Ales </h2>
           <div class="row">
-            <%= render 'ales' %>
+            <% ales.each do |b| %>
+              <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+                <%= render 'beer_card', beer: b %>
+              </div>
+            <% end %>
           </div>
         <% end %>
 
         <% if mixed_styles != [] %>
           <h2 class='center'>Mixed Styles</h2>
           <div class="row">
-            <%= render 'mixed' %>
+            <% mixed_styles.each do |b| %>
+              <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+                <%= render 'beer_card', beer: b %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>

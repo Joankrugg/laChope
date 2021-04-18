@@ -1,0 +1,14 @@
+<%= link_to beer do  %>
+  <div class="card beers-shadow">
+    <%= cl_image_tag beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+    <div class="card-body">
+      <h5 class="card-title"><%= beer.name.upcase %></h5>
+      <p class="card-text"><%= beer.style.name %></p>
+      <p class="card-text"><%= beer.category.name %></p>
+      <% if beer.user.photo.present? %>
+        <%= cl_image_tag beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+      <% end %>
+    </div>
+    <p class='center' style='color: #3C3C3C;'><%= beer.average_stars %></p>
+  </div>
+<% end %>

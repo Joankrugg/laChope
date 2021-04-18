@@ -8,7 +8,11 @@
           <p class=''></p>
         </div>
         <div class="row">
-          <%= render 'select' %>
+          <% @beers.each do |b| %>
+            <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+              <%= render 'beer_card', beer: b %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">

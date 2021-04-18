@@ -207,6 +207,8 @@
         <% rt = [] %>
         <% lt = [] %>
         <% aft = [] %>
+        <% targets_a = [] %>
+        <% targets_s = [] %>
 
         <% if @user.design.category.present? %>
           <% @beers.each do |b| %>
@@ -275,6 +277,32 @@
             <% results << extra_malty %>
           <% end %>
         <% end %>
+        <% if @user.design.flavours.present? %>
+          <% @beers.each do |b| %>
+            <% b.tastings.each do |bt| %>
+              <% bt.flavours.each do |f| %>
+                <% @user.design.flavours do |uf| %>
+                  <% if f.name == uf.name %>
+                    <% targets_a << bt %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if @user.design.feelings.present? %>
+          <% @beers.each do |b| %>
+            <% b.tastings.each do |bt| %>
+              <% bt.feelings.each do |f| %>
+                <% @user.design.feelings do |uf| %>
+                  <% if f.name == uf.name %>
+                    <% targets_s << bt %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
         <% if @user.design.design_color.present? %>
           <% @beers.each do |b| %>
             <% b.tastings.each do |bt| %>
@@ -335,14 +363,29 @@
           <% if five_stars != [] %>
             <p class='user'>à goûter absolument</p>
             <% five_stars.each do |f| %>
-              <p class='profil'><%= f %></p>
-              <% @beers.each do |b| %>
-                <% if f == b.style.name %>
-                  <%= link_to b do %>
-                    <%= b.name %>
+              <p class='profil center'><%= f %></p>
+              <div class="row">
+                <% @beers.each do |b| %>
+                  <% if f == b.style.name %>
+                    <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <%= link_to b do  %>
+                        <div class="card beers-shadow">
+                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                          <div class="card-body">
+                            <h5 class="card-title"><%= b.name.upcase %></h5>
+                            <p class="card-text"><%= b.style.name %></p>
+                            <p class="card-text"><%= b.category.name %></p>
+                            <% if b.user.photo.present? %>
+                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                            <% end %>
+                          </div>
+                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                        </div>
+                      <% end %>
+                    </div>
                   <% end %>
                 <% end %>
-              <% end %>
+              </div>
             <% end %>
           <% end %>
         <% end %>
@@ -355,14 +398,29 @@
           <% if four_stars != [] %>
             <p class='user'>à goûter très certainement</p>
             <% four_stars.each do |f| %>
-              <p class='profil'><%= f %></p>
-              <% @beers.each do |b| %>
-                <% if f == b.style.name %>
-                  <%= link_to b do %>
-                    <%= b.name %>
+              <p class='profil center'><%= f %></p>
+              <div class="row">
+                <% @beers.each do |b| %>
+                  <% if f == b.style.name %>
+                    <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <%= link_to b do %>
+                        <div class="card beers-shadow">
+                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+                          <div class="card-body">
+                            <h5 class="card-title"><%= b.name.upcase %></h5>
+                            <p class="card-text"><%= b.style.name %></p>
+                            <p class="card-text"><%= b.category.name %></p>
+                            <% if b.user.photo.present? %>
+                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+                            <% end %>
+                          </div>
+                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
+                        </div>
+                      <% end %>
+                    </div>
                   <% end %>
                 <% end %>
-              <% end %>
+              </div>
             <% end %>
           <% end %>
         <% end %>
@@ -388,6 +446,12 @@
           <li class="nav-item">
             <a class="nav-link tabs" data-toggle="tab" href="#color">Couleur</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#flavour">Arômes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tabs" data-toggle="tab" href="#feeling">Sensations</a>
+          </li>
           <% if @user.design.alcohol_shape.present? %>
             <li class="nav-item">
               <a class="nav-link tabs" data-toggle="tab" href="#alcohol_level">Niveau d'alcool</a>
@@ -398,24 +462,11 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane active container" id="yeast">
-            <p class='user '>Targets Sélectionnées sur critères de fermentation</p>
+            <p class='user '>Targets Sélectionnées sur critères de fermentation <%= @user.design.category.name %></p>
             <div class="row">
               <% targets_y.each do |y| %>
                 <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                  <%= link_to y do  %>
-                    <div class="card beers-shadow">
-                      <%= cl_image_tag y.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                      <div class="card-body">
-                        <h5 class="card-title"><%= y.name.upcase %></h5>
-                        <p class="card-text"><%= y.style.name %></p>
-                        <p class="card-text"><%= y.category.name %></p>
-                        <% if y.user.photo.present? %>
-                          <%= cl_image_tag y.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                        <% end %>
-                      </div>
-                      <p class='center' style='color: #3C3C3C;'><%= y.average_stars %></p>
-                    </div>
-                  <% end %>
+                  <%= render 'beers/beer_card', beer: y %>
                 </div>
               <% end %>
             </div>
@@ -449,20 +500,7 @@
               <% mt = targets_mt.map {|t|t.beer}.uniq %>
               <% mt.each do |b| %>
                 <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                  <%= link_to b do  %>
-                    <div class="card beers-shadow">
-                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                      <div class="card-body">
-                        <h5 class="card-title"><%= b.name.upcase %></h5>
-                        <p class="card-text"><%= b.style.name %></p>
-                        <p class="card-text"><%= b.category.name %></p>
-                        <% if b.user.photo.present? %>
-                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                        <% end %>
-                      </div>
-                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                    </div>
-                  <% end %>
+                  <%= render 'beers/beer_card', beer: b %>
                 </div>
               <% end %>
             </div>
@@ -473,24 +511,36 @@
               <% c = targets_c.map {|t|t.beer}.uniq %>
               <% c.each do |b| %>
                 <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                  <%= link_to b do  %>
-                    <div class="card beers-shadow">
-                      <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                      <div class="card-body">
-                        <h5 class="card-title"><%= b.name.upcase %></h5>
-                        <p class="card-text"><%= b.style.name %></p>
-                        <p class="card-text"><%= b.category.name %></p>
-                        <% if b.user.photo.present? %>
-                          <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                        <% end %>
-                      </div>
-                      <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                    </div>
-                  <% end %>
+                  <%= render 'beers/beer_card', beer: b %>
                 </div>
               <% end %>
             </div>
           </div>
+
+          <div class="tab-pane container" id="flavour">
+            <p class='user '>Targets Sélectionnées sur critères d'arômes</p>
+            <div class="row">
+              <% targets_a.map {|t|t.beer}.uniq %>
+              <% c.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= render 'beers/beer_card', beer: b %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-pane container" id="feeling">
+            <p class='user '>Targets Sélectionnées sur critères de Sensations</p>
+            <div class="row">
+              <% targets_a.map {|t|t.beer}.uniq %>
+              <% c.each do |b| %>
+                <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <%= render 'beers/beer_card', beer: b %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
           <div class="tab-pane container" id="alcohol_level">
             <% if @user.design.alcohol_shape.present? %>
               <p class='user '>Targets Sélectionnées sur critères de niveau d'alcool</p>
@@ -498,20 +548,7 @@
                 <div class="row">
                   <% vst.each do |b| %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                      <%= link_to b do  %>
-                        <div class="card beers-shadow">
-                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                          <div class="card-body">
-                            <h5 class="card-title"><%= b.name.upcase %></h5>
-                            <p class="card-text"><%= b.style.name %></p>
-                            <p class="card-text"><%= b.category.name %></p>
-                            <% if b.user.photo.present? %>
-                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                            <% end %>
-                          </div>
-                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                        </div>
-                      <% end %>
+                      <%= render 'beers/beer_card', beer: b %>
                     </div>
                   <% end %>
                 </div>
@@ -520,20 +557,7 @@
                 <div class="row">
                   <% st.each do |b| %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                      <%= link_to b do  %>
-                        <div class="card beers-shadow">
-                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                          <div class="card-body">
-                            <h5 class="card-title"><%= b.name.upcase %></h5>
-                            <p class="card-text"><%= b.style.name %></p>
-                            <p class="card-text"><%= b.category.name %></p>
-                            <% if b.user.photo.present? %>
-                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                            <% end %>
-                          </div>
-                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                        </div>
-                      <% end %>
+                      <%= render 'beers/beer_card', beer: b %>
                     </div>
                   <% end %>
                 </div>
@@ -542,20 +566,7 @@
                 <div class="row">
                   <% rt.each do |b| %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                      <%= link_to b do  %>
-                        <div class="card beers-shadow">
-                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                          <div class="card-body">
-                            <h5 class="card-title"><%= b.name.upcase %></h5>
-                            <p class="card-text"><%= b.style.name %></p>
-                            <p class="card-text"><%= b.category.name %></p>
-                            <% if b.user.photo.present? %>
-                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                            <% end %>
-                          </div>
-                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                        </div>
-                      <% end %>
+                      <%= render 'beers/beer_card', beer: b %>
                     </div>
                   <% end %>
                 </div>
@@ -564,20 +575,7 @@
                 <div class="row">
                   <% lt.each do |b| %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                      <%= link_to b do  %>
-                        <div class="card beers-shadow">
-                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                          <div class="card-body">
-                            <h5 class="card-title"><%= b.name.upcase %></h5>
-                            <p class="card-text"><%= b.style.name %></p>
-                            <p class="card-text"><%= b.category.name %></p>
-                            <% if b.user.photo.present? %>
-                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                            <% end %>
-                          </div>
-                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                        </div>
-                      <% end %>
+                      <%= render 'beers/beer_card', beer: b %>
                     </div>
                   <% end %>
                 </div>
@@ -586,20 +584,7 @@
                 <div class="row">
                   <% aft.each do |b| %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-                      <%= link_to b do  %>
-                        <div class="card beers-shadow">
-                          <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                          <div class="card-body">
-                            <h5 class="card-title"><%= b.name.upcase %></h5>
-                            <p class="card-text"><%= b.style.name %></p>
-                            <p class="card-text"><%= b.category.name %></p>
-                            <% if b.user.photo.present? %>
-                              <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                            <% end %>
-                          </div>
-                          <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                        </div>
-                      <% end %>
+                      <%= render 'beers/beer_card', beer: b %>
                     </div>
                   <% end %>
                 </div>
@@ -622,20 +607,7 @@
           <% gb = @user.tastings.map {|t|t.beer}.uniq %>
           <% gb.each do |b| %>
             <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-              <%= link_to b do %>
-                <div class="card beers-shadow">
-                  <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= b.name.upcase %></h5>
-                    <p class="card-text"><%= b.style.name %></p>
-                    <p class="card-text"><%= b.category.name %></p>
-                    <% if b.user.photo.present? %>
-                      <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                    <% end %>
-                  </div>
-                  <p class='center' style='color: #3C3C3C;'><%= b.average_stars %></p>
-                </div>
-              <% end %>
+              <%= render 'beers/beer_card', beer: b %>
             </div>
           <% end %>
         </div>
