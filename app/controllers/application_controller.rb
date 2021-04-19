@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
   def set_articles
     @articles = Article.all
   end
+
 end
+

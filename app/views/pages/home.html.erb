@@ -6,29 +6,14 @@
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <h1 class="">Le Cabinet Target</h1>
-        <H4 class="">Micro-brasserie Participative</h4>
-        <p class="">Collectif culturel artistique et hédoniste</p>
+        <h4 class="">Micro-brasserie de village & participative</h4>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <p class="card-text"><%= link_to "S'inscrire", new_user_registration_path, class: 'btn btn-ghost' %></p>
+        <p class="card-text"><%= link_to "Inscription", new_user_registration_path, class: 'btn btn-ghost' %><%= link_to "Connexion", new_user_session_path, class: 'btn btn-ghost' %></p>
       </div>
     </div>
   </div>
 </header>
-
-<div class="container top bottom">
-  <div class="card shadow p-top p-bottom">
-    <p class= "card-text">
-      Le Cabinet Target est une Micro-brasserie qui avance avec son temps.<br>
-      Consommer responsable<br>
-      Autant que possible, l'idée de savoir exactement ce que l'on mange et ce qu'on boit devrait être au centre de nos préoccupations. Beaucoup d'enseignes l'ont bien compris et vous épargne la gymnastique intellectuelle du quotidien en se cachant derrière de jolis labels qui s'éloigneront peu à peu de leurs fondements au bénéfice de la rentabilité.<br>
-      Artiste brasseur de village et pas brasseur artisanal. <br>
-      Une démarche artistique et intellectuelle générale accompagne les productions du cabinet. C'est égagalement le cas plus spécifiquement pour chacun des brassins qui s'accompagne d'une note d'intention que je me ferai un plaisir de partager vous lors d'une dégustation<br>
-      Circuit ultra court<br>
-      Le DIY est la colonne vertébrale du projet, encensée par les véritables indépendants ; nous sommes tous acteurs de la vie que nous menons, producteurs comme consommateurs
-    </p>
-  </div>
-</div>
 
 <!-- Icons Grid -->
 <section class="features-icons bg-light text-center">
@@ -37,10 +22,11 @@
       <div class="col-lg-4">
         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
           <div class="features-icons-icon d-flex ">
-            <i class="fa fa-check-square m-auto" aria-hidden="true"></i>
+            <i class="fa fa-recycle m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Accompagnement culturel</h3>
-          <p class="lead mb-0">Les recettes de chaque bière sont accessibles au membres ainsi que tous les ingrédients utilisés</p>
+          <h3>Artiste brasseur de village</h3>
+          <p class="lead mb-0">Au Cabinet Target, on ne brasse pas une gamme de recettes de bière. On adapte chaque brassin à la saisonnalité.</p>
+          <%= link_to "En apprendre plus sur les familles et types de bière", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
       <div class="col-lg-4">
@@ -48,8 +34,9 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-cogs m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Assistance Zythologique et technique</h3>
-          <p class="lead mb-0">Développez votre palet et votre connaissance de l'univers brassicole grâce à l'algorythme de découverte des styles de bière et aux articles</p>
+          <h3>Assistance bièrologique</h3>
+          <p class="lead mb-0">Développez votre palet et votre connaissance de l'univers brassicole grâce à l'algorythme de découverte des bières et aux articles</p>
+          <%= link_to "Découvrir votre type de bière de prédilection et découvrez les autres", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
       <div class="col-lg-4">
@@ -57,8 +44,9 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-recycle m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Circuit Ultra Court</h3>
-          <p class="lead mb-0">Le volume de chaque brassin est restreint afin d'éviter tout gaspillage, l'objectif est une production à petite échelle</p>
+          <h3>Circuit Court et responsable</h3>
+          <p class="lead mb-0">Retrouvez les recettes et ingrédients de chacun des brassins et ne vous contentez plus d'un label</p>
+          <%= link_to "Découvrir les targets bières et leurs recettes", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
     </div>
@@ -157,17 +145,3 @@
   </div>
 </section>
 
-<div class="container bottom">
-  <div class="row">
-    <div class="col-lg-8 mx-auto">
-      <div class="card shadow">
-        <%= cl_image_tag("ef2f62de90464d8b6aeea5702951fd36_omwnp6.jpg", :quality=>"jpegmini", :width=>300, :crop=>"fit", :sign_url=>true, class: 'img-responsive')%>
-        <div class="card-body">
-          <h4 class="card-title">Membre</h4>
-          <p class="card-text">Designez votre bière idéale, faîtes des requêtes. Rejoignez le collectif</p>
-          <p class="card-text"><%= link_to "S'inscrire", new_user_registration_path, class: 'btn btn-ghost' %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
