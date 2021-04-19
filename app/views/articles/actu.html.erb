@@ -2,6 +2,10 @@
 <div class="container">
   <h2 class='center bottom top'> Actualités </h2>
   <div class="row">
-    <%= render 'articles' %>
+    <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+      <% @articles.each do |b| %>
+        <%= render 'articles', article: b %>
+      <% end %>
+    </div>
   </div>
 </div>

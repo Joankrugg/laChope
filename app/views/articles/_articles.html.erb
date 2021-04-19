@@ -1,14 +1,11 @@
-<div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-  <% @articles.each do |b| %>
-    <%= link_to b do  %>
-      <div class="card shadow bottom">
-        <p class='center target-top-title card-text'><%= b.title.upcase %></p>
-        <p class='center'> by : <%= b.user.username %></p>
-        <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
-        <div class="card-infos">
-          <p class='card-text center'>Category: <%= b.theme.name %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= link_to article do  %>
+  <div class="card shadow bottom">
+    <p class='center target-top-title card-text'><%= article.title.upcase %></p>
+    <p class='center'> Auteur : <%= article.user.username %></p>
+    <%= cl_image_tag article.photo.key, height: 200, width: 300, crop: :fill, class: 'beer-image' %>
+    <div class="card-infos">
+      <p class='card-text center'>Categorie: <%= article.theme.name %></p>
+    </div>
+  </div>
+<% end %>
+
