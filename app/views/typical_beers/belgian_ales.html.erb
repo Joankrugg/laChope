@@ -1,0 +1,28 @@
+<div class="offnavs"></div>
+<div class="container top">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="card">
+      Le Brasseur fait le moût, les levures font la bière... En effet, pour fermenter le moût, il est nécessaire de l'ensemencer avec des levures qui vont se charger de transformer les sucres en alcool, et en dioxyde de carbone.
+      La fermentation haute nécessite l'adjonction dans le moût de levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C).
+      Une bière obtenue par fermentation haute est couramment appelée Ale, notamment au Royaume-Uni.
+      </div>
+      <div class="row">
+        <% ba = [] %>
+        <% @typical_beers.each do |tb| %>
+          <% if tb.beer_family.name == 'Belgian Ales ' %>
+            <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+              <%= render 'typical_beer_card', typical_beer: tb %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'beers/ales_side' %>
+      <%= render 'beers/mixed_side' %>
+    </div>
+  </div>
+</div>

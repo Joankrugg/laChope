@@ -5,6 +5,9 @@
       <h5 class="card-title"><%= typical_beer.name.upcase %></h5>
       <p class="card-text"><%= typical_beer.style.name %></p>
       <p class="card-text"><%= typical_beer.category.name %></p>
+      <% if typical_beer.beer_family.present? %>
+        <p class="card-text"><%= typical_beer.beer_family.name %></p>
+      <% end %>
     </div>
   </div>
 <% end %>

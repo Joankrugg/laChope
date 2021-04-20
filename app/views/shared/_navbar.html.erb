@@ -97,15 +97,15 @@
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Ales </p>
-              <p class="text-link">Wheat beers</p>
-              <p class="text-link"> Lambics & Sours</p>
-              <p class="text-link"> Belgian Ales </p>
-              <p class="text-link"> Pale Ales </p>
-              <p class="text-link"> Bitters </p>
-              <p class="text-link"> Scottish Ales </p>
-              <p class="text-link"> Brown Ales </p>
-              <p class="text-link"> Porters </p>
-              <p class="text-link"> Stouts </p>
+              <p class="text-link"> <%= link_to 'Wheat beers', wheat_beers_typical_beers_path %></p>
+              <p class="text-link"> <%= link_to 'Lambics & Sours', lambics_typical_beers_path %></p>
+              <p class="text-link"> <%= link_to 'Belgian Ales', belgian_ales_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Pale Ales', pale_ales_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Bitters', bitters_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Scottish Ales', scottish_ales_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Brown Ales', brown_ales_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Porters', porters_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Stouts', stouts_typical_beers_path %> </p>
             </div>
           <% end %>
         </div>
@@ -114,10 +114,10 @@
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--s_3dEzRG--/q_jpegmini/v1618324165/30_LevureLager_r0wjpl.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Lagers </p>
-              <p class="text-link"> Pilsner </p>
-              <p class="text-link"> American Lager</p>
-              <p class="text-link"> European Lager </p>
-              <p class="text-link"> Bock </p>
+              <p class="text-link"> <%= link_to 'Pilsner', pilsners_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'American Lager', american_lagers_typical_beers_path %></p>
+              <p class="text-link"> <%= link_to 'European Lager', european_lagers_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Bock ', bocks_typical_beers_path %></p>
             </div>
           <% end %>
         </div>
@@ -126,12 +126,12 @@
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg" ,height: 80, width: 150, crop: :fill, class: 'img-responsive mx-auto rounded' %>
               <p class="text-link-title"> Mixed </p>
-              <p class="text-link"> Alt </p>
-              <p class="text-link"> French Ale</p>
-              <p class="text-link"> German Amber </p>
-              <p class="text-link"> American Special </p>
-              <p class="text-link"> Smoked Beer </p>
-              <p class="text-link"> Strong Ale </p>
+              <p class="text-link"> <%= link_to 'Alt', alts_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'French Ale', french_ales_typical_beers_path %></p>
+              <p class="text-link"> <%= link_to 'German Amber', german_ambers_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'American Special', american_specials_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Smoked Beer', smoked_beers_typical_beers_path %> </p>
+              <p class="text-link"> <%= link_to 'Strong Ale', strong_beers_typical_beers_path %> </p>
             </div>
           <% end %>
         </div>

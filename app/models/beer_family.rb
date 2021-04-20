@@ -1,0 +1,2 @@
+class BeerFamily < ApplicationRecord
+end

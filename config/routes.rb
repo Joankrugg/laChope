@@ -4,7 +4,29 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
-  resources :typical_beers
+  resources :typical_beers do
+    collection do
+      get :wheat_beers
+      get :lambics
+      get :belgian_ales
+      get :pale_ales
+      get :bitters
+      get :scottish_ales
+      get :brown_ales
+      get :porters
+      get :stouts
+      get :pilsners
+      get :american_lagers
+      get :european_lagers
+      get :bocks
+      get :alts
+      get :french_ales
+      get :german_ambers
+      get :american_specials
+      get :smoked_beers
+      get :strong_beers
+    end
+  end
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   resources :designs

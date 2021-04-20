@@ -21,6 +21,9 @@
         <% else %>
           <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
         <% end %>
+        <% if @typical_beer.beer_family.present? %>
+          <p class='content'><%= @typical_beer.beer_family.name %></p>
+        <% end %>
         <p class='content'><%= @typical_beer.description %></p>
       </div>
     </div>

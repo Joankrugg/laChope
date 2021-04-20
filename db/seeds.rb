@@ -211,3 +211,31 @@
 #Context.create({name:'Soirée'})
 #Context.create({name:'Dégustation'})
 #Context.create({name:'Soif'})
+
+BeerFamily.create({name:'Wheat beers'})
+BeerFamily.create({name:'Lambics & Sours'})
+BeerFamily.create({name:'Belgian Ales '})
+BeerFamily.create({name:'Pale Ales'})
+BeerFamily.create({name:'Bitters'})
+BeerFamily.create({name:'Scottish Ales'})
+BeerFamily.create({name:'Brown Ales'})
+BeerFamily.create({name:'Porters'})
+BeerFamily.create({name:'Stouts'})
+BeerFamily.create({name:'Pilsner'})
+BeerFamily.create({name:'American Lager'})
+BeerFamily.create({name:'European Lager'})
+BeerFamily.create({name:'Bock'})
+BeerFamily.create({name:'Alt'})
+BeerFamily.create({name:'French Ale'})
+BeerFamily.create({name:'German Amber'})
+BeerFamily.create({name:'American Special'})
+BeerFamily.create({name:'Smoked Beer'})
+BeerFamily.create({name:'Strong Ale'})
+
+
+
+
+
+
+
+

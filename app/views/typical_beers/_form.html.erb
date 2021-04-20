@@ -21,6 +21,10 @@
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item'  %>
 
+          <%= f.association :beer_family, required: false, as: :radio_buttons,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item'  %>
+
           <%= f.input :description, required: false  %>
 
           <div class="infos">

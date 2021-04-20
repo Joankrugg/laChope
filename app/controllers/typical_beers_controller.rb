@@ -46,6 +46,120 @@ class TypicalBeersController < ApplicationController
     redirect_to typical_beers_path
   end
 
+  def wheat_beers
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def lambics
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def belgian_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def pale_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def bitters
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def scottish_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def brown_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def porters
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def stouts
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def pilsners
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def american_lagers
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def european_lagers
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def bocks
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def alts
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def french_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def german_ambers
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def american_specials
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def smoked_beers
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
+  def strong_ales
+    @typical_beers = TypicalBeer.all
+    @articles = Article.all
+    @beers = Beer.all
+  end
+
   private
 
   def set_typical_beer
@@ -53,6 +167,6 @@ class TypicalBeersController < ApplicationController
   end
 
   def typical_beer_params
-    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo)
+    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo, :beer_family_id)
   end
 end
