@@ -1,0 +1,33 @@
+<div class="offnavs"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>Bière emblématique</h2>
+      <%= simple_form_for @typical_beer do |f| %>
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.input :name, required: false  %>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.input :photo, as: :file, required: false  %>
+            </div>
+          </div>
+          <%= f.association :category, required: false, as: :radio_buttons,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+
+          <%= f.association :style, required: false, as: :radio_buttons,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item'  %>
+
+          <%= f.input :description, required: false  %>
+
+          <div class="infos">
+            <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

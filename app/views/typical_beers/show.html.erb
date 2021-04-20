@@ -1,0 +1,49 @@
+<div class="offnavs"></div>
+<div class="container top">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <h1 class="title card center">Bière Emblématique du style <%= @typical_beer.style.name %></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="card">
+        <h4 class='article-top-title top center'><%= @typical_beer.name.upcase %></h4>
+        <% if @typical_beer.user.admin? %>
+          <%= link_to edit_typical_beer_path(@typical_beer) do %>
+            <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% end %>
+        <% else %>
+          <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+        <% end %>
+        <p class='content'><%= @typical_beer.description %></p>
+      </div>
+    </div>
+
+    <div class="col-lg-3 bottom">
+      <div class="card">
+        <% if @typical_beer.user.photo.present? %>
+          <%= cl_image_tag @typical_beer.user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+        <% end %>
+        <div class="show-infos">
+          <div class="legend center col-lg-8 mx-auto">Auteur</div>
+          <% if @typical_beer.user.username.present? %>
+            <p class='profil'><%= @typical_beer.user.username %></p>
+          <% else %>
+            <p class='profil'><%=@typical_beer.user.email %></p>
+          <% end %>
+        </div>
+      </div>
+      <%= render 'articles/articles_side' %>
+      <%= render 'beers/ales_side' %>
+      <%= render 'beers/lagers_side' %>
+    </div>
+  </div>
+</div>

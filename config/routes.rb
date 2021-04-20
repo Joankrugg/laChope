@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'typical_beers/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :typical_beers
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   resources :designs
