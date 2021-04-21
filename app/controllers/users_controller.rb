@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @design = Design.new
     @article = Article.new
     @beers = Beer.all
+    @typical_beers = TypicalBeer.all
   end
 
   def edit

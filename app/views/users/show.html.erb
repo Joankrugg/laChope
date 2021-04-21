@@ -187,6 +187,7 @@
               <div class="user" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
               <div class="user" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>
               <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
+              <div class="user"><%= link_to 'CRÉER BIÈRE EMBLÉMATIQUE', new_typical_beer_path, class: 'admin' %></div>
             <% end %>
           </div>
         </div>
@@ -481,6 +482,13 @@
                     </div>
                   <% end %>
                 <% end %>
+                <% @typical_beers.each do |b| %>
+                  <% if f == b.style.name %>
+                    <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <%= render 'typical_beers/typical_beer_card', typical_beer: b %>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
             <% end %>
           <% end %>
@@ -500,6 +508,13 @@
                   <% if f == b.style.name %>
                     <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
                       <%= render 'beers/sober_card', beer: b %>
+                    </div>
+                  <% end %>
+                <% end %>
+                <% @typical_beers.each do |b| %>
+                  <% if f == b.style.name %>
+                    <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <%= render 'typical_beers/typical_beer_card', typical_beer: b %>
                     </div>
                   <% end %>
                 <% end %>
@@ -665,9 +680,6 @@
       </div>
     </div>
   </div>
-<% end %>
-<% if @user.admin? %>
-  <%= link_to 'Nouvelle bière typique', new_typical_beer_path, class: 'bottom' %>
 <% end %>
 
 <% if @user.tastings.present?  %>
