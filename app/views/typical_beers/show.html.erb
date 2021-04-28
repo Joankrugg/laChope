@@ -13,7 +13,7 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-8">
       <div class="card">
-        <h4 class='article-top-title top center'><%= @typical_beer.name.upcase %></h4>
+        <h2 class='article-top-title top center'><%= @typical_beer.name.upcase %></h2>
         <% if current_user.admin? %>
           <%= link_to edit_typical_beer_path(@typical_beer) do %>
             <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
@@ -22,7 +22,7 @@
           <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
         <% end %>
         <% if @typical_beer.beer_family.present? %>
-          <p class='content'><%= @typical_beer.beer_family.name %></p>
+          <h4 class='content'><%= @typical_beer.beer_family.name %></h4>
         <% end %>
         <% if @final_description.present? %>
           <% @final_description.each do |content| %>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="col-lg-3 bottom">
-      <div class="card">
+      <div class="card bottom">
         <% if @typical_beer.user.photo.present? %>
           <%= cl_image_tag @typical_beer.user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
         <% else %>

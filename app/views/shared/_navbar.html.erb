@@ -16,20 +16,20 @@
   </ul>
   <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
     <div class="nav-title">Les Bières</div>
-    <%= link_to 'Toutes les Bières', beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Les Lagers', lagers_beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Les Ales', ales_beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Les Styles Mixtes', mixed_beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Les Targets', target_beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Collection Printemps/été', spring_beers_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Collection Automne/hiver', autumn_beers_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Toutes les Bières', beers_path, class: 'dropdown-item browse' %>
+    <%= link_to 'Les Lagers', lagers_beers_path, class: 'dropdown-item browse' %>
+    <%= link_to 'Les Ales', ales_beers_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Les Styles Mixtes', mixed_beers_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Les Targets', target_beers_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Collection Printemps/été', spring_beers_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Collection Automne/hiver', autumn_beers_path, class: 'dropdown-item browse'%>
     <%= link_to 'Members', users_path, class: 'dropdown-item browse' %>
     <div class="nav-title">Les Articles</div>
-    <%= link_to 'Derniers Articles', articles_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Actualités', actu_articles_path, class: 'dropdown-item browse'  %>
-    <%= link_to "Notes d'intention", note_of_intent_articles_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Science & Techniques', science_articles_path, class: 'dropdown-item browse'  %>
-    <%= link_to 'Histoire', history_articles_path, class: 'dropdown-item browse'  %>
+    <%= link_to 'Derniers Articles', articles_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Actualités', actu_articles_path, class: 'dropdown-item browse'%>
+    <%= link_to "Notes d'intention", note_of_intent_articles_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Science & Techniques', science_articles_path, class: 'dropdown-item browse'%>
+    <%= link_to 'Histoire', history_articles_path, class: 'dropdown-item browse'%>
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item browse" %>
     <div class="nav-title">Liens Utiles</div>
     <a class="dropdown-item browse" href="https://www.littlebock.fr/">Little Bock</a>
@@ -96,16 +96,16 @@
           <%= link_to ales_beers_path do %>
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" , class: 'mx-auto avatar-nav' %>
-              <p class="text-link-title"> Ales </p>
-              <p class="text-link"> <%= link_to 'Wheat beers', wheat_beers_typical_beers_path %></p>
-              <p class="text-link"> <%= link_to 'Lambics & Sours', lambics_typical_beers_path %></p>
-              <p class="text-link"> <%= link_to 'Belgian Ales', belgian_ales_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Pale Ales', pale_ales_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Bitters', bitters_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Scottish Ales', scottish_ales_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Brown Ales', brown_ales_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Porters', porters_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Stouts', stouts_typical_beers_path %> </p>
+              <p class="text-link-title"> ALES </p>
+              <div class="cell"><%= link_to 'Wheat beers', wheat_beers_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'Lambics & Sours', lambics_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'Belgian Ales', belgian_ales_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Pale Ales', pale_ales_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Bitters', bitters_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Scottish Ales', scottish_ales_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Brown Ales', brown_ales_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Porters', porters_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Stouts', stouts_typical_beers_path, class: 'text-link' %> </div>
             </div>
           <% end %>
         </div>
@@ -113,11 +113,11 @@
           <%= link_to lagers_beers_path do %>
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--s_3dEzRG--/q_jpegmini/v1618324165/30_LevureLager_r0wjpl.jpg", class: 'mx-auto avatar-nav' %>
-              <p class="text-link-title"> Lagers </p>
-              <p class="text-link"> <%= link_to 'Pilsner', pilsners_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'American Lager', american_lagers_typical_beers_path %></p>
-              <p class="text-link"> <%= link_to 'European Lager', european_lagers_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Bock ', bocks_typical_beers_path %></p>
+              <p class="text-link-title"> LAGERS </p>
+              <div class="cell"><%= link_to 'Pilsner', pilsners_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'American Lager', american_lagers_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'European Lager', european_lagers_typical_beers_path, class: 'text-link' %> </div>
+              <div class="cell"><%= link_to 'Bock ', bocks_typical_beers_path, class: 'text-link' %></div>
             </div>
           <% end %>
         </div>
@@ -125,13 +125,13 @@
           <%= link_to mixed_beers_path do %>
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", class: 'mx-auto avatar-nav' %>
-              <p class="text-link-title"> Mixed </p>
-              <p class="text-link"> <%= link_to 'Alt', alts_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'French Ale', french_ales_typical_beers_path %></p>
-              <p class="text-link"> <%= link_to 'German Amber', german_ambers_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'American Special', american_specials_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Smoked Beer', smoked_beers_typical_beers_path %> </p>
-              <p class="text-link"> <%= link_to 'Strong Ale', strong_beers_typical_beers_path %> </p>
+              <p class="text-link-title"> STYLES MIXTES </p>
+              <div class="cell"><%= link_to 'Alt', alts_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'French Ale', french_ales_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'German Amber', german_ambers_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'American Special', american_specials_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'Smoked Beer', smoked_beers_typical_beers_path, class: 'text-link' %></div>
+              <div class="cell"><%= link_to 'Strong Ale', strong_beers_typical_beers_path, class: 'text-link' %></div>
             </div>
           <% end %>
         </div>
@@ -139,11 +139,11 @@
           <%= link_to target_beers_path do %>
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1616096642/vuyawlk6cgj26cr2m014xhdew8d8.jpg" , class: 'mx-auto avatar-nav' %>
-              <p class="text-link-title"> Targets </p>
+              <p class="text-link-title"> TARGETS </p>
               <% if beers.present? %>
                 <% beers.each do |beer| %>
                   <% if beer.target? %>
-                    <p class="text-link"><%= beer.name %> </p>
+                    <div class="cell"><%= link_to "#{beer.name}", beer , class: 'text-link' %></div>
                   <% end %>
                 <% end %>
               <% end %>
@@ -154,12 +154,14 @@
           <div class="link">
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614876232/Target_xaorog.jpg", class: 'mx-auto avatar-nav' %>
             <%= link_to spring_beers_path do %>
-              <p class="text-link-title"> Collection Printemps/été </p>
-              <p class="text-link"> Repas de Famille </p>
+              <p class="text-link-title"> COLLECTION SUNNY </p>
+              <div class="cell">
+                <div class='text-link'>Repas de Famille </div>
+              </div>
               <% if beers.present? %>
                 <% beers.each do |beer| %>
                   <% if beer.spring_collection? %>
-                    <p class="text-link"><%= beer.name %> </p>
+                    <div class="cell"><%= link_to "#{beer.name}", beer , class: 'text-link' %></div>
                   <% end %>
                 <% end %>
               <% end %>
@@ -167,11 +169,11 @@
           </div>
           <div class="link">
             <%= link_to autumn_beers_path do %>
-              <p class="text-link-title"> Collection Automne/hiver </p>
+              <p class="text-link-title"> COLLECTION CLOUDY </p>
               <% if beers.present? %>
                 <% beers.each do |beer| %>
                   <% if beer.autumn_collection? %>
-                    <p class="text-link"><%= beer.name %> </p>
+                    <div class="cell"><%= link_to "#{beer.name}", beer , class: 'text-link' %></div>
                   <% end %>
                 <% end %>
               <% end %>

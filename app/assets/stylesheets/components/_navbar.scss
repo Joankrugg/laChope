@@ -91,16 +91,23 @@
 
 .text-link{
   margin-left: 10px;
-  color: black;
-  font-weight: lighter;
-  font-size: 12px;
+  color: #3C3C3C;
+  font-weight: light;
+  font-size: 14px;
   margin-top: 0px;
-  margin-bottom: 5px;
 }
 
 .text-link:hover{
-  background-color: $light-gray;
+  color: #3C3C3C;
   cursor: pointer;
+}
+
+.cell{
+  margin-bottom: 3px;
+}
+
+.cell:hover{
+  background-color: $light-gray;
 }
 
 .second-nav-link{
