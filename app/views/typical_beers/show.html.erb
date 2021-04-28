@@ -14,7 +14,7 @@
     <div class="col-lg-8">
       <div class="card">
         <h4 class='article-top-title top center'><%= @typical_beer.name.upcase %></h4>
-        <% if @typical_beer.user.admin? %>
+        <% if current_user.admin? %>
           <%= link_to edit_typical_beer_path(@typical_beer) do %>
             <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
           <% end %>
@@ -24,7 +24,11 @@
         <% if @typical_beer.beer_family.present? %>
           <p class='content'><%= @typical_beer.beer_family.name %></p>
         <% end %>
-        <p class='content'><%= @typical_beer.description %></p>
+        <% if @final_description.present? %>
+          <% @final_description.each do |content| %>
+            <p class='content'><%= content %></p>
+          <% end %>
+        <% end %>
       </div>
     </div>
 

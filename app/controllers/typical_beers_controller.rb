@@ -1,6 +1,6 @@
 class TypicalBeersController < ApplicationController
   before_action :set_typical_beer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy, :get_wiki]
 
   def index
     @typical_beers = TypicalBeer.all
@@ -28,6 +28,23 @@ class TypicalBeersController < ApplicationController
   def show
     @articles = Article.all
     @beers = Beer.all
+    if @typical_beer.wiki_link.present?
+      html_file = RestClient.get(@typical_beer.wiki_link)
+      html_doc = Nokogiri::HTML(html_file)
+      titles = html_doc.css('h3')
+      titles_desc = []
+      titles[0..8].each { |title| titles_desc << title.child.child.text}
+      contents = html_doc.css('p')
+      contents_desc = []
+      contents[0..8].each{|content| contents_desc << content.child.text}
+      description = []
+      description << titles_desc
+      description << contents_desc
+      @final_description = description.transpose.flatten
+      render text: @final_description
+    else
+      puts 'waiting for wiki'
+    end
   end
 
   def edit
@@ -160,6 +177,11 @@ class TypicalBeersController < ApplicationController
     @beers = Beer.all
   end
 
+  def get_wiki
+    @typical_beer = TypicalBeer.find(params[:typical_beer_id])
+
+  end
+
   private
 
   def set_typical_beer
@@ -167,6 +189,6 @@ class TypicalBeersController < ApplicationController
   end
 
   def typical_beer_params
-    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo, :beer_family_id)
+    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo, :beer_family_id, :wiki_link)
   end
 end

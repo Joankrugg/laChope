@@ -4,4 +4,5 @@ class TypicalBeer < ApplicationRecord
   belongs_to :user
   belongs_to :beer_family
   has_one_attached :photo
+
 end

@@ -317,6 +317,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nokogiri
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
@@ -325,6 +326,7 @@ DEPENDENCIES
   rails_admin (>= 1.0.0.rc)
   redis (~> 4.0)
   remotipart!
+  rest-client
   sass-rails (>= 6)
   selenium-webdriver
   simple_form

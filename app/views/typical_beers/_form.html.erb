@@ -27,6 +27,10 @@
 
           <%= f.input :description, required: false  %>
 
+          <% if current_user.admin? %>
+            <%= f.input :wiki_link, required: false  %>
+          <% end %>
+
           <div class="infos">
             <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
           </div>
