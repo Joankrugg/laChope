@@ -3,11 +3,11 @@
     <%= cl_image_tag typical_beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
     <div class="card-body">
       <h5 class="card-title"><%= typical_beer.name.upcase %></h5>
-      <p class="card-text"><%= typical_beer.style.name %></p>
       <p class="card-text"><%= typical_beer.category.name %></p>
       <% if typical_beer.beer_family.present? %>
         <p class="card-text"><%= typical_beer.beer_family.name %></p>
       <% end %>
+      <p class="card-text"><%= typical_beer.style.name %></p>
     </div>
   </div>
 <% end %>

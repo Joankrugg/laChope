@@ -467,7 +467,7 @@
 
         <% must = results.flatten.group_by(&:itself) %>
         <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-        <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
+        <% first_choices = sorted_must.select! { |key, value| value == 6 } %>
         <% if !first_choices.nil? %>
           <% five_stars = first_choices.keys %>
           <% if five_stars != [] %>
