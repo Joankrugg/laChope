@@ -189,6 +189,6 @@ class TypicalBeersController < ApplicationController
   end
 
   def typical_beer_params
-    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo, :beer_family_id, :wiki_link)
+    params.require(:typical_beer).permit(:name, :style_id, :description, :category_id, :photo, :beer_family_id, :wiki_link, :design_color_id)
   end
 end
