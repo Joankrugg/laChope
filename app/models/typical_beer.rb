@@ -5,6 +5,7 @@ class TypicalBeer < ApplicationRecord
   belongs_to :beer_family
   belongs_to :design_color
   belongs_to :balance
+  belongs_to :alcohol_shape
   has_one_attached :photo
 
 end

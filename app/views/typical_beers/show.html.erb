@@ -30,6 +30,9 @@
             <% if @typical_beer.design_color.present? %>
               <%= @typical_beer.design_color.name %>
             <% end %>
+            <% if @typical_beer.alcohol_shape.present? %>
+              <%= @typical_beer.alcohol_shape.name %>
+            <% end %>
           </h6>
         <% end %>
         <% if @final_description.present? %>
