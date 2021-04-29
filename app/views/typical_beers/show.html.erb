@@ -36,6 +36,11 @@
             <% if @typical_beer.main_taste.present? %>
               <%= @typical_beer.main_taste.name %>
             <% end %>
+            <% if @typical_beer.flavours.present? %>
+              <% @typical_beer.flavours.each do |n| %>
+                <%= n.name %>
+              <% end %>
+            <% end %>
           </h6>
         <% end %>
         <% if @final_description.present? %>
