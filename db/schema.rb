@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_160156) do
+ActiveRecord::Schema.define(version: 2021_04_29_081901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -305,6 +305,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_160156) do
     t.bigint "beer_family_id"
     t.string "wiki_link"
     t.bigint "design_color_id"
+    t.bigint "balance_id"
+    t.index ["balance_id"], name: "index_typical_beers_on_balance_id"
     t.index ["beer_family_id"], name: "index_typical_beers_on_beer_family_id"
     t.index ["category_id"], name: "index_typical_beers_on_category_id"
     t.index ["design_color_id"], name: "index_typical_beers_on_design_color_id"
@@ -390,6 +392,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_160156) do
   add_foreign_key "tastings", "main_tastes"
   add_foreign_key "tastings", "users"
   add_foreign_key "tastings", "weathers"
+  add_foreign_key "typical_beers", "balances"
   add_foreign_key "typical_beers", "beer_families"
   add_foreign_key "typical_beers", "categories"
   add_foreign_key "typical_beers", "design_colors"

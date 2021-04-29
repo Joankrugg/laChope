@@ -24,8 +24,8 @@
         <% if @typical_beer.beer_family.present? %>
           <h4 class='content'><%= @typical_beer.beer_family.name %></h4>
           <h6 class='content'>PROFIL
-            <% if @typical_beer.beer_family.present? %>
-              <%= @typical_beer.beer_family.name %>
+            <% if @typical_beer.balance.present? %>
+              <%= @typical_beer.balance.name.capitalize %>
             <% end %>
             <% if @typical_beer.design_color.present? %>
               <%= @typical_beer.design_color.name %>
