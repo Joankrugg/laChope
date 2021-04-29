@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_151925) do
+ActiveRecord::Schema.define(version: 2021_04_29_153910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -294,6 +294,15 @@ ActiveRecord::Schema.define(version: 2021_04_29_151925) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "typical_beer_feelings", force: :cascade do |t|
+    t.bigint "typical_beer_id", null: false
+    t.bigint "feeling_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feeling_id"], name: "index_typical_beer_feelings_on_feeling_id"
+    t.index ["typical_beer_id"], name: "index_typical_beer_feelings_on_typical_beer_id"
+  end
+
   create_table "typical_beer_flavours", force: :cascade do |t|
     t.bigint "flavour_id", null: false
     t.bigint "typical_beer_id", null: false
@@ -405,6 +414,8 @@ ActiveRecord::Schema.define(version: 2021_04_29_151925) do
   add_foreign_key "tastings", "main_tastes"
   add_foreign_key "tastings", "users"
   add_foreign_key "tastings", "weathers"
+  add_foreign_key "typical_beer_feelings", "feelings"
+  add_foreign_key "typical_beer_feelings", "typical_beers"
   add_foreign_key "typical_beer_flavours", "flavours"
   add_foreign_key "typical_beer_flavours", "typical_beers"
   add_foreign_key "typical_beers", "alcohol_shapes"

@@ -41,6 +41,11 @@
                 <%= n.name %>
               <% end %>
             <% end %>
+            <% if @typical_beer.feelings.present? %>
+              <% @typical_beer.feelings.each do |n| %>
+                <%= n.name %>
+              <% end %>
+            <% end %>
           </h6>
         <% end %>
         <% if @final_description.present? %>
