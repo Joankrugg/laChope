@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_083450) do
+ActiveRecord::Schema.define(version: 2021_04_29_090038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,11 +307,13 @@ ActiveRecord::Schema.define(version: 2021_04_29_083450) do
     t.bigint "design_color_id"
     t.bigint "balance_id"
     t.bigint "alcohol_shape_id"
+    t.bigint "main_taste_id"
     t.index ["alcohol_shape_id"], name: "index_typical_beers_on_alcohol_shape_id"
     t.index ["balance_id"], name: "index_typical_beers_on_balance_id"
     t.index ["beer_family_id"], name: "index_typical_beers_on_beer_family_id"
     t.index ["category_id"], name: "index_typical_beers_on_category_id"
     t.index ["design_color_id"], name: "index_typical_beers_on_design_color_id"
+    t.index ["main_taste_id"], name: "index_typical_beers_on_main_taste_id"
     t.index ["style_id"], name: "index_typical_beers_on_style_id"
     t.index ["user_id"], name: "index_typical_beers_on_user_id"
   end
@@ -399,6 +401,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_083450) do
   add_foreign_key "typical_beers", "beer_families"
   add_foreign_key "typical_beers", "categories"
   add_foreign_key "typical_beers", "design_colors"
+  add_foreign_key "typical_beers", "main_tastes"
   add_foreign_key "typical_beers", "styles"
   add_foreign_key "typical_beers", "users"
   add_foreign_key "user_activities", "activities"

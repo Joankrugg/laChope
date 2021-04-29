@@ -33,6 +33,9 @@
             <% if @typical_beer.alcohol_shape.present? %>
               <%= @typical_beer.alcohol_shape.name %>
             <% end %>
+            <% if @typical_beer.main_taste.present? %>
+              <%= @typical_beer.main_taste.name %>
+            <% end %>
           </h6>
         <% end %>
         <% if @final_description.present? %>
