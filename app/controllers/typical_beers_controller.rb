@@ -28,23 +28,6 @@ class TypicalBeersController < ApplicationController
   def show
     @articles = Article.all
     @beers = Beer.all
-    if @typical_beer.wiki_link.present?
-      html_file = RestClient.get(@typical_beer.wiki_link)
-      html_doc = Nokogiri::HTML(html_file)
-      titles = html_doc.css('h3')
-      titles_desc = []
-      titles[0..8].each { |title| titles_desc << title.child.child.text}
-      contents = html_doc.css('p')
-      contents_desc = []
-      contents[0..8].each{|content| contents_desc << content.child.text}
-      description = []
-      description << titles_desc
-      description << contents_desc
-      @final_description = description.transpose.flatten
-      render text: @final_description
-    else
-      puts 'waiting for wiki'
-    end
   end
 
   def edit

@@ -56,10 +56,8 @@
             <% end %>
           </h6>
         <% end %>
-        <% if @final_description.present? %>
-          <% @final_description.each do |content| %>
-            <p class='content'><%= content %></p>
-          <% end %>
+        <% if @typical_beer.description.present? %>
+          <p class='content'><%= @typical_beer.description %></p>
         <% end %>
       </div>
     </div>
