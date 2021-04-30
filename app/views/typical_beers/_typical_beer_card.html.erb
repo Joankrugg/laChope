@@ -1,6 +1,10 @@
 <%= link_to typical_beer do  %>
   <div class="card beers-shadow">
-    <%= cl_image_tag typical_beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+    <% if typical_beer.photo.present? %>
+      <%= cl_image_tag typical_beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+    <% else %>
+      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= typical_beer.name.upcase %></h5>
       <p class="card-text"><%= typical_beer.category.name %></p>

@@ -16,10 +16,18 @@
         <h2 class='article-top-title top center'><%= @typical_beer.name.upcase %></h2>
         <% if current_user.admin? %>
           <%= link_to edit_typical_beer_path(@typical_beer) do %>
-            <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+            <% if @typical_beer.photo.present? %>
+              <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+            <% else %>
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", width: 800, crop: :fill, class: "img-fluid" %>
+            <% end %>
           <% end %>
         <% else %>
-          <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% if @typical_beer.photo.present? %>
+            <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% else %>
+            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", width: 800, crop: :fill, class: "img-fluid" %>
+          <% end %>
         <% end %>
         <% if @typical_beer.beer_family.present? %>
           <h4 class='content'><%= @typical_beer.beer_family.name %></h4>

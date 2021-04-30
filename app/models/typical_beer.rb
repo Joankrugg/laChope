@@ -6,7 +6,7 @@ class TypicalBeer < ApplicationRecord
   belongs_to :design_color
   belongs_to :balance
   belongs_to :alcohol_shape
-  belongs_to :main_taste
+  belongs_to :main_taste, optional: true
   has_many :typical_beer_flavours
   has_many :flavours, through: :typical_beer_flavours
   has_many :typical_beer_feelings
