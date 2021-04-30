@@ -57,7 +57,10 @@
           </h6>
         <% end %>
         <% if @typical_beer.description.present? %>
-          <p class='content'><%= @typical_beer.description %></p>
+          <% description = @typical_beer.description.split('&&') %>
+          <% description.each do |text| %>
+            <p class="content"><%= text %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
