@@ -79,6 +79,11 @@
           <% else %>
             <p class='profil'><%=@typical_beer.user.email %></p>
           <% end %>
+          <% if current_user.admin? %>
+            <%= link_to new_typical_beer_path do %>
+              <div class="legend center col-lg-8 mx-auto bottom">New Beer</div>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <%= render 'articles/articles_side' %>
