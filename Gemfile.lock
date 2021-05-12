@@ -323,7 +323,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
-  rails_admin (>= 1.0.0.rc)
+  rails_admin (~> 2.0)
   redis (~> 4.0)
   remotipart!
   rest-client

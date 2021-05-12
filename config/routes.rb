@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       get :german_ambers
       get :american_specials
       get :smoked_beers
-      get :strong_beers
+      get :strong_ales
     end
   end
   resources :personal_messages, only: [:new, :create]

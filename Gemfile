@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '>= 1.0.0.rc'
+gem 'rails_admin', '~> 2.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
