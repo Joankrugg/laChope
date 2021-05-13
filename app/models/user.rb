@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
   has_one_attached :photo
+  has_many :stickers, dependent: :destroy
   has_many :beers, dependent: :destroy
   has_many :user_activities
   has_many :activities, through: :user_activities

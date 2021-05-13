@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_153910) do
+ActiveRecord::Schema.define(version: 2021_05_13_180016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,14 @@ ActiveRecord::Schema.define(version: 2021_04_29_153910) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "stickers", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_stickers_on_user_id"
+  end
+
   create_table "styles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -403,6 +411,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_153910) do
   add_foreign_key "recipes", "duration_units"
   add_foreign_key "recipes", "product_types"
   add_foreign_key "recipes", "units"
+  add_foreign_key "stickers", "users"
   add_foreign_key "tasting_feelings", "feelings"
   add_foreign_key "tasting_feelings", "tastings"
   add_foreign_key "tasting_flavours", "flavours"
