@@ -3,9 +3,11 @@
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-8">
-      <h1 class="title card center"><%= @title %></h1>
+      <div class="card space">
+        <h1 class="page-title center"><%= @title %></h1>
+      </div>
       <div class="card">
-        <p class='header-text'><%= @header %></p>
+        <h2 class='header-text'><%= @header %></h2>
       </div>
       <div class="row">
         <% @typical_beers.each do |tb| %>

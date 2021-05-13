@@ -164,6 +164,13 @@
   color: #3C3C3C;
 }
 
+.page-title{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: lighter;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
 .design-item-category{
   padding-left: 10px;
@@ -193,14 +200,18 @@
 
 .card-text{
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 2px;
   color: black;
+  font-size: 14px;
+  font-family: 'Work Sans';
+  font-weight: lighter;
 }
 
 .card-title{
   text-align: center;
   margin-bottom: 10px;
   color: #3C3C3C;
+  font-size: 18px;
 }
 
 .card-infos{
@@ -256,6 +267,16 @@
   padding-bottom: 5px;
   padding-left: 20px;
   margin-bottom: 0px;
+}
+
+.title-top-right{
+  color: $gray;
+  background-color: white;
+  padding-top: 12px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  margin-bottom: 0px;
+  font-weight: lighter;
 }
 
 .beer-link{
@@ -326,4 +347,6 @@
 .header-text{
   text-align: left;
   margin: 20px;
+  font-size: 16px;
+  font-weight: lighter;
 }

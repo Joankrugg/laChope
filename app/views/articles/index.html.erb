@@ -1,11 +1,53 @@
 <div class="offnavs"></div>
-<div class="container">
-  <h2 class='center bottom top'> Les Articles </h2>
+<div class="container top">
   <div class="row">
-    <% @articles.each do |u| %>
-      <div class="col-lg-4 col-sm-6 index">
-        <%= render 'articles', article: u %>
+    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
+    <div class="col-xs-12 col-sm-12 col-lg-8">
+      <div class="card space">
+        <h1 class='page-title center'>Les Articles</h1>
       </div>
-    <% end %>
+      <div class="row">
+        <% @articles.each do |u| %>
+          <div class="col-lg-6 col-sm-6 index">
+            <%= render 'articles', article: u %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+      <div class="card">
+        <h3 class="title-top-right">A Découvrir</h3>
+      </div>
+      <div class="card sides bottom index-side">
+        <h4 class="title-top">TARGET</h4>
+        <% @beers.each do |b| %>
+          <% if b.target? %>
+            <%= link_to b do %>
+              <div class="beer-link card-infos">
+                <p class='beer-link-text'>Nom : <%= b.name %></p>
+                <p class='beer-link-text'>Style : <%= b.style.name %></p>
+                <div class="line"></div><br>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card sides top bottom">
+        <h4 class="title-top">A Lire</h4>
+        <% @articles.each do |a| %>
+          <%= link_to a do %>
+            <div class="row article-link card-infos">
+              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
+              <div class="col-lg-8">
+                <p class='article-link-text'><%= a.title %></p>
+                <p class='article-link-text'><%= a.theme.name %></p>
+                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
+                <div class="line center"></div><br>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

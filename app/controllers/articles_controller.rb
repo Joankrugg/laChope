@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @articles = Article.all
+    @beers = Beer.all
   end
 
   def new
