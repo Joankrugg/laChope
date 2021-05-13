@@ -12,5 +12,4 @@ class TypicalBeer < ApplicationRecord
   has_many :typical_beer_feelings
   has_many :feelings, through: :typical_beer_feelings
   has_one_attached :photo
-
 end

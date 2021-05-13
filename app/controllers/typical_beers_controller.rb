@@ -107,9 +107,11 @@ class TypicalBeersController < ApplicationController
   end
 
   def american_lagers
-    @typical_beers = TypicalBeer.all
+    @title = 'Lagers américaines'
+    @typical_beers = TypicalBeer.joins(:beer_family).where(beer_families: { name: 'American Lager' })
     @articles = Article.all
     @beers = Beer.all
+    @header = "La lager américaine ou lager nord-américaine est une lager pâle produite aux États-Unis. La bière de style lager pâle est originaire d'Europe au milieu du 19e siècle et a déménagé aux États-Unis avec des immigrants allemands."
   end
 
   def european_lagers
@@ -146,6 +148,7 @@ class TypicalBeersController < ApplicationController
     @typical_beers = TypicalBeer.all
     @articles = Article.all
     @beers = Beer.all
+    @header = "Les bières spéciales sont brassées avec des sucres fermentescibles atypiques, des céréales et / ou des amidons qui contribuent à la teneur en alcool. La charactéristique Les bières spéciales réside dans le fait que les attributs distinctifs de ces ingrédients spéciaux doivent être présents dans l'arôme, la saveur et l'équilibre général de la bière. Les exemples pourraient inclure le sirop d'érable, l'agave, les pommes de terre, le riz sauvage ou toute autre source de glucides qui n'est pas couramment utilisée dans les styles de bière modernes."
   end
 
   def smoked_beers

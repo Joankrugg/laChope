@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-lewagon fixed-top">
-  <i class="fas fa-bars" data-toggle="collapse"></i>
+  <%= cl_image_tag"https://res.cloudinary.com/da2krghvd/image/upload/v1620877332/Carte%20de%20visite.png", class: 'business-avatar', id: 'brand_root' %>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item d-none d-lg-block">
       <%= link_to 'Accueil', root_path, class: 'second-nav-link', id: 'root' %>
@@ -14,7 +14,11 @@
       <a class="second-nav-link" data-toggle="pill" id="mails-link"> Mails <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
-  <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <div class="dropdown-menu dropdown-menu-left multi-level" role="menu" aria-labelledby="dropdownMenu"id='root_brand'>
     <div class="nav-title">Les Bières</div>
     <%= link_to 'Toutes les Bières', beers_path, class: 'dropdown-item browse' %>
     <%= link_to 'Les Lagers', lagers_beers_path, class: 'dropdown-item browse' %>
@@ -63,7 +67,7 @@
 
 <script>
   $(document).ready(function(){
-    $(".fa-bars").click(function(){
+    $("#brand_root").click(function(){
       $(".dropdown-menu").toggle();
     });
   });
@@ -71,7 +75,7 @@
 
 <script>
   $(document).ready(function(){
-    $(".fa-bars").hover(function(){
+    $("#brand_root").hover(function(){
       $(".dropdown-menu").show();
     });
   });
