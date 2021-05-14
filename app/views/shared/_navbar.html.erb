@@ -13,6 +13,9 @@
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="mails-link"> Mails <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
+    <li class="nav-item d-none d-lg-block">
+      <a class="second-nav-link" data-toggle="pill" id="stickers-link"> Stickers <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </li>
   </ul>
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -254,6 +257,21 @@
       </div>
     </div>
   </div>
+  <div class="tab-pane container" id="stickers">
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <% if user_signed_in? %>
+            <%= link_to 'Créer un sticker', new_sticker_path %>
+            <%= link_to 'Tous les stickers', stickers_path %>
+          <% else %>
+            <%= link_to 'Tous les stickers', stickers_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -370,6 +388,48 @@
   $(document).ready(function(){
     $("#root").hover(function(){
       $("#beers").hide();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").click(function(){
+      $("#stickers").toggle();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").hover(function(){
+      $("#stickers").show();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").hover(function(){
+      $("#mails").hide();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#mails-link").hover(function(){
+      $("#stickers").hide();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#stickers").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
     });
   });
 </script>
