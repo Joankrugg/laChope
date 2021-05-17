@@ -130,6 +130,13 @@
       <div class="card">
         <p class="center top">DESCRIPTION</p>
         <p class="description"> <%= @beer.description %> </p>
+        <% @typical_beers.each do |tb| %>
+          <% if tb.beer_family.name == @beer.beer_family.name %>
+            <%= link_to tb do  %>
+              Bière de la même famille :<%= tb.name %>
+            <% end %>
+          <% end %>
+        <% end %>
         <% if user_signed_in? %>
           <div class="center">
             <%= render 'tastings/form' %>
