@@ -20,7 +20,9 @@
         </div>
         <% if lagers != [] %>
           <div class="card">
-            <h2 class='page-title center'>Lagers</h2>
+            <%= link_to lagers_beers_path do  %>
+              <h2 class='page-title center'>Lagers</h2>
+            <% end %>
           </div>
           <div class="row">
             <% lagers.each do |b| %>
@@ -33,7 +35,9 @@
 
         <% if ales != [] %>
           <div class="card">
-            <h2 class='page-title center'>Ales</h2>
+            <%= link_to ales_beers_path do  %>
+              <h2 class='page-title center'>Ales</h2>
+            <% end %>
           </div>
           <div class="row">
             <% ales.each do |b| %>
@@ -46,7 +50,9 @@
 
         <% if mixed_styles != [] %>
           <div class="card">
-            <h2 class='page-title center'>Styles Mixtes</h2>
+            <%= link_to mixed_beers_path do  %>
+              <h2 class='page-title center'>Styles Mixtes</h2>
+            <% end %>
           </div>
           <div class="row">
             <% mixed_styles.each do |b| %>

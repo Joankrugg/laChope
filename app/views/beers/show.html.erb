@@ -130,10 +130,12 @@
       <div class="card">
         <p class="center top">DESCRIPTION</p>
         <p class="description"> <%= @beer.description %> </p>
-        <% @typical_beers.each do |tb| %>
-          <% if tb.beer_family.name == @beer.beer_family.name %>
-            <%= link_to tb do  %>
-              Bière de la même famille :<%= tb.name %>
+        <% if @beer.beer_family.present? %>
+          <% @typical_beers.each do |tb| %>
+            <% if tb.beer_family.name == @beer.beer_family.name %>
+              <%= link_to tb do  %>
+                Bière de la même famille :<%= tb.name %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
