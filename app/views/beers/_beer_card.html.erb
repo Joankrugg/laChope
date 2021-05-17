@@ -1,6 +1,7 @@
 <%= link_to beer do  %>
   <div class="card beers-shadow">
     <%= cl_image_tag beer.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+    <div class="text">Cliquez pour découvrir la recette, enregistrer une dégustation ou classer dans votre liste d'envie</div>
     <div class="card-body">
       <h5 class="card-title"><%= beer.name.upcase %></h5>
       <p class="card-text"><%= beer.style.name %></p>

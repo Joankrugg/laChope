@@ -27,6 +27,7 @@ class BeersController < ApplicationController
     @fancy = Fancy.new
     @rating = Rating.new
     @tasting = Tasting.new
+    @typical_beer = TypicalBeer.new
 
   end
 

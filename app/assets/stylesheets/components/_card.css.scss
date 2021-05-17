@@ -13,20 +13,20 @@
 }
 
 /*beer cards*/
-
 .beers-shadow{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 40px;
   margin-bottom: 70px;
   border-radius: 5px;
 }
-
-.user-beers{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+.beers-shadow:hover .beer-image {
+  opacity: 0.3;
 }
+
+.beers-shadow:hover .text{
+  opacity: 1;
+}
+
 .beer-image {
   opacity: 1;
   display: block;
@@ -36,9 +36,24 @@
   backface-visibility: hidden;
 }
 
-.index:hover .beer-image {
-  opacity: 0.3;
-  width: 100%;
+.user-beers{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.text {
+  color: black;
+  font-size: 14px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0
 }
 
 .beers-index{
