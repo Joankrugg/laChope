@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_201712) do
+ActiveRecord::Schema.define(version: 2021_05_17_093956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,12 @@ ActiveRecord::Schema.define(version: 2021_05_15_201712) do
     t.index ["category_id"], name: "index_beers_on_category_id"
     t.index ["style_id"], name: "index_beers_on_style_id"
     t.index ["user_id"], name: "index_beers_on_user_id"
+  end
+
+  create_table "bottle_tops", force: :cascade do |t|
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bottles", force: :cascade do |t|
@@ -204,7 +210,9 @@ ActiveRecord::Schema.define(version: 2021_05_15_201712) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "bottle_id"
+    t.bigint "bottle_top_id"
     t.index ["bottle_id"], name: "index_packs_on_bottle_id"
+    t.index ["bottle_top_id"], name: "index_packs_on_bottle_top_id"
   end
 
   create_table "personal_messages", force: :cascade do |t|
@@ -418,6 +426,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_201712) do
   add_foreign_key "designs", "users"
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
+  add_foreign_key "packs", "bottle_tops"
   add_foreign_key "packs", "bottles"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"
