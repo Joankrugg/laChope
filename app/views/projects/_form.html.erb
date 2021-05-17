@@ -1,0 +1,36 @@
+<div class="offnavs"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>Project</h2>
+      <%= simple_form_for @project do |f| %>
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.input :name, required: false  %>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.association :pack, as: :radio_buttons, required: false  %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.association :sticker, as: :radio_buttons, required: false  %>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.association :bottle_top, as: :radio_buttons, required: false  %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+              <%= f.association :typical_beer, as: :radio_buttons, required: false  %>
+            </div>
+          </div>
+          <div class="infos">
+            <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_093956) do
+ActiveRecord::Schema.define(version: 2021_05_17_113623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,9 +210,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_093956) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "bottle_id"
-    t.bigint "bottle_top_id"
     t.index ["bottle_id"], name: "index_packs_on_bottle_id"
-    t.index ["bottle_top_id"], name: "index_packs_on_bottle_top_id"
   end
 
   create_table "personal_messages", force: :cascade do |t|
@@ -229,6 +227,23 @@ ActiveRecord::Schema.define(version: 2021_05_17_093956) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "pack_id", null: false
+    t.bigint "typical_beer_id", null: false
+    t.bigint "sticker_id", null: false
+    t.bigint "bottle_top_id", null: false
+    t.integer "batch"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["bottle_top_id"], name: "index_projects_on_bottle_top_id"
+    t.index ["pack_id"], name: "index_projects_on_pack_id"
+    t.index ["sticker_id"], name: "index_projects_on_sticker_id"
+    t.index ["typical_beer_id"], name: "index_projects_on_typical_beer_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -426,10 +441,14 @@ ActiveRecord::Schema.define(version: 2021_05_17_093956) do
   add_foreign_key "designs", "users"
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
-  add_foreign_key "packs", "bottle_tops"
   add_foreign_key "packs", "bottles"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"
+  add_foreign_key "projects", "bottle_tops"
+  add_foreign_key "projects", "packs"
+  add_foreign_key "projects", "stickers"
+  add_foreign_key "projects", "typical_beers"
+  add_foreign_key "projects", "users"
   add_foreign_key "ratings", "beers"
   add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "actions"

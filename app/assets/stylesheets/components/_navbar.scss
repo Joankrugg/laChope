@@ -65,6 +65,15 @@
   color: $my-blue;
 }
 
+.index-browse{
+  color: white;
+}
+
+.index-browse:hover{
+  color: $my-blue;
+  background: white;
+}
+
 .img-hover-zoom--quick-zoom img {
   transform-origin: 0 0;
   transition: transform .25s, visibility .25s ease-in;
