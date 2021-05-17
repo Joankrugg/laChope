@@ -19,6 +19,7 @@ class Beer < ApplicationRecord
   has_many :users, through: :ratings
   has_many :tastings, dependent: :destroy
   has_many :users, through: :tastings
+  belongs_to :beer_family
 
   def average_stars
     star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }

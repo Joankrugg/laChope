@@ -4,7 +4,7 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-4 bottom">
       <% if user_signed_in? %>
-        <% if @beer.user == current_user.admin? %>
+        <% if @beer.user == current_user %>
           <%= link_to edit_beer_path (@beer) do  %>
             <div class="card shadow">
               <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>

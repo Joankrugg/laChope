@@ -34,6 +34,9 @@
             </div>
           </div>
           <%= f.input :description, required: false  %>
+          <%= f.association :beer_family, required: false, as: :radio_buttons,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item'  %>
           <div class="infos">
             <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
           </div>
