@@ -11,16 +11,14 @@
       </div>
       <div class="row">
         <% @articles.each do |u| %>
-          <div class="col-lg-6 col-sm-6 index">
+          <div class="col-lg-6 col-sm-6 col-xs-12 index mx-auto">
             <%= render 'articles', article: u %>
           </div>
         <% end %>
       </div>
     </div>
     <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
-      <div class="card">
-        <h3 class="title-top-right">A Découvrir</h3>
-      </div>
+      <%= render 'shared/social-networks' %>
       <div class="card sides bottom index-side">
         <h4 class="title-top">TARGET</h4>
         <% @beers.each do |b| %>

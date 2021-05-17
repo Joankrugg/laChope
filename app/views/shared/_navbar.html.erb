@@ -20,14 +20,12 @@
       <a class="second-nav-link" data-toggle="pill" id="projects-link"> Projects <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
-  <div class="dropdown-menu dropdown-menu-left multi-level" role="menu" aria-labelledby="dropdownMenu"id='root_brand'>
-    <%= link_to 'LES BIÈRES TYPIQUES', typical_beers_path, class: 'dropdown-item index-browse'%>
-    <div class="dropdown-divider"></div>
+  <div class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdownMenu"id='root_brand'>
     <%= link_to 'NOS BIÈRES', beers_path, class: 'dropdown-item index-browse' %>
     <div class="dropdown-divider"></div>
     <%= link_to 'LES TARGETS', target_beers_path, class: 'dropdown-item index-browse' %>
     <div class="dropdown-divider"></div>
-    <%= link_to 'LES BIÈRES TYPIQUES', typical_beers_path, class: 'dropdown-item index-browse'%>
+    <%= link_to 'LES CLASSIQUES', typical_beers_path, class: 'dropdown-item index-browse'%>
     <div class="dropdown-divider"></div>
     <%= link_to 'LES ARTICLES', articles_path, class: 'dropdown-item index-browse' %>
     <div class="dropdown-divider"></div>
@@ -43,18 +41,14 @@
       <%= link_to 'MESSAGERIE', conversations_path, class: 'dropdown-item index-browse' %>
     <% end %>
     <div class="dropdown-divider"></div>
-    <%= link_to 'Derniers Articles', articles_path, class: 'dropdown-item browse'%>
-    <%= link_to 'Actualités', actu_articles_path, class: 'dropdown-item browse'%>
-    <%= link_to "Notes d'intention", note_of_intent_articles_path, class: 'dropdown-item browse'%>
-    <%= link_to 'Science & Techniques', science_articles_path, class: 'dropdown-item browse'%>
-    <%= link_to 'Histoire', history_articles_path, class: 'dropdown-item browse'%>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item browse" %>
     <div class="nav-title">Liens Utiles</div>
     <a class="dropdown-item browse" href="https://www.littlebock.fr/">Little Bock</a>
     <a class="dropdown-item browse" href="http://univers-biere.net/">Univers bière</a>
     <a class="dropdown-item browse" href="https://www.lecomptoirdubrasseur.fr/">Comptoir du Brasseur</a>
     <a class="dropdown-item browse" href="https://justbeerapp.com/">Just beer App</a>
     <a class="dropdown-item browse" href="https://www.happybeertime.com/">HappyBeerTime</a>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item browse" %>
+
   </div>
   <div id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
