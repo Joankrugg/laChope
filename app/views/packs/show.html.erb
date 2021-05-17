@@ -1,0 +1,10 @@
+<div class="offnav"></div>
+<div class="container top">
+  <div class="row">
+    <div class="mx-auto">
+      <%= @pack.name %>
+      <%= cl_image_tag @pack.bottle.photo.key, width: 200, height: 300, crop: :fill %>
+      <%= @pack.bottle.centiliter %> cl
+    </div>
+  </div>
+</div>

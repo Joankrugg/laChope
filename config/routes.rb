@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'packs/new'
+  get 'packs/create'
+  get 'packs/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :stickers
+  resources :packs, only: [:new, :create, :show]
   resources :typical_beers do
     collection do
       get :wheat_beers

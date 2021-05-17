@@ -67,4 +67,28 @@
   color: white;
 }
 
+// Checkboxes design
+.bottle-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
 
+.bottle-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.bottle-choice:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.bottle-choice.active {
+  background: $my-blue;
+  color: white;
+  opacity: 1;
+}
