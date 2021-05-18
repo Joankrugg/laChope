@@ -31,30 +31,33 @@
         <% end %>
         <% if @typical_beer.beer_family.present? %>
           <h4 class='content'><%= @typical_beer.beer_family.name %></h4>
-          <h6 class='content'>PROFIL
-            <% if @typical_beer.balance.present? %>
-              <%= @typical_beer.balance.name.capitalize %>
-            <% end %>
-            <% if @typical_beer.design_color.present? %>
-              <%= @typical_beer.design_color.name %>
-            <% end %>
-            <% if @typical_beer.alcohol_shape.present? %>
-              <%= @typical_beer.alcohol_shape.name %>
-            <% end %>
-            <% if @typical_beer.main_taste.present? %>
-              <%= @typical_beer.main_taste.name %>
-            <% end %>
-            <% if @typical_beer.flavours.present? %>
+          <h6 class='content'>PROFIL: </h6>
+          <% if @typical_beer.balance.present? %>
+            <p class="id_card">Équilibre: <%= @typical_beer.balance.name.capitalize %></p>
+          <% end %>
+          <% if @typical_beer.design_color.present? %>
+            <p class="id_card">Couleur: <%= @typical_beer.design_color.name %></p>
+          <% end %>
+          <% if @typical_beer.alcohol_shape.present? %>
+            <p class="id_card">Niveau d'Alcool: <%= @typical_beer.alcohol_shape.name %></p>
+          <% end %>
+          <% if @typical_beer.main_taste.present? %>
+            <p class="id_card">Tendance: <%= @typical_beer.main_taste.name %></p>
+          <% end %>
+          <% if @typical_beer.flavours.present? %>
+            <p class="id_card">Arômes:
               <% @typical_beer.flavours.each do |n| %>
-                <%= n.name %>
+                |<%= n.name %>|
               <% end %>
-            <% end %>
-            <% if @typical_beer.feelings.present? %>
+            </p>
+          <% end %>
+          <% if @typical_beer.feelings.present? %>
+            <p class="id_card">Corps & Caractéristiques:
               <% @typical_beer.feelings.each do |n| %>
-                <%= n.name %>
+                |<%= n.name %>|
               <% end %>
-            <% end %>
-          </h6>
+            </p>
+          <% end %>
         <% end %>
         <% if @typical_beer.description.present? %>
           <% description = @typical_beer.description.split('&&') %>

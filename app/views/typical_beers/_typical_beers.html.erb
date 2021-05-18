@@ -4,7 +4,12 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-8">
       <div class="card space">
-        <h1 class="page-title center"><%= @title %></h1>
+        <h1 class="page-title center">
+          <%= link_to typical_beers_url do %>
+            <i class="fas fa-hand-point-left"></i>
+          <% end %>
+          <%= @title %>
+        </h1>
       </div>
       <div class="card">
         <h2 class='header-text'><%= @header %></h2>
