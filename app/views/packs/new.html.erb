@@ -17,7 +17,7 @@
                   <div class="form-check">
                     <input class="hidden" type="hidden" value="<%= bottle.id %>" name="pack[bottle_id]" id="pack_bottle_id_<%= bottle.id %>">
                     <label class="bottle-choice" for="pack_bottle_id_<%= bottle.id %>">
-                      <div class="card beers-shadow">
+                      <div class=" ">
                         <%= cl_image_tag bottle.photo.key, height: 80, width: 80, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
                         <div class="card-body">
                           <h5 class="card-title"><%= bottle.name %></h5>

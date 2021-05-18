@@ -20,9 +20,11 @@
         </div>
         <% if lagers != [] %>
           <div class="card">
-            <%= link_to lagers_beers_path do  %>
-              <h2 class='page-title center'>Lagers</h2>
-            <% end %>
+            <h2 class="header-text">
+              Le Brasseur fait le moût, les levures font la bière... En effet, pour fermenter le moût, il est nécessaire de l'ensemencer avec des levures qui vont se charger de transformer les sucres en alcool, et en dioxyde de carbone.
+              La fermentation basse nécessite l'adjonction dans le moût de levures dont l'activité est optimale à des températures basses (idéalement 10-15 °C).
+              Une bière obtenue par fermentation basse est généralement appelée <%= link_to 'Lager', lagers_beers_path %>.
+            </h2>
           </div>
           <div class="row">
             <% lagers.each do |b| %>
@@ -35,9 +37,11 @@
 
         <% if ales != [] %>
           <div class="card">
-            <%= link_to ales_beers_path do  %>
-              <h2 class='page-title center'>Ales</h2>
-            <% end %>
+            <h2 class="header-text">
+              Le Brasseur fait le moût, les levures font la bière... En effet, pour fermenter le moût, il est nécessaire de l'ensemencer avec des levures qui vont se charger de transformer les sucres en alcool, et en dioxyde de carbone.
+              La fermentation haute nécessite l'adjonction dans le moût de levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C).
+              Une bière obtenue par fermentation haute est couramment appelée <%= link_to 'Ale', ales_beers_path %>, notamment au Royaume-Uni.
+            </h2>
           </div>
           <div class="row">
             <% ales.each do |b| %>
@@ -50,9 +54,10 @@
 
         <% if mixed_styles != [] %>
           <div class="card">
-            <%= link_to mixed_beers_path do  %>
-              <h2 class='page-title center'>Styles Mixtes</h2>
-            <% end %>
+            <h2 class="header-text">
+              La fermentation mixte combine une fermentation par des levures classiques de brasseries (Saccharomyces pastorianus et Saccharomyces cerevisiae) et une fermentation par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...).
+              Les différents microorganismes peuvent être ensemencés simultanément ou de manière différée selon les résultats escomptés. Il en résulte une grande variété de dynamiques de fermentations dites <%= link_to 'mixtes', mixed_beers_path %>.
+            </h2>
           </div>
           <div class="row">
             <% mixed_styles.each do |b| %>
