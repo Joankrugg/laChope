@@ -6,9 +6,7 @@
       <div class="card space">
         <h1 class='page-title center'>Tous Les Articles</h1>
       </div>
-      <div class="card space">
-        <h2 class='page-title center'>Derniers Articles</h2>
-      </div>
+      <h2 class='header-text'>Les articles qui sont proposés ici se divisent en quatre thèmes principaux, <%= link_to 'les sciences et techniques', science_articles_path %>, <%= link_to "l'histoire" ,history_articles_path %>, les <%= link_to 'actualités', actu_articles_path %> du monde brassicole et <%= link_to "les notes d'intention", note_of_intent_articles_path %> qui accompagnent chacun des objectifs de l'atelier</h2>
       <div class="row">
         <% @articles.each do |u| %>
           <div class="col-lg-6 col-sm-6 col-xs-12 index mx-auto">
