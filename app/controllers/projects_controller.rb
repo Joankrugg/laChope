@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
   def index
     @projects = Project.all
+    @beers = Beer.all
+    @articles = Article.all
   end
 
   def new
@@ -23,6 +25,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @beers = Beer.all
 
   end
 

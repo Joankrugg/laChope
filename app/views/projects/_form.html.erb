@@ -26,6 +26,9 @@
               <%= f.association :typical_beer, as: :radio_buttons, required: false  %>
             </div>
           </div>
+          <div class="col-xs-6 col-sm-6 col-lg-6">
+            <%= f.input :batch, collection: 5..20, required: false  %>
+          </div>
           <div class="infos">
             <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
           </div>

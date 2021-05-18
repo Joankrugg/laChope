@@ -1,19 +1,41 @@
-<div class="offnav bottom"></div>
+<div class="offnavs"></div>
 <div class="container top">
   <div class="row">
-    <div class="mx-auto">
-      <div class="card beers-shadow">
-        <%= cl_image_tag @project.pack.bottle.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @project.name.upcase %></h5>
-          <p class="card-text"><%= @project.typical_beer.category.name %></p>
-          <p class="card-text"><%= @project.typical_beer.style.name %></p>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <h1 class="title card center">PROJET DE BIÈRE</h1>
+    </div>
+  </div>
+</div>
 
-          <% if @project.user.photo.present? %>
-            <%= cl_image_tag @project.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-          <% end %>
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="card">
+        <h4 class='project-top-title top center'><%= @project.name.upcase %></h4>
+        <div class="project-top center">
+          <p class="project-top-infos"><%= @project.created_at.strftime("%d/%m/%Y") %> par <%= @project.user.username %></p>
         </div>
+        <% if @project.user == current_user %>
+          <%= link_to edit_project_path(@project) do %>
+            <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% end %>
+        <% else %>
+          <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+        <% end %>
+        <p class='content'><%= @project.typical_beer.style.name %></p>
+        <p class='content'><%= @project.typical_beer.description %></p>
       </div>
+    </div>
+
+    <div class="col-lg-3 bottom">
+      <div class="card">
+        <%= render 'shared/social-networks' %>
+      </div>
+      <%= render 'beers/lagers_side' %>
+      <%= render 'beers/ales_side' %>
+      <%= render 'beers/lagers_side' %>
     </div>
   </div>
 </div>
