@@ -95,6 +95,7 @@
 #Action.create({name: 'Attendre'})
 #Action.create({name: 'Dry Hopping'})
 #Action.create({name: 'Garde en Bouteille'})
+Action.create({name: 'Faire refroidir'})
 
 #DurationUnit.create({name:'Min'})
 #DurationUnit.create({name:"Days"})
