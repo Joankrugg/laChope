@@ -5,19 +5,19 @@
       <%= link_to 'Accueil', root_path, class: 'second-nav-link', id: 'root' %>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="beers-link">Bières <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="beers-link">Catégories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="articles-link"></i> Articles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-    </li>
-    <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="mails-link"> Mails <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="stickers-link"> Stickers <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="projects-link"> Projects <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </li>
+    <li class="nav-item d-none d-lg-block">
+      <a class="second-nav-link" data-toggle="pill" id="mails-link"> Mails <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
   <div class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdownMenu"id='root_brand'>
@@ -277,7 +277,31 @@
       </div>
     </div>
   </div>
+  <div class="tab-pane container" id="projects">
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <% if user_signed_in? %>
+            <%= link_to 'Créer un projet', new_project_path %>
+            <%= link_to 'Tous les projects', projects_path %>
+          <% else %>
+            <%= link_to 'Tous les projects', projects_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $("#root").hover(function(){
+      $("#beers").hide();
+    });
+  });
+</script>
+
 
 <script>
   $(document).ready(function(){
@@ -286,15 +310,6 @@
     });
   });
 </script>
-
-<script>
-  $(document).ready(function(){
-    $("#beers-link").click(function(){
-      $("#beers").toggle();
-    });
-  });
-</script>
-
 <script>
   $(document).ready(function(){
     $("#beers-link").hover(function(){
@@ -302,7 +317,6 @@
     });
   });
 </script>
-
 <script>
   $(document).ready(function(){
     $("#beers").on({
@@ -313,6 +327,7 @@
   });
 </script>
 
+
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
@@ -320,15 +335,6 @@
     });
   });
 </script>
-
-<script>
-  $(document).ready(function(){
-    $("#articles-link").click(function(){
-      $("#articles").toggle();
-    });
-  });
-</script>
-
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
@@ -336,10 +342,78 @@
     });
   });
 </script>
-
+<script>
+  $(document).ready(function(){
+    $("#articles-link").hover(function(){
+      $("#stickers").hide();
+    });
+  });
+</script>
 <script>
   $(document).ready(function(){
     $("#articles").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").hover(function(){
+      $("#stickers").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").hover(function(){
+      $("#articles").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#stickers-link").hover(function(){
+      $("#projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#stickers").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#projects-link").hover(function(){
+      $("#projects").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#projects-link").hover(function(){
+      $("#stickers").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#projects-link").hover(function(){
+      $("#mails").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#projects").on({
       mouseleave: function(){
         $(this).hide();
       },
@@ -354,31 +428,13 @@
     });
   });
 </script>
-
-<script>
-  $(document).ready(function(){
-    $("#mails-link").click(function(){
-      $("#mails").toggle();
-    });
-  });
-</script>
-
 <script>
   $(document).ready(function(){
     $("#mails-link").hover(function(){
-      $("#articles").hide();
+      $("#projects").hide();
     });
   });
 </script>
-
-<script>
-  $(document).ready(function(){
-    $("#articles-link").hover(function(){
-      $("#mails").hide();
-    });
-  });
-</script>
-
 <script>
   $(document).ready(function(){
     $("#mails").on({
@@ -389,53 +445,6 @@
   });
 </script>
 
-<script>
-  $(document).ready(function(){
-    $("#root").hover(function(){
-      $("#beers").hide();
-    });
-  });
-</script>
 
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").click(function(){
-      $("#stickers").toggle();
-    });
-  });
-</script>
 
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#stickers").show();
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#mails").hide();
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#mails-link").hover(function(){
-      $("#stickers").hide();
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#stickers").on({
-      mouseleave: function(){
-        $(this).hide();
-      },
-    });
-  });
-</script>
 

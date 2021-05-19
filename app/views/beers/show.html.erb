@@ -69,13 +69,6 @@
         <div class="row steps">
           <h2>Etapes de la Recette</h2>
         </div>
-        <% if @beer.user == current_user && @beer.user.admin? %>
-          <div class="row steps">
-            <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer) %>
-          </div>
-        <% else %>
-          <p class="card-text">Recette en cours d'édition</p>
-        <% end %>
         <% s = @beer.recipes.sort_by { |step| step[:step] } %>
         <% s.each do |r| %>
           <div class="container">
@@ -129,6 +122,13 @@
               </div>
             <% end %>
           </div>
+        <% end %>
+        <% if @beer.user == current_user && @beer.user.admin? %>
+          <div class="row steps">
+            <%= link_to 'Nouvelle étape', new_beer_recipe_path(@beer), class: 'card-link' %>
+          </div>
+        <% else %>
+          <p class="card-text">Recette en cours d'édition</p>
         <% end %>
       </div>
     </div>
