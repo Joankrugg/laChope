@@ -97,7 +97,7 @@
 #Action.create({name: 'Garde en Bouteille'})
 #Action.create({name: 'Faire refroidir'})
 #Action.create({name: 'Mise en bouteilles'})
-Action.create({name: 'Éteindre la source de chaleur'})
+#Action.create({name: 'Éteindre la source de chaleur'})
 
 #DurationUnit.create({name:'Min'})
 #DurationUnit.create({name:"Days"})

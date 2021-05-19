@@ -44,6 +44,24 @@
           </div>
         <% end %>
       <% end %>
+      <div class="card top">
+        <p class="center">DESCRIPTION</p>
+        <p class="description"> <%= @beer.description %> </p>
+        <% if @beer.beer_family.present? %>
+          <% @typical_beers.each do |tb| %>
+            <% if tb.beer_family.name == @beer.beer_family.name %>
+              <%= link_to tb do  %>
+                Bière de la même famille :<%= tb.name %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if user_signed_in? %>
+          <div class="center">
+            <%= render 'tastings/form' %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col-lg-1"></div>
     <div class="col-lg-6">
@@ -68,7 +86,7 @@
                     <% if r.product_type.name == 'eau' %>
                       l'<%= r.product_type.name %>
                     <% elsif r.product_type.name == 'épices' %>
-                      l'<%= r.product_type.name %>
+                      les <%= r.product_type.name %>
                     <% elsif r.product_type.name == 'adjuvants' %>
                       l'<%= r.product_type.name %>
                     <% elsif r.product_type.name == 'houblon' %>
@@ -110,29 +128,6 @@
                 </p>
               </div>
             <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11">
-      <div class="card">
-        <p class="center top">DESCRIPTION</p>
-        <p class="description"> <%= @beer.description %> </p>
-        <% if @beer.beer_family.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.beer_family.name == @beer.beer_family.name %>
-              <%= link_to tb do  %>
-                Bière de la même famille :<%= tb.name %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <% if user_signed_in? %>
-          <div class="center">
-            <%= render 'tastings/form' %>
           </div>
         <% end %>
       </div>
