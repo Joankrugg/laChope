@@ -1,10 +1,49 @@
 <div class="footer">
-  <div class="footer-copyright">
+  <div class="footer-copyright d-none d-lg-block">
     Cabinet Target 2021 <i class="far fa-copyright"></i>
   </div>
-  <div>
+  <div class="d-none d-lg-block">
     <a href="#"><i class="fab fa-instagram nav-link-2"></i></a>
     <a href="#"><i class="fab fa-youtube nav-link-2"></i></a>
     <a href="#"><i class="fab fa-linkedin nav-link-2"></i></a>
   </div>
+  <div class="d-lg-none ">
+    <%= link_to typical_beers_path do %>
+      <i class="fas fa-beer footer-link"></i>
+    <% end %>
+  </div>
+  <div class="d-lg-none">
+    <%= link_to articles_path do %>
+      <i class="far fa-newspaper footer-link"></i>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="d-lg-none">
+      <%= link_to stickers_path do %>
+        <i class="far fa-sticky-note footer-link"></i>
+      <% end %>
+    </div>
+    <div class="d-lg-none">
+      <%= link_to projects_path do %>
+        <i class="fas fa-tasks footer-link"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="d-lg-none">
+    <%= link_to target_beers_path do %>
+      <i class="fas fa-bullseye footer-link"></i>
+    <% end %>
+  </div>
+  <div class="d-lg-none">
+    <% if user_signed_in? %>
+      <%= link_to current_user do %>
+        <i class="fas fa-user footer-link"></i>
+      <% end %>
+    <% else %>
+      <%= link_to user_session_path do %>
+        <i class="fas fa-user footer-link"></i>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
