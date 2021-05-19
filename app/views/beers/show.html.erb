@@ -3,21 +3,12 @@
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-4 bottom">
-      <% if user_signed_in? %>
+      <% unless user_signed_in? %>
+        <%= render 'beer_card_show', beer: @beer %>
+      <% else %>
         <% if @beer.user == current_user %>
           <%= link_to edit_beer_path (@beer) do  %>
-            <div class="card shadow">
-              <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
-              <p class='center'><%= @beer.style.name %> | by : <%= @beer.user.username %></p>
-              <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
-              <div class="card-infos">
-                <p class='card-text center'>Category: <%= @beer.category.name %></p>
-                <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
-                <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
-                <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
-                <p class='card-text center'>Moyenne des notes: <%= @beer.average_stars %></p>
-              </div>
-            </div>
+            <%= render 'beer_card_show', beer: @beer %>
           <% end %>
         <% else %>
           <div class="card shadow">

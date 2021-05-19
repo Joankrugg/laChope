@@ -1,21 +1,21 @@
-<h2 class='center'>Article</h2>
-<%= simple_form_for @article do |f| %>
-  <div class="form-inputs">
-    <%= f.input :title, required: false  %>
-    <%= f.association :theme, required: false, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item'  %>
-    <label class="btn photo">
-      Choisir une photo
-      <span style="display:none;">
-        <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-      </span>
-    </label>
-    <%= f.input :content  %>
-
-    <div class="infos">
-      <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+<div class="offnavs"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>Article</h2>
+      <%= simple_form_for @article do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title, required: false  %>
+          <%= f.input :content, as: :string %>
+          <%= f.input :photo, as: :file, required: false  %>
+          <%= f.association :theme, required: false, as: :radio_buttons,
+              input_html: { class: "tag-selector" },
+              item_wrapper_class: 'tag-item'  %>
+        </div>
+        <div class="infos">
+          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
-
+</div>

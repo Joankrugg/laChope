@@ -1,6 +1,6 @@
 class TypicalBeersController < ApplicationController
   before_action :set_typical_beer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy, :get_wiki]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :get_wiki]
 
   def index
     @typical_beers = TypicalBeer.all

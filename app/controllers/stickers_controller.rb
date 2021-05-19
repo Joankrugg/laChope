@@ -1,6 +1,6 @@
 class StickersController < ApplicationController
   before_action :set_sticker, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @stickers = Sticker.all
     @articles = Article.all

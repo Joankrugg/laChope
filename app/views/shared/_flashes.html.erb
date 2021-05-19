@@ -1,29 +1,20 @@
 <% if notice %>
-  <div id="notice-wrapper" class="alert alert-info alert-dismissible" role="alert">
+  <div id="flash-notice-wrapper" class="alert alert-info alert-dismissible" role="alert">
     <div class="message"> <%= notice %></div>
   </div>
 <% end %>
 <% if alert %>
-  <div id="alert-wrapper" class="alert alert-warning alert-dismissible" role="alert">
+  <div id="flash-alert-wrapper" class="alert alert-warning alert-dismissible" role="alert">
     <div class="advice"><%= alert %></div>
 <% end %>
 
 <script>
   $(document).ready(function(){
     setTimeout(function(){
-      $('#notice-wrapper').fadeOut("slow", function(){
-        $('#notice-wrapper').remove();
+      $('#flash-notice-wrapper').fadeOut("slow", function(){
+        $('#flash-notice-wrapper').remove();
       })
     }, 2000 );
   });
 </script>
 
-<script>
-  $(document).ready(function(){
-    setTimeout(function(){
-      $('#alert-wrapper').fadeOut("slow", function(){
-        $('#alert-wrapper').remove();
-      })
-    }, 2000 );
-  });
-</script>
