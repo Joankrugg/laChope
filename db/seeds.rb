@@ -96,7 +96,7 @@
 #Action.create({name: 'Dry Hopping'})
 #Action.create({name: 'Garde en Bouteille'})
 #Action.create({name: 'Faire refroidir'})
-Action.create({name: 'Mise en bouteilles'})
+#Action.create({name: 'Mise en bouteilles'})
 
 #DurationUnit.create({name:'Min'})
 #DurationUnit.create({name:"Days"})
