@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project.user = @user
     if
       @project.save
-      redirect_to project_path(@project)
+      redirect_to current_user
     else
       render :new
     end

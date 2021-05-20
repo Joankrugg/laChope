@@ -19,7 +19,7 @@ class StickersController < ApplicationController
     @sticker.user = @user
     if
       @sticker.save
-      redirect_to sticker_path(@sticker)
+      redirect_to current_user
     else
       render :new
     end

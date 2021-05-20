@@ -2,13 +2,14 @@
 .user{
   text-align: center;
   color: white;
-  background-color: #92B6C3;
+  background: #4B535B;
   border-radius: 3px;
   margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .user:hover{
-  background-color: $my-blue;
-  color: white;
+  color: $light-gray;
   cursor: pointer;
 }
 
@@ -154,7 +155,7 @@
   background-color: $light-gray;
 
   .design-item-category{
-  background-color: white;
+  opacity: 1;
 
   }
 }
@@ -188,21 +189,21 @@
 
 
 .design-item-category{
+  margin-left: 15px;
+  margin-right: 15px;
   padding-left: 10px;
   font-size: 15px;
   margin-top: 5px;
-  background-color: $light-gray;
+  background: #4B535B;
+  opacity: 0.7;
   border-radius: 4px;
   margin-bottom: 5px;
-  color: #3C3C3C;
+  color: white;
 }
 
-.design-item-category{
-  background-color: #92B6C3;
-}
 
 .design-item{
-  padding-left: 10px;
+  padding-left: 15px;
   font-size: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -369,6 +370,7 @@
 
 .admin{
   color: white;
+  margin-bottom: 8px;
 }
 
 .admin:hover{
@@ -387,4 +389,19 @@
   margin-left: 40px;
   margin-bottom: 5px;
 
+}
+.stickers{
+  padding: 10px;
+}
+
+.project{
+  padding: 10px;
+  background-color: $light-gray;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px;
+}
+.project-info{
+  margin-bottom: 0px;
+  color: #3C3C3C;
 }

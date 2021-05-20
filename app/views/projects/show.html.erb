@@ -25,7 +25,10 @@
           <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
         <% end %>
         <p class='content'><%= @project.typical_beer.style.name %></p>
-        <p class='content'><%= @project.typical_beer.description %></p>
+        <% if @project.typical_beer.description.present? %>
+          <% description = @project.typical_beer.description.split('&&')  %>
+          <p class='content'><%= description.join %></p>
+        <% end %>
       </div>
     </div>
 
