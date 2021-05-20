@@ -266,32 +266,46 @@
   <div class="row">
     <div class="col-lg-6">
       <div class='user-show-card bottom'>
-        <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
-        <div class="row stikers">
-          <% @user.stickers.each do |s|%>
-            <div class="col-lg-6 mx-auto">
-              <%= cl_image_tag s.photo.key, height: 150, width: 225, crop: :fill, class: 'thumbnail' %>
+        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1620834761/logo_atelier_target.png", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+        <div class="row">
+          <div class="col-sm-12 col-lg-12">
+            <div class="show-infos">
+              <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
+              <div class="row stikers">
+                <% @user.stickers.each do |s|%>
+                  <div class="col-lg-6 mx-auto">
+                    <%= cl_image_tag s.photo.key, height: 150, width: 225, crop: :fill, class: 'thumbnail img-responsive' %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-lg-6">
       <div class='user-show-card bottom'>
-        <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
-        <div class="row projects">
-          <% @user.projects.each do |project|%>
-            <div class="col-lg-6 mx-auto">
-              <%= link_to project do  %>
-                <div class="project">
-                  <p class ='project-info center'><%= project.name %></p>
-                  <p class ='project-info center'><%= project.typical_beer.name %></p>
-                  <p class ='project-info center'><%= project.pack.bottle.name %></p>
-                  <p class ='project-info center'><%= project.bottle_top.color %></p>
-                </div>
-              <% end %>
+        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1620834761/logo_atelier_target.png", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+        <div class="row">
+          <div class="col-sm-12 col-lg-12">
+            <div class="show-infos">
+              <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
+              <div class="row projects">
+                <% @user.projects.each do |project|%>
+                  <div class="col-lg-6 mx-auto">
+                    <%= link_to project do  %>
+                      <div class="project">
+                        <p class ='project-info center'><%= project.name %></p>
+                        <p class ='project-info center'><%= project.typical_beer.name %></p>
+                        <p class ='project-info center'><%= project.pack.bottle.name %></p>
+                        <p class ='project-info center'><%= project.bottle_top.color %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
