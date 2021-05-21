@@ -32,6 +32,9 @@
         <% if @typical_beer.beer_family.present? %>
           <h4 class='content'><%= @typical_beer.beer_family.name %></h4>
           <h6 class='content'>PROFIL: </h6>
+          <% if @typical_beer.category.present? %>
+            <p class="id_card">Fermentation: <%= @typical_beer.category.name.capitalize %></p>
+          <% end %>
           <% if @typical_beer.balance.present? %>
             <p class="id_card">Équilibre: <%= @typical_beer.balance.name.capitalize %></p>
           <% end %>
