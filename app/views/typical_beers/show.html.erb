@@ -14,12 +14,14 @@
     <div class="col-lg-8">
       <div class="card">
         <h2 class='article-top-title top center'><%= @typical_beer.name.upcase %></h2>
-        <% if current_user.admin? %>
-          <%= link_to edit_typical_beer_path(@typical_beer) do %>
-            <% if @typical_beer.photo.present? %>
-              <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
-            <% else %>
-              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", width: 800, crop: :fill, class: "img-fluid" %>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <%= link_to edit_typical_beer_path(@typical_beer) do %>
+              <% if @typical_beer.photo.present? %>
+                <%= cl_image_tag @typical_beer.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+              <% else %>
+                <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", width: 800, crop: :fill, class: "img-fluid" %>
+              <% end %>
             <% end %>
           <% end %>
         <% else %>
@@ -85,7 +87,7 @@
           <% else %>
             <p class='profil'><%=@typical_beer.user.email %></p>
           <% end %>
-          <% if current_user.admin? %>
+          <% if user_signed_in? && current_user.admin?%>
             <%= link_to new_typical_beer_path do %>
               <div class="legend center col-lg-8 mx-auto bottom">New Beer</div>
             <% end %>
