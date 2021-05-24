@@ -14,9 +14,12 @@
     </div>
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        <div id="search-bar">
+          <%= form_tag(typical_beers_path, method: :get) do %>
+            <%= text_field_tag :search, nil, class: "search-form", placeholder: raw("&#xF002;"), style: "font-family: 'FontAwesome';" %>
+            <%= submit_tag 'Search', style: "display: none;" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

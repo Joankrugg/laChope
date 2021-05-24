@@ -3,9 +3,15 @@ class TypicalBeersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :get_wiki]
 
   def index
-    @typical_beers = TypicalBeer.all
-    @beers = Beer.all
-    @articles = Article.all
+    if params[:search].present?
+      @typical_beers = TypicalBeer.global_search(params[:search])
+      @beers = Beer.all
+      @articles = Article.all
+    else
+      @typical_beers = TypicalBeer.all
+      @beers = Beer.all
+      @articles = Article.all
+    end
   end
 
   def new

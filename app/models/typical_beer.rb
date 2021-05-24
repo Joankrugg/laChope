@@ -13,4 +13,18 @@ class TypicalBeer < ApplicationRecord
   has_many :feelings, through: :typical_beer_feelings
   has_one_attached :photo
   has_many :projects
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name ],
+    associated_against: {
+      style: [ :name ],
+      beer_family: [ :name ],
+      main_taste: [ :name ],
+      balance: [ :name ],
+      flavours: [ :name ],
+      feelings: [ :name ],
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
