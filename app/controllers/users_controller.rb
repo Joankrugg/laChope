@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @articles = Article.all
   end
 
   def show

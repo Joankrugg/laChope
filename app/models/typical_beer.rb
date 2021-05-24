@@ -18,6 +18,7 @@ class TypicalBeer < ApplicationRecord
     against: [ :name ],
     associated_against: {
       style: [ :name ],
+      design_color: [ :name ],
       beer_family: [ :name ],
       main_taste: [ :name ],
       balance: [ :name ],

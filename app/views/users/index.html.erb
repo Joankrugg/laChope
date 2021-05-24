@@ -1,37 +1,76 @@
 <div class="offnavs"></div>
-
-<div class="container">
-  <h2 class='center bottom top'> Les Membres </h2>
+<div class="container top">
   <div class="row">
-    <% @users.each do |u| %>
-      <div class="col-lg-4 col-sm-6 index">
-        <%= link_to u do %>
-          <% unless u.photo.present? %>
-            <div class="members">
-              <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), class: " image img-fluid" %></div>
-              <div class="middle">
-                <p class='infos center'><%= u.email %></p>
-                <% if u != current_user %>
-                  <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
-                <% end %>
+    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
+    <div class="col-xs-12 col-sm-12 col-lg-8">
+      <div class="card space">
+        <h1 class='page-title center'>Tous Les Membres</h1>
+      </div>
+      <div class="card space">
+        <h2 class='header-text'>Il est proposé aux membres de créer des bières de référence de manière à offrir aux utilisateurs du site un large catalogue d'expériences, de créer des étiquettes, des projets de brassins et de consulter des recettes. Pour goûter les Targets c'est à la pico-brasserie ; circuit ultra court. convenons ensemble d'un rendez-vous directement avec moi en envoyant un message</h2>
+      </div>
+      <div class="row">
+        <% @users.each do |u| %>
+          <div class="col-lg-4 col-sm-6 index">
+            <%= link_to u do %>
+              <% unless u.photo.present? %>
+                <div class="members">
+                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 200, width: 250, crop: :fill, class: " image img-fluid" %></div>
+                  <div class="middle">
+                    <p class='infos center'><%= u.email %></p>
+                    <% if u != current_user %>
+                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
+                    <% end %>
+                  </div>
+                </div>
+              <% else %>
+                <div class="members">
+                  <div class="user-card"><%= cl_image_tag u.photo.key, height: 200, width: 250, crop: :fill, class: "image img-fluid" %></div>
+                  <div class="middle">
+                    <p class='infos center'><%= u.email %></p>
+                    <% if u != current_user %>
+                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+      <%= render 'shared/social-networks' %>
+      <div class="card sides bottom index-side">
+        <h4 class="title-top">TARGET</h4>
+        <% @beers.each do |b| %>
+          <% if b.target? %>
+            <%= link_to b do %>
+              <div class="beer-link card-infos">
+                <p class='beer-link-text'>Nom : <%= b.name %></p>
+                <p class='beer-link-text'>Style : <%= b.style.name %></p>
+                <div class="line"></div><br>
               </div>
-            </div>
-          <% else %>
-            <div class="members">
-              <div class="user-card"><%= image_tag u.photo, class: "image img-fluid" %></div>
-              <div class="middle">
-                <p class='infos center'><%= u.email %></p>
-                <% if u != current_user %>
-                  <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
-                <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card sides top bottom">
+        <h4 class="title-top">A Lire</h4>
+        <% @articles.each do |a| %>
+          <%= link_to a do %>
+            <div class="row article-link card-infos">
+              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
+              <div class="col-lg-8">
+                <p class='article-link-text'><%= a.title %></p>
+                <p class='article-link-text'><%= a.theme.name %></p>
+                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
+                <div class="line center"></div><br>
               </div>
             </div>
           <% end %>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
-
-
-
