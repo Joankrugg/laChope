@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
   before_action :set_targets
+  before_action :set_articles
+  before_action :set_stickers
 
   def after_sign_in_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || super
@@ -13,6 +15,10 @@ class ApplicationController < ActionController::Base
 
   def set_articles
     @articles = Article.all
+  end
+
+  def set_stickers
+    @stickers = Sticker.all
   end
 
   private
