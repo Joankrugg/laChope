@@ -10,10 +10,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 mx-auto">
+      <div class="col-xs-8 col-xs-8 col-lg-4 mx-auto">
         <%= form_tag(typical_beers_path, method: :get) do %>
-          <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search' %>
-          <%= submit_tag 'Rechercher', class: 'btn btn-ghost' %>
+          <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'center search' %>
+          <%= submit_tag 'Rechercher', style: "display: none;" %>
         <% end %>
       </div>
     </div>
@@ -27,11 +27,11 @@
       <div class="col-lg-4">
         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
           <div class="features-icons-icon d-flex ">
-            <i class="fa fa-recycle m-auto" aria-hidden="true"></i>
+            <i class="fas fa-beer m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Artiste brasseur de village</h3>
-          <p class="lead mb-0">Au Cabinet Target, on ne brasse pas une gamme de recettes de bière. On adapte chaque brassin à la saisonnalité.</p>
-          <%= link_to "En apprendre plus sur les familles et types de bière", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Découvrir son style de bière</h3>
+          <p>Remplissez des critères subjectifs sur votre compte et retrouvez des exemples commerciaux ou targets qui correspondent à vos goûts </p>
+          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
       <div class="col-lg-4">
@@ -39,19 +39,19 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-cogs m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Assistance bièrologique</h3>
-          <p class="lead mb-0">Développez votre palet et votre connaissance de l'univers brassicole grâce à l'algorythme de découverte des bières et aux articles</p>
-          <%= link_to "Découvrir votre type de bière de prédilection et découvrez les autres", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Découvrez des projets et leurs recettes </h3>
+          <p>Les 'targets beers' sont les projets de l'atelier target, vous découvrirez le packaging, la recette, le résultat et les notes de dégustations</p>
+          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
           <div class="features-icons-icon d-flex">
-            <i class="fa fa-recycle m-auto" aria-hidden="true"></i>
+            <i class="fas fa-heart m-auto" aria-hidden="true"></i>
           </div>
-          <h3>Circuit Court et responsable</h3>
-          <p class="lead mb-0">Retrouvez les recettes et ingrédients de chacun des brassins et ne vous contentez plus d'un label</p>
-          <%= link_to "Découvrir les targets bières et leurs recettes", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Créez des projets individualisés</h3>
+          <p>Vous souhaitez créer un projet pour l'atelier, choisissez votre étiquette ou déposez la, choisissez le contenant la capsule et décrivez vos critères</p>
+          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
 <div class="container top">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-12">
-      <h2 class='center'>Exemples</h2>
+      <h2 class='subtitle center'>Quelques Targets...</h2>
       <div class="row">
         <% @beers.sample(3).each do |b| %>
           <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 index">
@@ -85,36 +85,29 @@
   </div>
 </div>
 
-<div class="container top bottom">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12 mx-auto">
-      <p class="card-text"><%= link_to "connaître mon style de bière", new_user_registration_path, class: 'btn btn-ghost' %></p>
-    </div>
-  </div>
-</div>
 <!-- Image Showcases -->
 <section class="showcase top">
   <div class="container-fluid p-0">
     <div class="row no-gutters">
 
-      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/v1617901359/bieres-beers_dd7sqm.jpg');"></div>
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/s--NICCEFkf--/q_jpegmini/v1622028586/glass-cold-beer-bottoms-up-with-beautiful-bokeh-friends-drink-beer-together-dark-tone_34939-279_ldvuqt.jpg');"></div>
       <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-        <h2>Devenez membre</h2>
+        <h2 class="subtitle">Devenez membre</h2>
         <p class="lead mb-0">Participez à l'élaboration de brassins uniques que vous soyez amateur, brasseur ou professionnel intéressé par la production d'un produit unique</p>
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-lg-6 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/v1617977570/deguster-sa-biere_c1oxoq.jpg');"></div>
+      <div class="col-lg-6 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/s--7g0Mk4Xx--/q_jpegmini/v1622028429/shutterstock-1212903172-1600x900_esy1fx.jpg');"></div>
       <div class="col-lg-6 my-auto showcase-text">
-        <h2>Contruisez votre journal</h2>
-        <p class="lead mb-0">Tenez à jour un journal de dégustations et développez votre appréciation de chaque type de bière, en fonction des contextes</p>
+        <h2 class="subtitle">Contruisez votre journal</h2>
+        <p class="lead mb-0">Tenez à jour un journal de dégustations et développez votre appréciation et connaissance de chaque type de bière.</p>
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/v1617976492/L1eCgorNibKd0irk9M9l1zFZNSOp8O6TOLh9C-eY8sR0kkpKl6uTlHW0mHGyEAIRJfqWMN9NykCGXKV7urqxQzG2iMEXzvPqB_zsiGqIkkx1z1kIiStuU1Ywys5wpz64q43Wbja1f-T2iJ8vNylMyXcBbpL19ZF3uBrugFlv_ueaX23iEgVZQpKHii-PsNk_fgocrh.jpg');"></div>
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://res.cloudinary.com/da2krghvd/image/upload/s--3_Mo3zt1--/q_jpegmini/v1622028003/m_C3_A9thode_20bretonne_20traditionnelle_20de_20brassage_aythmk.jpg');"></div>
       <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-        <h2>Louer mes services</h2>
-        <p class="lead mb-0">Designons ensemble une bière selon vos goûts et mettons en place sa production du design au flacon</p>
+        <h2 class="subtitle">Créez une bière</h2>
+        <p class="lead mb-0">Designez une brassin selon vos goûts et mettons en place la création de la bière du design au flacon.</p>
       </div>
     </div>
   </div>
