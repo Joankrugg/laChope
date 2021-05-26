@@ -272,7 +272,7 @@
               <% stickers.each do |s| %>
                 <div class="col-lg-2 mx-auto">
                   <%= link_to s do %>
-                    <%= cl_image_tag s.photo.key, class: 'img-fluid' %>
+                    <%= cl_image_tag s.photo.key, class: 'img-fluid img-nav' %>
                   <% end %>
                 </div>
               <% end %>

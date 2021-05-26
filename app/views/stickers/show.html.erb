@@ -6,3 +6,16 @@
     </div>
   </div>
 </div>
+<% if @sticker.projects.present? %>
+  <div class="container">
+    <div class="row">
+      <% @sticker.projects.each do |project| %>
+        <div class="col-lg-3 mx-auto">
+          <%= link_to project do %>
+            <% render 'projects/project_card', project: project %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
