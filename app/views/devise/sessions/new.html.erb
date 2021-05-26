@@ -1,12 +1,12 @@
 <div class="offnav"></div>
 <div class="container bottom">
   <div class="row">
-    <div class="col-sm-8 col-lg-4 mx-auto form-login">
+    <div class="col-xs-12 col-sm-8 col-lg-4 mx-auto form-login">
       <h2>CONNEXION</h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
-          <%= f.input :email, required: false, autofocus: nil, label: 'Email', input_html: { class: "center light" } %>
-          <%= f.input :password, required: false, label: 'Mot de passe',input_html: { class: "center" }  %>
+          <%= f.input :email, required: false, autofocus: nil, label: 'Email', input_html: { class: "center light connexion" } %>
+          <%= f.input :password, required: false, label: 'Mot de passe',input_html: { class: "center connexion" }  %>
           <%= f.input :remember_me, label: 'Se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="form-actions">
