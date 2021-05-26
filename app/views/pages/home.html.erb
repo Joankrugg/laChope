@@ -8,18 +8,13 @@
         <h1 class="">Atelier Target</h1>
         <h4 class="">Brassins Artistiques Sur-mesure</h4>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <p class="card-text"><%= link_to "Inscription", new_user_registration_path, class: 'btn btn-ghost' %><%= link_to "Connexion", new_user_session_path, class: 'btn btn-ghost' %></p>
-      </div>
     </div>
     <div class="row">
-      <div class="col-xl-9 mx-auto">
-        <div id="search-bar">
-          <%= form_tag(typical_beers_path, method: :get) do %>
-            <%= text_field_tag :search, nil, class: "search-form", placeholder: raw("&#xF002;"), style: "font-family: 'FontAwesome';" %>
-            <%= submit_tag 'Search', style: "display: none;" %>
-          <% end %>
-        </div>
+      <div class="col-lg-6 mx-auto">
+        <%= form_tag(typical_beers_path, method: :get) do %>
+          <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search' %>
+          <%= submit_tag 'Rechercher', class: 'btn btn-ghost' %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -132,21 +127,18 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
           <h5>Juliette D</h5>
           <p class="font-weight-light mb-0">"J'adore la Green DRY HOPPING !"</p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
           <h5>Lilian M.</h5>
           <p class="font-weight-light mb-0">"On a élaboré ensemble une recette de Lager, en prenant le temps de discuter et déguster plusieurs bières avant pour bien définir l'objectif. Résultat SUPER! Je recommande"</p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
           <h5>Mathilde R.</h5>
           <p class="font-weight-light mb-0">"Régulièrement servie aux repas du midi en famille, On n'se lasse pas de découvrir toujours de nouvelles bières"</p>
         </div>
