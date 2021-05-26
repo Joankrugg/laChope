@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :pack_id, :sticker_id, :bottle_top_id, :typical_beer_id)
+    params.require(:project).permit(:name, :pack_id, :sticker_id, :bottle_top_id, :typical_beer_id, :batch)
   end
 end
 

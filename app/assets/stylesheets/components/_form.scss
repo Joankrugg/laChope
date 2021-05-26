@@ -79,7 +79,7 @@
   background: #b7b7b7;
   padding: 10px;
   border-radius: 5px;
-  opacity: .4;
+  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
@@ -88,7 +88,106 @@
   cursor: pointer;
 }
 .bottle-choice.active {
-  background: $my-blue;
+  background: #4B535B;
   color: white;
   opacity: 1;
+}
+
+.sticker-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.sticker-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .6;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.sticker-choice:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.sticker-choice.picked {
+  background: #4B535B;
+  color: white;
+  opacity: 1;
+}
+
+.pack-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.pack-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .6;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.pack-choice:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.pack-choice.choosen {
+  background: #4B535B;
+  color: white;
+  opacity: 1;
+}
+
+.bottle_top-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.bottle_top-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .6;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.bottle_top-choice:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.bottle_top-choice.taken {
+  background: #4B535B;
+  color: white;
+  opacity: 1;
+}
+
+.typical_beer-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.typical_beer-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .6;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.typical_beer-choice:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.typical_beer-choice.on {
+  background: #4B535B;
+  color: white;
 }
