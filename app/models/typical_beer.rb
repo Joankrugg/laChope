@@ -18,14 +18,16 @@ class TypicalBeer < ApplicationRecord
     against: [ :name ],
     associated_against: {
       style: [ :name ],
+      category: [ :name ],
       design_color: [ :name ],
       beer_family: [ :name ],
       main_taste: [ :name ],
+      alcohol_shape: [ :name ],
       balance: [ :name ],
       flavours: [ :name ],
       feelings: [ :name ],
     },
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
     }
 end
