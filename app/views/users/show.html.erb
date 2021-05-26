@@ -913,7 +913,6 @@
         <% if @user == current_user && @user.admin? %>
           <div class="user" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
           <div class="user" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>
-          <div class="user"><%= link_to "CRÉER PACK", new_pack_path, class: 'admin' %></div>
         <% end %>
       </div>
     </div>

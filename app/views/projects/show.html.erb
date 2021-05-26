@@ -27,7 +27,9 @@
         <p class='content'><%= @project.typical_beer.style.name %></p>
         <% if @project.typical_beer.description.present? %>
           <% description = @project.typical_beer.description.split('&&')  %>
-          <p class='content'><%= description.join %></p>
+          <% description.each do |text|%>
+            <p class='content'><%= text %>
+          <% end %>
         <% end %>
       </div>
     </div>
