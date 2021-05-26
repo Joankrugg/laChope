@@ -16,13 +16,13 @@
       </div>
       <div class="row">
         <% @typical_beers.each do |tb| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6">
             <%= render 'typical_beer_card', typical_beer: tb %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3">
       <%= render 'articles/articles_side' %>
       <%= render 'beers/ales_side' %>
       <%= render 'beers/mixed_side' %>

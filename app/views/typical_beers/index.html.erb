@@ -13,13 +13,13 @@
       </div>
       <div class="row">
         <% @typical_beers.each do |b| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6">
             <%= render 'typical_beer_card', typical_beer: b %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3">
       <%= render 'shared/social-networks' %>
       <div class="card sides bottom index-side">
         <h4 class="title-top">TARGET</h4>
