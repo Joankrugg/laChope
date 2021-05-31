@@ -269,7 +269,7 @@
         <div class="col-lg-10">
           <% if stickers.present? %>
             <div class="row">
-              <% stickers.each do |s| %>
+              <% stickers.sample(12).each do |s| %>
                 <div class="col-lg-2 mx-auto">
                   <%= link_to s do %>
                     <%= cl_image_tag s.photo.key, class: 'img-fluid img-nav' %>
@@ -277,6 +277,9 @@
                 </div>
               <% end %>
             </div>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to 'Créer sticker', new_sticker_path %>
           <% end %>
         </div>
       </div>
