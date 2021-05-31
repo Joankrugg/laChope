@@ -37,5 +37,13 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-self.addEventListener("fetch", function (event) {});
-
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("sw.js")
+    .then(function (registration) {
+      console.log("success load");
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+ }
