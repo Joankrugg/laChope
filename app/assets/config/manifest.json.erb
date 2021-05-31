@@ -1,6 +1,8 @@
 {
  "name": "Atelier Target",
+ "start_url": "https://laptitechope.herokuapp.com/",
  "description": "L'atelier target est une brasserie artistique qui propose ses créations d'objets bière et de brassins spécifiques",
+ "display": "standalone",
  "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
     <% files.each_with_index do |file, index| %>

@@ -37,5 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-
+self.addEventListener("fetch", function (event) {});
 

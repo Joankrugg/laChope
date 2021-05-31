@@ -19,5 +19,17 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(function (registration) {
+            console.log("success load");
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
+       }
+    </script>
   </body>
 </html>
