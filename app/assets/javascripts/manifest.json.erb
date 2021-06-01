@@ -1,0 +1,21 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "Atelier Target",
+  "start_url": "https://laptitechope.herokuapp.com/",
+  "description": "L'atelier target est une brasserie artistique qui propose ses créations d'objets bière et de brassins spécifiques",
+  "display": "standalone",
+  "gcm_sender_id": "154164221229",
+  "gcm_user_visible_only": true
+  "icons": [
+  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
+    {
+      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
+      "sizes": "<%= dim %>",
+      "type": "image/png"
+    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
+  <% end %>
+  ],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "orientation": "portrait"
+}
