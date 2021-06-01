@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'turbolinks_render'
 gem 'serviceworker-rails'
 
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
