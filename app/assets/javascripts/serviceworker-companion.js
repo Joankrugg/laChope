@@ -4,3 +4,4 @@ if (navigator.serviceWorker) {
       console.log('[Companion]', 'Service worker registered!');
     });
 }
+
