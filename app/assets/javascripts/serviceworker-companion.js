@@ -1,7 +1,11 @@
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('/serviceworker.js', { scope: '/' })
-    .then(function(reg) {
-      console.log('[Companion]', 'Service worker registered!');
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
     });
+  });
 }
-
