@@ -1,8 +1,9 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
-  "name": "My Progressive Rails App",
-  "short_name": "Progressive",
-  "start_url": "/",
+  "name": "Atelier Target",
+  "short_name": "PWA",
+  "start_url":"./",
+  "scope":"./",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
