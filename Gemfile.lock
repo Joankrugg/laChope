@@ -344,7 +344,7 @@ DEPENDENCIES
   rest-client
   sass-rails (>= 6)
   selenium-webdriver
-  serviceworker-rails (~> 0.6.0)
+  serviceworker-rails
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
