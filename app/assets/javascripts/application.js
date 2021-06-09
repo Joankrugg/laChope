@@ -1,2 +1,2 @@
-//= require serviceworker-companion
+
 
