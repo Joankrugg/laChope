@@ -4,4 +4,4 @@ if (navigator.serviceWorker) {
       console.log('[Page] Service worker registered!');
     });
 }
-//= require serviceworker-companion
+
