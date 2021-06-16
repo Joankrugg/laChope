@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_140024) do
+ActiveRecord::Schema.define(version: 2021_06_16_145730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,6 +253,8 @@ ActiveRecord::Schema.define(version: 2021_06_16_140024) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "balance_id"
+    t.bigint "alcohol_shape_id"
+    t.index ["alcohol_shape_id"], name: "index_public_searches_on_alcohol_shape_id"
     t.index ["balance_id"], name: "index_public_searches_on_balance_id"
     t.index ["category_id"], name: "index_public_searches_on_category_id"
   end
@@ -461,6 +463,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_140024) do
   add_foreign_key "projects", "stickers"
   add_foreign_key "projects", "typical_beers"
   add_foreign_key "projects", "users"
+  add_foreign_key "public_searches", "alcohol_shapes"
   add_foreign_key "public_searches", "balances"
   add_foreign_key "public_searches", "categories"
   add_foreign_key "ratings", "beers"
