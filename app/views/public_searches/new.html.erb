@@ -1,0 +1,5 @@
+<div class="offnavs"></div>
+<%= simple_form_for @public_search do |f| %>
+  <%= f.association :category, as: :radio_buttons %>
+  <%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %>
+<% end %>

@@ -39,7 +39,9 @@ document.addEventListener('turbolinks:load', () => {
         console.log('[Page] Service worker registered!');
       });
   }
-  // Call your functions here, e.g:
+  $( document ).ready(function() {
+    $( ".home-title" ).slideToggle( "slow", function() {
+  });// Call your functions here, e.g:
   // initSelect2();
 });
 

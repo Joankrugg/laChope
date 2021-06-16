@@ -1,9 +1,8 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-lewagon fixed-top">
-  <%= cl_image_tag"https://res.cloudinary.com/da2krghvd/image/upload/v1620877332/Carte%20de%20visite.png", class: 'business-avatar', id: 'brand_root' %>
+  <%= link_to root_path do %>
+    <%= cl_image_tag"https://res.cloudinary.com/da2krghvd/image/upload/v1620877332/Carte%20de%20visite.png", class: 'business-avatar', id: 'brand_root' %>
+  <% end %>
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item d-none d-lg-block">
-      <%= link_to 'Accueil', root_path, class: 'second-nav-link', id: 'root' %>
-    </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="beers-link">Catégories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
@@ -20,36 +19,7 @@
       <a class="second-nav-link" data-toggle="pill" id="mails-link"> Mails <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
-  <div class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdownMenu"id='root_brand'>
-    <%= link_to 'NOS BIÈRES', beers_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES TARGETS', target_beers_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES CLASSIQUES', typical_beers_path, class: 'dropdown-item index-browse'%>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES ARTICLES', articles_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES STICKERS', stickers_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES PROJETS', projects_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'LES MEMBRES', users_path, class: 'dropdown-item index-browse' %>
-    <div class="dropdown-divider"></div>
-    <% unless user_signed_in? %>
-      <%= link_to 'MESSAGERIE', new_user_session_path, class: 'dropdown-item index-browse' %>
-    <% else %>
-      <%= link_to 'MESSAGERIE', conversations_path, class: 'dropdown-item index-browse' %>
-    <% end %>
-    <div class="dropdown-divider"></div>
-    <div class="nav-title">Liens Utiles</div>
-    <a class="dropdown-item browse" href="https://www.littlebock.fr/">Little Bock</a>
-    <a class="dropdown-item browse" href="http://univers-biere.net/">Univers bière</a>
-    <a class="dropdown-item browse" href="https://www.lecomptoirdubrasseur.fr/">Comptoir du Brasseur</a>
-    <a class="dropdown-item browse" href="https://justbeerapp.com/">Just beer App</a>
-    <a class="dropdown-item browse" href="https://www.happybeertime.com/">HappyBeerTime</a>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item browse" %>
 
-  </div>
   <div id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -78,32 +48,6 @@
     </ul>
   </div>
 </div>
-
-<script>
-  $(document).ready(function(){
-    $("#brand_root").click(function(){
-      $(".dropdown-menu").toggle();
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#brand_root").hover(function(){
-      $(".dropdown-menu").show();
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $(".dropdown-menu").on({
-      mouseleave: function(){
-        $(this).hide();
-      },
-    });
-  });
-</script>
 
 <div class="tab-content second-nav">
   <div class="tab-pane container" id="beers">
@@ -306,6 +250,19 @@
       </div>
     </div>
   </div>
+  <div class="tab-pane container" id="search">
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <%= form_tag(typical_beers_path, method: :get) do %>
+            <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'center search' %>
+            <%= submit_tag 'Rechercher', style: "display: none;" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -458,7 +415,6 @@
     });
   });
 </script>
-
 
 
 

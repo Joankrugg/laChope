@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_170402) do
+ActiveRecord::Schema.define(version: 2021_06_16_130820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -248,6 +248,13 @@ ActiveRecord::Schema.define(version: 2021_05_17_170402) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "public_searches", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_public_searches_on_category_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
     t.datetime "created_at", precision: 6, null: false
@@ -452,6 +459,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_170402) do
   add_foreign_key "projects", "stickers"
   add_foreign_key "projects", "typical_beers"
   add_foreign_key "projects", "users"
+  add_foreign_key "public_searches", "categories"
   add_foreign_key "ratings", "beers"
   add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "actions"
