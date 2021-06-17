@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_153130) do
+ActiveRecord::Schema.define(version: 2021_06_17_073036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -248,6 +248,15 @@ ActiveRecord::Schema.define(version: 2021_06_16_153130) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "public_search_feelings", force: :cascade do |t|
+    t.bigint "feeling_id", null: false
+    t.bigint "public_search_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feeling_id"], name: "index_public_search_feelings_on_feeling_id"
+    t.index ["public_search_id"], name: "index_public_search_feelings_on_public_search_id"
+  end
+
   create_table "public_searches", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -467,6 +476,8 @@ ActiveRecord::Schema.define(version: 2021_06_16_153130) do
   add_foreign_key "projects", "stickers"
   add_foreign_key "projects", "typical_beers"
   add_foreign_key "projects", "users"
+  add_foreign_key "public_search_feelings", "feelings"
+  add_foreign_key "public_search_feelings", "public_searches"
   add_foreign_key "public_searches", "alcohol_shapes"
   add_foreign_key "public_searches", "balances"
   add_foreign_key "public_searches", "categories"

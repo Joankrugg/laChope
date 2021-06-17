@@ -5,4 +5,6 @@ class Feeling < ApplicationRecord
   has_many :tastings, through: :tasting_feelings
   has_many :typical_beer_feelings
   has_many :typical_beers, through: :typical_beer_feelings
+  has_many :public_search_feelings
+  has_many :public_searches, through: :public_search_feelings
 end

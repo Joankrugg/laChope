@@ -21,6 +21,6 @@ class PublicSearchesController < ApplicationController
   private
 
   def public_search_params
-    params.require(:public_search).permit(:category_id, :balance_id, :alcohol_shape_id, :design_color_id, :main_taste_id)
+    params.require(:public_search).permit(:category_id, :balance_id, :alcohol_shape_id, :design_color_id, :main_taste_id, feeling_ids: [])
   end
 end
