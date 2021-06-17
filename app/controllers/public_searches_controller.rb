@@ -16,11 +16,12 @@ class PublicSearchesController < ApplicationController
 
   def show
     @public_search = PublicSearch.find(params[:id])
+    @typical_beers = TypicalBeer.all
   end
 
   private
 
   def public_search_params
-    params.require(:public_search).permit(:category_id, :balance_id, :alcohol_shape_id, :design_color_id, :main_taste_id, feeling_ids: [])
+    params.require(:public_search).permit(:category_id, :balance_id, :alcohol_shape_id, :design_color_id, :main_taste_id, feeling_ids: [], flavour_ids:[])
   end
 end
