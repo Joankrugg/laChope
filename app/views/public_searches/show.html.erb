@@ -1,86 +1,182 @@
 <div class="offnavs"></div>
+<div class="container">
+  <div class="row">
+    <%= @public_search.category.name %>
+    <%= @public_search.balance.name %>
+    <%= @public_search.alcohol_shape.name %>
+    <%= @public_search.design_color.name %>
+    <%= @public_search.main_taste.name %>
+  </div>
+  <div class="row">
+
+  </div>
+</div>
+<br>
 <% pscategory = [] %>
 <% psbalance = [] %>
 <% pslevel = [] %>
 <% pscolor = [] %>
 <% psmaintaste = [] %>
-<% @typical_beers.each do |tb| %>
-  <% if @public_search.category.present? %>
-    <% if @public_search.category.name == tb.category.name %>
-      <% pscategory << tb %>
-    <% end %>
-  <% end %>
-<% end %>
-<% if pscategory != [] %>
-  <% pscategory.each do |psc| %>
-    <%= psc.name %>
-  <% end %>
-<% else %>
-  <p> rien dans cette catégorie</p>
-<% end %>
-<br>
-<% @typical_beers.each do |tb| %>
-  <% if @public_search.balance.present? %>
-    <% if @public_search.balance.name == tb.balance.name %>
-      <% psbalance << tb %>
-    <% end %>
-  <% end %>
-<% end %>
-<% if psbalance != [] %>
-  <% psbalance.each do |psb| %>
-    <%= psb.name %>
-  <% end %>
-<% else %>
-  <p> rien dans cette catégorie</p>
-<% end %>
-<br>
-<% @typical_beers.each do |tb| %>
-  <% if @public_search.alcohol_shape.present? %>
-    <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
-      <% pslevel << tb %>
-    <% end %>
-  <% end %>
-<% end %>
-<% if pslevel != [] %>
-  <% pslevel.each do |psl| %>
-    <%= psl.name %>
-  <% end %>
-<% else %>
-  <p> rien dans cette catégorie</p>
-<% end %>
-<br>
-<% @typical_beers.each do |tb| %>
-  <% if @public_search.design_color.present? %>
-    <% if @public_search.design_color.name == tb.design_color.name %>
-      <% pscolor << tb %>
-    <% end %>
-  <% end %>
-<% end %>
-<% if pscolor != [] %>
-  <% pscolor.each do |psc| %>
-    <%= psc.name %>
-  <% end %>
-<% else %>
-  <p> rien dans cette catégorie</p>
-<% end %>
-<br>
-<% @typical_beers.each do |tb| %>
-  <% if tb.main_taste.present? %>
-    <% if @public_search.main_taste.present? %>
-      <% if @public_search.main_taste.name == tb.main_taste.name %>
-        <% psmaintaste << tb %>
+<% psfeelings = [] %>
+<% psflavours = [] %>
+<div class="container">
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if @public_search.category.present? %>
+        <% if @public_search.category.name == tb.category.name %>
+          <% pscategory << tb %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-<% end %>
-<% if psmaintaste != [] %>
-  <% psmaintaste.each do |psmt| %>
-    <%= psmt.name %>
-  <% end %>
-<% else %>
-  <p> rien dans cette catégorie</p>
-<% end %>
-<br>
+    <p>Category</p>
+  </div>
+  <div class="row">
+    <% if pscategory != [] %>
+      <% pscategory.each do |psc| %>
+        <%= psc.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if @public_search.balance.present? %>
+        <% if @public_search.balance.name == tb.balance.name %>
+          <% psbalance << tb %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Balance</p>
+  </div>
+  <div class="row">
+    <% if psbalance != [] %>
+      <% psbalance.each do |psb| %>
+        <%= psb.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if @public_search.alcohol_shape.present? %>
+        <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
+          <% pslevel << tb %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Alcohol</p>
+  </div>
+  <div class="row">
+    <% if pslevel != [] %>
+      <% pslevel.each do |psl| %>
+        <%= psl.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if @public_search.design_color.present? %>
+        <% if @public_search.design_color.name == tb.design_color.name %>
+          <% pscolor << tb %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Color</p>
+  </div>
+  <div class="row">
+    <% if pscolor != [] %>
+      <% pscolor.each do |psc| %>
+        <%= psc.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if tb.main_taste.present? %>
+        <% if @public_search.main_taste.present? %>
+          <% if @public_search.main_taste.name == tb.main_taste.name %>
+            <% psmaintaste << tb %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Palais</p>
+  </div>
+  <div class="row">
+    <% if psmaintaste != [] %>
+      <% psmaintaste.each do |psmt| %>
+        <%= psmt.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if tb.feelings.present? %>
+        <% tb.feelings.each do |tbf| %>
+          <% if @public_search.feelings.present? %>
+            <% @public_search.feelings.each do |psf| %>
+              <% if psf.name == tbf.name %>
+                <% psfeelings << tb %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Sensations</p>
+  </div>
+  <div class="row">
+    <% if psfeelings != [] %>
+      <% psfeelings.uniq.each do |psf| %>
+        <%= psf.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% @typical_beers.each do |tb| %>
+      <% if tb.flavours.present? %>
+        <% tb.flavours.each do |tbf| %>
+          <% if @public_search.flavours.present? %>
+            <% @public_search.flavours.each do |psf| %>
+              <% if psf.name == tbf.name %>
+                <% psflavours << tb %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p>Arômes</p>
+  </div>
+  <div class="row">
+    <% if psflavours != [] %>
+      <% psflavours.uniq.each do |psf| %>
+        <%= psf.name %>
+      <% end %>
+    <% else %>
+      <p> rien dans cette catégorie</p>
+    <% end %>
+  </div>
+</div>
+</div>
+<div class="container">
+  <%= link_to 'nouvelle recherche', new_public_search_path, class: 'btn btn-ghost center' %>
+</div>
 
-
-<%= link_to 'nouvelle recherche', new_public_search_path %>
+<div class="bottom"></div>
