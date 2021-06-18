@@ -310,7 +310,8 @@
   <% sweet = ['Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'Brown Porter', 'Robust Porter', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Altbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Ranchbier', 'English Strong Ale', 'Cream Ale', 'Barley Wine', 'Steam Beer', 'Scotch Ale' ] %>
 
   <% bitter = ['Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner'] %>
-  <% plural = ['Belgian Gold', 'Saison', 'Belgian Pale', 'Belgian Dark Ale', 'Dubbel', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier'] %>
+  <% spicy = ['Belgian Gold', 'Saison', 'Belgian Pale', 'Belgian Dark Ale', 'Dubbel', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier'] %>
+  <% smoked = [] %>
 
   <% results = [] %>
   <% classic_results = [] %>
@@ -511,20 +512,23 @@
         <% end %>
       <% end %>
     <% end %>
-    <% if @user.design.main_taste.name == 'Acide' %>
+    <% if @user.design.main_taste.name == 'Acidulé' %>
       <% results << sour %>
     <% end %>
-    <% if @user.design.main_taste.name == 'Neutre' %>
+    <% if @user.design.main_taste.name == 'Doux' %>
       <% results << neutral %>
     <% end %>
-    <% if @user.design.main_taste.name == 'Sucrée' %>
+    <% if @user.design.main_taste.name == 'Liquoreux' %>
       <% results << sweet %>
     <% end %>
-    <% if @user.design.main_taste.name == 'Amère' %>
+    <% if @user.design.main_taste.name == 'Amer' %>
       <% results << bitter %>
     <% end %>
-    <% if @user.design.main_taste.name == 'Pluriel' %>
-      <% results << plural %>
+    <% if @user.design.main_taste.name == 'Épicé' %>
+      <% results << spicy %>
+    <% end %>
+    <% if @user.design.main_taste.name == 'Fumé' %>
+      <% results << smoked %>
     <% end %>
     <% @typical_beers.each do |c| %>
       <% if c.main_taste.present? %>

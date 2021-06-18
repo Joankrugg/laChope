@@ -93,8 +93,8 @@
 }
 
 .squaretag-selector:checked + label {
-  background-color: #03fc03;
-  border: 1px solid #03fc03;
+  background-color: $my-blue;
+  border: 1px solid $my-blue;
   color: white;
 }
 
@@ -223,3 +223,9 @@
   color: white;
 }
 
+.form-legend{
+  font-size: 12px;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: #3C3C3C;
+}
