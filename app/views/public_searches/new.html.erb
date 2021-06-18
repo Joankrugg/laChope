@@ -1,11 +1,179 @@
 <div class="offnavs"></div>
-<%= simple_form_for @public_search do |f| %>
-  <%= f.association :category, as: :radio_buttons %>
-  <%= f.association :balance, as: :radio_buttons %>
-  <%= f.association :alcohol_shape, as: :radio_buttons %>
-  <%= f.association :design_color, as: :radio_buttons %>
-  <%= f.association :main_taste, as: :radio_buttons %>
-  <%= f.association :feelings, as: :check_boxes %>
-  <%= f.association :flavours, as: :check_boxes %>
-  <%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %>
-<% end %>
+<div class="container">
+  <h1 class='page-title'>Beer Search Engine</h1>
+  <%= simple_form_for @public_search do |f| %>
+    <label class="control-label check_boxes optional">Category</label>
+    <input type="hidden" name="public_search[category_id]" value="">
+    <div class="category-available">
+      <div class="row">
+        <% Category.all.each do |category| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= category.id %>" name="public_search[category_id]" id="public_search_category_id_<%= category.id %>">
+            <label class="category-choice" for="public_search_category_id_<%= category.id %>">
+              <p class='box'><%= category.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Balance</label>
+    <input type="hidden" name="public_search[balance_id]" value="">
+    <div class="balance-available">
+      <div class="row">
+        <% Balance.all.each do |balance| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= balance.id %>" name="public_search[balance_id]" id="public_search_balance_id_<%= balance.id %>">
+            <label class="balance-choice" for="public_search_balance_id_<%= balance.id %>">
+              <p class='box'><%= balance.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Niveau d'alcool</label>
+    <input type="hidden" name="public_search[alcohol_shape_id]" value="">
+    <div class="alcohol_shape-available">
+      <div class="row">
+        <% AlcoholShape.all.each do |alcohol_shape| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= alcohol_shape.id %>" name="public_search[alcohol_shape_id]" id="public_search_alcohol_shape_id_<%= alcohol_shape.id %>">
+            <label class="alcohol_shape-choice" for="public_search_alcohol_shape_id_<%= alcohol_shape.id %>">
+              <p class='box'><%= alcohol_shape.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Couleur</label>
+    <input type="hidden" name="public_search[design_color_id]" value="">
+    <div class="design_color-available">
+      <div class="row">
+        <% DesignColor.all.each do |design_color| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= design_color.id %>" name="public_search[design_color_id]" id="public_search_design_color_id_<%= design_color.id %>">
+            <label class="design_color-choice" for="public_search_design_color_id_<%= design_color.id %>">
+              <p class='box'><%= design_color.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Palais</label>
+    <input type="hidden" name="public_search[main_taste_id]" value="">
+    <div class="main_taste-available">
+      <div class="row">
+        <% MainTaste.all.each do |main_taste| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= main_taste.id %>" name="public_search[main_taste_id]" id="public_search_main_taste_id_<%= main_taste.id %>">
+            <label class="main_taste-choice" for="public_search_main_taste_id_<%= main_taste.id %>">
+              <p class='box'><%= main_taste.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Sensations</label>
+    <input type="hidden" name="public_search[feeling_id]" value="">
+    <div class="feeling-available">
+      <div class="row">
+        <% Feeling.all.each do |feeling| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= feeling.id %>" name="public_search[feeling_id]" id="public_search_feeling_id_<%= feeling.id %>">
+            <label class="feeling-choice" for="public_search_feeling_id_<%= feeling.id %>">
+              <p class='box'><%= feeling.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <label class="control-label check_boxes optional">Arômes</label>
+    <input type="hidden" name="public_search[flavour_id]" value="">
+    <div class="flavour-available">
+      <div class="row">
+        <% Flavour.all.each do |flavour| %>
+          <div class="form-check">
+            <input class="hidden" type="hidden" value="<%= flavour.id %>" name="public_search[flavour_id]" id="public_search_flavour_id_<%= flavour.id %>">
+            <label class="flavour-choice" for="public_search_flavour_id_<%= flavour.id %>">
+              <p class='box'><%= flavour.name %></p>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto">
+        <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+$(document).ready(function () {
+    $('.category-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.choosen').removeClass('choosen')
+        // add choosen class to clicked element
+        $(this).addClass('choosen');
+    });
+});
+</script>
+
+<script>
+$(document).ready(function () {
+    $('.balance-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.taken').removeClass('taken')
+        // add taken class to clicked element
+        $(this).addClass('taken');
+    });
+});
+</script>
+
+<script>
+$(document).ready(function () {
+    $('.alcohol_shape-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.picked').removeClass('picked')
+        // add picked class to clicked element
+        $(this).addClass('picked');
+    });
+});
+</script>
+
+<script>
+$(document).ready(function () {
+    $('.design_color-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.on').removeClass('on')
+        // add on class to clicked element
+        $(this).addClass('on');
+    });
+});
+</script>
+<script>
+$(document).ready(function () {
+    $('.main_taste-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.checked').removeClass('checked')
+        // add checked class to clicked element
+        $(this).addClass('checked');
+    });
+});
+</script>
+
+<script>
+  $(document).ready(function(){
+    $(".feeling-choice").click(function(){
+      $(this).toggleClass("active");
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $(".flavour-choice").click(function(){
+      $(this).toggleClass("active");
+    });
+  });
+</script>

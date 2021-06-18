@@ -265,7 +265,9 @@
 </div>
 
 <% if @user.design.present? %>
-  <% ales = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Lambic', 'Gueuze', 'Faro', 'Fruit Beer', 'Flanders Red', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout' ] %>
+  <% ales = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Flanders Red', 'Fruit Beer', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout' ] %>
+
+  <% spontaneous = ['Lambic', 'Gueuze', 'Faro', 'Fruit Beer'] %>
 
   <% lagers = ['German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock'] %>
 
@@ -339,6 +341,9 @@
     <% end %>
     <% if @user.design.category.name == 'Mixed Styles' %>
       <% results << mixed_styles %>
+    <% end %>
+    <% if @user.design.category.name == 'Spontaneous' %>
+      <% results << spontaneous %>
     <% end %>
     <% @typical_beers.each do |c| %>
       <% if c.category.present? %>

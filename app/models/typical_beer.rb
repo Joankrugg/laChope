@@ -30,4 +30,5 @@ class TypicalBeer < ApplicationRecord
     using: {
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
     }
+
 end
