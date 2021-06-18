@@ -67,6 +67,37 @@
   color: white;
 }
 
+.squaretag-item {
+  display: inline-block;
+}
+
+.squaretag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.squaretag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  color: #3C3C3C;
+  border: 1px solid #3C3C3C;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.squaretag-selector:hover + label {
+  background-color: #b7b7b7;
+}
+
+.squaretag-selector:checked + label {
+  background-color: #03fc03;
+  border: 1px solid #03fc03;
+  color: white;
+}
+
 // Checkboxes design
 .bottle-available {
   display: flex;

@@ -1,48 +1,50 @@
 <div class="offnavs"></div>
 <div class="container">
-  <h1 class='page-title'>Beer Search Engine</h1>
-  <%= simple_form_for @public_search do |f| %>
-    <div class="form-inputs">
-      <div class="center">
-        <%= f.association :category, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item', label: 'CATÉGORIE'%>
+  <div class="card shadow bottom">
+    <h1 class='page-title center'>Beer Search Engine</h1>
+    <%= simple_form_for @public_search do |f| %>
+      <div class="form-inputs">
+        <div class="center">
+          <%= f.association :category, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'CATÉGORIE'%>
+        </div>
+        <div class="center">
+          <%= f.association :balance, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
+        </div>
+        <div class="center">
+          <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: "NIVEAU D'ALCOOL" %>
+        </div>
+        <div class="center">
+          <%= f.association :design_color, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
+        </div>
+        <div class="center">
+          <%= f.association :main_taste, as: :radio_buttons, required: false,
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item', label: 'GOÛT PRINCIPAL' %>
+        </div>
+        <div class="center">
+          <%= f.association :feelings, as: :check_boxes, required: false,
+                        input_html: { class: "squaretag-selector" },
+                        item_wrapper_class: 'squaretag-item', label: 'SENSATIONS' %>
+        </div>
+        <div class="center">
+          <%= f.association :flavours, as: :check_boxes, required: false,
+                        input_html: { class: "squaretag-selector" },
+                        item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
+        </div>
+        <div class="infos">
+          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
+        </div>
       </div>
-      <div class="center">
-        <%= f.association :balance, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item', label: 'ÉQUILIBRE' %>
-      </div>
-      <div class="center">
-        <%= f.association :alcohol_shape, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item', label: "NIVEAU D'ALCOOL" %>
-      </div>
-      <div class="center">
-        <%= f.association :design_color, as: :radio_buttons,
-          input_html: { class: "tag-selector" },
-          item_wrapper_class: 'tag-item', label: 'COULEUR' %>
-      </div>
-      <div class="center">
-        <%= f.association :main_taste, as: :radio_buttons,
-            input_html: { class: "tag-selector" },
-            item_wrapper_class: 'tag-item', label: 'GOÛT PRINCIPAL' %>
-      </div>
-      <div class="center">
-        <%= f.association :feelings, as: :check_boxes,
-                      input_html: { class: "tag-selector" },
-                      item_wrapper_class: 'tag-item', label: 'SENSATIONS' %>
-      </div>
-      <div class="center">
-        <%= f.association :flavours, as: :check_boxes,
-                      input_html: { class: "tag-selector" },
-                      item_wrapper_class: 'tag-item', label: 'ARÔMES' %>
-      </div>
-      <div class="infos">
-        <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 
