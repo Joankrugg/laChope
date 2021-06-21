@@ -37,6 +37,33 @@
           <%= f.association :beer_family, required: false, as: :radio_buttons,
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item'  %>
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <label class="control-label check_boxes optional">Bière de référence</label>
+              <input type="hidden" name="beer[typical_beer_id]" value="">
+              <div class="typical_beer-available">
+                <% TypicalBeer.all.each do |typical_beer| %>
+                  <div class="col-lg-4">
+                    <div class="form-check">
+                      <input class="hidden" type="hidden" value="<%= typical_beer.id %>" name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
+                      <label class="typical_beer-choice" for="beer_typical_beer_id_<%= typical_beer.id %>">
+                        <div class=" ">
+                          <% if typical_beer.photo.present? %>
+                            <%= cl_image_tag typical_beer.photo.key, height: 160, width: 160, crop: :fill, class: 'img-fluid' %>
+                          <% else %>
+                            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--3VS66tIf--/c_fill,h_450,q_jpegmini,w_450/v1622028586/glass-cold-beer-bottoms-up-with-beautiful-bokeh-friends-drink-beer-together-dark-tone_34939-279_ldvuqt.jpg", height: 160, width: 160, crop: :fill, class: 'img-fluid' %>
+                          <% end %>
+                          <div class="card-body">
+                            <p class="card-text"><%= typical_beer.style.name %></p>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
           <div class="infos">
             <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
           </div>
@@ -45,3 +72,14 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function () {
+    $('.typical_beer-choice').bind('click', function() {
+        // remove the active class from all elements with active class
+        $('.on').removeClass('on')
+        // add on class to clicked element
+        $(this).addClass('on');
+    });
+});
+</script>

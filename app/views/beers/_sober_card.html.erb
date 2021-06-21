@@ -2,7 +2,11 @@
   <div class="card user-beers">
     <div class="card-body">
       <h5 class="card-title"><%= beer.name.upcase %></h5>
-      <p class="card-text"><%= beer.style.name %></p>
+        <% if beer.style.present? %>
+          <p class='center'><%= beer.style.name %></p>
+        <% else %>
+          <p class='center'><%= beer.typical_beer.style.name %></p>
+        <% end %>
       <p class="card-text"><%= beer.category.name %></p>
       <% if beer.user.photo.present? %>
         <%= cl_image_tag beer.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>

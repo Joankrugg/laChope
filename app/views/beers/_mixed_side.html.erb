@@ -10,7 +10,11 @@
     <%= link_to t do %>
       <div class="beer-link card-infos">
         <p class='beer-link-text'>Nom : <%= t.name %></p>
-        <p class='beer-link-text'>Style : <%= t.style.name %></p>
+        <% if t.style.present? %>
+          <p class="beer-link-text"><%= t.style.name %></p>
+        <% else %>
+          <p class="beer-link-text"><%= t.typical_beer.style.name %></p>
+        <% end %>
         <div class="line"></div><br>
       </div>
     <% end %>

@@ -311,7 +311,7 @@
 
   <% bitter = ['Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner'] %>
   <% spicy = ['Belgian Gold', 'Saison', 'Belgian Pale', 'Belgian Dark Ale', 'Dubbel', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier'] %>
-  <% smoked = [] %>
+  <% smoked = ['Rauchbier', 'Scotch Ale' ] %>
 
   <% results = [] %>
   <% classic_results = [] %>
@@ -713,10 +713,18 @@
               <div class="row">
                 <% five_stars.each do |f| %>
                   <% @beers.each do |b| %>
-                    <% if f == b.style.name %>
-                      <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
+                    <% if b.style.present? %>
+                      <% if f == b.style.name %>
+                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                          <%= render 'beers/sober_card', beer: b %>
+                        </div>
+                      <% end %>
+                    <% elsif b.typical_beer.style.present? %>
+                      <% if f == b.typical_beer.style.name %>
+                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                          <%= render 'beers/sober_card', beer: b %>
+                        </div>
+                      <% end %>
                     <% end %>
                   <% end %>
                 <% end %>
@@ -777,10 +785,18 @@
               <div class="row">
                 <% four_stars.each do |f| %>
                   <% @beers.each do |b| %>
-                    <% if f == b.style.name %>
-                      <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
+                    <% if b.style.present? %>
+                      <% if f == b.style.name %>
+                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                          <%= render 'beers/sober_card', beer: b %>
+                        </div>
+                      <% end %>
+                    <% elsif b.typical_beer.style.present? %>
+                      <% if f == b.typical_beer.style.name %>
+                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                          <%= render 'beers/sober_card', beer: b %>
+                        </div>
+                      <% end %>
                     <% end %>
                   <% end %>
                 <% end %>

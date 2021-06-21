@@ -4,7 +4,11 @@
     <div class="text">Cliquez pour découvrir la recette, enregistrer une dégustation ou classer dans votre liste d'envie</div>
     <div class="card-body">
       <h5 class="card-title"><%= beer.name.upcase %></h5>
-      <p class="card-text"><%= beer.style.name %></p>
+      <% if beer.style.present? %>
+        <p class="card-text"><%= beer.style.name %></p>
+      <% else %>
+        <p class="card-text"><%= beer.typical_beer.style.name %></p>
+      <% end %>
       <p class="card-text"><%= beer.category.name %></p>
       <% if beer.user.photo.present? %>
         <%= cl_image_tag beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>

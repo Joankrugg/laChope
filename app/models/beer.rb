@@ -2,14 +2,12 @@ class Beer < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   belongs_to :category
-  belongs_to :style
+  belongs_to :style, optional: true
   validates :name, presence: :true
   validates :photo, presence: :true
-  validates :style, presence: :true
   validates :alcohol_level, presence: :true
   validates :color, presence: :true
   validates :bitterness, presence: :true
-  validates :description, presence: :true
   validates :photo, presence: :true
   validates :category, presence: :true
   has_many :recipes
@@ -20,6 +18,7 @@ class Beer < ApplicationRecord
   has_many :tastings, dependent: :destroy
   has_many :users, through: :tastings
   belongs_to :beer_family
+  belongs_to :typical_beer
 
   def average_stars
     star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }

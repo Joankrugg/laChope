@@ -13,7 +13,11 @@
         <% else %>
           <div class="card shadow">
             <p class='center target-top-title card-text'><%= @beer.name.upcase %></p>
-            <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
+            <% if @beer.style.present? %>
+              <p class='center'><%= @beer.style.name %> | by : <% @beer.user.username %></p>
+            <% else %>
+              <p class='center'><%= @beer.typical_beer.style.name %> | by : <% @beer.user.username %></p>
+            <% end %>
             <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
             <div class="card-infos">
               <p class='card-text center'>Category: <%= @beer.category.name %></p>
@@ -46,12 +50,14 @@
       <% end %>
       <div class="card top">
         <p class="center">DESCRIPTION</p>
-        <p class="description"> <%= @beer.description %> </p>
+        <% if @beer.description.present? %>
+          <p class="description"> <%= @beer.description %> </p>
+        <% end %>
         <% if @beer.beer_family.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.beer_family.name == @beer.beer_family.name %>
-              <%= link_to tb do  %>
-                Bière de la même famille :<%= tb.name %>
+          <% @beers.each do |b| %>
+            <% if b.beer_family.name == @beer.beer_family.name %>
+              <%= link_to b do  %>
+                Bière de la même famille :<%= b.name %>
               <% end %>
             <% end %>
           <% end %>

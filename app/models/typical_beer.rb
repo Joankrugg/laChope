@@ -11,6 +11,7 @@ class TypicalBeer < ApplicationRecord
   has_many :flavours, through: :typical_beer_flavours
   has_many :typical_beer_feelings
   has_many :feelings, through: :typical_beer_feelings
+  has_many :beers
   has_one_attached :photo
   has_many :projects
   include PgSearch::Model

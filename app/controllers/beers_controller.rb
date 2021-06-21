@@ -27,7 +27,7 @@ class BeersController < ApplicationController
     @fancy = Fancy.new
     @rating = Rating.new
     @tasting = Tasting.new
-    @typical_beers = TypicalBeer.all
+    @beers = Beer.all
 
   end
 
@@ -85,6 +85,6 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :beer_family_id, :bitterness, :description, :photo, :category_id, :target)
+    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :beer_family_id, :bitterness, :description, :photo, :category_id, :target, :typical_beer_id)
   end
 end
