@@ -26,7 +26,7 @@
                 <% TypicalBeer.all.each do |typical_beer| %>
                   <div class="col-lg-4">
                     <div class="form-check">
-                      <input class="hidden" type="hidden" value="<%= typical_beer.id %>" name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
+                      <input class="hidden" type="radio" value="<%= typical_beer.id %>" name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
                       <label class="typical_beer-choice" for="beer_typical_beer_id_<%= typical_beer.id %>">
                         <div class=" ">
                           <% if typical_beer.photo.present? %>

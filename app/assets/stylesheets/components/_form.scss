@@ -107,10 +107,8 @@
 }
 
 .bottle-choice {
-  background: #b7b7b7;
+  background: $light-gray;
   padding: 10px;
-  border-radius: 5px;
-  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
@@ -132,15 +130,13 @@
 }
 
 .sticker-choice {
-  background: #b7b7b7;
+  background: $light-gray;
   padding: 10px;
-  border-radius: 5px;
-  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
 .sticker-choice:hover {
-  opacity: 1;
+  background-color: $light-gray;
   cursor: pointer;
 }
 .sticker-choice.picked {
@@ -157,15 +153,13 @@
 }
 
 .pack-choice {
-  background: #b7b7b7;
+  background: $light-gray;
   padding: 10px;
-  border-radius: 5px;
-  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
 .pack-choice:hover {
-  opacity: 1;
+  background-color: $light-gray;
   cursor: pointer;
 }
 .pack-choice.choosen {
@@ -182,10 +176,8 @@
 }
 
 .bottle_top-choice {
-  background: #b7b7b7;
+  background: $light-gray;
   padding: 10px;
-  border-radius: 5px;
-  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
@@ -207,10 +199,8 @@
 }
 
 .typical_beer-choice {
-  background: #b7b7b7;
+  background: $light-gray;
   padding: 10px;
-  border-radius: 5px;
-  opacity: .6;
   flex: 0 0 100%;
   text-align: center;
 }
@@ -229,6 +219,6 @@
   padding-left: 30px;
   color: #3C3C3C;
 }
-.geek{
+.hidden{
   display: none;
 }
