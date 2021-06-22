@@ -22,8 +22,8 @@
             <div class="card-infos">
               <p class='card-text center'>Category: <%= @beer.typical_beer.category.name %></p>
               <p class='card-text center'>Alcool: <%= @beer.typical_beer.alcohol_shape.name %></p>
-              <p class='card-text center'>Color: <%= @beer.typical_beer.design_color.name %> EBC</p>
-              <p class='card-text center'>Bitterness: <%= @beer.typical_beer.balance.name %> IBU</p>
+              <p class='card-text center'>Color: <%= @beer.typical_beer.design_color.name %></p>
+              <p class='card-text center'>Bitterness: <%= @beer.typical_beer.balance.name %></p>
               <p class='card-text center rate'><%= @beer.average_stars %></p>
               <% if @beer.fancies.nil? %>
                 <%= simple_form_for([ @beer, @fancy ]) do |f| %>

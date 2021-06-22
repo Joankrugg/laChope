@@ -47,7 +47,7 @@
             <p class="id_card">Niveau d'Alcool: <%= @typical_beer.alcohol_shape.name %></p>
           <% end %>
           <% if @typical_beer.main_taste.present? %>
-            <p class="id_card">Tendance: <%= @typical_beer.main_taste.name %></p>
+            <p class="id_card">Palais: <%= @typical_beer.main_taste.name %></p>
           <% end %>
           <% if @typical_beer.flavours.present? %>
             <p class="id_card">Arômes:
@@ -97,6 +97,7 @@
       <%= render 'articles/articles_side' %>
       <%= render 'beers/ales_side' %>
       <%= render 'beers/lagers_side' %>
+      <%= render 'beers/beers_side' %>
     </div>
   </div>
 </div>
