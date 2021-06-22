@@ -1,7 +1,7 @@
 <div class="offnavs"></div>
 <% lagers = [] %>
 <% @beers.each do |b| %>
-  <% if b.category.name == 'Lagers' %>
+  <% if b.typical_beer.category.name == 'Lagers' %>
     <% lagers << b %>
   <% end %>
 <% end %>

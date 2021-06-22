@@ -1,7 +1,7 @@
 class Beer < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :style, optional: true
   validates :name, presence: :true
   validates :photo, presence: :true
@@ -9,8 +9,7 @@ class Beer < ApplicationRecord
   validates :color, presence: :true
   validates :bitterness, presence: :true
   validates :photo, presence: :true
-  validates :category, presence: :true
-  has_many :recipes
+  has_many :recipes, dependent: :destroy
   has_many :fancies, dependent: :destroy
   has_many :users, through: :fancies
   has_many :ratings, dependent: :destroy

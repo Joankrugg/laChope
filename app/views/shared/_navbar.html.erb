@@ -4,7 +4,7 @@
   <% end %>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="beers-link">Catégories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="beers-link"> Bières <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="articles-link"> Articles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -60,7 +60,6 @@
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" , class: 'mx-auto avatar-nav' %>
               <p class="text-link-title"> ALES </p>
               <div class="cell"><%= link_to 'Wheat beers', wheat_beers_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'Lambics & Sours', lambics_typical_beers_path, class: 'text-link' %></div>
               <div class="cell"><%= link_to 'Belgian Ales', belgian_ales_typical_beers_path, class: 'text-link' %> </div>
               <div class="cell"><%= link_to 'Pale Ales', pale_ales_typical_beers_path, class: 'text-link' %> </div>
               <div class="cell"><%= link_to 'Bitters', bitters_typical_beers_path, class: 'text-link' %> </div>
@@ -80,6 +79,8 @@
               <div class="cell"><%= link_to 'American Lager', american_lagers_typical_beers_path, class: 'text-link' %></div>
               <div class="cell"><%= link_to 'European Lager', european_lagers_typical_beers_path, class: 'text-link' %> </div>
               <div class="cell"><%= link_to 'Bock ', bocks_typical_beers_path, class: 'text-link' %></div>
+              <p class="text-link-title"> SPONTANEOUS </p>
+              <div class="cell"><%= link_to 'Lambics & Sours', lambics_typical_beers_path, class: 'text-link' %></div>
             </div>
           <% end %>
         </div>

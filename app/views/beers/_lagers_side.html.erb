@@ -2,7 +2,7 @@
   <% lagers = [] %>
   <h4 class="title-top">LAGERS</h4>
   <% @beers.each do |b| %>
-    <% if b.category.name == 'Lagers' %>
+    <% if b.typical_beer.category.name == 'Lagers' %>
       <% lagers << b %>
     <% end %>
   <% end %>

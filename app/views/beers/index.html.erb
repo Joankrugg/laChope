@@ -4,9 +4,9 @@
   <% ales = [] %>
   <% mixed_styles = [] %>
   <% @beers.each do |b| %>
-    <% if b.category.name == 'Lagers'%>
+    <% if b.typical_beer.category.name == 'Lagers'%>
       <% lagers << b %>
-    <% elsif b.category.name == 'Ales'%>
+    <% elsif b.typical_beer.category.name == 'Ales'%>
       <% ales << b %>
     <% else %>
       <% mixed_styles << b %>

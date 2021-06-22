@@ -330,7 +330,7 @@
 
   <% if @user.design.category.present? %>
     <% @beers.each do |b| %>
-      <% if b.category.name == @user.design.category.name %>
+      <% if b.typical_beer.category.name == @user.design.category.name %>
         <% targets_yeast << b %>
       <% end %>
     <% end %>
