@@ -107,3 +107,14 @@
   left: 18px;
 }
 
+.btn-geek {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  background-color: #3C3C3C;
+  border: none;
+  opacity: 0,7;
+  .btn-geek:hover{
+    opacity: 1;
+  }
+}

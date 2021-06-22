@@ -2,44 +2,25 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 mx-auto form">
-      <h2>Beer</h2>
+      <h1 class="page-title center">CRÉER UNE BIÈRE</h1>
       <%= simple_form_for @beer do |f| %>
         <div class="form-inputs">
           <div class="row">
             <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.input :name, required: false  %>
+              <%= f.input :name, required: false, label: 'MARQUE'  %>
             </div>
             <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.input :photo, as: :file, required: false  %>
+              <label class="btn photo bottom">
+                Choisir une photo
+                <span style="display:none;">
+                  <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+                </span>
+              </label>
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.input :color, input_html: { min: '1', max:'80'}, required: false  %>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.association :category, required: false  %>
-            </div>
-          </div>
-          <%= f.association :style, required: false, as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item'  %>
-
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.input :alcohol_level, input_html: { min: '0'}, required: false  %>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-lg-6">
-              <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false %>
-            </div>
-          </div>
-          <%= f.input :description, required: false  %>
-          <%= f.association :beer_family, required: false, as: :radio_buttons,
-                input_html: { class: "tag-selector" },
-                item_wrapper_class: 'tag-item'  %>
           <div class="row">
             <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Bière de référence</label>
+              <label class="control-label check_boxes optional">TYPE DE BIÈRE</label>
               <input type="hidden" name="beer[typical_beer_id]" value="">
               <div class="typical_beer-available">
                 <% TypicalBeer.all.each do |typical_beer| %>
@@ -64,6 +45,26 @@
               </div>
             </div>
           </div>
+
+          <%= f.association :beer_family, required: false, as: :radio_buttons, label: 'FAMILLE DE BIÈRE',
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item'  %>
+          <div class="geek-link center">Geek</div>
+
+          <div class="geek">
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-lg-4">
+                <%= f.input :color, input_html: { min: '1', max:'80'}, required: false, label: 'EBC' %>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-lg-4">
+                <%= f.input :alcohol_level, input_html: { min: '0'}, required: false, label: "NIVEAU D'ALCOOL"  %>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-lg-4">
+                <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false, label: "IBU" %>
+              </div>
+            </div>
+            <%= f.input :description, required: false, label: "COURTE DESCRIPTION"  %>
+          </div>
           <div class="infos">
             <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
           </div>
@@ -82,4 +83,18 @@ $(document).ready(function () {
         $(this).addClass('on');
     });
 });
+</script>
+
+<script>
+  $(document).ready(function(){
+
+    $(".geek").hide();
+
+      $(".geek-link").click(function(){
+
+        $(".geek").toggle();
+
+      });
+
+    });
 </script>
