@@ -5,10 +5,8 @@ class Beer < ApplicationRecord
   belongs_to :style, optional: true
   validates :name, presence: :true
   validates :photo, presence: :true
-  validates :alcohol_level, presence: :true
   validates :color, presence: :true
   validates :bitterness, presence: :true
-  validates :photo, presence: :true
   has_many :recipes, dependent: :destroy
   has_many :fancies, dependent: :destroy
   has_many :users, through: :fancies

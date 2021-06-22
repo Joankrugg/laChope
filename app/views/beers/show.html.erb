@@ -21,7 +21,7 @@
             <%= cl_image_tag @beer.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
             <div class="card-infos">
               <p class='card-text center'>Category: <%= @beer.typical_beer.category.name %></p>
-              <p class='card-text center'>Alcool: <%= @beer.alcohol_level %> % Vol</p>
+              <p class='card-text center'>Alcool: <%= @beer.typical_beer.alcohol_shape.name %></p>
               <p class='card-text center'>Color: <%= @beer.color %> EBC</p>
               <p class='card-text center'>Bitterness: <%= @beer.bitterness %> IBU</p>
               <p class='card-text center rate'><%= @beer.average_stars %></p>

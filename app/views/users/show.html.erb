@@ -356,19 +356,6 @@
   <% end %>
 
   <% if @user.design.alcohol_shape.present? %>
-    <% @beers.each do |b| %>
-      <% if b.alcohol_level >= 9  %>
-        <% vst << b %>
-      <% elsif b.alcohol_level.between?(6, 9) %>
-        <% st << b %>
-      <% elsif b.alcohol_level.between?(4, 6) %>
-        <% rt << b %>
-      <% elsif b.alcohol_level.between?(1, 4) %>
-        <% lt << b %>
-      <% else %>
-        <% lt << b %>
-      <% end %>
-    <% end %>
     <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
       <% results << very_strong_beers %>
     <% end %>
