@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :stickers
   resources :projects
+  resources :stores
   resources :typical_beers do
     collection do
       get :wheat_beers

@@ -916,12 +916,41 @@
     </div>
   </div>
 </div>
+<% if @user.store.present? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class='user-show-card bottom'>
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1620834761/logo_atelier_target.png", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+          <div class="row">
+            <div class="col-sm-12 col-lg-12">
+              <div class="show-infos">
+                <%= @user.store.name %>
+                <%= @user.store.city %>
+                <%= @user.store.address %>
+                <%= @user.store.website %>
+                <% if @user == current_user %>
+                  <p class ='project-info center'><%= link_to 'edit', edit_store_path %></p>
+                  <p class ='project-info center'><%= link_to "Delete #{@user.store.name}",
+                    store_path,
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
       <div class='user-show-card bottom'>
         <div class="user"><%= link_to 'CRÉER BIÈRE EMBLÉMATIQUE', new_typical_beer_path, class: 'admin' %></div>
+        <div class="user"><%= link_to 'CRÉER STORE', new_store_path, class: 'admin' %></div>
         <% if @user == current_user && @user.admin? %>
           <div class="user" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
           <div class="user" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>

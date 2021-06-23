@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :personal_messages, dependent: :destroy
   has_many :typical_beers, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_one :store
   def name
     email.split('@')[0]
   end

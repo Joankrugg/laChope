@@ -1,0 +1,19 @@
+<div class="offnav"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <h2>Store</h2>
+      <%= simple_form_for @store do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, required: false  %>
+          <%= f.input :city, required: false  %>
+          <%= f.input :address, required: false  %>
+          <%= f.input :website, required: false  %>
+        </div>
+        <div class="infos">
+          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
