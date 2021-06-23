@@ -179,5 +179,10 @@
     </div>
   </div>
 </div>
+<% if user_signed_in? %>
+  <% @user.beers.each do |b| %>
+    <%= b.name %>
+  <% end %>
+<% end %>
 
 <div class="bottom"></div>
