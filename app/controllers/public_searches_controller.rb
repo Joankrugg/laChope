@@ -17,6 +17,7 @@ class PublicSearchesController < ApplicationController
   def show
     @public_search = PublicSearch.find(params[:id])
     @typical_beers = TypicalBeer.all
+    @beers = Beer.all
     @user = current_user
 
   end

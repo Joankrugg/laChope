@@ -141,7 +141,7 @@
 
 <% must = result.flatten.group_by(&:itself) %>
 <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-<% first_choices = sorted_must.select! { |key, value| value == 5 } %>
+<% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
 <% if !first_choices.nil? %>
   <% five_stars = first_choices.keys %>
   <% if five_stars != [] %>
@@ -168,9 +168,34 @@
           </div>
         <% end %>
       </div>
+      <div class="row">
+        <% five_stars.each do |f| %>
+          <% if user_signed_in? && current_user.store.present? %>
+            <% if current_user.store.beers.present? %>
+              <% current_user.store.beers.each do |b| %>
+                <% if b.typical_beer.style.name == f.style.name %>
+                  <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                    <%= render 'beers/beer_card', beer: b %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% @beers.each do |b| %>
+              <% if b.typical_beer.style.name == f.style.name %>
+                <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                  <%= render 'beers/beer_card', beer: b %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% end %>
+
+
 
 <div class="container">
   <div class="row">
@@ -179,10 +204,6 @@
     </div>
   </div>
 </div>
-<% if user_signed_in? %>
-  <% @user.beers.each do |b| %>
-    <%= b.name %>
-  <% end %>
-<% end %>
+
 
 <div class="bottom"></div>

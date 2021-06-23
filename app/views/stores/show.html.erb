@@ -1,2 +1,13 @@
-<h1>Stores#show</h1>
-<p>Find me in app/views/stores/show.html.erb</p>
+<div class="offnavs"></div>
+<h1 class='page-title center'><%= @store.name %></h1>
+<% if @store.beers.present? %>
+  <div class="container">
+    <div class="row">
+      <% @store.beers.each do |beer| %>
+        <div class="col-lg-3 mx-auto">
+          <%= render 'beers/beer_card', beer: beer %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

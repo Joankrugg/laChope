@@ -4,4 +4,6 @@ class Store < ApplicationRecord
   validates :city, presence: true
   validates :address, presence: true
   validates :website, presence: true
+  has_many :store_beers
+  has_many :beers, through: :store_beers
 end

@@ -9,6 +9,7 @@
           <%= f.input :city, required: false  %>
           <%= f.input :address, required: false  %>
           <%= f.input :website, required: false  %>
+          <%= f.association :beers, as: :check_boxes, required: false %>
         </div>
         <div class="infos">
           <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
