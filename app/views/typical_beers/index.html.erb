@@ -3,9 +3,18 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-1"></div>
     <div class="col-xs-12 col-sm-12 col-lg-8">
+      <%= form_tag(typical_beers_path, method: :get) do %>
+        <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search center' %>
+        <%= submit_tag 'Rechercher', class: 'search' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
+    <div class="col-xs-12 col-sm-12 col-lg-8">
       <div class="card space">
         <h1 class='page-title center'>
-          BIÈRES CLASSIQUES
+          STYLES DE BIÈRES
         </h1>
       </div>
       <div class="card">
