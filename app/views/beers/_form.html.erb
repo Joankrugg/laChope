@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8 mx-auto form">
       <h1 class="page-title center">C'EST QUOI CETTE BIÈRE ?</h1>
-      <%= simple_form_for @beer do |f| %>
+      <%= simple_form_for @beer, remote: true do |f| %>
         <div class="form-inputs">
           <div class="row">
             <div class="col-xs-6 col-sm-6 col-lg-6">
@@ -11,7 +11,11 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-lg-6">
               <label class="btn photo bottom">
-                Choisir une photo
+                <% if @beer.photo.present? %>
+                  <%= cl_image_tag @beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+                <% else %>
+                  Choisir une photo
+                <% end %>
                 <span style="display:none;">
                   <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
                 </span>
