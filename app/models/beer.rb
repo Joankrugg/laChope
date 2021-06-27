@@ -3,7 +3,7 @@ class Beer < ApplicationRecord
   has_one_attached :photo
   belongs_to :category, optional: true
   belongs_to :style, optional: true
-  validates :name, presence: :true
+  validates :name, presence: :true, uniqueness: true
   validates :photo, presence: :true
   has_many :recipes, dependent: :destroy
   has_many :fancies, dependent: :destroy
@@ -16,6 +16,15 @@ class Beer < ApplicationRecord
   belongs_to :typical_beer
   has_many :store_beers
   has_many :stores, through: :store_beers
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name ],
+    associated_against: {
+      typical_beer: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
 
   def average_stars
     star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }

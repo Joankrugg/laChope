@@ -2,8 +2,13 @@ class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @beers = Beer.all
-    @articles = Article.all
+    if params[:search].present?
+      @beers = Beer.global_search(params[:search])
+      @articles = Article.all
+    else
+      @beers = Beer.all
+      @articles = Article.all
+    end
   end
 
   def new
