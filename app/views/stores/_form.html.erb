@@ -9,7 +9,23 @@
           <%= f.input :city, required: false  %>
           <%= f.input :address, required: false  %>
           <%= f.input :website, required: false  %>
-          <%= f.association :beers, as: :check_boxes, required: false %>
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <label class="control-label check_boxes optional">Bières</label>
+              <input type="hidden" name="store[beer_ids][]" value="">
+            </div>
+            <div class="beer-choices col-lg-12">
+              <% Beer.all.each do |beer| %>
+                <input type="checkbox" class="hidden" value="<%= beer.id %>" name="store[beer_ids][]" id="store_beer_ids_<%= beer.id %>">
+                <label class="beer-choice" for="store_beer_ids_<%= beer.id %>">
+                  <div class="comp">
+                    <%= cl_image_tag beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+                    <%= beer.name %>
+                  </div>
+                </label>
+              <% end %>
+            </div>
+          </div>
         </div>
         <div class="infos">
           <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
@@ -18,3 +34,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $(".beer-choice").click(function(){
+      $(this).toggleClass("active");
+    });
+  });
+</script>
