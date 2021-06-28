@@ -1,6 +1,5 @@
 <div class="card sides bottom shadow">
   <h3 class="title-top">Familles de Styles</h3>
-
   <div class="cell"><%= link_to 'Ales belges', belgian_ales_typical_beers_path, class: 'text-link' %></div>
   <div class="cell"><%= link_to 'Ales écossaises', scottish_ales_typical_beers_path, class: 'text-link' %></div>
   <div class="cell"><%= link_to 'Ales fortes', strong_ales_typical_beers_path, class: 'text-link' %></div>
@@ -20,10 +19,6 @@
   <div class="cell"><%= link_to 'Pilsners', pilsners_typical_beers_path, class: 'text-link' %></div>
   <div class="cell"><%= link_to 'Porters', porters_typical_beers_path, class: 'text-link' %></div>
   <div class="cell"><%= link_to 'Stouts', stouts_typical_beers_path, class: 'text-link' %></div>
-
-
-
-
   <h3 class="title-top">Styles de bière</h3>
     <% @typical_beers.sort_by(&:name).each do |tb| %>
       <div class="cell">
