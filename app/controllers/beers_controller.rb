@@ -5,9 +5,15 @@ class BeersController < ApplicationController
     if params[:search].present?
       @beers = Beer.global_search(params[:search])
       @articles = Article.all
+      @typical_beers = TypicalBeer.all
+    elsif params[:color_search].present?
+      @beers = Beer.color_search(params[:color_search])
+      @articles = Article.all
+      @typical_beers = TypicalBeer.all
     else
       @beers = Beer.all
       @articles = Article.all
+      @typical_beers = TypicalBeer.all
     end
   end
 

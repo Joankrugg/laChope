@@ -1,0 +1,29 @@
+<div class="card sides bottom shadow">
+  <h3 class="title-top">Familles de Styles</h3>
+  <div class="cell"><%= link_to 'Bières de blé', wheat_beers_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Bières de fermentation spontanée', lambics_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Ales belges', belgian_ales_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Pale ales', pale_ales_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Bitters', bitters_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Ales écossaises', scottish_ales_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Brown ales', brown_ales_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Porters', porters_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Stouts', stouts_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Pilsners', pilsners_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Pale lagers', american_lagers_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'lagers européennes', european_lagers_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Bocks', bocks_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Altbiers', alts_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Bières de garde', french_ales_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Ambrées allemandes', german_ambers_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Américaines spéciales', american_specials_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Bières fumées', smoked_beers_typical_beers_path, class: 'text-link' %></div>
+  <div class="cell"><%= link_to 'Ales fortes', strong_ales_typical_beers_path, class: 'text-link' %></div>
+  <h3 class="title-top">Styles de bière</h3>
+    <% @typical_beers.each do |tb| %>
+      <div class="cell">
+        <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'text-link'  %>
+      </div>
+    <% end %>
+  <h3 class="title-top">Couleurs de bière</h3>
+</div>

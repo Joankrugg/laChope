@@ -26,6 +26,12 @@ class Beer < ApplicationRecord
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
     }
 
+  pg_search_scope :color_search,
+    against: [:name],
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
+
   def average_stars
     star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }
     tasting_number = star_number.size > 0 ? star_number.sum.fdiv(star_number.size).round : 0
