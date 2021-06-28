@@ -17,7 +17,7 @@
     width: 100%;
     margin-bottom: 20px;
     border-radius: 3px;
-    background-color: #3C3C3C;
+    background-color: #4B535B;
     border: none;
     opacity: 0,7;
     .btn:hover{
@@ -29,8 +29,6 @@
 .form-login:hover {
   background: $light-gray;
 }
-
-
 
 .form{
   background: white;
@@ -237,12 +235,12 @@
   background: #b7b7b7;
   padding: 10px;
   border-radius: 5px;
-  opacity: .4;
+  opacity: 1;
   flex: 0 0 100%;
   text-align: center;
 }
 .beer-choice:hover {
-  opacity: 1;
+  opacity: 0.4;
   cursor: pointer;
 }
 .beer-choice.active {

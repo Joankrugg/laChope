@@ -7,8 +7,7 @@
 <% end %>
 <div class="container top">
   <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <div class="card space">
         <h1 class="page-title center">ALES</h1>
       </div>
@@ -19,7 +18,7 @@
       </div>
       <div class="row">
         <% ales.each do |b| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6 index">
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-3 index">
             <%= render 'beer_card', beer: b %>
           </div>
         <% end %>

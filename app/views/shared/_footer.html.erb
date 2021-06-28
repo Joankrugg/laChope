@@ -66,24 +66,24 @@
         </button>
       </div>
       <div class="modal-body bottle-available">
-        <%= link_to 'Styles de bière', typical_beers_path, class: 'bottle-choice col-lg-6'  %>
-        <%= link_to 'Bières', beers_path, class: 'bottle-choice col-lg-6'  %>
-        <%= link_to 'Articles', articles_path, class: 'bottle-choice col-lg-6'  %>
-        <%= link_to 'Stickers', stickers_path, class: 'bottle-choice col-lg-6'  %>
-        <%= link_to 'Stores', stores_path, class: 'bottle-choice col-lg-6'  %>
-        <%= link_to 'Projets', projects_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Styles de bière', typical_beers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Bières', beers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Articles', articles_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Stickers', stickers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Stores', stores_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Projets', projects_path, class: 'bottle-choice col-lg-4'  %>
         <% if user_signed_in? %>
-          <%= link_to 'Nouvelle bière', new_beer_path, class: 'bottle-choice col-lg-6'  %>
-          <%= link_to 'Nouveau projet', new_project_path, class: 'bottle-choice col-lg-6'  %>
+          <%= link_to 'Nouvelle bière', new_beer_path, class: 'bottle-choice col-lg-4'  %>
+          <%= link_to 'Nouveau projet', new_project_path, class: 'bottle-choice col-lg-4'  %>
           <% if current_user.store.nil? %>
-            <%= link_to 'Nouveau Store', new_store_path, class: 'bottle-choice col-lg-6'  %>
+            <%= link_to 'Nouveau Store', new_store_path, class: 'bottle-choice col-lg-4'  %>
           <% else %>
-            <%= link_to 'edit Store', edit_store_path(current_user.store), class: 'bottle-choice col-lg-6'  %>
+            <%= link_to 'edit Store', edit_store_path(current_user.store), class: 'bottle-choice col-lg-4'  %>
           <% end %>
-          <%= link_to 'Compte', user_path(current_user), class: 'bottle-choice col-lg-6' %>
+          <%= link_to 'Compte', user_path(current_user), class: 'bottle-choice col-lg-4' %>
           <% if current_user.admin? %>
-            <%= link_to 'Nouveau styles de bière', new_typical_beer_path, class: 'bottle-choice col-lg-6'  %>
-            <%= link_to 'Admin', rails_admin_path, class: 'bottle-choice col-lg-6' %>
+            <%= link_to 'Nouveau styles de bière', new_typical_beer_path, class: 'bottle-choice col-lg-4'  %>
+            <%= link_to 'Admin', rails_admin_path, class: 'bottle-choice col-lg-4' %>
           <% end %>
         <% end %>
       </div>

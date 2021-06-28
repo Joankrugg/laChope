@@ -1,7 +1,6 @@
 <div class="offnavs"></div>
   <div class="container top bottom">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-1"></div>
       <div class="col-xs-12 col-sm-12 col-lg-8">
         <div class="card space">
           <h1 class="page-title center">C'EST QUOI UNE TARGET BEER ?</h1>
@@ -11,7 +10,7 @@
         </div>
         <div class="row">
           <% @beers.each do |b| %>
-            <div class="mx-auto col-xs-8 col-sm-6 col-lg-6">
+            <div class="mx-auto col-xs-8 col-sm-6 col-lg-4">
               <%= render 'beer_card', beer: b %>
             </div>
           <% end %>
