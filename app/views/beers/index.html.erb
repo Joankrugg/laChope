@@ -1,16 +1,5 @@
 <div class="offnavs"></div>
 <div class="container top">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
-    <div class="col-xs-12 col-sm-12 col-lg-8">
-      <%= form_tag(beers_path, method: :get) do %>
-        <%= text_field_tag :search, nil, placeholder: 'Quelle bière ?', class: 'search center' %>
-        <%= submit_tag 'Rechercher', class: 'search' %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="container top">
   <% lagers = [] %>
   <% ales = [] %>
   <% mixed_styles = [] %>
@@ -28,6 +17,10 @@
       <div class="col-xs-12 col-sm-12 col-lg-8">
         <div class="card space">
           <h1 class='page-title center'>Toutes Les Bières</h1>
+          <%= form_tag(beers_path, method: :get) do %>
+            <%= text_field_tag :search, nil, placeholder: 'Quelle bière ?', class: 'search center' %>
+            <%= submit_tag 'Rechercher', class: 'search' %>
+          <% end %>
         </div>
         <% if lagers != [] %>
           <div class="card">
