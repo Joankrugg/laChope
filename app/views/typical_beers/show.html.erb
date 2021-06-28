@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-11">
-      <h1 class="title card center">Bière Emblématique du style <%= @typical_beer.style.name %></h1>
+      <h1 class="title card center">Parmi les <%= @typical_beer.beer_family.name %></h1>
     </div>
   </div>
 </div>
@@ -31,8 +31,8 @@
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", width: 800, crop: :fill, class: "img-fluid" %>
           <% end %>
         <% end %>
-        <% if @typical_beer.beer_family.present? %>
-          <h4 class='content'><%= @typical_beer.beer_family.name %></h4>
+        <% if @typical_beer.style.present? %>
+          <h4 class='content'>Caractéristiques principales des <%= @typical_beer.name %></h4>
           <h6 class='content'>PROFIL: </h6>
           <% if @typical_beer.category.present? %>
             <p class="id_card">Fermentation: <%= @typical_beer.category.name.capitalize %></p>

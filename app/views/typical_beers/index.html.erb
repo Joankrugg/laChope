@@ -3,19 +3,14 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-1"></div>
     <div class="col-xs-12 col-sm-12 col-lg-8">
-      <%= form_tag(typical_beers_path, method: :get) do %>
-        <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search center' %>
-        <%= submit_tag 'Rechercher', class: 'search' %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
-    <div class="col-xs-12 col-sm-12 col-lg-8">
       <div class="card space">
         <h1 class='page-title center'>
           STYLES DE BIÈRES
         </h1>
+        <%= form_tag(typical_beers_path, method: :get) do %>
+          <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search center' %>
+          <%= submit_tag 'Rechercher', class: 'search' %>
+        <% end %>
       </div>
       <div class="card">
         <h2 class='header-text'>Les bières classiques sont les bières représentatives d'un style ; on trouve facilement les marques citées en exemple dans le commerce ; elles participent à l'histoire et à l'évolution d'un ou de plusieurs styles de bières. À l'atelier, elle servent d'indicateur pour définir un projet et de socle pour la compréhension d'un style. Ces styles appartiennent aux familles plus larges suivantes: <%= link_to 'bières de blé', wheat_beers_typical_beers_path %>, <%= link_to 'bières de fermentation spontanée', lambics_typical_beers_path %>, <%= link_to 'ales belges', belgian_ales_typical_beers_path %>, <%= link_to 'pale ale', pale_ales_typical_beers_path %>, <%= link_to 'bitters', bitters_typical_beers_path %>, <%= link_to 'ales écossaises', scottish_ales_typical_beers_path %>, <%= link_to 'brown ales', brown_ales_typical_beers_path %>, <%= link_to 'porters', porters_typical_beers_path %>, <%= link_to 'stouts', stouts_typical_beers_path %>, <%= link_to 'pilsners', pilsners_typical_beers_path %>, <%= link_to 'lagers américaines', american_lagers_typical_beers_path %>, <%= link_to 'lagers européennes', european_lagers_typical_beers_path %>, <%= link_to 'bocks', bocks_typical_beers_path %>, <%= link_to 'altbier', alts_typical_beers_path %>, <%= link_to 'bières de garde', french_ales_typical_beers_path %>, <%= link_to 'ambrées allemandes', german_ambers_typical_beers_path %>, <%= link_to 'américaines spéciales', american_specials_typical_beers_path %>, <%= link_to 'bières fumées', smoked_beers_typical_beers_path %>, <%= link_to 'ales fortes', strong_ales_typical_beers_path %></h2>

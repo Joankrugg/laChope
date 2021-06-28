@@ -1,6 +1,6 @@
 <div class="card shadow">
   <p class='center target-top-title card-text'><%= beer.name.upcase %></p>
-  <p class='center'><%= beer.typical_beer.style.name %> | by : <%= beer.user.username %></p>
+  <p class='center'> | <%= beer.typical_beer.name %> | </p>
   <%= cl_image_tag beer.photo.key, class: 'card-img-top img-responsive beer-image' %>
   <div class="card-infos">
     <p class='card-text center'>Category: <%= beer.typical_beer.category.name %></p>
