@@ -10,10 +10,7 @@
         <p class="card-text"><%= beer.typical_beer.style.name %></p>
       <% end %>
       <p class="card-text"><%= beer.typical_beer.category.name %></p>
-      <% if beer.user.photo.present? %>
-        <%= cl_image_tag beer.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-      <% end %>
+      <p class='card-text' style='color: #3C3C3C;'><%= beer.average_stars %></p>
     </div>
-    <p class='center' style='color: #3C3C3C;'><%= beer.average_stars %></p>
   </div>
 <% end %>

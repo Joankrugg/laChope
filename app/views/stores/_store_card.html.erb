@@ -1,0 +1,10 @@
+<%= link_to store do  %>
+  <div class="card beers-shadow">
+    <div class="card-body">
+      <h3 class="card-title"><%= store.name.upcase %></h3>
+      <h4 class="card-text"><%= store.city %></h4>
+      <h4 class="card-text"><%= store.address %></h4>
+      <h4 class="card-text"><%= store.website %></h4>
+    </div>
+  </div>
+<% end %>

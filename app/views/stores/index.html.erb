@@ -1,2 +1,55 @@
-<h1>Stores#index</h1>
-<p>Find me in app/views/stores/index.html.erb</p>
+<div class="offnavs"></div>
+<div class="container top">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-9">
+      <div class="card space">
+        <h1 class='page-title center'>
+          STORES
+        </h1>
+      </div>
+      <div class="card">
+        <h2 class='header-text'>Bla bla bla</h2>
+      </div>
+      <div class="row">
+        <% @stores.each do |b| %>
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4">
+            <%= render 'store_card', store: b %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3">
+      <%= render 'shared/social-networks' %>
+      <div class="card sides bottom index-side">
+        <h4 class="title-top">TARGET</h4>
+        <% @beers.each do |b| %>
+          <% if b.target? %>
+            <%= link_to b do %>
+              <div class="beer-link card-infos">
+                <p class='beer-link-text'>Nom : <%= b.name %></p>
+                <p class='beer-link-text'>Style : <%= b.style.name %></p>
+                <div class="line"></div><br>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card sides top bottom">
+        <h4 class="title-top">A Lire</h4>
+        <% @articles.each do |a| %>
+          <%= link_to a do %>
+            <div class="row article-link card-infos">
+              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'avatar-square img-fluid' %></div>
+              <div class="col-lg-8">
+                <p class='article-link-text'><%= a.title %></p>
+                <p class='article-link-text'><%= a.theme.name %></p>
+                <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
+                <div class="line center"></div><br>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
