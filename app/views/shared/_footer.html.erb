@@ -67,26 +67,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <%= link_to 'Styles de bière', typical_beers_path  %>
-        <%= link_to 'Bières', beers_path %>
-        <%= link_to 'Articles', articles_path %>
-        <%= link_to 'Stickers', stickers_path %>
-        <%= link_to 'Stores', stores_path %>
-        <%= link_to 'Projets', projects_path %>
-        <%= link_to 'Nouveau styles de bière', new_typical_beer_path %>
-        <%= link_to 'Nouvelle bière', new_beer_path %>
-        <%= link_to 'Nouveau projet', new_project_path %>
+      <div class="modal-body bottle-available">
+        <%= link_to 'Styles de bière', typical_beers_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Bières', beers_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Articles', articles_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Stickers', stickers_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Stores', stores_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Projets', projects_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Nouveau styles de bière', new_typical_beer_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Nouvelle bière', new_beer_path, class: 'bottle-choice col-lg-6'  %>
+        <%= link_to 'Nouveau projet', new_project_path, class: 'bottle-choice col-lg-6'  %>
         <% if user_signed_in? %>
-          <%= link_to 'Compte', user_path(current_user) %>
+          <%= link_to 'Compte', user_path(current_user), class: 'bottle-choice col-lg-6' %>
           <% if current_user.admin? %>
-            <%= link_to 'Admin', rails_admin_path %>
+            <%= link_to 'Admin', rails_admin_path, class: 'bottle-choice col-lg-6' %>
           <% end %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

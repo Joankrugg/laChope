@@ -28,7 +28,7 @@
             </div>
             <input type="hidden" name="beer[typical_beer_id]" value="">
             <div class="typical_beer-available col-lg-12">
-              <% TypicalBeer.all.sort.each do |typical_beer| %>
+              <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
                 <div class="typical_beer-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
                   <input class="form-check-input radio_buttons optional typical_beer-choice hidden" type="radio" value="<%= typical_beer.id %>" name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>" >
                   <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
