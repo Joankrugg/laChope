@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_081222) do
+ActiveRecord::Schema.define(version: 2021_06_29_084614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_081222) do
     t.bigint "beer_family_id"
     t.bigint "typical_beer_id"
     t.bigint "design_color_id"
+    t.bigint "alcohol_shape_id"
+    t.index ["alcohol_shape_id"], name: "index_beers_on_alcohol_shape_id"
     t.index ["beer_family_id"], name: "index_beers_on_beer_family_id"
     t.index ["category_id"], name: "index_beers_on_category_id"
     t.index ["design_color_id"], name: "index_beers_on_design_color_id"
@@ -485,6 +487,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_081222) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "themes"
   add_foreign_key "articles", "users"
+  add_foreign_key "beers", "alcohol_shapes"
   add_foreign_key "beers", "beer_families"
   add_foreign_key "beers", "categories"
   add_foreign_key "beers", "design_colors"

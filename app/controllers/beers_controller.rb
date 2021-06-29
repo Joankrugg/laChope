@@ -97,6 +97,6 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :design_color, :beer_family_id, :bitterness, :description, :photo, :category_id, :target, :typical_beer_id)
+    params.require(:beer).permit(:name, :style_id, :alcohol_level, :color, :design_color, :alcohol_shape, :beer_family_id, :bitterness, :description, :photo, :category_id, :target, :typical_beer_id)
   end
 end

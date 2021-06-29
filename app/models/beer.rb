@@ -15,6 +15,7 @@ class Beer < ApplicationRecord
   belongs_to :beer_family
   belongs_to :typical_beer
   belongs_to :design_color, optional: true
+  belongs_to :alcohol_shape, optional: true
   has_many :store_beers
   has_many :stores, through: :store_beers
   include PgSearch::Model
