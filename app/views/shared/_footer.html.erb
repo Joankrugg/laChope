@@ -67,7 +67,7 @@
       </div>
       <div class="modal-body bottle-available">
         <%= link_to 'Styles de bière', typical_beers_path, class: 'bottle-choice col-lg-4'  %>
-        <%= link_to 'Bières', beers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Catalogue', beers_path, class: 'bottle-choice col-lg-4'  %>
         <%= link_to 'Articles', articles_path, class: 'bottle-choice col-lg-4'  %>
         <%= link_to 'Stickers', stickers_path, class: 'bottle-choice col-lg-4'  %>
         <%= link_to 'Stores', stores_path, class: 'bottle-choice col-lg-4'  %>
@@ -75,6 +75,9 @@
         <% if user_signed_in? %>
           <%= link_to 'Nouvelle bière', new_beer_path, class: 'bottle-choice col-lg-4'  %>
           <%= link_to 'Nouveau projet', new_project_path, class: 'bottle-choice col-lg-4'  %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt second-nav-link"></i>
+            <% end %>
           <% if current_user.store.nil? %>
             <%= link_to 'Nouveau Store', new_store_path, class: 'bottle-choice col-lg-4'  %>
           <% else %>

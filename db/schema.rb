@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_113714) do
+ActiveRecord::Schema.define(version: 2021_06_29_081222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,8 +93,10 @@ ActiveRecord::Schema.define(version: 2021_06_23_113714) do
     t.boolean "autumn_collection", default: false, null: false
     t.bigint "beer_family_id"
     t.bigint "typical_beer_id"
+    t.bigint "design_color_id"
     t.index ["beer_family_id"], name: "index_beers_on_beer_family_id"
     t.index ["category_id"], name: "index_beers_on_category_id"
+    t.index ["design_color_id"], name: "index_beers_on_design_color_id"
     t.index ["style_id"], name: "index_beers_on_style_id"
     t.index ["typical_beer_id"], name: "index_beers_on_typical_beer_id"
     t.index ["user_id"], name: "index_beers_on_user_id"
@@ -485,6 +487,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_113714) do
   add_foreign_key "articles", "users"
   add_foreign_key "beers", "beer_families"
   add_foreign_key "beers", "categories"
+  add_foreign_key "beers", "design_colors"
   add_foreign_key "beers", "styles"
   add_foreign_key "beers", "typical_beers"
   add_foreign_key "beers", "users"
