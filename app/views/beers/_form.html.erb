@@ -60,9 +60,19 @@
                   item_wrapper_class: 'tag-item' %>
               </div>
               <div class="col-lg-12">
+                <%= f.association :main_taste, required: false, as: :radio_buttons,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+              </div>
+              <div class="col-lg-12">
                 <%= f.association :balance, required: false, as: :radio_buttons,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
+              </div>
+              <div class="col-lg-12">
+                <%= f.association :flavours, as: :check_boxes,
+                              input_html: { class: "tag-selector" },
+                              item_wrapper_class: 'tag-item', label: 'ARÔMES' %>
               </div>
               <div class="col-xs-4 col-sm-4 col-lg-4">
                 <%= f.input :color, input_html: { min: '1', max:'80'}, required: false, label: 'EBC' %>

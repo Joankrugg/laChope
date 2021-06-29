@@ -17,8 +17,12 @@ class Beer < ApplicationRecord
   belongs_to :design_color, optional: true
   belongs_to :alcohol_shape, optional: true
   belongs_to :balance, optional: true
+  belongs_to :main_taste, optional: true
   has_many :store_beers
   has_many :stores, through: :store_beers
+  has_many :beer_flavours
+  has_many :flavours, through: :beer_flavours
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :name ],

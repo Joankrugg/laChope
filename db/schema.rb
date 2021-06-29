@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_090030) do
+ActiveRecord::Schema.define(version: 2021_06_29_112029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 2021_06_29_090030) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "beer_flavours", force: :cascade do |t|
+    t.bigint "beer_id", null: false
+    t.bigint "flavour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_beer_flavours_on_beer_id"
+    t.index ["flavour_id"], name: "index_beer_flavours_on_flavour_id"
+  end
+
   create_table "beers", force: :cascade do |t|
     t.string "name"
     t.float "alcohol_level"
@@ -96,11 +105,13 @@ ActiveRecord::Schema.define(version: 2021_06_29_090030) do
     t.bigint "design_color_id"
     t.bigint "alcohol_shape_id"
     t.bigint "balance_id"
+    t.bigint "main_taste_id"
     t.index ["alcohol_shape_id"], name: "index_beers_on_alcohol_shape_id"
     t.index ["balance_id"], name: "index_beers_on_balance_id"
     t.index ["beer_family_id"], name: "index_beers_on_beer_family_id"
     t.index ["category_id"], name: "index_beers_on_category_id"
     t.index ["design_color_id"], name: "index_beers_on_design_color_id"
+    t.index ["main_taste_id"], name: "index_beers_on_main_taste_id"
     t.index ["style_id"], name: "index_beers_on_style_id"
     t.index ["typical_beer_id"], name: "index_beers_on_typical_beer_id"
     t.index ["user_id"], name: "index_beers_on_user_id"
@@ -489,11 +500,14 @@ ActiveRecord::Schema.define(version: 2021_06_29_090030) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "themes"
   add_foreign_key "articles", "users"
+  add_foreign_key "beer_flavours", "beers"
+  add_foreign_key "beer_flavours", "flavours"
   add_foreign_key "beers", "alcohol_shapes"
   add_foreign_key "beers", "balances"
   add_foreign_key "beers", "beer_families"
   add_foreign_key "beers", "categories"
   add_foreign_key "beers", "design_colors"
+  add_foreign_key "beers", "main_tastes"
   add_foreign_key "beers", "styles"
   add_foreign_key "beers", "typical_beers"
   add_foreign_key "beers", "users"
