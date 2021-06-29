@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_112029) do
+ActiveRecord::Schema.define(version: 2021_06_29_113643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 2021_06_29_112029) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "beer_feelings", force: :cascade do |t|
+    t.bigint "beer_id", null: false
+    t.bigint "feeling_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_beer_feelings_on_beer_id"
+    t.index ["feeling_id"], name: "index_beer_feelings_on_feeling_id"
   end
 
   create_table "beer_flavours", force: :cascade do |t|
@@ -500,6 +509,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_112029) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "themes"
   add_foreign_key "articles", "users"
+  add_foreign_key "beer_feelings", "beers"
+  add_foreign_key "beer_feelings", "feelings"
   add_foreign_key "beer_flavours", "beers"
   add_foreign_key "beer_flavours", "flavours"
   add_foreign_key "beers", "alcohol_shapes"

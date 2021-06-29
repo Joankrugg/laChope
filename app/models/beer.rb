@@ -22,7 +22,8 @@ class Beer < ApplicationRecord
   has_many :stores, through: :store_beers
   has_many :beer_flavours
   has_many :flavours, through: :beer_flavours
-
+  has_many :beer_feelings
+  has_many :feelings, through: :beer_feelings
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :name ],
