@@ -26,11 +26,9 @@
   <div id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" data-toggle="modal" data-target="#actions"">
           <% if current_user.photo.present? %>
-            <%= link_to current_user do %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-            <% end %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar" %>
           <% else %>
             <%= link_to current_user do %>
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar" %>
@@ -255,6 +253,45 @@
             <%= submit_tag 'Rechercher', style: "display: none;" %>
           <% end %>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="actions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bottle-available">
+        <%= link_to 'Styles de bière', typical_beers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Catalogue', beers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Articles', articles_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Stickers', stickers_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Stores', stores_path, class: 'bottle-choice col-lg-4'  %>
+        <%= link_to 'Projets', projects_path, class: 'bottle-choice col-lg-4'  %>
+        <% if user_signed_in? %>
+          <%= link_to 'Nouvelle bière', new_beer_path, class: 'bottle-choice col-lg-4'  %>
+          <%= link_to 'Nouveau projet', new_project_path, class: 'bottle-choice col-lg-4'  %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt second-nav-link"></i>
+            <% end %>
+          <% if current_user.store.nil? %>
+            <%= link_to 'Nouveau Store', new_store_path, class: 'bottle-choice col-lg-4'  %>
+          <% else %>
+            <%= link_to 'edit Store', edit_store_path(current_user.store), class: 'bottle-choice col-lg-4'  %>
+          <% end %>
+          <%= link_to 'Compte', user_path(current_user), class: 'bottle-choice col-lg-4' %>
+          <% if current_user.admin? %>
+            <%= link_to 'Nouveau styles de bière', new_typical_beer_path, class: 'bottle-choice col-lg-4'  %>
+            <%= link_to 'Admin', rails_admin_path, class: 'bottle-choice col-lg-4' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
