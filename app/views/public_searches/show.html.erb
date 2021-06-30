@@ -42,8 +42,8 @@
 
   <div class="container">
     <% @current_user.store.beers.each do |sb| %>
-      <% if sb.category.present? %>
-        <% if @public_search.category.present? %>
+      <% if @public_search.category.present? %>
+        <% if sb.category.present? %>
           <% if @public_search.category.name == sb.category.name %>
             <% pscategory << sb %>
           <% end %>
@@ -131,21 +131,17 @@
 
 
     <% @current_user.store.beers.each do |tb| %>
-      <% if tb.feelings.present? %>
-        <% tb.feelings.each do |tbf| %>
-          <% if @public_search.feelings.present? %>
-            <% @public_search.feelings.each do |psf| %>
+      <% if @public_search.feelings.present? %>
+        <% @public_search.feelings.each do |psf| %>
+          <% if tb.feelings.present? %>
+            <% tb.feelings.each do |tbf| %>
               <% if psf.name == tbf.name %>
                 <% psfeelings << tb %>
               <% end %>
             <% end %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <% if tb.typical_beer.feelings.present? %>
-          <% tb.typical_beer.feelings.each do |tbf| %>
-            <% if @public_search.feelings.present? %>
-              <% @public_search.feelings.each do |psf| %>
+          <% else %>
+            <% if tb.typical_beer.feelings.present? %>
+              <% tb.typical_beer.feelings.each do |tbf| %>
                 <% if psf.name == tbf.name %>
                   <% psfeelings << tb %>
                 <% end %>
@@ -161,21 +157,17 @@
     <% end %>
 
     <% @current_user.store.beers.each do |tb| %>
-      <% if tb.flavours.present? %>
-        <% tb.flavours.each do |tbf| %>
-          <% if @public_search.flavours.present? %>
-            <% @public_search.flavours.each do |psf| %>
+      <% if @public_search.flavours.present? %>
+        <% @public_search.flavours.each do |psf| %>
+          <% if tb.flavours.present? %>
+            <% tb.flavours.each do |tbf| %>
               <% if psf.name == tbf.name %>
                 <% psflavours << tb %>
               <% end %>
             <% end %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <% if tb.typical_beer.flavours.present? %>
-          <% tb.typical_beer.flavours.each do |tbf| %>
-            <% if @public_search.flavours.present? %>
-              <% @public_search.flavours.each do |psf| %>
+          <% else %>
+            <% if tb.typical_beer.flavours.present? %>
+              <% tb.typical_beer.flavours.each do |tbf| %>
                 <% if psf.name == tbf.name %>
                   <% psflavours << tb %>
                 <% end %>
