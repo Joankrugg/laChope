@@ -211,7 +211,7 @@
                 <% if f.style.present?  %>
                   |<%= f.style.name %>|
                 <% else %>
-                  |<%= f.name %>|
+                  |<%= f.typical_beer.style.name %>|
                 <% end %>
               <% end %>
             </p>
@@ -360,23 +360,11 @@
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
-            <% if user_signed_in? && current_user.store.present? %>
-              <% if current_user.store.beers.present? %>
-                <% current_user.store.beers.each do |b| %>
-                  <% if b.typical_beer.style.name == f.style.name %>
-                    <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                      <%= render 'beers/beer_card', beer: b %>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% end %>
-            <% else %>
-              <% @beers.each do |b| %>
-                <% if b.typical_beer.style.name == f.style.name %>
-                  <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                    <%= render 'beers/beer_card', beer: b %>
-                  </div>
-                <% end %>
+            <% @beers.each do |b| %>
+              <% if b.typical_beer.style.name == f.style.name %>
+                <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                  <%= render 'beers/beer_card', beer: b %>
+                </div>
               <% end %>
             <% end %>
           <% end %>
