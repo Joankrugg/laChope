@@ -33,11 +33,10 @@
     <% if beer.flavours.present? %>
       <p class='card-text center'>Arômes:</p>
       <% beer.flavours.each do |n| %>
-        <% if n.name == beer.typical_beer.flavours.name %>
+        <% if beer.typical_beer.flavours.include? (n.name) %>
           <p class='card-text center'><%= n.name %></p>
-        <% end %>
-        <% if n.name != beer.typical_beer.flavours.name %>
-          <div class="card-text center green"><%= n.name %></div>
+        <% else %>
+          <p class="card-text center green"><%= n.name %></p>
         <% end %>
       <% end %>
     <% end %>
@@ -45,11 +44,10 @@
     <% if beer.feelings.present? %>
       <p class='card-text center'>Texture:</p>
       <% beer.feelings.each do |n| %>
-        <% if n.name == beer.typical_beer.feelings.name %>
-           <p class='card-text center'><%= n.name %></p>
-        <% end %>
-        <% if n.name != beer.typical_beer.feelings.name %>
-          <p class='card-text center green'><%= n.name %></p>
+        <% if beer.typical_beer.feelings.include? (n.name) %>
+          <p class='card-text center'><%= n.name %></p>
+        <% else %>
+          <p class="card-text center green"><%= n.name %></p>
         <% end %>
       <% end %>
     <% end %>
