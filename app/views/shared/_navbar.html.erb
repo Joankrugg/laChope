@@ -244,90 +244,90 @@
         </button>
       </div>
       <div class="modal-body bottle-available">
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to typical_beers_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Styles</p>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to beers_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Catalogue</p>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to articles_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Articles</p>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to stickers_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Stickers</p>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to stores_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Stores</p>
           <% end %>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <%= link_to projects_path do %>
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
             <p class="text-link center">Projets</p>
           <% end %>
         </div>
         <% if user_signed_in? %>
-          <div class="col-2">
+          <div class="col-3">
             <%= link_to new_beer_path do %>
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
               <p class="text-link center">new beer</p>
             <% end %>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <%= link_to new_project_path do %>
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
               <p class="text-link center">new projets</p>
             <% end %>
           </div>
           <% if current_user.store.nil? %>
-            <div class="col-2">
+            <div class="col-3">
               <%= link_to new_store_path do %>
                 <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
                 <p class="text-link center">new store</p>
               <% end %>
             </div>
           <% else %>
-            <div class="col-2">
+            <div class="col-3">
               <%= link_to edit_store_path(current_user.store) do %>
                 <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
                 <p class="text-link center">edit store</p>
               <% end %>
             </div>
           <% end %>
-          <div class="col-2">
+          <div class="col-3">
             <%= link_to new_typical_beer_path do %>
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
               <p class="text-link center">Nouveau style</p>
             <% end %>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <%= link_to user_path(current_user) do %>
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
               <p class="text-link center">Compte</p>
             <% end %>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <%= link_to destroy_user_session_path, method: :delete do %>
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
               <p class="text-link center">Log out</p>
             <% end %>
           </div>
           <% if current_user.admin? %>
-            <div class="col-2">
+            <div class="col-3">
               <%= link_to rails_admin_path do %>
                 <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1625500175/71Km9FLUSNS._AC_SY500__lzsj64.jpg", class: 'img-fluid'  %>
                 <p class="text-link center">Admin</p>
