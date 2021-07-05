@@ -7,25 +7,25 @@
     <% end %>
     <p class='card-text center'>Categorie: <%= beer.typical_beer.category.name %></p>
     <% if beer.alcohol_shape.present? && beer.alcohol_shape.name != beer.typical_beer.alcohol_shape.name %>
-      <p class='card-text center'>Alcool: <%= beer.alcohol_shape.name %></p>
+      <p class='card-text center green'>Alcool: <%= beer.alcohol_shape.name %></p>
     <% else %>
-      <p class='card-text center'> Alcool: </p> <p class='card-text center green'> <%= beer.typical_beer.alcohol_shape.name %></p>
+      <p class='card-text center'><%= beer.typical_beer.alcohol_shape.name %></p>
     <% end %>
     <% if beer.design_color.present? && beer.design_color.name != beer.typical_beer.design_color.name %>
-      <p class='card-text center'>Robe: <%= beer.design_color.name %></p>
+      <p class='card-text center green'>Robe: <%= beer.design_color.name %></p>
     <% else %>
-      <p class='card-text center'> Robe: </p><p class='card-text center green'> <%= beer.typical_beer.design_color.name %></p>
+      <p class='card-text center'> Robe: <%= beer.typical_beer.design_color.name %></p>
     <% end %>
     <% if beer.balance.present? && beer.balance.name != beer.typical_beer.balance.name %>
-      <p class='card-text center'>Tendance: <%= beer.balance.name %></p>
+      <p class='card-text center green'>Tendance: <%= beer.balance.name %></p>
     <% else %>
-      <p class='card-text center'> Tendance: </p><p class='card-text center green'><%= beer.typical_beer.balance.name %></p>
+      <p class='card-text center'> Tendance: <%= beer.typical_beer.balance.name %></p>
     <% end %>
     <% if beer.main_taste.present? %>
       <% if beer.main_taste.name != beer.typical_beer.main_taste.name %>
-        <p class='card-text center'>Palais: <%= beer.main_taste.name %></p>
+        <p class='card-text center green'>Palais: <%= beer.main_taste.name %></p>
       <% else %>
-        <p class='card-text center'> Palais: </p><p class='card-text center green'><%= beer.typical_beer.main_taste.name %></p>
+        <p class='card-text center'> Palais: <%= beer.typical_beer.main_taste.name %></p>
       <% end %>
     <% end %>
 
