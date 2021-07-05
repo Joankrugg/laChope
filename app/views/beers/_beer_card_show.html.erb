@@ -35,7 +35,8 @@
       <% beer.flavours.each do |n| %>
         <% if n.name == beer.typical_beer.flavours.name %>
           <p class='card-text center'><%= n.name %></p>
-        <% elsif n.name != beer.typical_beer.flavours.name %>
+        <% end %>
+        <% if n.name != beer.typical_beer.flavours.name %>
           <div class="card-text center green"><%= n.name %></div>
         <% end %>
       <% end %>
@@ -46,7 +47,8 @@
       <% beer.feelings.each do |n| %>
         <% if n.name == beer.typical_beer.feelings.name %>
            <p class='card-text center'><%= n.name %></p>
-        <% elsif n.name != beer.typical_beer.feelings.name %>
+        <% end %>
+        <% if n.name != beer.typical_beer.feelings.name %>
           <p class='card-text center green'><%= n.name %></p>
         <% end %>
       <% end %>
