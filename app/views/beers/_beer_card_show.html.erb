@@ -1,31 +1,36 @@
 <div class="card shadow">
-  <h5 class='center target-top-title'><%= beer.name.upcase %></h5>
+  <h5 class='target-top-title center'><%= beer.name.upcase %></h5>
   <%= cl_image_tag beer.photo.key, class: 'card-img-top img-responsive beer-image' %>
   <div class="card-infos">
     <%= link_to beer.typical_beer do  %>
-      <p class='center'> | <%= beer.typical_beer.name %> | </p>
+      <div class='col-lg-9 mx-auto btn-modern center'> | <%= beer.typical_beer.name %> | </div>
     <% end %>
-    <p class='card-text center'>Categorie: <%= beer.typical_beer.category.name %></p>
+    <p class='card-section col-lg-9 mx-auto'>Catégorie: </p>
+    <p class='col-lg-9 mx-auto card-section-item'><%= beer.typical_beer.category.name %></p>
+    <p class='card-section col-lg-9 mx-auto'>Niveau d'alcool: </p>
     <% if beer.alcohol_shape.present? && beer.alcohol_shape.name != beer.typical_beer.alcohol_shape.name %>
-      <p class='card-text center green'>Alcool: <%= beer.alcohol_shape.name %></p>
+      <p class='col-lg-9 mx-auto card-section-special'><%= beer.alcohol_shape.name %></p>
     <% else %>
-      <p class='card-text center'>Alcool: <%= beer.typical_beer.alcohol_shape.name %></p>
+      <p class='col-lg-9 mx-auto card-section-item'><%= beer.typical_beer.alcohol_shape.name %></p>
     <% end %>
+    <p class='card-section col-lg-9 mx-auto'>Robe: </p>
     <% if beer.design_color.present? && beer.design_color.name != beer.typical_beer.design_color.name %>
-      <p class='card-text center green'>Robe: <%= beer.design_color.name %></p>
+      <p class='col-lg-9 mx-auto card-section-special'><%= beer.design_color.name %></p>
     <% else %>
-      <p class='card-text center'> Robe: <%= beer.typical_beer.design_color.name %></p>
+      <p class='col-lg-9 mx-auto card-section-item'> <%= beer.typical_beer.design_color.name %></p>
     <% end %>
+    <p class='card-section col-lg-9 mx-auto'>Tendance: </p>
     <% if beer.balance.present? && beer.balance.name != beer.typical_beer.balance.name %>
-      <p class='card-text center green'>Tendance: <%= beer.balance.name %></p>
+      <p class='col-lg-9 mx-auto card-section-special'><%= beer.balance.name %></p>
     <% else %>
-      <p class='card-text center'> Tendance: <%= beer.typical_beer.balance.name %></p>
+      <p class='col-lg-9 mx-auto card-section-item'><%= beer.typical_beer.balance.name %></p>
     <% end %>
+    <p class='card-section col-lg-9 mx-auto'>Palais: </p>
     <% if beer.main_taste.present? %>
       <% if beer.main_taste.name != beer.typical_beer.main_taste.name %>
-        <p class='card-text center green'>Palais: <%= beer.main_taste.name %></p>
+        <p class='col-lg-9 mx-auto card-section-special'> <%= beer.main_taste.name %></p>
       <% else %>
-        <p class='card-text center'> Palais: <%= beer.typical_beer.main_taste.name %></p>
+        <p class='col-lg-9 mx-auto card-section-item'><%= beer.typical_beer.main_taste.name %></p>
       <% end %>
     <% end %>
 
@@ -33,7 +38,7 @@
     <% typicalflavours = [] %>
 
     <% if beer.flavours.present? %>
-      <p class='card-text center'>Arômes:</p>
+      <p class='card-section col-lg-9 mx-auto'>Arômes:</p>
       <% beer.typical_beer.flavours.each do |tb| %>
         <% typicalflavours << tb.name %>
       <% end %>
@@ -41,15 +46,21 @@
         <% beerflavours << b.name %>
       <% end %>
       <% special = typicalflavours & beerflavours %>
-      <p class='card-text center'><%= special.join(", ") %></p>
-      <p class='card-text center green'><%= (beerflavours - special).join(", ") %></p>
+      <div class="col-lg-9 mx-auto">
+        <div class="row">
+          <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
+        </div>
+        <div class="row">
+          <p class='col-lg-12 card-section-special'><%= (beerflavours - special).join(", ") %></p>
+        </div>
+      </div>
     <% end %>
 
     <% beerfeelings = [] %>
     <% typicalfeelings = [] %>
 
     <% if beer.feelings.present? %>
-      <p class='card-text center'>Textures:</p>
+      <p class='card-section col-lg-9 mx-auto'>Textures:</p>
       <% beer.typical_beer.feelings.each do |tb| %>
         <% typicalfeelings << tb.name %>
       <% end %>
@@ -57,8 +68,14 @@
         <% beerfeelings << b.name %>
       <% end %>
       <% special = typicalfeelings & beerfeelings %>
-      <p class='card-text center'><%= special.join(", ") %></p>
-      <p class='card-text center green'><%= (beerfeelings - special).join(", ") %></p>
+      <div class="col-lg-9 mx-auto">
+        <div class="row">
+          <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
+        </div>
+        <div class="row">
+          <p class='col-lg-12 card-section-special'><%= (beerfeelings - special).join(", ") %></p>
+        </div>
+      </div>
     <% end %>
 
     <% if beer.ratings.present? %>

@@ -118,3 +118,16 @@
     opacity: 1;
   }
 }
+
+.btn-modern{
+  background-color: #4B535B;
+  border-radius: 4px;
+  color: $light-gray;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.btn-modern:hover{
+  opacity: 1;
+  color: white;
+}

@@ -407,6 +407,34 @@
   color: #3C3C3C;
 }
 
-.green{
-  color: $my-green;
+.special{
+  color: $gray;
+}
+
+.card-section{
+  margin-bottom: 2px;
+  padding-left: 40px;
+  font-size: 14px;
+  font-family: 'Work Sans';
+  font-weight: lighter;
+  color: white;
+  background-color: #4B535B;
+  border-radius: 4px;
+}
+
+.card-section-item{
+  margin-bottom: 2px;
+  padding-left: 40px;
+  font-size: 14px;
+  font-family: 'Work Sans';
+  font-weight: lighter;
+}
+
+.card-section-special{
+  margin-bottom: 2px;
+  padding-left: 40px;
+  color: #3C3C3C;
+  font-size: 14px;
+  font-family: 'Work Sans';
+  background-color: white;
 }
