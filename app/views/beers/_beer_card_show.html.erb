@@ -9,7 +9,7 @@
     <% if beer.alcohol_shape.present? && beer.alcohol_shape.name != beer.typical_beer.alcohol_shape.name %>
       <p class='card-text center green'>Alcool: <%= beer.alcohol_shape.name %></p>
     <% else %>
-      <p class='card-text center'><%= beer.typical_beer.alcohol_shape.name %></p>
+      <p class='card-text center'>Alcool: <%= beer.typical_beer.alcohol_shape.name %></p>
     <% end %>
     <% if beer.design_color.present? && beer.design_color.name != beer.typical_beer.design_color.name %>
       <p class='card-text center green'>Robe: <%= beer.design_color.name %></p>
@@ -29,34 +29,36 @@
       <% end %>
     <% end %>
 
-    <% same_flavours = [] %>
+    <% beerflavours = [] %>
+    <% typicalflavours = [] %>
+
     <% if beer.flavours.present? %>
       <p class='card-text center'>Arômes:</p>
-      <% beer.flavours.each do |n| %>
-        <% beer.typical_beer.flavours.each do |s| %>
-          <% same_flavours << s.name %>
-          <% if same_flavours.include? (n.name) %>
-            <p class='card-text center'><%= n.name %></p>
-          <% else %>
-            <p class='card-text center green'><%= n.name %></p>
-          <% end %>
-        <% end %>
+      <% beer.typical_beer.flavours.each do |tb| %>
+        <% typicalflavours << tb.name %>
       <% end %>
+      <% beer.flavours.each do |b| %>
+        <% beerflavours << b.name %>
+      <% end %>
+      <% special = typicalflavours & beerflavours %>
+      <p class='card-text center'><%= special.join(", ") %></p>
+      <p class='card-text center green'><%= (beerflavours - special).join(", ") %></p>
     <% end %>
 
-    <% same_feelings = [] %>
+    <% beerfeelings = [] %>
+    <% typicalfeelings = [] %>
+
     <% if beer.feelings.present? %>
-      <p class='card-text center'>Arômes:</p>
-      <% beer.feelings.each do |n| %>
-        <% beer.typical_beer.feelings.each do |s| %>
-          <% same_feelings << s.name %>
-          <% if same_feelings.include? (n.name) %>
-            <p class='card-text center'><%= n.name %></p>
-          <% else %>
-            <p class='card-text center green'><%= n.name %></p>
-          <% end %>
-        <% end %>
+      <p class='card-text center'>Textures:</p>
+      <% beer.typical_beer.feelings.each do |tb| %>
+        <% typicalfeelings << tb.name %>
       <% end %>
+      <% beer.feelings.each do |b| %>
+        <% beerfeelings << b.name %>
+      <% end %>
+      <% special = typicalfeelings & beerfeelings %>
+      <p class='card-text center'><%= special.join(", ") %></p>
+      <p class='card-text center green'><%= (beerfeelings - special).join(", ") %></p>
     <% end %>
 
     <% if beer.ratings.present? %>
