@@ -1,26 +1,59 @@
 <div class="card shadow">
   <h5 class='center target-top-title'><%= beer.name.upcase %></h5>
-  <%= link_to beer.typical_beer do  %>
-    <p class='center'> | <%= beer.typical_beer.name %> | </p>
-  <% end %>
   <%= cl_image_tag beer.photo.key, class: 'card-img-top img-responsive beer-image' %>
   <div class="card-infos">
+    <%= link_to beer.typical_beer do  %>
+      <p class='center'> | <%= beer.typical_beer.name %> | </p>
+    <% end %>
     <p class='card-text center'>Categorie: <%= beer.typical_beer.category.name %></p>
     <% if beer.alcohol_shape.present? && beer.alcohol_shape.name != beer.typical_beer.alcohol_shape.name %>
       <p class='card-text center'>Alcool: <%= beer.alcohol_shape.name %></p>
     <% else %>
-      <p class='card-text center'>Alcool: <%= beer.typical_beer.alcohol_shape.name %></p>
+      <p class='card-text center green'>Alcool: <%= beer.typical_beer.alcohol_shape.name %></p>
     <% end %>
     <% if beer.design_color.present? && beer.design_color.name != beer.typical_beer.design_color.name %>
       <p class='card-text center'>Robe: <%= beer.design_color.name %></p>
     <% else %>
-      <p class='card-text center'>Robe: <%= beer.typical_beer.design_color.name %></p>
+      <p class='card-text center green'>Robe: <%= beer.typical_beer.design_color.name %></p>
     <% end %>
     <% if beer.balance.present? && beer.balance.name != beer.typical_beer.balance.name %>
-      <p class='card-text center'>Equilibre: <%= beer.balance.name %></p>
+      <p class='card-text center'>Tendance: <%= beer.balance.name %></p>
     <% else %>
-      <p class='card-text center'>Équilibre: <%= beer.typical_beer.balance.name %></p>
+      <p class='card-text center green'>Tendance: <%= beer.typical_beer.balance.name %></p>
     <% end %>
-    <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
+    <% if beer.main_taste.present? %>
+      <% if beer.main_taste.name != beer.typical_beer.main_taste.name %>
+        <p class='card-text center'>Palais: <%= beer.main_taste.name %></p>
+      <% else %>
+        <p class='card-text center green'>Palais: <%= beer.typical_beer.main_taste.name %></p>
+      <% end %>
+    <% end %>
+
+
+    <% if beer.flavours.present? %>
+      <p class='card-text center'>Arômes:</p>
+      <% beer.flavours.each do |n| %>
+        <% if n.name == beer.typical_beer.flavours.name %>
+          <p class='card-text center'><%= n.name %></p>
+        <% elsif n.name != beer.typical_beer.flavours.name %>
+          <div class="card-text center green"><%= n.name %></div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if beer.feelings.present? %>
+      <p class='card-text center'>Texture:</p>
+      <% beer.feelings.each do |n| %>
+        <% if n.name == beer.typical_beer.feelings.name %>
+           <p class='card-text center'><%= n.name %></p>
+        <% elsif n.name != beer.typical_beer.feelings.name %>
+          <p class='card-text center green'><%= n.name %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if beer.ratings.present? %>
+      <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
+    <% end %>
   </div>
 </div>
