@@ -131,3 +131,21 @@
   opacity: 1;
   color: white;
 }
+
+.btn-nav-modern{
+  background-color: $light-gray;
+  font-weight: bold;
+  border-radius: 4px;
+  color: #4B535B;
+  font-size: 22px;
+  opacity: 0.7;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-family: 'Allura';
+}
+
+.btn-nav-modern:hover{
+  background-color: turquoise;
+  opacity: 1;
+  color: white;
+}
