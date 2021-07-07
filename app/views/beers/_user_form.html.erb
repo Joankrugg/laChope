@@ -1,88 +1,77 @@
-<div class="container">
+<div class="form-login">
   <h1 class="page-title center">C'EST QUOI CETTE BIÈRE ?</h1>
-  <%= simple_form_for @beer do |f| %>
+  <%= simple_form_for @beer, remote: true do |f| %>
     <div class="form-inputs">
-      <div class="row">
-        <div class="col-xs-6 col-sm-6 col-lg-6">
-          <%= f.input :name, required: false, label: 'MARQUE'  %>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-lg-6">
-          <label class="btn photo bottom">
-            Choisir une photo
-            <span style="display:none;">
-              <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-            </span>
-          </label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 mx-auto">
-          <label class="control-label check_boxes optional">Type De Bière</label>
-        </div>
-        <input type="hidden" name="beer[typical_beer_id]" value="">
-        <div class="typical_beer-available col-lg-12">
-          <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
-            <div class="typical_beer-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <input class="form-check-input radio_buttons optional typical_beer-choice hidden" type="radio" value="<%= typical_beer.id %>" name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>" >
-              <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
-                <div class="comp">
-                  <%= cl_image_tag typical_beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                  <%= typical_beer.name %>
-                </div>
-              </label>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <label class="photo bottom">
+        <% if @beer.photo.present? %>
+          <%= cl_image_tag @beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+        <% else %>
+          Choisir une photo
+        <% end %>
+        <span style="display:none;">
+          <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+        </span>
+      </label>
+      <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
+      <%= f.association :typical_beer, required: false, as: :radio_buttons, label: 'STYLE DE BIÈRE',
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item'  %>
+
 
       <%= f.association :beer_family, required: false, as: :radio_buttons, label: 'FAMILLE DE BIÈRE',
-            input_html: { class: "tag-selector" },
-            item_wrapper_class: 'tag-item'  %>
-      <div class="geek-link center">Geek</div>
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item'  %>
+      <div class="geek-link center bottom photo">Spécificités</div>
 
       <div class="geek">
+        <%= f.association :design_color, required: false, as: :radio_buttons,
+                input_html: { class: "squaretag-selector center" },
+                item_wrapper_class: 'squaretag-item', label: 'ROBE' %>
+
+        <%= f.association :alcohol_shape, required: false, as: :radio_buttons,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'TENEUR EN ALCOOL' %>
+
+        <%= f.association :main_taste, required: false, as: :radio_buttons,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'GOÛT PRINCIPAL' %>
+
+        <%= f.association :balance, required: false, as: :radio_buttons,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'EQUILIBRE'  %>
+
+        <%= f.association :flavours, as: :check_boxes,
+                        input_html: { class: "squaretag-selector" },
+                        item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
+
+        <%= f.association :feelings, as: :check_boxes,
+                        input_html: { class: "squaretag-selector" },
+                        item_wrapper_class: 'squaretag-item', label: 'TEXTURE' %>
         <div class="row">
-          <div class="col-xs-4 col-sm-4 col-lg-4">
+          <div class="col-4">
             <%= f.input :color, input_html: { min: '1', max:'80'}, required: false, label: 'EBC' %>
           </div>
-          <div class="col-xs-4 col-sm-4 col-lg-4">
-            <%= f.input :alcohol_level, input_html: { min: '0'}, required: false, label: "NIVEAU D'ALCOOL"  %>
+          <div class="col-4">
+            <%= f.input :alcohol_level, input_html: { min: '0'}, required: false, label: "ABV"  %>
           </div>
-          <div class="col-xs-4 col-sm-4 col-lg-4">
+          <div class="col-4">
             <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false, label: "IBU" %>
           </div>
+          <%= f.input :description, required: false, label: "COURTE DESCRIPTION"  %>
         </div>
-        <%= f.input :description, required: false, label: "COURTE DESCRIPTION"  %>
-      </div>
-      <div class="infos">
-        <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
+        <div class="form-actions">
+          <%= f.button :submit, "Valider", class: "btn btn-primary"  %></p>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
 
-
-<script>
-$(document).ready(function () {
-    $('.typical_beer-choice').bind('click', function() {
-        // remove the active class from all elements with active class
-        $('.on').removeClass('on')
-        // add on class to clicked element
-        $(this).addClass('on');
-    });
-});
-</script>
-
 <script>
   $(document).ready(function(){
-
     $(".geek").hide();
-
       $(".geek-link").click(function(){
-
         $(".geek").toggle();
-
       });
-
     });
 </script>
