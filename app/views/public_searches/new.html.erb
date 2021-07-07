@@ -1,6 +1,5 @@
-<div class="offnavs"></div>
-<div class="container">
-  <div class="card shadow bottom">
+<div class="container bottom">
+  <div class="form-login">
     <h1 class='page-title center'>Beer Search Engine</h1>
     <%= simple_form_for @public_search do |f| %>
       <div class="form-inputs">
@@ -46,8 +45,8 @@
                         item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
           <p class='form-legend'>Au delà de ce qu'on en connait, ils ont différentes origines, la fermentation, le houblonnage, l'arômatisation, la maturation et j'en passe. Sentez, goûtez, ressentez et regoûtez.</p>
         </div>
-        <div class="infos">
-          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
+        <div class="form-actions">
+          <%= f.button :submit, "VALIDER", class: "col-12 col-lg-4 mx-auto btn btn-primary bottom" %></p>
         </div>
       </div>
     <% end %>
