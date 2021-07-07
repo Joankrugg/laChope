@@ -32,9 +32,17 @@ header.masthead {
   padding-bottom: 2rem;
   color: turquoise;
 }
-.black-home{
+
+.home-title{
   color: #151718;
+  text-shadow: 2px 2px 5px white;
 }
+
+.home-title:hover{
+  color: white;
+  text-shadow: none;
+}
+
 .fa-hand-point-left{
   color: $my-gray;
 }

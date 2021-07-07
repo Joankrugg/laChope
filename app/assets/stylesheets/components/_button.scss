@@ -18,21 +18,21 @@
 }
 
 .btn-home {
-  color: #3C3C3C;
+  color: white;
   padding: 5px 20px;
   border-radius: 5px;
-  border :solid 1px black;
+  border :solid 1px white;
   font-weight: lighter;
-  background: $light-gray;
+  background: #151718;
   margin-bottom: 5px;
   margin-top: 5px;
   transition: background 0.3s ease;
 }
 
 .btn-home:hover {
-  background: #151718;
+  background: white;
   text-decoration: none;
-  color: white;
+  color: #151718;
 }
 
 .btn-flat {

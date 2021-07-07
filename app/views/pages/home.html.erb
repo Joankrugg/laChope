@@ -4,7 +4,7 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
-      <div class="col-xl-9 mx-auto">
+      <div class="col-9 mx-auto">
         <h1 class="home-title">BEERTRACKR</h1>
         <h2 class="slogan">Découvrez des Styles, des Bières, des Shops et les Targets</h2>
         <div><%= link_to 'Cliquez ICI', new_public_search_path, class: 'btn btn-home' %></div>
@@ -17,134 +17,50 @@
 <section class="features-icons bg-light text-center">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
           <div class="features-icons-icon d-flex ">
             <i class="fas fa-beer m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Découvrir son style de bière</h3>
-          <p>Remplissez des critères subjectifs sur votre compte et retrouvez des exemples commerciaux ou targets qui correspondent à vos goûts </p>
-          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Découvrez des bières et des styles</h3>
+          <p>Remplissez vos critères sur le BEERTRACKR et retrouvez des exemples commerciaux ou targets qui correspondent à vos goûts </p>
+          <%= link_to "Cliquez ICI", new_public_search_path, class: 'btn btn-modern' %>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
           <div class="features-icons-icon d-flex">
-            <i class="fa fa-cogs m-auto" aria-hidden="true"></i>
+            <i class="fa fa-store m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Découvrez des projets et leurs recettes </h3>
-          <p>Les 'targets beers' sont les projets de l'atelier target, vous découvrirez le packaging, la recette, le résultat et les notes de dégustations</p>
-          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Créez ou trouvez un SHOP </h3>
+          <p>Les Magasins, caves à bière, webstores, brasseurs artisanaux et amateurs sont les bienvenus pour faire connaître leurs produits</p>
+          <%= link_to "Cliquez ICI", stores_path, class: 'btn btn-modern' %>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="features-icons-icon d-flex">
+            <i class="fas fa-newspaper m-auto" aria-hidden="true"></i>
+          </div>
+          <h3 class='goodies'>Maintenez un carnet de dégustations</h3>
+          <p>Créez votre liste d'envie et mettez en ligne vos dégustations en fonction du contexte. Vos appréciations affineront le BEERTRACKR</p>
+          <%= link_to "Cliquez ICI", new_user_registration_path, class: 'btn btn-modern' %>
+        </div>
+      </div>
+      <div class="col-lg-3">
         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
           <div class="features-icons-icon d-flex">
             <i class="fas fa-heart m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Créez des projets individualisés</h3>
-          <p>Vous souhaitez créer un projet pour l'atelier, choisissez votre étiquette ou déposez la, choisissez le contenant la capsule et décrivez vos critères</p>
-          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn btn-ghost' %>
+          <h3 class='goodies'>Designez des Target Beers</h3>
+          <p>Vous pouvez créer un design de bière sur-mesure avec le Brasseur de l'Atelier Target, décrivez vos critères de la boisson au flacon</p>
+          <%= link_to "Cliquez ICI", new_user_registration_path, class: 'btn btn-modern' %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="container top">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12">
-      <h2 class='subtitle center'>Quelques Targets...</h2>
-      <div class="row">
-        <% @beers.sample(3).each do |b| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4">
-            <%= link_to b do %>
-              <div class="card beers-shadow">
-                <%= cl_image_tag b.photo.key, height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= b.name.upcase %></h5>
-                  <% if b.style.present? %>
-                    <p class="card-text"><%= b.style.name %></p>
-                  <% else %>
-                    <p class="card-text"><%= b.typical_beer.style.name %></p>
-                  <% end %>
-                  <p class="card-text"><%= b.typical_beer.category.name %></p>
-                  <% if b.user.photo.present? %>
-                    <%= cl_image_tag b.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Image Showcases -->
-<section class="showcase top">
-  <div class="container-fluid p-0">
-    <div class="row no-gutters">
-      <div class="col-lg-6 my-auto showcase-text">
-        <h2 class="subtitle">Devenez membre</h2>
-        <p class="lead mb-0">Participez à l'élaboration de brassins uniques que vous soyez amateur, brasseur ou professionnel intéressé par la production d'un produit unique</p>
-      </div>
-      <div class="col-lg-6 order-lg-2 text-white showcase-img"> <%= cl_image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/s--7g0Mk4Xx--/q_jpegmini/v1622028429/shutterstock-1212903172-1600x900_esy1fx.jpg', height: 800, width: 800, crop: :fill, class: 'img-fluid' %>
-      </div>
-    </div>
-    <div class="row no-gutters">
-      <div class="col-lg-6 text-white showcase-img"> <%= cl_image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/s--NICCEFkf--/q_jpegmini/v1622028586/glass-cold-beer-bottoms-up-with-beautiful-bokeh-friends-drink-beer-together-dark-tone_34939-279_ldvuqt.jpg', height: 800, width: 800, crop: :fill, class: 'img-fluid'%></div>
-      <div class="col-lg-6 my-auto showcase-text">
-        <h2 class="subtitle">Contruisez votre journal</h2>
-        <p class="lead mb-0">Tenez à jour un journal de dégustations et développez votre appréciation et connaissance de chaque type de bière.</p>
-      </div>
-    </div>
-    <div class="row no-gutters">
-      <div class="col-lg-6 order-lg-2 text-white showcase-img"> <%= cl_image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/s--3_Mo3zt1--/q_jpegmini/v1622028003/m_C3_A9thode_20bretonne_20traditionnelle_20de_20brassage_aythmk.jpg', height: 800, width: 800, crop: :fill, class: 'img-fluid' %>
-      </div>
-      <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-        <h2 class="subtitle">Créez une bière</h2>
-        <p class="lead mb-0">Designez un brassin selon vos goûts et mettons en place la création de la bière du design au flacon.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Testimonials -->
-<section class="testimonials text-center bg-light">
-  <div class="container">
-    <h2 class="mb-5">Qui participe?</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <h5>Juliette D</h5>
-          <p class="font-weight-light mb-0">"J'adore la Green DRY HOPPING !"</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <h5>Lilian M.</h5>
-          <p class="font-weight-light mb-0">"On a élaboré ensemble une recette de Lager, en prenant le temps de discuter et déguster plusieurs bières avant pour bien définir l'objectif. Résultat SUPER! Je recommande"</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-          <h5>Mathilde R.</h5>
-          <p class="font-weight-light mb-0">"Régulièrement servie aux repas du midi en famille, On n'se lasse pas de découvrir toujours de nouvelles bières"</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  $(document).ready(function(){
-    $(".home-title").on({
-      mouseover: function(){
-        $(this).addClass(".black-home");
-      },
-    });
-  });
-</script>
 
