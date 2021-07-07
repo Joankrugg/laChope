@@ -17,7 +17,7 @@
     width: 100%;
     margin-bottom: 20px;
     border-radius: 3px;
-    background-color: turquoise;
+    background-color: cadetblue;
     border: none;
     opacity: 0,7;
     .btn:hover{
@@ -86,13 +86,13 @@
   margin-bottom: 5px;
 }
 .squaretag-selector:hover + label {
-  background-color: turquoise;
+  background-color: cadetblue;
   border: 1px solid white;
   color: white;
 }
 
 .squaretag-selector:checked + label {
-  background-color: turquoise;
+  background-color: cadetblue;
   color: white;
 }
 
@@ -205,11 +205,11 @@
   text-align: center;
 }
 .typical_beer-choice:hover {
-  background: turquoise;
+  background: cadetblue;
   cursor: pointer;
 }
 .typical_beer-choice.on {
-  background: turquoise;
+  background: cadetblue;
   color: white;
 }
 

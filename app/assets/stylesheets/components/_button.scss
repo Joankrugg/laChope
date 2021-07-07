@@ -14,7 +14,8 @@
   opacity: 1;
   background: cadetblue;
   text-decoration: none;
-  color: #3C3C3C;
+  color: white;
+  border :solid 1px white;
 }
 
 .btn-home {
@@ -40,7 +41,7 @@
   border-radius: 3px;
   background: white;
   transition: background 0.3s ease;
-  box-shadow: 1px 1px 2px black, 0 0 5px $my-yellow, 0 0 5px white;
+  box-shadow: 1px 1px 2px black, 0 0 5px cadetblue, 0 0 5px white;
 }
 
 .btn-flat:hover {
@@ -48,7 +49,7 @@
   color: white;
   text-decoration: none;
   opacity: 1;
-  text-shadow: 1px 1px 2px black, 0 0 25px $my-yellow, 0 0 5px white;
+  text-shadow: 1px 1px 2px black, 0 0 25px cadetblue, 0 0 5px white;
 }
 
 .btn-gradient {
@@ -109,7 +110,7 @@
 }
 
 .toggle:checked + label::before {
-  background-color: $my-green;
+  background-color: cadetblue;
 }
 
 .toggle + label::after {
@@ -168,7 +169,7 @@
 }
 
 .btn-nav-modern:hover{
-  background-color: turquoise;
+  background-color: cadetblue;
   opacity: 1;
   color: white;
 }

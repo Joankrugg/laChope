@@ -118,7 +118,7 @@
 }
 
 .tasting-card-title:hover{
-  background: $my-green;
+  background: cadetblue;
   color: white;
   opacity: 0.7;
 }
@@ -242,7 +242,7 @@
 }
 
 .card-link{
-  color: $my-green;
+  color: cadetblue;
 }
 
 .card-link:hover{
@@ -320,7 +320,7 @@
   color: #3C3C3C;
 }
 .beer-link-text:hover{
-  color: $my-green;
+  color: cadetblue;
 }
 
 
@@ -332,7 +332,7 @@
 .legend{
   font-size: 16px;
   color: $light-gray;
-  background-image: linear-gradient(-180deg, $black, $my-blue);
+  background-image: linear-gradient(-180deg, $black, cadetblue);
   border-radius: 3px;
   width: 50%;
 }
@@ -354,7 +354,7 @@
 }
 
 .rate{
- color: $my-green;
+ color: cadetblue;
 }
 
 .fancy-card-text{
@@ -366,7 +366,7 @@
 .fancy-card-text:hover{
   background-color: white;
   cursor: pointer;
-  color: $my-green;
+  color: cadetblue;
 }
 
 .admin{
@@ -433,7 +433,7 @@
 .card-section-special{
   margin-bottom: 2px;
   padding-left: 40px;
-  color: $my-green;
+  color: cadetblue;
   font-size: 14px;
   font-family: 'Work Sans';
   background-color: white;
