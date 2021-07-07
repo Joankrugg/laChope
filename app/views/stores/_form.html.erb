@@ -1,39 +1,43 @@
-<div class="offnav"></div>
 <div class="container bottom">
-  <div class="row">
-    <div class="col-lg-8 mx-auto form-login">
-      <h2>Store</h2>
-      <%= simple_form_for @store do |f| %>
-        <div class="form-inputs">
-          <%= f.input :name, required: false, label: 'Nom', input_html: { class: "center"} %>
-          <%= f.input :city, required: false, label: 'Ville', input_html: { class: "center"} %>
-          <%= f.input :address, required: false, label: 'Adresse', input_html: { class: "center"} %>
-          <%= f.input :website, required: false, label: 'Site web', input_html: { class: "center"} %>
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Bières</label>
-              <input type="hidden" name="store[beer_ids][]" value="">
-            </div>
-            <div class="beer-choices col-lg-12">
-              <% Beer.all.sort_by(&:name).each do |beer| %>
-                <div class="col-lg-3">
-                  <input type="checkbox" class="hidden" value="<%= beer.id %>" name="store[beer_ids][]" id="store_beer_ids_<%= beer.id %>">
-                  <label class="beer-choice" for="store_beer_ids_<%= beer.id %>">
-                    <div class="comp">
-                      <%= cl_image_tag beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                      <%= beer.name %>
-                    </div>
-                  </label>
-                </div>
-              <% end %>
-            </div>
+  <div class="form-login">
+    <h2>Store</h2>
+    <%= simple_form_for @store do |f| %>
+      <div class="form-inputs">
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :name, required: false, label: 'NOM', input_html: { class: "center"} %>
+          </div>
+          <div class="col-6">
+            <%= f.input :website, required: false, label: 'SITE WEB', input_html: { class: "center"} %>
           </div>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Valider", class: "btn btn-primary" %>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :address, required: false, label: 'ADRESSE', input_html: { class: "center"} %>
+          </div>
+          <div class="col-6">
+            <%= f.input :city, required: false, label: 'VILLE', input_html: { class: "center"} %>
+          </div>
         </div>
-      <% end %>
-    </div>
+
+        <fieldset class="form-group radio_buttons optional beer_typical_beer">
+          <legend class="col-form-label pt-0">BIÈRES</legend>
+          <input type="hidden" name="store[beer_ids][]" value="">
+          <div class="squaretag-item">
+            <% Beer.all.sort_by(&:name).each do |beer| %>
+              <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= beer.id %>"  name="store[beer_id]" id="store_beer_id_<%= beer.id %>">
+              <label class="form-check-label collection_radio_buttons" for="store_beer_id_<%= beer.id %>">
+                <%= cl_image_tag beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
+                <%= beer.name %>
+              </label>
+            <% end %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Valider", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>
 

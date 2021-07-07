@@ -1,107 +1,93 @@
-<div class="offnavs"></div>
-<div class="container">
-  <div class="col-lg-8 mx-auto">
-    <div class="form">
-      <h2 class='center'>Project</h2>
-      <%= simple_form_for @project do |f| %>
-        <div class="form-inputs">
+<div class="container bottom">
+  <div class="form-login">
+    <h2 class='center'>Project</h2>
+    <%= simple_form_for @project do |f| %>
+      <div class="form-inputs">
+        <%= f.input :name, required: false, label: 'NOM', input_html:{class: 'center'} %>
+        <div class="row">
+          <div class="col-12">
+            <label class="control-label check_boxes optional">Pack</label>
+            <input type="hidden" name="project[pack_id]" value="">
+          </div>
+          <div class="pack-available col-12">
+            <% Pack.all.each do |pack| %>
+              <div class="pack-choice col-4 col-lg-2">
+                <input class="form-check-input radio_buttons optional pack-choice hidden" type="radio" value="<%= pack.id %>" name="project[pack_id]" id="project_pack_id_<%= pack.id %>" >
+                <label class="col-12 form-check-label collection_radio_buttons" for="project_pack_id_<%= pack.id %>">
+                  <%= cl_image_tag pack.bottle.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid beyond' %>
+                  <%= pack.name %>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <%= f.input :name, required: false %>
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <label class="control-label check_boxes optional">Sticker</label>
+            <input type="hidden" name="project[sticker_id]" value="">
           </div>
+          <div class="sticker-available col-lg-12">
+            <% Sticker.all.each do |sticker| %>
+              <div class="sticker-choice col-6 col-lg-3">
+                <input class="form-check-input radio_buttons optional sticker-choice hidden" type="radio" value="<%= sticker.id %>" name="project[sticker_id]" id="project_sticker_id_<%= sticker.id %>" >
+                <label class="col-12 form-check-label collection_radio_buttons" for="project_sticker_id_<%= sticker.id %>">
+                  <div class="comp">
+                    <%= cl_image_tag sticker.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid beyond' %>
+                    <%= sticker.name %>
+                  </div>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Pack</label>
-              <input type="hidden" name="project[pack_id]" value="">
-            </div>
-            <div class="pack-available col-lg-12">
-              <% Pack.all.each do |pack| %>
-                <div class="pack-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                  <input class="form-check-input radio_buttons optional pack-choice hidden" type="radio" value="<%= pack.id %>" name="project[pack_id]" id="project_pack_id_<%= pack.id %>" >
-                  <label class="form-check-label collection_radio_buttons" for="project_pack_id_<%= pack.id %>">
-                    <div class="comp">
-                      <%= cl_image_tag pack.bottle.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                      <%= pack.name %>
-                    </div>
-                  </label>
-                </div>
-              <% end %>
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <label class="control-label check_boxes optional">Capsules</label>
           </div>
+          <input type="hidden" name="project[bottle_top_id]" value="">
+          <div class="bottle_top-available col-12">
+            <% BottleTop.all.each do |bottle_top| %>
+              <div class="bottle_top-choice col-3">
+                <input class="form-check-input radio_buttons optional bottle_top-choice hidden" type="radio" value="<%= bottle_top.id %>" name="project[bottle_top_id]" id="project_bottle_top_id_<%= bottle_top.id %>" >
+                <label class="col-12 form-check-label collection_radio_buttons" for="project_bottle_top_id_<%= bottle_top.id %>">
+                  <div class="comp">
+                    <%= cl_image_tag bottle_top.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+                    <%= bottle_top.color%>
+                  </div>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Sticker</label>
-              <input type="hidden" name="project[sticker_id]" value="">
-            </div>
-            <div class="sticker-available col-lg-12">
-              <% Sticker.all.each do |sticker| %>
-                <div class="sticker-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                  <input class="form-check-input radio_buttons optional sticker-choice hidden" type="radio" value="<%= sticker.id %>" name="project[sticker_id]" id="project_sticker_id_<%= sticker.id %>" >
-                  <label class="form-check-label collection_radio_buttons" for="project_sticker_id_<%= sticker.id %>">
-                    <div class="comp">
-                      <%= cl_image_tag sticker.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                      <%= sticker.name %>
-                    </div>
-                  </label>
-                </div>
-              <% end %>
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <label class="control-label check_boxes optional">Type De Bière</label>
           </div>
+          <input type="hidden" name="project[typical_beer_id]" value="">
+          <div class="typical_beer-available col-12">
+            <% TypicalBeer.all.each do |typical_beer| %>
+              <div class="typical_beer-choice col-3">
+                <input class="form-check-input radio_buttons optional typical_beer-choice hidden" type="radio" value="<%= typical_beer.id %>" name="project[typical_beer_id]" id="project_typical_beer_id_<%= typical_beer.id %>" >
+                <label class="col-12 form-check-label collection_radio_buttons" for="project_typical_beer_id_<%= typical_beer.id %>">
+                  <div class="comp">
+                    <%= cl_image_tag typical_beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+                    <%= typical_beer.name %>
+                  </div>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <%= f.input :batch, collection: 5..20, required: false  %>
 
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Capsules</label>
-            </div>
-            <input type="hidden" name="project[bottle_top_id]" value="">
-            <div class="bottle_top-available col-lg-12">
-              <% BottleTop.all.each do |bottle_top| %>
-                <div class="bottle_top-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                  <input class="form-check-input radio_buttons optional bottle_top-choice hidden" type="radio" value="<%= bottle_top.id %>" name="project[bottle_top_id]" id="project_bottle_top_id_<%= bottle_top.id %>" >
-                  <label class="form-check-label collection_radio_buttons" for="project_bottle_top_id_<%= bottle_top.id %>">
-                    <div class="comp">
-                      <%= cl_image_tag bottle_top.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                      <%= bottle_top.color%>
-                    </div>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <label class="control-label check_boxes optional">Type De Bière</label>
-            </div>
-            <input type="hidden" name="project[typical_beer_id]" value="">
-            <div class="typical_beer-available col-lg-12">
-              <% TypicalBeer.all.each do |typical_beer| %>
-                <div class="typical_beer-choice col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                  <input class="form-check-input radio_buttons optional typical_beer-choice hidden" type="radio" value="<%= typical_beer.id %>" name="project[typical_beer_id]" id="project_typical_beer_id_<%= typical_beer.id %>" >
-                  <label class="form-check-label collection_radio_buttons" for="project_typical_beer_id_<%= typical_beer.id %>">
-                    <div class="comp">
-                      <%= cl_image_tag typical_beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-                      <%= typical_beer.name %>
-                    </div>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <%= f.input :batch, collection: 5..20, required: false  %>
-            </div>
-          </div>
-          <div class="infos">
-            <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom"  %></p>
-          </div>
-        <% end %>
+        <div class="form-actions">
+          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-primary"  %></p>
+        </div>
       </div>
+    <% end %>
     </div>
   </div>
 </div>
