@@ -13,15 +13,22 @@
         </span>
       </label>
       <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
-      <%= f.association :typical_beer, required: false, as: :radio_buttons, label: 'STYLE DE BIÈRE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item'  %>
 
+      <fieldset class="form-group radio_buttons optional beer_typical_beer">
+        <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
+        <input type="hidden" name="beer[typical_beer_id]" value="">
+        <% TypicalBeer.all.each do |typical_beer| %>
+          <div class="squaretag-item">
+            <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= typical_beer.id %>"  name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
+            <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
+              <%= cl_image_tag typical_beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
+              <%= typical_beer.name %>
+            </label>
+          </div>
+        <% end %>
+      </fieldset>
 
-      <%= f.association :beer_family, required: false, as: :radio_buttons, label: 'FAMILLE DE BIÈRE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item'  %>
-      <div class="geek-link center bottom photo">Spécificités</div>
+      <label class="geek-link bottom photo">Spécificités</label>
 
       <div class="geek">
         <%= f.association :design_color, required: false, as: :radio_buttons,

@@ -1,7 +1,7 @@
 <div class="offnavs"></div>
 <div class="container bottom">
   <div class="form-login">
-    <h1 class="page-title center">C'EST QUOI CETTE BIÈRE ?</h1>
+    <h1 class="page-title center">AJOUTEZ UNE BIÈRE AU CATALOGUE</h1>
     <%= simple_form_for @beer, remote: true do |f| %>
       <div class="form-inputs">
         <label class="photo bottom">
@@ -19,21 +19,18 @@
         <fieldset class="form-group radio_buttons optional beer_typical_beer">
           <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
           <input type="hidden" name="beer[typical_beer_id]" value="">
-          <div class="squaretag-item">
-            <% TypicalBeer.all.each do |typical_beer| %>
+          <% TypicalBeer.all.each do |typical_beer| %>
+            <div class="squaretag-item">
               <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= typical_beer.id %>"  name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
               <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
                 <%= cl_image_tag typical_beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
                 <%= typical_beer.name %>
               </label>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </fieldset>
 
-        <%= f.association :beer_family, required: false, as: :radio_buttons, label: 'FAMILLE DE BIÈRE',
-                input_html: { class: "squaretag-selector" },
-                item_wrapper_class: 'squaretag-item'  %>
-        <div class="geek-link center photo bottom">SPÉCIFICITÉS</div>
+        <label class="geek-link center photo bottom">SPÉCIFICITÉS</label>
 
         <div class="geek">
           <%= f.association :design_color, required: false, as: :radio_buttons,
@@ -72,7 +69,7 @@
             <%= f.input :description, required: false, label: "COURTE DESCRIPTION"  %>
           </div>
         </div>
-        <div class="form-actions">
+        <div class="form-actions col-12 col-lg-4 mx-auto">
           <%= f.button :submit, "VALIDER", class: "btn btn-primary"  %></p>
         </div>
       </div>
