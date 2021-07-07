@@ -17,6 +17,24 @@
   color: #3C3C3C;
 }
 
+.btn-home {
+  color: #3C3C3C;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border :solid 1px black;
+  font-weight: lighter;
+  background: $light-gray;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-home:hover {
+  background: #151718;
+  text-decoration: none;
+  color: white;
+}
+
 .btn-flat {
   color: $my-blue;
   border-radius: 3px;

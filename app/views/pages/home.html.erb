@@ -5,9 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h1 class="home-title">Atelier Target</h1>
-        <h2 class="slogan">Brassins Artistiques Sur-mesure</h2>
-        <div><%= link_to 'Commençons par une recherche', new_public_search_path, class: 'btn btn-ghost' %></div>
+        <h1 class="home-title">BEERTRACKR</h1>
+        <h2 class="slogan">Découvrez des Styles, des Bières, des Shops et les Targets</h2>
+        <div><%= link_to 'Cliquez ICI', new_public_search_path, class: 'btn btn-home' %></div>
       </div>
     </div>
   </div>
@@ -137,4 +137,14 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function(){
+    $(".home-title").on({
+      mouseover: function(){
+        $(this).addClass(".black-home");
+      },
+    });
+  });
+</script>
 
