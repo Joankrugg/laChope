@@ -16,13 +16,13 @@ header.masthead {
     opacity: 0.3;
   }
   h1 {
-    font-size: 4rem;
+    font-size: 38px;
   }
   @media (min-width: 768px) {
     padding-top: 12rem;
     padding-bottom: 12rem;
     h1 {
-      font-size: 4rem;
+      font-size: 38px;
     }
   }
 }
@@ -30,7 +30,7 @@ header.masthead {
   font-weight: lighter;
   font-size: 15px;
   padding-bottom: 2rem;
-  color: turquoise;
+  color: cadetblue;
 }
 
 .home-title{
@@ -54,6 +54,7 @@ header.masthead {
 h3.goodies{
   font-family: 'Allura', cursive;
   font-size: 30px;
+  color: cadetblue;
 }
 
 .subtitle{
