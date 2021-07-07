@@ -79,22 +79,24 @@
 .squaretag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 22px;
+  font-family: 'Allura';
   border-radius: 5px;
   padding: 5px 10px;
-  background-color: white;
+  background-color: $light-gray;
   color: #3C3C3C;
   border: 1px solid #3C3C3C;
   margin-right: 5px;
   margin-bottom: 5px;
 }
 .squaretag-selector:hover + label {
-  background-color: #b7b7b7;
+  background-color: turquoise;
+  border: 1px solid white;
+  color: white;
 }
 
 .squaretag-selector:checked + label {
   background-color: turquoise;
-  border: 1px solid turquoise;
   color: white;
 }
 
@@ -205,11 +207,11 @@
   text-align: center;
 }
 .typical_beer-choice:hover {
-  opacity: 1;
+  background: turquoise;
   cursor: pointer;
 }
 .typical_beer-choice.on {
-  background: #4B535B;
+  background: turquoise;
   color: white;
 }
 

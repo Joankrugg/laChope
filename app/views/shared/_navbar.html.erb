@@ -246,12 +246,12 @@
       <div class="modal-body bottle-available">
         <div class="col-12">
           <%= link_to typical_beers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Styles</p>
+            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Styles de bière</p>
           <% end %>
         </div>
         <div class="col-12">
           <%= link_to beers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Catalogue</p>
+            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Catalogue de bières</p>
           <% end %>
         </div>
         <div class="col-12">
@@ -266,57 +266,57 @@
         </div>
         <div class="col-12">
           <%= link_to stores_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-store"></i> Stores</p>
+            <p class="btn-nav-modern center"><i class="fas fa-store"></i> Caves à bières</p>
           <% end %>
         </div>
         <div class="col-12">
           <%= link_to projects_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Projets</p>
+            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Projets Target</p>
           <% end %>
         </div>
         <% if user_signed_in? %>
           <div class="col-12">
             <%= link_to new_typical_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Nouveau style</p>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un style non répertorié</p>
             <% end %>
           </div>
           <div class="col-12">
             <%= link_to new_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Nouvelle bière</p>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
             <% end %>
           </div>
           <% if current_user.store.nil? %>
             <div class="col-12">
               <%= link_to new_store_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Nouveau store</p>
+                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Créer sa cave</p>
               <% end %>
             </div>
           <% else %>
             <div class="col-12">
               <%= link_to edit_store_path(current_user.store) do %>
-                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Edit store</p>
+                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Mettre sa cave à jour</p>
               <% end %>
             </div>
           <% end %>
           <div class="col-12">
             <%= link_to new_project_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-list"></i> Nouveau projet</p>
+              <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>
             <% end %>
           </div>
           <div class="col-12">
             <%= link_to user_path(current_user) do %>
-              <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte</p>
+              <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
             <% end %>
           </div>
           <div class="col-12">
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Log out</p>
+              <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Déconnexion</p>
             <% end %>
           </div>
           <% if current_user.admin? %>
             <div class="col-12">
               <%= link_to rails_admin_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Admin</p>
+                <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
               <% end %>
             </div>
           <% end %>
