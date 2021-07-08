@@ -8,7 +8,9 @@
         </h1>
         <%= form_tag(typical_beers_path, method: :get) do %>
           <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search center' %>
-          <%= submit_tag 'Rechercher', class: 'search' %>
+          <div class="col-6 mx-auto center">
+            <%= submit_tag 'VALIDER', class: 'btn btn-modern' %>
+          </div>
         <% end %>
       </div>
       <div class="card">

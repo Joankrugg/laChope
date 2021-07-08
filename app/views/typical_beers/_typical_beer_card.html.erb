@@ -8,13 +8,13 @@
     <div class="card-body">
       <h3 class="card-title"><%= typical_beer.name.upcase %></h3>
       <% if typical_beer.category.present? %>
-        <h4 class="card-text">Fermentation: <%= typical_beer.category.name %></h4>
+        <h4 class="card-text">Type: <%= typical_beer.category.name %></h4>
+      <% end %>
+      <% if typical_beer.alcohol_shape.present? %>
+        <h4 class="card-text"><%= typical_beer.alcohol_shape.name %></h4>
       <% end %>
       <% if typical_beer.beer_family.present? %>
         <h4 class="card-text">Famille: <%= typical_beer.beer_family.name %></h4>
-      <% end %>
-      <% if typical_beer.category.present? %>
-        <h4 class="card-text">Style: <%= typical_beer.style.name %></h4>
       <% end %>
     </div>
   </div>

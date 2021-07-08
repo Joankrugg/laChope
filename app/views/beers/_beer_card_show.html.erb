@@ -1,6 +1,4 @@
 <div class="card shadow">
-  <h5 class='target-top-title center'><%= beer.name.upcase %></h5>
-  <%= cl_image_tag beer.photo.key, class: 'card-img-top img-responsive beer-image' %>
   <div class="card-infos">
     <%= link_to beer.typical_beer do  %>
       <div class='col-lg-9 mx-auto btn-modern center'> | <%= beer.typical_beer.name %> | </div>
@@ -32,6 +30,10 @@
       <% else %>
         <p class='col-lg-9 mx-auto card-section-item'><%= beer.typical_beer.main_taste.name %></p>
       <% end %>
+    <% end %>
+    <% if @beer.description.present? %>
+      <p class='card-section col-lg-9 mx-auto'>Brasserie: </p>
+      <p class="col-lg-9 mx-auto card-section-item"> <%= beer.description %> </p>
     <% end %>
 
     <% beerflavours = [] %>

@@ -1,7 +1,7 @@
 <div class="container bottom">
   <div class="form-login">
     <h1 class="page-title center">AJOUTEZ UNE BIÈRE AU CATALOGUE</h1>
-    <%= simple_form_for @beer, remote: true do |f| %>
+    <%= simple_form_for @beer do |f| %>
       <div class="form-inputs">
         <label class="photo bottom">
           <% if @beer.photo.present? %>
@@ -13,6 +13,7 @@
             <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
           </span>
         </label>
+
         <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
 
         <fieldset class="form-group radio_buttons optional beer_typical_beer">
@@ -65,11 +66,12 @@
             <div class="col-4">
               <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false, label: "IBU" %>
             </div>
-            <%= f.input :description, required: false, label: "COURTE DESCRIPTION"  %>
           </div>
+          <%= f.input :description, as: :string, required: false, label: "Description de la Brasserie"  %>
         </div>
+
         <div class="form-actions col-12 col-lg-4 mx-auto">
-          <%= f.button :submit, "VALIDER", class: "btn btn-primary"  %></p>
+          <%= f.button :submit, "VALIDER", class: "btn btn-primary" %></p>
         </div>
       </div>
     <% end %>

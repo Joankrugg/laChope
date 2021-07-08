@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :designs
   resources :beers do
     resources :tastings, only: [:create, :edit, :update]
-    resources :fancies, only: [:create, :update]
+    resources :fancies, only: [:create, :edit, :update]
     resources :ratings, only: [:create, :update]
     resources :recipes
     collection do
