@@ -1,0 +1,53 @@
+/*beer cards*/
+.beers-shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 40px;
+  margin-bottom: 70px;
+  border-radius: 5px;
+}
+.beers-shadow:hover .beer-image {
+  opacity: 0.3;
+}
+
+.beers-shadow:hover .text{
+  opacity: 1;
+}
+
+.beer-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.beers-index{
+  position: relative;
+}
+
+.beer-user{
+  position: absolute;
+  right: 5%;
+  bottom: 100px;
+}
+
+.wanted{
+  color: cadetblue;
+  font-size: 30px;
+}
+
+.wanted:hover{
+  color: turquoise;
+
+}
+
+.unwanted{
+  color: #4B535B;
+  font-size: 30px;
+}
+
+.unwanted:hover{
+  color: turquoise;
+
+}

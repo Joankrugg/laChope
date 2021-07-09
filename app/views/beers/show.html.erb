@@ -15,34 +15,34 @@
         <div class="card shadow">
           <div class="card-infos">
             <%= link_to @beer.typical_beer do  %>
-              <div class='col-lg-9 mx-auto btn-modern center'> | <%= @beer.typical_beer.name %> | </div>
+              <div class='col-9 mx-auto btn-modern center'> | <%= @beer.typical_beer.name %> | </div>
             <% end %>
-            <p class='card-section col-lg-9 mx-auto'>Catégorie: </p>
-            <p class='col-lg-9 mx-auto card-section-item'><%= @beer.typical_beer.category.name %></p>
-            <p class='card-section col-lg-9 mx-auto'>Niveau d'alcool: </p>
+            <p class='card-section col-9 mx-auto'>Catégorie: </p>
+            <p class='col-9 mx-auto card-section-item'><%= @beer.typical_beer.category.name %></p>
+            <p class='card-section col-9 mx-auto'>Niveau d'alcool: </p>
             <% if @beer.alcohol_shape.present? && @beer.alcohol_shape.name != @beer.typical_beer.alcohol_shape.name %>
-              <p class='col-lg-9 mx-auto card-section-special'><%= @beer.alcohol_shape.name %></p>
+              <p class='col-9 mx-auto card-section-special'><%= @beer.alcohol_shape.name %></p>
             <% else %>
-              <p class='col-lg-9 mx-auto card-section-item'><%= @beer.typical_beer.alcohol_shape.name %></p>
+              <p class='col-9 mx-auto card-section-item'><%= @beer.typical_beer.alcohol_shape.name %></p>
             <% end %>
-            <p class='card-section col-lg-9 mx-auto'>Robe: </p>
+            <p class='card-section col-9 mx-auto'>Robe: </p>
             <% if @beer.design_color.present? && @beer.design_color.name != @beer.typical_beer.design_color.name %>
-              <p class='col-lg-9 mx-auto card-section-special'><%= @beer.design_color.name %></p>
+              <p class='col-9 mx-auto card-section-special'><%= @beer.design_color.name %></p>
             <% else %>
-              <p class='col-lg-9 mx-auto card-section-item'> <%= @beer.typical_beer.design_color.name %></p>
+              <p class='col-9 mx-auto card-section-item'> <%= @beer.typical_beer.design_color.name %></p>
             <% end %>
-            <p class='card-section col-lg-9 mx-auto'>Tendance: </p>
+            <p class='card-section col-9 mx-auto'>Tendance: </p>
             <% if @beer.balance.present? && @beer.balance.name != @beer.typical_beer.balance.name %>
-              <p class='col-lg-9 mx-auto card-section-special'><%= @beer.balance.name %></p>
+              <p class='col-9 mx-auto card-section-special'><%= @beer.balance.name %></p>
             <% else %>
-              <p class='col-lg-9 mx-auto card-section-item'><%= @beer.typical_beer.balance.name %></p>
+              <p class='col-9 mx-auto card-section-item'><%= @beer.typical_beer.balance.name %></p>
             <% end %>
-            <p class='card-section col-lg-9 mx-auto'>Palais: </p>
+            <p class='card-section col-9 mx-auto'>Palais: </p>
             <% if @beer.main_taste.present? %>
               <% if @beer.main_taste.name != @beer.typical_beer.main_taste.name %>
-                <p class='col-lg-9 mx-auto card-section-special'> <%= @beer.main_taste.name %></p>
+                <p class='col-9 mx-auto card-section-special'> <%= @beer.main_taste.name %></p>
               <% else %>
-                <p class='col-lg-9 mx-auto card-section-item'><%= @beer.typical_beer.main_taste.name %></p>
+                <p class='col-9 mx-auto card-section-item'><%= @beer.typical_beer.main_taste.name %></p>
               <% end %>
             <% end %>
 
@@ -50,7 +50,7 @@
             <% typicalflavours = [] %>
 
             <% if @beer.flavours.present? %>
-              <p class='card-section col-lg-9 mx-auto'>Arômes:</p>
+              <p class='card-section col-9 mx-auto'>Arômes:</p>
               <% @beer.typical_beer.flavours.each do |tb| %>
                 <% typicalflavours << tb.name %>
               <% end %>
@@ -58,7 +58,7 @@
                 <% beerflavours << b.name %>
               <% end %>
               <% special = typicalflavours & beerflavours %>
-              <div class="col-lg-9 mx-auto">
+              <div class="col-9 mx-auto">
                 <div class="row">
                   <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
                 </div>
@@ -72,7 +72,7 @@
             <% typicalfeelings = [] %>
 
             <% if @beer.feelings.present? %>
-              <p class='card-section col-lg-9 mx-auto'>Textures:</p>
+              <p class='card-section col-9 mx-auto'>Textures:</p>
               <% @beer.typical_beer.feelings.each do |tb| %>
                 <% typicalfeelings << tb.name %>
               <% end %>
@@ -80,7 +80,7 @@
                 <% beerfeelings << b.name %>
               <% end %>
               <% special = typicalfeelings & beerfeelings %>
-              <div class="col-lg-9 mx-auto">
+              <div class="col-9 mx-auto">
                 <div class="row">
                   <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
                 </div>
@@ -101,17 +101,23 @@
                   <% a << n %>
                   <% if a.include?(n) && n.heart == true %>
                     <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                      <i class="fas fa-heart"></i>
+                      <div class="center top">
+                        <i class="fas fa-heart wanted"></i>
+                      </div>
                     <% end %>
                   <% elsif a.include?(n) && n.heart == false %>
                     <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                      <i class="fas fa-heart-broken"></i>
+                      <div class="center top">
+                        <i class="fas fa-heart-broken unwanted"></i>
+                      </div>
                     <% end %>
                   <% else %>
                     <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-                      <%= f.input :heart, as: :boolean, required: false,
-                        input_html: { class: "squaretag-selector" },
-                        item_wrapper_class: 'squaretag-item', label: "Liste d'envie 1" %>
+                      <div class="center">
+                        <%= f.input :heart, as: :boolean, required: false,
+                          input_html: { class: "tag-selector" },
+                          item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
+                      </div>
                       <p class='card-text center'><%= f.button :submit, "Valider" %></p>
                     <% end %>
                   <% end %>
@@ -119,10 +125,13 @@
               <% end %>
             <% else %>
               <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-                <%= f.input :heart, as: :boolean, required: false,
-                  input_html: { class: "squaretag-selector" },
-                  item_wrapper_class: 'squaretag-item', label: "Liste d'envie 2" %>
-                <p class='card-text center'><%= f.button :submit, "Valider" %></p>
+                <div class="center top">
+                  <%= f.input :heart, as: :boolean, required: false,
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
+                  <p class='card-text'><%= f.button :submit, "Valider" %></p>
+                </div>
+
               <% end %>
             <% end %>
           </div>
@@ -149,7 +158,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
+
+  <div class="row top">
     <div class="col-12">
       <div class='card-show bottom'>
         <div class="row steps">

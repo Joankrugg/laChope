@@ -192,13 +192,13 @@
     <% if five_stars != [] %>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 mx-auto">
+          <div class="col-6 mx-auto">
             <p class='user'>Types de bières</p>
             <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6 mx-auto">
+          <div class="col-6 mx-auto">
             <p class='user'>
               <% five_stars.each do |f| %>
                 <% typical_beer_style << f.typical_beer %>
@@ -214,14 +214,14 @@
             <% typical_beer_style << f.typical_beer %>
           <% end %>
           <% typical_beer_style.uniq.each do |f| %>
-            <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+            <div class="mx-auto col-6 col-lg-3 index">
               <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
             </div>
           <% end %>
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
-            <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+            <div class="mx-auto col-6 col-lg-3 index">
               <%= render 'beers/beer_card', beer: f %>
             </div>
           <% end %>
@@ -383,13 +383,13 @@
     <% if five_stars != [] %>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 mx-auto">
+          <div class="col-6 mx-auto">
             <p class='user'>Types de bières</p>
             <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6 mx-auto">
+          <div class="col-6 mx-auto">
             <p class='user'>
               <% five_stars.each do |f| %>
                 <% typical_beer_style << f.typical_beer %>
@@ -405,14 +405,14 @@
             <% typical_beer_style << f.typical_beer %>
           <% end %>
           <% typical_beer_style.uniq.each do |f| %>
-            <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+            <div class="mx-auto col-6 col-lg-3 index">
               <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
             </div>
           <% end %>
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
-            <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+            <div class="mx-auto col-6 col-lg-3 index">
               <%= render 'beers/beer_card', beer: f %>
             </div>
           <% end %>
@@ -429,6 +429,4 @@
     </div>
   </div>
 </div>
-
-
 <div class="bottom"></div>

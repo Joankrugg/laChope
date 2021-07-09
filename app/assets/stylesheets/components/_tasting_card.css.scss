@@ -1,0 +1,31 @@
+/*tasting cards*/
+
+.tasting-card{
+  padding-top: 30px;
+}
+
+.tasting-user-img{
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  transform: translate(-50%, -50%);
+}
+
+.tasting-card-title{
+  margin-left: 40px;
+  color: #3C3C3C;
+  background-color: $light-gray;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.tasting-card-title:hover{
+  background: cadetblue;
+  color: white;
+  opacity: 0.7;
+}
+
+.tasting-card-text{
+  margin-left: 40px;
+}
