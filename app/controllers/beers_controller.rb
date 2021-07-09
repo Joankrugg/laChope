@@ -90,6 +90,11 @@ class BeersController < ApplicationController
     @articles = Article.all
   end
 
+  def spontaneous
+    @beers = Beer.all
+    @articles = Article.all
+  end
+
   private
 
   def set_beer

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     collection do
       get :target
       get :lagers
+      get :spontaneous
       get :ales
       get :mixed
       get :spring

@@ -1,0 +1,33 @@
+<div class="offnavs"></div>
+<% spontaneous = [] %>
+<% @beers.each do |b| %>
+  <% if b.typical_beer.category.name == 'Spontaneous' %>
+    <% spontaneous << b %>
+  <% end %>
+<% end %>
+<div class="container top">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="card space">
+        <h1 class="page-title center">FERMENTATION SPONTANÉE</h1>
+      </div>
+      <div class="card">
+        <h2 class="header-text">
+          La fermentation spontanée n'est pas faite par des levures de brasserie, mais par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...). La bière finie présente une acidité marquée. Les styles les plus connus sont les lambics.
+        </h2>
+      </div>
+      <div class="row">
+        <% spontaneous.each do |b| %>
+          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 index">
+            <%= render 'beer_card', beer: b %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'ales_side' %>
+      <%= render 'lagers_side' %>
+    </div>
+  </div>
+</div>
