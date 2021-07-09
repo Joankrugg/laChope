@@ -192,13 +192,12 @@
     <% if five_stars != [] %>
       <div class="container">
         <div class="row">
-          <div class="col-6 mx-auto">
+          <div class="col-12 col-lg-6 mx-auto">
             <p class='user'>Types de bières</p>
-            <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-6 mx-auto">
+          <div class="col-12 col-lg-6 mx-auto">
             <p class='user'>
               <% five_stars.each do |f| %>
                 <% typical_beer_style << f.typical_beer %>
@@ -218,6 +217,11 @@
               <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
             </div>
           <% end %>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-6 mx-auto">
+            <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</p>
+          </div>
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
@@ -383,13 +387,12 @@
     <% if five_stars != [] %>
       <div class="container">
         <div class="row">
-          <div class="col-6 mx-auto">
+          <div class="col-12 col-lg-6 mx-auto">
             <p class='user'>Types de bières</p>
-            <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-6 mx-auto">
+          <div class="col-12 col-lg-6 mx-auto">
             <p class='user'>
               <% five_stars.each do |f| %>
                 <% typical_beer_style << f.typical_beer %>
@@ -409,6 +412,11 @@
               <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
             </div>
           <% end %>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-6 mx-auto">
+            <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+          </div>
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
