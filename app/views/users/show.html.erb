@@ -108,7 +108,7 @@
           <div class="col-sm-12 col-lg-12">
             <div class="show-infos">
               <% if @user == current_user %>
-                <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DE BIÈRE RECHERCHÉ</div>
+                <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
               <% end %>
               <div class="design">
                 <% if @user.design.present? %>
@@ -313,7 +313,7 @@
   <% smoked = ['Rauchbier', 'Scotch Ale' ] %>
 
   <% results = [] %>
-  <% classic_results = [] %>
+  <% targets_alcohol = [] %>
   <% trash = [] %>
   <% targets_yeast = [] %>
   <% targets_b = [] %>
@@ -326,11 +326,13 @@
   <% aft = [] %>
   <% targets_a = [] %>
   <% targets_s = [] %>
+  <% classic_results = [] %>
 
   <% if @user.design.category.present? %>
-    <% @beers.each do |b| %>
-      <% if b.typical_beer.category.name == @user.design.category.name %>
-        <% targets_yeast << b %>
+    <% @typical_beers.each do |tb| %>
+      <% if tb.category.name == @user.design.category.name %>
+        <% targets_yeast << tb %>
+        <% classic_results << tb %>
       <% end %>
     <% end %>
     <% if @user.design.category.name == 'Ales' %>
@@ -345,16 +347,17 @@
     <% if @user.design.category.name == 'Spontaneous' %>
       <% results << spontaneous %>
     <% end %>
-    <% @typical_beers.each do |c| %>
-      <% if c.category.present? %>
-        <% if c.category.name == @user.design.category.name %>
-          <% classic_results << c  %>
-        <% end %>
-      <% end %>
-    <% end %>
   <% end %>
 
   <% if @user.design.alcohol_shape.present? %>
+    <% @typical_beers.each do |c| %>
+      <% if c.alcohol_shape.present? %>
+        <% if c.alcohol_shape.name == @user.design.alcohol_shape.name %>
+          <% targets_alcohol << c  %>
+          <% classic_results << c %>
+        <% end %>
+      <% end %>
+    <% end %>
     <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
       <% results << very_strong_beers %>
     <% end %>
@@ -367,21 +370,13 @@
     <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
       <% results << light_beers %>
     <% end %>
-    <% @typical_beers.each do |c| %>
-      <% if c.alcohol_shape.present? %>
-        <% if c.alcohol_shape.name == @user.design.alcohol_shape.name %>
-          <% classic_results << c  %>
-        <% end %>
-      <% end %>
-    <% end %>
   <% end %>
 
   <% if @user.design.balance.present? %>
-    <% @beers.each do |b| %>
-      <% b.tastings.each do |bt| %>
-        <% if bt.balance.name == @user.design.balance.name %>
-          <% targets_b << bt %>
-        <% end %>
+    <% @typical_beers.each do |tb| %>
+      <% if tb.balance.name == @user.design.balance.name %>
+        <% targets_b << tb %>
+        <% classic_results << tb %>
       <% end %>
     <% end %>
     <% if @user.design.balance.name == 'très houblonnée' %>
@@ -399,32 +394,14 @@
     <% if @user.design.balance.name == 'très maltée' %>
       <% results << extra_malty %>
     <% end %>
-    <% @typical_beers.each do |c| %>
-      <% if c.balance.present? %>
-        <% if c.balance.name == @user.design.balance.name %>
-          <% classic_results << c %>
-        <% end %>
-      <% end %>
-    <% end %>
   <% end %>
 
   <% if @user.design.flavours.present? %>
-    <% @beers.each do |b| %>
-      <% b.tastings.each do |bt| %>
-        <% bt.flavours.each do |f| %>
-          <% @user.design.flavours do |uf| %>
-            <% if f.name == uf.name %>
-              <% targets_a << bt %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
     <% @typical_beers.each do |tb| %>
       <% tb.flavours.each do |f| %>
-        <% @user.design.flavours do |uf| %>
+        <% @user.design.flavours.each do |uf| %>
           <% if f.name == uf.name %>
-            <% classic_results << f.tb %>
+            <% targets_a << tb %>
           <% end %>
         <% end %>
       <% end %>
@@ -432,22 +409,11 @@
   <% end %>
 
   <% if @user.design.feelings.present? %>
-    <% @beers.each do |b| %>
-      <% b.tastings.each do |bt| %>
-        <% bt.feelings.each do |f| %>
-          <% @user.design.feelings do |uf| %>
-            <% if f.name == uf.name %>
-              <% targets_s << bt %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
     <% @typical_beers.each do |tb| %>
       <% tb.feelings.each do |f| %>
-        <% @user.design.feelings do |uf| %>
+        <% @user.design.feelings.each do |uf| %>
           <% if f.name == uf.name %>
-            <% classic_results << f.tb %>
+            <% targets_a << tb %>
           <% end %>
         <% end %>
       <% end %>
@@ -455,11 +421,10 @@
   <% end %>
 
   <% if @user.design.design_color.present? %>
-    <% @beers.each do |b| %>
-      <% b.tastings.each do |bt| %>
-        <% if bt.design_color.name == @user.design.design_color.name %>
-          <% targets_c << bt %>
-        <% end %>
+    <% @typical_beers.each do |tb| %>
+      <% if tb.design_color.name == @user.design.design_color.name %>
+        <% targets_c << tb %>
+        <% classic_results << tb %>
       <% end %>
     <% end %>
     <% if @user.design.design_color.name == 'Blanche' %>
@@ -480,22 +445,13 @@
     <% if @user.design.design_color.name == 'Noire' %>
       <% results << black %>
     <% end %>
-
-    <% @typical_beers.each do |c| %>
-      <% if c.design_color.present? %>
-        <% if c.design_color.name == @user.design.design_color.name %>
-          <% classic_results << c %>
-        <% end %>
-      <% end %>
-    <% end %>
   <% end %>
 
   <% if @user.design.main_taste.present? %>
-    <% @beers.each do |b| %>
-      <% b.tastings.each do |bt| %>
-        <% if bt.main_taste.name == @user.design.main_taste.name %>
-          <% targets_mt << bt %>
-        <% end %>
+    <% @typical_beers.each do |tb| %>
+      <% if tb.main_taste.name == @user.design.main_taste.name %>
+        <% targets_mt << tb %>
+        <% classic_results << tb %>
       <% end %>
     <% end %>
     <% if @user.design.main_taste.name == 'Acidulé' %>
@@ -516,85 +472,88 @@
     <% if @user.design.main_taste.name == 'Fumé' %>
       <% results << smoked %>
     <% end %>
-    <% @typical_beers.each do |c| %>
-      <% if c.main_taste.present? %>
-        <% if c.main_taste.name == @user.design.main_taste.name %>
-          <% classic_results << c %>
-        <% end %>
-      <% end %>
-    <% end %>
   <% end %>
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-12">
         <div class="user-show-card bottom">
+          <div class="row">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#yeast">Fermentation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#balance">Équilibre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#main_taste">Classe</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#color">Couleur</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#flavour">Arômes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tabs" data-toggle="tab" href="#feeling">Sensations</a>
-            </li>
-            <% if @user.design.alcohol_shape.present? %>
-              <li class="nav-item">
-                <a class="nav-link tabs" data-toggle="tab" href="#alcohol_level">Niveau d'alcool</a>
+            <ul class="nav nav-tabs justify-content-center col-12 mx-auto">
+              <li class="col-4 nav-item center center">
+                <a class="nav-link tabs" data-toggle="tab" href="#yeast">Fermentation</a>
               </li>
-            <% end %>
-          </ul>
+              <% if @user.design.alcohol_shape.present? %>
+                <li class="col-4 nav-item center">
+                  <a class="nav-link tabs" data-toggle="tab" href="#alcohol_level">Alcool</a>
+                </li>
+              <% end %>
+              <li class="col-4 nav-item center">
+                <a class="nav-link tabs" data-toggle="tab" href="#balance">Équilibre</a>
+              </li>
+              <li class="col-4 nav-item center">
+                <a class="nav-link tabs" data-toggle="tab" href="#main_taste">Palais</a>
+              </li>
+              <li class="col-4 nav-item center">
+                <a class="nav-link tabs" data-toggle="tab" href="#color">Robe</a>
+              </li>
+              <li class="col-4 nav-item center">
+                <a class="nav-link tabs" data-toggle="tab" href="#flavour">Arômes</a>
+              </li>
+              <li class="col-4 nav-item center">
+                <a class="nav-link tabs" data-toggle="tab" href="#feeling">Sensations</a>
+              </li>
+            </ul>
+          </div>
 
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active container" id="yeast">
-              <p class='user '>Targets Sélectionnées sur critères de fermentation <%= @user.design.category.name %></p>
+              <p class='user '>Styles Sélectionnées sur critère de fermentation </p>
               <div class="row">
                 <% targets_yeast.each do |y| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: y %>
+                    <%= render 'typical_beers/sober_card', typical_beer: y %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="tab-pane container" id="alcohol_level">
+              <p class='user '>Styles Sélectionnées sur critère d'équilibre </p>
+              <div class="row">
+                <% targets_alcohol.each do |b| %>
+                  <div class="mx-auto col-12 col-lg-3">
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
             </div>
             <div class="tab-pane container" id="balance">
-              <p class='user '>Targets Sélectionnées sur critères d'équilibre</p>
+              <p class='user '>Styles Sélectionnées sur critère d'équilibre</p>
               <div class="row">
                 <% targets_b.each do |b| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: b.beer %>
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
             </div>
             <div class="tab-pane container" id="main_taste">
-              <p class='user '>Targets Sélectionnées sur critères de classe</p>
+              <p class='user '>Styles Sélectionnées sur critères de palais</p>
               <div class="row">
-                <% mt = targets_mt.map {|t|t.beer}.uniq %>
-                <% mt.each do |b| %>
+                <% targets_mt.each do |b| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: b %>
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
             </div>
             <div class="tab-pane container" id="color">
-              <p class='user '>Targets Sélectionnées sur critères de couleur</p>
+              <p class='user '>Styles Sélectionnées sur critères de robe </p>
               <div class="row">
-                <% c = targets_c.map {|t|t.beer}.uniq %>
-                <% c.each do |b| %>
+                <% targets_c.each do |b| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: b %>
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
@@ -603,10 +562,9 @@
             <div class="tab-pane container" id="flavour">
               <p class='user '>Targets Sélectionnées sur critères d'arômes</p>
               <div class="row">
-                <% targets_a.map {|t|t.beer}.uniq %>
-                <% c.each do |b| %>
+                <% targets_a.each.uniq do |b| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: b %>
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
@@ -615,64 +573,12 @@
             <div class="tab-pane container" id="feeling">
               <p class='user '>Targets Sélectionnées sur critères de Sensations</p>
               <div class="row">
-                <% targets_a.map {|t|t.beer}.uniq %>
-                <% c.each do |b| %>
+                <% targets_s.each.uniq do |b| %>
                   <div class="mx-auto col-12 col-lg-3">
-                    <%= render 'beers/sober_card', beer: b %>
+                    <%= render 'typical_beers/sober_card', typical_beer: b %>
                   </div>
                 <% end %>
               </div>
-            </div>
-
-            <div class="tab-pane container" id="alcohol_level">
-              <% if @user.design.alcohol_shape.present? %>
-                <p class='user '>Targets Sélectionnées sur critères de niveau d'alcool</p>
-                <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
-                  <div class="row">
-                    <% vst.each do |b| %>
-                      <div class="mx-auto col-12 col-lg-3">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-                <% if @user.design.alcohol_shape.name == '6°≤ Forte ≤ 9°'%>
-                  <div class="row">
-                    <% st.each do |b| %>
-                      <div class="mx-auto col-12 col-lg-3">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-                <% if @user.design.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
-                  <div class="row">
-                    <% rt.each do |b| %>
-                      <div class="mx-auto col-12 col-lg-3">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-                <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
-                  <div class="row">
-                    <% lt.each do |b| %>
-                      <div class="mx-auto col-12 col-lg-3">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-                <% if @user.design.alcohol_shape.name == 'Sans Alcool ≤ 1°' %>
-                  <div class="row">
-                    <% aft.each do |b| %>
-                      <div class="mx-auto col-12 col-lg-3">
-                        <%= render 'beers/sober_card', beer: b %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              <% end %>
             </div>
           </div>
         </div>
@@ -682,7 +588,7 @@
 
   <% must = results.flatten.group_by(&:itself) %>
   <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-  <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
+  <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
   <% if !first_choices.nil? %>
     <% five_stars = first_choices.keys %>
     <% if five_stars != [] %>
@@ -690,7 +596,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="user-show-card p-top bottom">
-              <p class='user'>Targets par style <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+              <p class='user'>Bières sur Beertrackr<%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
               <p class='user'>
                 <% five_stars.each do |f| %>
                   |<%= f %>|
@@ -740,78 +646,6 @@
               </p>
               <div class="row">
                 <% five_stars.each do |f| %>
-                  <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                    <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-
-  <% must = results.flatten.group_by(&:itself) %>
-  <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-  <% second_choices = sorted_must.select! { |key, value| value == 4 } %>
-  <% if !second_choices.nil? %>
-    <% four_stars = second_choices.keys %>
-    <% if four_stars != [] %>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="user-show-card p-top bottom">
-              <p class='user'>Targets par style <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 4 ).html_safe %> </p>
-              <p class='user'>
-                <% four_stars.each do |f| %>
-                  |<%= f %>|
-                <% end %>
-              </p>
-              <div class="row">
-                <% four_stars.each do |f| %>
-                  <% @beers.each do |b| %>
-                    <% if b.style.present? %>
-                      <% if f == b.style.name %>
-                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                          <%= render 'beers/sober_card', beer: b %>
-                        </div>
-                      <% end %>
-                    <% elsif b.typical_beer.style.present? %>
-                      <% if f == b.typical_beer.style.name %>
-                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                          <%= render 'beers/sober_card', beer: b %>
-                        </div>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-
-  <% must = classic_results.flatten.group_by(&:itself) %>
-  <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-  <% second_choices = sorted_must.select! { |key, value| value == 4 } %>
-  <% if !second_choices.nil? %>
-    <% four_stars = second_choices.keys %>
-    <% if four_stars != [] %>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="user-show-card p-top bottom">
-              <p class='user'>Classiques par critères <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 4 ).html_safe %> </p>
-              <p class='user'>
-                <% four_stars.each do |f| %>
-                  |<%= f.name %>|
-                <% end %>
-              </p>
-              <div class="row">
-                <% four_stars.each do |f| %>
                   <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
                     <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
                   </div>

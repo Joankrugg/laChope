@@ -1,0 +1,13 @@
+<%= link_to typical_beer do  %>
+  <div class="card user-beers">
+    <div class="card-body">
+      <h5 class="card-title"><%= typical_beer.name.upcase %></h5>
+      <% if typical_beer.style.present? %>
+        <p class='center'><%= typical_beer.style.name %></p>
+      <% end %>
+      <% if typical_beer.category.present? %>
+        <p class="card-text"><%= typical_beer.category.name %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
