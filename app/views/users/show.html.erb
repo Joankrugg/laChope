@@ -561,7 +561,7 @@
               <p class='user '>Targets Sélectionnées sur critères de fermentation <%= @user.design.category.name %></p>
               <div class="row">
                 <% targets_yeast.each do |y| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: y %>
                   </div>
                 <% end %>
@@ -571,7 +571,7 @@
               <p class='user '>Targets Sélectionnées sur critères d'équilibre</p>
               <div class="row">
                 <% targets_b.each do |b| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: b.beer %>
                   </div>
                 <% end %>
@@ -582,7 +582,7 @@
               <div class="row">
                 <% mt = targets_mt.map {|t|t.beer}.uniq %>
                 <% mt.each do |b| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: b %>
                   </div>
                 <% end %>
@@ -593,7 +593,7 @@
               <div class="row">
                 <% c = targets_c.map {|t|t.beer}.uniq %>
                 <% c.each do |b| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: b %>
                   </div>
                 <% end %>
@@ -605,7 +605,7 @@
               <div class="row">
                 <% targets_a.map {|t|t.beer}.uniq %>
                 <% c.each do |b| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: b %>
                   </div>
                 <% end %>
@@ -617,7 +617,7 @@
               <div class="row">
                 <% targets_a.map {|t|t.beer}.uniq %>
                 <% c.each do |b| %>
-                  <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                  <div class="mx-auto col-12 col-lg-3">
                     <%= render 'beers/sober_card', beer: b %>
                   </div>
                 <% end %>
@@ -630,7 +630,7 @@
                 <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
                   <div class="row">
                     <% vst.each do |b| %>
-                      <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <div class="mx-auto col-12 col-lg-3">
                         <%= render 'beers/sober_card', beer: b %>
                       </div>
                     <% end %>
@@ -639,7 +639,7 @@
                 <% if @user.design.alcohol_shape.name == '6°≤ Forte ≤ 9°'%>
                   <div class="row">
                     <% st.each do |b| %>
-                      <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <div class="mx-auto col-12 col-lg-3">
                         <%= render 'beers/sober_card', beer: b %>
                       </div>
                     <% end %>
@@ -648,7 +648,7 @@
                 <% if @user.design.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
                   <div class="row">
                     <% rt.each do |b| %>
-                      <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <div class="mx-auto col-12 col-lg-3">
                         <%= render 'beers/sober_card', beer: b %>
                       </div>
                     <% end %>
@@ -657,7 +657,7 @@
                 <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
                   <div class="row">
                     <% lt.each do |b| %>
-                      <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <div class="mx-auto col-12 col-lg-3">
                         <%= render 'beers/sober_card', beer: b %>
                       </div>
                     <% end %>
@@ -666,7 +666,7 @@
                 <% if @user.design.alcohol_shape.name == 'Sans Alcool ≤ 1°' %>
                   <div class="row">
                     <% aft.each do |b| %>
-                      <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+                      <div class="mx-auto col-12 col-lg-3">
                         <%= render 'beers/sober_card', beer: b %>
                       </div>
                     <% end %>
@@ -834,7 +834,7 @@
           <div class="row">
             <% gb = @user.tastings.map {|t|t.beer}.uniq %>
             <% gb.each do |b| %>
-              <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
+              <div class="mx-auto col-12 col-lg-3">
                 <%= render 'beers/sober_card', beer: b %>
               </div>
             <% end %>
@@ -853,13 +853,13 @@
           <p class='user'>Souhaits de dégustations</p>
         </div>
       </div>
-      <div class="row">
-        <% @user.fancies.each do |uf| %>
-          <div class="mx-auto col-xs-12 col-sm-6 col-lg-4 index">
-            <%= render 'beers/sober_card', beer: uf.beer %>
-          </div>
-        <% end %>
-      </div>
+    </div>
+    <div class="row">
+      <% @user.fancies.each do |uf| %>
+        <div class="mx-auto col-12 col-lg-3">
+          <%= render 'beers/sober_card', beer: uf.beer %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>

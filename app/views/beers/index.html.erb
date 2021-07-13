@@ -3,11 +3,14 @@
   <% lagers = [] %>
   <% ales = [] %>
   <% mixed_styles = [] %>
+  <% spontaneous = [] %>
   <% @beers.each do |b| %>
     <% if b.typical_beer.category.name == 'Lagers'%>
       <% lagers << b %>
     <% elsif b.typical_beer.category.name == 'Ales'%>
       <% ales << b %>
+    <% elsif b.typical_beer.category.name == 'Spontaneous'%>
+      <% spontaneous << b %>
     <% else %>
       <% mixed_styles << b %>
     <% end %>
@@ -33,7 +36,7 @@
           </div>
           <div class="row">
             <% lagers.each do |b| %>
-              <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 ">
+              <div class="mx-auto col-6 col-lg-4 ">
                 <%= render 'beer_card', beer: b %>
               </div>
             <% end %>
@@ -50,7 +53,7 @@
           </div>
           <div class="row">
             <% ales.each do |b| %>
-              <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 ">
+              <div class="mx-auto col-6 col-lg-4">
                 <%= render 'beer_card', beer: b %>
               </div>
             <% end %>
@@ -66,7 +69,21 @@
           </div>
           <div class="row">
             <% mixed_styles.each do |b| %>
-              <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 ">
+              <div class="mx-auto col-6 col-lg-4">
+                <%= render 'beer_card', beer: b %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <% if spontaneous != [] %>
+          <div class="card">
+            <h2 class="header-text">
+              La fermentation <%= link_to 'spontanée', spontaneous_beers_path %> n'est pas faite par des levures de brasserie, mais par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...). La bière finie présente une acidité marquée. Les styles les plus connus sont les lambics..
+            </h2>
+          </div>
+          <div class="row">
+            <% mixed_styles.each do |b| %>
+              <div class="mx-auto col-6 col-lg-4">
                 <%= render 'beer_card', beer: b %>
               </div>
             <% end %>
@@ -77,7 +94,7 @@
         <%= render 'shared/social-networks' %>
         <%= render 'shared/intra_links' %>
         <div class="card sides bottom index-side">
-          <h4 class="title-top">Target</h4>
+          <h3 class="title-top">Target</h3>
           <% @beers.each do |b| %>
             <% if b.target? %>
               <%= link_to b do %>
@@ -91,7 +108,7 @@
           <% end %>
         </div>
         <div class="card sides top bottom">
-          <h4 class="title-top">A Lire</h4>
+          <h3 class="title-top">A Lire</h3>
           <% @articles.each do |a| %>
             <%= link_to a do %>
               <div class="row article-link card-infos">
