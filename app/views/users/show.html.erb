@@ -1,81 +1,72 @@
 <div class="offnavs"></div>
-<div class="container top">
+<div class="container  top">
   <div class="row">
     <div class="col-lg-6">
-      <div class='user-show-card bottom'>
-        <% if @user.photo.present? %>
-          <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
-        <% else %>
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
-        <% end %>
+      <div class='introduction shadow bottom'>
         <div class="row">
-          <div class="col-sm-12 col-lg-12">
-            <div class="show-infos">
+          <div class="col-12">
+            <div class="">
               <% if @user == current_user %>
-                <div class="user" data-toggle="modal" data-target="#profil">
+                <div class="user-action" data-toggle="modal" data-target="#profil">
                   PROFIL
                 </div>
               <% else %>
-                <div class="user">PROFIL</div>
+                <div class="user-action">PROFIL</div>
               <% end %>
             </div>
             <div class="design">
               <% if @user.username.present? %>
                 <div class="row">
                   <div class="col-lg-6">
-                    <div class="design-item-category">Nom d'utilisateur: </div>
+                    <div class="introduction-user">Nom d'utilisateur: </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class= "design-item"><%= @user.username %></div>
+                    <div class= "introduction-data"><%= @user.username %></div>
                   </div>
                 </div>
               <% end %>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="design-item-category">Email: </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class= "design-item"><%= @user.email %></div>
-                </div>
-              </div>
               <% if @user.city.present? %>
                 <div class="row">
                   <div class="col-lg-6">
-                    <div class="design-item-category">Ville: </div>
+                    <div class="introduction-user">Ville: </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class= "design-item"><%= @user.city %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.sexe.present? %>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="design-item-category">Genre: </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class= "design-item"><%= @user.sexe.name %></div>
+                    <div class= "introduction-data"><%= @user.city %></div>
                   </div>
                 </div>
               <% end %>
               <% if @user.sexe.present? %>
                 <div class="row">
                   <div class="col-lg-6">
-                    <div class="design-item-category">Âge: </div>
+                    <div class="introduction-user">Genre: </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class= "design-item"><%= @user.age %> ans</div>
+                    <div class= "introduction-data"><%= @user.sexe.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.sexe.present? %>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="introduction-user">Âge: </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class= "introduction-data"><%= @user.age %> ans</div>
                   </div>
                 </div>
               <% end %>
               <% if @user.activities.present? %>
                 <div class="row">
-                  <div class="col-lg-12">
-                    <div class="design-item-category">Activité(s): </div>
+                  <div class="col-lg-6">
+                    <div class="introduction-user">Activité(s): </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-6">
                     <% @user.activities.each do |a| %>
-                      <div class= "design-item"><%= a.name %></div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
                     <% end %>
                   </div>
                 </div>
@@ -83,15 +74,31 @@
               <% if @user.website.present? %>
                 <div class="row">
                   <div class="col-lg-12">
-                    <div class="design-item-category">Site internet </div>
+                    <div class="introduction-user">Site internet </div>
                   </div>
                   <div class="col-lg-12">
                     <%= link_to @user.website, target: :blank do %>
-                      <div class= "design-item"><%= @user.website %></div>
+                      <div class= "introduction-data"><%= @user.website %></div>
                     <% end %>
                   </div>
                 </div>
               <% end %>
+              <div class="row top">
+                <div class="col-2"></div>
+                <div class="col-2 mx-auto">
+                  <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
+                </div>
+                <div class="col-2 mx-auto">
+                  <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
+                </div>
+                <div class="col-2 mx-auto">
+                  <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
+                </div>
+                <div class="col-2 mx-auto">
+                  <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
+                </div>
+                <div class="col-2"></div>
+              </div>
               <% if @user == current_user && @user.admin? %>
                 <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
               <% end %>
@@ -102,7 +109,7 @@
     </div>
 
     <div class="col-lg-6">
-      <div class='user-show-card bottom'>
+      <div class='card shadow bottom'>
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--7eqlhiiE--/q_jpegmini/v1621515839/verre-bire-chope-anse-28cl-lot-de-4-68e_bwgbdj.jpg", class: 'show-img avatar-square', height: 250, width: 250, crop: :fill %>
         <div class="row">
           <div class="col-sm-12 col-lg-12">
@@ -596,7 +603,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="user-show-card p-top bottom">
-              <p class='user'>Bières sur Beertrackr<%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+              <p class='user'>Bières <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
               <p class='user'>
                 <% five_stars.each do |f| %>
                   |<%= f %>|
@@ -683,17 +690,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="p-top bottom">
+        <div class="user-show-card p-top bottom">
           <p class='user'>Souhaits de dégustations</p>
+          <div class="row">
+            <% @user.fancies.each do |uf| %>
+              <div class="mx-auto col-12 col-lg-3">
+                <%= render 'beers/sober_card', beer: uf.beer %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <% @user.fancies.each do |uf| %>
-        <div class="mx-auto col-12 col-lg-3">
-          <%= render 'beers/sober_card', beer: uf.beer %>
-        </div>
-      <% end %>
     </div>
   </div>
 <% end %>
@@ -779,20 +786,6 @@
   </div>
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class='user-show-card bottom'>
-        <div class="user"><%= link_to 'CRÉER BIÈRE EMBLÉMATIQUE', new_typical_beer_path, class: 'admin' %></div>
-        <div class="user"><%= link_to 'CRÉER STORE', new_store_path, class: 'admin' %></div>
-        <% if @user == current_user && @user.admin? %>
-          <div class="user" data-toggle="modal" data-target="#beer_creation">CRÉER BIÈRE</div>
-          <div class="user" data-toggle="modal" data-target="#article_creation">CRÉER ARTICLE</div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
