@@ -773,7 +773,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">CRÉER STICKER</h5>
+        <h5 class="modal-title center" id="exampleModalLabel">STICKERS</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -786,14 +786,14 @@
               <% @user.stickers.each do |s|%>
                 <div class="col-lg-6 mx-auto">
                   <%= link_to s do  %>
-                    <%= cl_image_tag s.photo.key, height: 150, width: 225, crop: :fill, class: 'thumbnail img-responsive' %>
+                    <%= cl_image_tag s.photo.key, class: 'top img-fluid' %>
                   <% end %>
                 </div>
               <% end %>
             </div>
           </div>
         <% else %>
-          <div class="bottom">
+          <div class="center bottom">
             <p>Pas de Stickers crée pour l'instant</p>
           </div>
         <% end %>
