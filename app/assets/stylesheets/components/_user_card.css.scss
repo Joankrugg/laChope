@@ -93,10 +93,25 @@
   background-color: white;
   position: relative;
 }
+
+.introduction-user-actions:hover{
+  background-color: cadetblue;
+  cursor: pointer;
+}
 .icon{
   margin-top: 13px;
   margin-left: 14px;
 }
 
+.icons{
+  position: relative;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.icon-legend{
+  font-family: 'Allura';
+}
 
 
