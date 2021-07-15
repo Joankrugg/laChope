@@ -81,27 +81,27 @@
           <% end %>
 
           <div class="row icons top">
-            <div class="user-icons" data-toggle="modal" data-target="#design">
+            <div class="user-icons" id="design-link">
               <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
               <p class='icon-legend'>Design</p>
             </div>
-            <div class="user-icons" data-toggle="modal" data-target="#fancies">
+            <div class="user-icons" id="fancies-link">
               <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
               <p class='icon-legend'>À tester</p>
             </div>
-            <div class="user-icons" data-toggle="modal" data-target="#cave">
+            <div class="user-icons" id="cave-link">
               <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
               <p class='icon-legend'>Ma cave</p>
             </div>
-            <div class="user-icons" data-toggle="modal" data-target="#tastings">
+            <div class="user-icons" id="tastings-link">
               <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
               <p class='icon-legend'>Journal</p>
             </div>
-            <div class="user-icons" data-toggle="modal" data-target="#user-stickers">
+            <div class="user-icons" id="user-stickers-link">
               <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
               <p class='icon-legend'>Stickers</p>
             </div>
-            <div class="user-icons" data-toggle="modal" data-target="#user-projects">
+            <div class="user-icons" id="user-projects-link">
               <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
               <p class='icon-legend'>Projets</p>
             </div>
@@ -119,79 +119,8 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-
-   <!-- Modals -->
-<div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">PROFIL</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render 'form' %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="beer_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">BIÈRE IDÉALE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render 'designs/form', design: @design %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="beer_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render 'beers/user_form', beer: @beer %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="article_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">CRÉER ARTICLE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render 'articles/form', article: @article %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="design" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">STYLE DU MOMENT</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="design" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.design.present? %>
           <div class="">
             <% if @user.design.category.present? %>
@@ -665,18 +594,8 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="fancies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">BIÈRES À TESTER</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="fancies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.fancies.present?  %>
           <div class=" bottom">
             <p class='user'>Souhaits de dégustations</p>
@@ -695,18 +614,8 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="tastings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">DÉGUSTATION</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="tastings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.tastings.present?  %>
           <div class=" bottom">
             <p class='user'>Targets Goûtées</p>
@@ -726,18 +635,8 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="cave" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">CAVE À BIÈRES</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="cave" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.store.present? %>
           <div class="bottom">
             <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1620834761/logo_atelier_target.png", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
@@ -766,24 +665,14 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="user-stickers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">STICKERS</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="user-stickers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.stickers.present? %>
           <div class="bottom">
             <p class='user'>Stickers</p>
             <div class="row">
               <% @user.stickers.each do |s|%>
-                <div class="col-lg-6 mx-auto">
+                <div class="col-6 col-lg-3 mx-auto">
                   <%= link_to s do  %>
                     <%= cl_image_tag s.photo.key, class: 'top img-fluid' %>
                   <% end %>
@@ -798,18 +687,8 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="user-projects" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">PROJETS TARGET</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div class="container" id="user-projects" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="box bottom">
         <% if @user.projects.present? %>
           <div class="bottom">
             <p class='user'>Projets Target</p>
@@ -839,4 +718,157 @@
   </div>
 </div>
 
+   <!-- Modals -->
+<div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title center" id="exampleModalLabel">PROFIL</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="beer_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title center" id="exampleModalLabel">BIÈRE IDÉALE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'designs/form', design: @design %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="beer_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'beers/user_form', beer: @beer %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="article_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title center" id="exampleModalLabel">CRÉER ARTICLE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'articles/form', article: @article %>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+<script>
+  $(document).ready(function(){
+    $("#design").hide();
+      $("#design-link").click(function(){
+        $("#design").toggle();
+      });
+    });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#fancies").hide();
+      $("#fancies-link").click(function(){
+        $("#fancies").toggle();
+      });
+    });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#tastings").hide();
+      $("#tastings-link").click(function(){
+        $("#tastings").toggle();
+      });
+    });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#cave").hide();
+      $("#cave-link").click(function(){
+        $("#cave").toggle();
+      });
+    });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#user-stickers").hide();
+      $("#user-stickers-link").click(function(){
+        $("#user-stickers").toggle();
+      });
+    });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#user-projects").hide();
+      $("#user-projects-link").click(function(){
+        $("#user-projects").toggle();
+      });
+    });
+</script>
+
+
+<script>
+  $(document).ready(function(){
+    $("#design-link").click(function(){
+      $("#fancies,#tastings,#cave,#user-stickers,#user-projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#fancies-link").click(function(){
+      $("#design,#tastings,#cave,#user-stickers,#user-projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#tastings-link").click(function(){
+      $("#fancies,#design,#cave,#user-stickers,#user-projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#cave-link").click(function(){
+      $("#fancies,#tastings,#design,#user-stickers,#user-projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#user-stickers-link").click(function(){
+      $("#fancies,#tastings,#cave,#design,#user-projects").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#user-projects-link").click(function(){
+      $("#fancies,#tastings,#cave,#user-stickers,#design").hide();
+    });
+  });
+</script>
