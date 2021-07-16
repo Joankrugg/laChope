@@ -1,8 +1,13 @@
 <div class="offnavs"></div>
 <div class="container top">
-  <div class='introduction shadow bottom'>
+  <div class='user-show-card shadow bottom'>
+    <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
+    <% else %>
+      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+    <% end %>
     <div class="row">
-      <div class="col-12">
+      <div class="show-infos col-12">
         <% if @user == current_user %>
           <div class="user-action" data-toggle="modal" data-target="#profil">
             PROFIL
@@ -13,50 +18,50 @@
         <div class="design">
           <% if @user.username.present? %>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class="introduction-user">Nom d'utilisateur: </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class= "introduction-data"><%= @user.username %></div>
               </div>
             </div>
           <% end %>
           <% if @user.city.present? %>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class="introduction-user">Ville: </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class= "introduction-data"><%= @user.city %></div>
               </div>
             </div>
           <% end %>
           <% if @user.sexe.present? %>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class="introduction-user">Genre: </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class= "introduction-data"><%= @user.sexe.name %></div>
               </div>
             </div>
           <% end %>
           <% if @user.sexe.present? %>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class="introduction-user">Âge: </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class= "introduction-data"><%= @user.age %> ans</div>
               </div>
             </div>
           <% end %>
           <% if @user.activities.present? %>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-6">
                 <div class="introduction-user">Activité(s): </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <% @user.activities.each do |a| %>
                   <div class="row">
                     <div class="col-12">
@@ -74,7 +79,7 @@
               </div>
               <div class="col-lg-12">
                 <%= link_to @user.website, target: :blank do %>
-                  <div class= "introduction-data"><%= @user.website %></div>
+                  <div class= "introduction-data">Visitez mon site</div>
                 <% end %>
               </div>
             </div>
@@ -108,7 +113,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="show-infos col-12">
         <% if @user == current_user %>
           <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
           <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
@@ -134,60 +139,60 @@
               <div class="">
                 <% if @user.design.category.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Fermentation:</div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item"><%= @user.design.category.name %></div>
                     </div>
                   </div>
                 <% end %>
                 <% if @user.design.balance.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Tendance: </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item"><%= @user.design.balance.name %></div>
                     </div>
                   </div>
                 <% end %>
                 <% if @user.design.alcohol_shape.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Niveau d'alcool: </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item"><%= @user.design.alcohol_shape.name %></div>
                     </div>
                   </div>
                 <% end %>
                 <% if @user.design.design_color.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Couleur: </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item"><%= @user.design.design_color.name %></div>
                     </div>
                   </div>
                 <% end %>
                 <% if @user.design.main_taste.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Palais: </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item"><%= @user.design.main_taste.name %></div>
                     </div>
                   </div>
                 <% end %>
                 <% if @user.design.flavours.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Arômes:  </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item">
                         <% @user.design.flavours.each do |f| %>
                           <%= f.name %>
@@ -198,10 +203,10 @@
                 <% end %>
                 <% if @user.design.feelings.present? %>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class="design-item-category">Caractéristiques: </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-6">
                       <div class= "design-item">
                         <% @user.design.feelings.each do |f| %>
                           <%= f.name %>
