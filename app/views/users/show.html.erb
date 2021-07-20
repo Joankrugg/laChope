@@ -2,13 +2,13 @@
 <div class="container top">
   <div class="row">
     <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive' %>
+      <%= cl_image_tag @user.photo.key, height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive bottom' %>
     <% else %>
-      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive' %>
+      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive bottom' %>
     <% end %>
 
     <div class='col-12 col-lg-6 bottom'>
-      <div class="card">
+      <div class="card bottom">
         <% if @user == current_user %>
           <div class="user-action" data-toggle="modal" data-target="#profil">
             PROFIL
@@ -73,18 +73,6 @@
               </div>
             </div>
           <% end %>
-          <% if @user.website.present? %>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="introduction-user">Site internet </div>
-              </div>
-              <div class="col-lg-12">
-                <%= link_to @user.website, target: :blank do %>
-                  <div class= "introduction-data">Visitez mon site</div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
 
           <div class="row icons top">
             <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
@@ -112,9 +100,18 @@
               <p class='icon-legend'>Projets</p>
             </div>
           </div>
+          <% if @user.website.present? %>
+            <div class="row">
+              <div class="col-lg-12">
+                <%= link_to @user.website, target: :blank do %>
+                  <div class= "introduction-data center">Visitez mon site</div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="show-infos">
+      <div class="card">
         <% if @user == current_user %>
           <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
           <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
@@ -122,6 +119,12 @@
           <% if @user == current_user && @user.admin? %>
             <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
           <% end %>
+        <% end %>
+        <% if user_signed_in? && @user != current_user %>
+          <div class="user"><%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin' %></div>
+        <% end %>
+        <% if user_signed_in? && @user == current_user %>
+          <div class="user"><%= link_to 'MES MESSAGES', conversations_path, class: 'admin' %></div>
         <% end %>
       </div>
 
