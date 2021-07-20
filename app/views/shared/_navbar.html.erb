@@ -19,7 +19,7 @@
       <a class="second-nav-link" data-toggle="pill" id="projects-link"> Projects <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="mails-link"> Contact <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="contact-link"> Contact <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
 
@@ -45,6 +45,19 @@
 </div>
 
 <div class="tab-content second-nav">
+  <div class="tab-pane container" id="search">
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <%= form_tag(typical_beers_path, method: :get) do %>
+            <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'center search' %>
+            <%= submit_tag 'Rechercher', style: "display: none;" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="tab-pane container" id="beers">
     <div class="card p-top shadow">
       <div class="row">
@@ -169,20 +182,6 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="mails">
-    <div class="card p-top">
-      <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <% unless user_signed_in? %>
-            <%= link_to 'Connexion', new_user_session_path %>
-          <% else %>
-            <%= link_to 'Conversation', conversations_path %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="tab-pane container" id="stickers">
     <div class="card p-top">
       <div class="row">
@@ -218,15 +217,12 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="search">
+  <div class="tab-pane container" id="contact">
     <div class="card p-top">
       <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
-          <%= form_tag(typical_beers_path, method: :get) do %>
-            <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'center search' %>
-            <%= submit_tag 'Rechercher', style: "display: none;" %>
-          <% end %>
+          blabla bla bla
         </div>
       </div>
     </div>
@@ -441,7 +437,7 @@
 <script>
   $(document).ready(function(){
     $("#projects-link").hover(function(){
-      $("#mails").hide();
+      $("#contact").hide();
     });
   });
 </script>
@@ -457,21 +453,21 @@
 
 <script>
   $(document).ready(function(){
-    $("#mails-link").hover(function(){
-      $("#mails").show();
+    $("#contact-link").hover(function(){
+      $("#contact").show();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#mails-link").hover(function(){
+    $("#contact-link").hover(function(){
       $("#projects").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#mails").on({
+    $("#contact").on({
       mouseleave: function(){
         $(this).hide();
       },

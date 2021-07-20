@@ -2,134 +2,127 @@
 <div class="container top">
   <div class="row">
     <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto imd-fluid' %>
+      <%= cl_image_tag @user.photo.key, height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive' %>
     <% else %>
-      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto imd-fluid' %>
+      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive' %>
     <% end %>
 
-    <div class='col-lg-6 col-12 user-show-card shadow bottom'>
-      <% if @user.photo.present? %>
-        <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
-      <% else %>
-        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
-      <% end %>
-
-        <div class="show-infos col-12">
-          <% if @user == current_user %>
-            <div class="user-action" data-toggle="modal" data-target="#profil">
-              PROFIL
+    <div class='col-12 col-lg-6 bottom'>
+      <div class="card">
+        <% if @user == current_user %>
+          <div class="user-action" data-toggle="modal" data-target="#profil">
+            PROFIL
+          </div>
+        <% else %>
+          <div class="user-action">PROFIL</div>
+        <% end %>
+        <div class="design">
+          <% if @user.username.present? %>
+            <div class="row">
+              <div class="col-6">
+                <div class="introduction-user">Nom d'utilisateur: </div>
+              </div>
+              <div class="col-6">
+                <div class= "introduction-data"><%= @user.username %></div>
+              </div>
             </div>
-          <% else %>
-            <div class="user-action">PROFIL</div>
           <% end %>
-          <div class="design">
-            <% if @user.username.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Nom d'utilisateur: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.username %></div>
-                </div>
+          <% if @user.city.present? %>
+            <div class="row">
+              <div class="col-6">
+                <div class="introduction-user">Ville: </div>
               </div>
-            <% end %>
-            <% if @user.city.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Ville: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.city %></div>
-                </div>
+              <div class="col-6">
+                <div class= "introduction-data"><%= @user.city %></div>
               </div>
-            <% end %>
-            <% if @user.sexe.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Genre: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.sexe.name %></div>
-                </div>
+            </div>
+          <% end %>
+          <% if @user.sexe.present? %>
+            <div class="row">
+              <div class="col-6">
+                <div class="introduction-user">Genre: </div>
               </div>
-            <% end %>
-            <% if @user.sexe.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Âge: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.age %> ans</div>
-                </div>
+              <div class="col-6">
+                <div class= "introduction-data"><%= @user.sexe.name %></div>
               </div>
-            <% end %>
-            <% if @user.activities.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Activité(s): </div>
-                </div>
-                <div class="col-6">
-                  <% @user.activities.each do |a| %>
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="introduction-data"><%= a.name %></div>
-                      </div>
+            </div>
+          <% end %>
+          <% if @user.sexe.present? %>
+            <div class="row">
+              <div class="col-6">
+                <div class="introduction-user">Âge: </div>
+              </div>
+              <div class="col-6">
+                <div class= "introduction-data"><%= @user.age %> ans</div>
+              </div>
+            </div>
+          <% end %>
+          <% if @user.activities.present? %>
+            <div class="row">
+              <div class="col-6">
+                <div class="introduction-user">Activité(s): </div>
+              </div>
+              <div class="col-6">
+                <% @user.activities.each do |a| %>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="introduction-data"><%= a.name %></div>
                     </div>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
-            <% if @user.website.present? %>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="introduction-user">Site internet </div>
-                </div>
-                <div class="col-lg-12">
-                  <%= link_to @user.website, target: :blank do %>
-                    <div class= "introduction-data">Visitez mon site</div>
-                  <% end %>
-                </div>
+            </div>
+          <% end %>
+          <% if @user.website.present? %>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="introduction-user">Site internet </div>
               </div>
-            <% end %>
+              <div class="col-lg-12">
+                <%= link_to @user.website, target: :blank do %>
+                  <div class= "introduction-data">Visitez mon site</div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
 
-            <div class="row icons top">
-              <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
-                <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
-                <p class='icon-legend'>Design</p>
-              </div>
-              <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
-                <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-                <p class='icon-legend'>À tester</p>
-              </div>
-              <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
-                <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
-                <p class='icon-legend'>Ma cave</p>
-              </div>
-              <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
-                <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
-                <p class='icon-legend'>Journal</p>
-              </div>
-              <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
-                <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
-                <p class='icon-legend'>Stickers</p>
-              </div>
-              <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
-                <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
-                <p class='icon-legend'>Projets</p>
-              </div>
+          <div class="row icons top">
+            <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
+              <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
+              <p class='icon-legend'>Design</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
+              <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
+              <p class='icon-legend'>À tester</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
+              <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
+              <p class='icon-legend'>Ma cave</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
+              <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
+              <p class='icon-legend'>Journal</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
+              <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
+              <p class='icon-legend'>Stickers</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
+              <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
+              <p class='icon-legend'>Projets</p>
             </div>
           </div>
         </div>
-        <div class="show-infos col-12">
-          <% if @user == current_user %>
-            <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
-            <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
-            <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
-            <% if @user == current_user && @user.admin? %>
-              <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
-            <% end %>
+      </div>
+      <div class="show-infos">
+        <% if @user == current_user %>
+          <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
+          <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
+          <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
+          <% if @user == current_user && @user.admin? %>
+            <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
           <% end %>
-        </div>
+        <% end %>
       </div>
 
       <div class="modal fade" id="design" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
