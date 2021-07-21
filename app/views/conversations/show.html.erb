@@ -1,18 +1,31 @@
 <div class="offnav"></div>
 <div class="container top bottom">
   <h1>Conversation avec <%= @conversation.with(current_user).name %></h1>
-
   <div id="conversation-main">
     <div id="conversationBody">
       <%= render @conversation.personal_messages.sort_by(&:created_at) %>
     </div>
-
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
-      <%= f.input :body, as: :string, required: false, label: false %>
-
+      <%= f.input :body, as: :string, required: false, label: false, class: 'inputMessage' %>
       <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    window.scrollTo(0,document.body.scrollHeight);
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    function autoRefreshPage()
+    {
+      $("#conversationBody").load(location.href + " #conversationBody");
+    }
+    setInterval('autoRefreshPage()', 120000);
+  });
+</script>
 

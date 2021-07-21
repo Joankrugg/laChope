@@ -5,7 +5,6 @@
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'receiver_id', @receiver.id  %>
       <%= f.input :body, as: :string, required: false, label: false %>
-
       <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
     <% end %>
   </div>
