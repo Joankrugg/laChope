@@ -44,3 +44,11 @@
     setInterval(getConversationBody, 100);
   });
 </script>
+
+<script type="text/javascript">
+  function updateDiv()
+  {
+    $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
+  }
+  setInterval('updateDiv()', 30000);
+</script>
