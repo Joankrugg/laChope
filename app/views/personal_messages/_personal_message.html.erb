@@ -6,7 +6,7 @@
       <% if personal_message.user.photo.present?  %>
         <%= cl_image_tag personal_message.user.photo.key, class: 'avatar' %>
       <% else %>
-        <%= cl_image_tag("Capture_d_e%CC%81cran_2021-07-21_a%CC%80_15.35.37_k4mmnn.png") %>
+        <%= cl_image_tag("Capture_d_e%CC%81cran_2021-07-21_a%CC%80_15.35.37_k4mmnn.png", class: 'avatar' )%>
       <% end %>
     </div>
     <div class="col-11">
