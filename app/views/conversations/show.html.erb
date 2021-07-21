@@ -1,15 +1,15 @@
 <div class="offnav"></div>
-<div class="container">
+<div class="container top bottom">
   <h1>Conversation avec <%= @conversation.with(current_user).name %></h1>
 
   <div id="conversation-main">
     <div id="conversation-body">
-      <%= render @conversation.personal_messages.sort_by(&:created_at).reverse! %>
+      <%= render @conversation.personal_messages.sort_by(&:created_at) %>
     </div>
 
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
-      <%= f.input :body, required: false, label: false %>
+      <%= f.input :body, as: :string, required: false, label: false %>
 
       <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
     <% end %>
