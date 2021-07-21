@@ -1,13 +1,13 @@
 <div class="offnav"></div>
-<div class="container bottom top">
-  <h1>New message to <%= @receiver.name %></h1>
+<div class="container top bottom">
+  <div class="chatMessage">
+    <h1>Nouveau message pour <%= @receiver.name %></h1>
+    <%= simple_form_for @personal_message do |f| %>
+      <%= hidden_field_tag 'receiver_id', @receiver.id  %>
+      <%= f.input :body, as: :string, required: false, label: false %>
 
-  <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'receiver_id', @receiver.id %>
-
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-
-    <%= f.submit %>
-  <% end %>
+      <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
+    <% end %>
+  </div>
 </div>
+

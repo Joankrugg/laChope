@@ -3,7 +3,7 @@
   <h1>Conversation avec <%= @conversation.with(current_user).name %></h1>
 
   <div id="conversation-main">
-    <div id="conversation-body">
+    <div id="conversationBody">
       <%= render @conversation.personal_messages.sort_by(&:created_at) %>
     </div>
 
