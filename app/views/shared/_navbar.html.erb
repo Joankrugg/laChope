@@ -30,9 +30,7 @@
           <% if current_user.photo.present? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>
           <% else %>
-            <%= link_to current_user do %>
-              <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar" %>
-            <% end %>
+            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar" %>
           <% end %>
         </li>
       <% else %>
