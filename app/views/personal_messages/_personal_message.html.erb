@@ -3,7 +3,11 @@
   <p>Le <%= personal_message.created_at.strftime("%d/%m/%Y") %> à <%= personal_message.created_at.strftime("%H:%M")%></p>
   <div class="row">
     <div class="col-1">
-      <%= cl_image_tag personal_message.user.photo.key, class: 'avatar' %>
+      <% if personal_message.user.photo.present?  %>
+        <%= cl_image_tag personal_message.user.photo.key, class: 'avatar' %>
+      <% else %>
+        <%= cl_image_tag("Capture_d_e%CC%81cran_2021-07-21_a%CC%80_15.35.37_k4mmnn.png"), class: 'avatar' %>
+      <% end %>
     </div>
     <div class="col-11">
       <p><%= personal_message.body %></p>
