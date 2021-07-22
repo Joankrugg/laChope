@@ -46,9 +46,11 @@
 </script>
 
 <script type="text/javascript">
-  function updateDiv()
-  {
-    $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
-  }
-  setInterval('updateDiv()', 20000);
+  $(document).ready(function(){
+    function updateDiv()
+    {
+      $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
+    }
+    setInterval('updateDiv()', 20000);
+  });
 </script>
