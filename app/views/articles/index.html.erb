@@ -1,8 +1,7 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-1"></div>
-    <div class="col-xs-12 col-sm-12 col-lg-8">
+    <div class="col-12 col-lg-9">
       <div class="card space">
         <h1 class='page-title center'>Tous Les Articles</h1>
       </div>
@@ -11,7 +10,7 @@
       </div>
       <div class="row">
         <% @articles.each do |u| %>
-          <div class="col-lg-6 col-sm-6 col-xs-12 mx-auto">
+          <div class="col-12 col-lg-4 mx-auto">
             <%= render 'articles', article: u %>
           </div>
         <% end %>
@@ -20,7 +19,7 @@
     <div class="mx-auto col-xs-8 col-sm-12 col-lg-3">
       <%= render 'shared/social-networks' %>
       <div class="card sides bottom index-side">
-        <h4 class="title-top">TARGET</h4>
+        <h4 class="title-top">Target</h4>
         <% @beers.each do |b| %>
           <% if b.target? %>
             <%= link_to b do %>
