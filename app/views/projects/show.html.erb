@@ -1,17 +1,12 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11">
-      <h1 class="title card center">PROJET DE BIÈRE</h1>
-    </div>
-  </div>
-</div>
-
-<div class="container top bottom">
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
+      <div class="card space">
+        <div class="col-lg-11">
+          <h1 class="page-title center">Projet de brassin</h1>
+        </div>
+      </div>
       <div class="card">
         <h4 class='project-top-title top center'><%= @project.name.upcase %></h4>
         <div class="project-top center">
@@ -35,9 +30,7 @@
     </div>
 
     <div class="col-lg-3 bottom">
-      <div class="card">
-        <%= render 'shared/social-networks' %>
-      </div>
+      <%= render 'shared/social-networks' %>
       <%= render 'beers/lagers_side' %>
       <%= render 'beers/ales_side' %>
       <%= render 'beers/lagers_side' %>

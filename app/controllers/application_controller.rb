@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_articles
   before_action :set_stickers
   before_action :set_user
+  before_action :set_projects
 
   def after_sign_in_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || super
@@ -23,6 +24,9 @@ class ApplicationController < ActionController::Base
   end
   def set_user
     @u = User.find_by_id(1)
+  end
+  def set_projects
+    @projects = Project.all
   end
 
   private

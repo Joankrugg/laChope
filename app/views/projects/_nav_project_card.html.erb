@@ -1,0 +1,12 @@
+<div class="card beers-shadow">
+  <div class="card-body">
+    <h5 class="card-title"><%= project.name.upcase %></h5>
+    <p class="card-text"> STYLE: <%= project.typical_beer.style.name %></p>
+    <p class="card-text">QUANTITÉ: <%= project.batch %> litres</p>
+    <p class="card-text">BOUTEILLES: <%= project.pack.bottle.name %> <%= project.pack.bottle.centiliter %> cl</p>
+    <p class="card-text">CAPSULES: <%= project.bottle_top.color %></p>
+    <% if project.user.photo.present? %>
+      <%= cl_image_tag project.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar-bordered-beers beer-user img-responsive" %>
+    <% end %>
+  </div>
+</div>

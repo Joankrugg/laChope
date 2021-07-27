@@ -205,11 +205,16 @@
       <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
-          <% if user_signed_in? %>
-            <%= link_to 'Créer un projet', new_project_path %>
-            <%= link_to 'Tous les projects', projects_path %>
-          <% else %>
-            <%= link_to 'Tous les projects', projects_path %>
+          <% if projects.present? %>
+            <div class="row">
+              <% projects.sample(3).each do |s| %>
+                <div class="col-4 mx-auto">
+                  <%= link_to s do %>
+                    <%= render 'projects/nav_project_card', project: s %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -222,7 +227,7 @@
         <div class="col-lg-10">
           <p>Association 1901 l'atelier target </p>
           <p>3, place de la Chapelle, 33550 Langoiran</p>
-            <p><%= link_to 'envoyer un message', new_personal_message_path(receiver_id: @u) %></p>
+            <p><%= link_to 'envoyer un message', new_personal_message_path(receiver_id: @u), class: 'btn-ghost' %></p>
         </div>
       </div>
     </div>
