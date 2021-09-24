@@ -30,6 +30,9 @@
                       item_wrapper_class: 'tag-item' %>
 
         <%= f.input :website, label: "Site Internet" %>
+        <% if @user.store.present? %>
+          <%= f.input :privacy_code, label: "Code privée" %>
+        <% end %>
       </div>
       <div class="infos">
         <p class='center'>

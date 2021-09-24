@@ -4,11 +4,7 @@
     <%= simple_form_for @beer do |f| %>
       <div class="form-inputs">
         <label class="photo bottom">
-          <% if @beer.photo.present? %>
-            <%= cl_image_tag @beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-          <% else %>
             Choisir une photo
-          <% end %>
           <span style="display:none;">
             <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
           </span>
@@ -29,6 +25,9 @@
             </div>
           <% end %>
         </fieldset>
+        <%= f.association :beer_family, required: false, as: :radio_buttons,
+                  input_html: { class: "squaretag-selector center" },
+                  item_wrapper_class: 'squaretag-item', label: 'FAMILLE DE BIÈRE' %>
 
         <label class="geek-link center photo bottom">SPÉCIFICITÉS</label>
 

@@ -12,45 +12,5 @@
     <% end %>
   </div>
 </div>
-<script>
-  $(document).ready(function(){
-    const conversationBody = document.getElementById('conversationBody');
 
-    function appendMessage() {
-      const chatMessage = document.getElementsByClassName('chatMessage')[0];
-      const newChatMessage = chatMessage.cloneNode(true);
-      conversationBody.appendChild(newChatMessage);
-    }
 
-    function getConversationBody() {
-      // Prior to getting your conversationBody.
-      shouldScroll = conversationBody.scrollTop + conversationBody.clientHeight === conversationBody.scrollHeight;
-      /*
-       * Get your conversationBody, we'll just simulate it by appending a new one syncronously.
-       */
-      appendChatMessage();
-      // After getting your conversationBody.
-      if (!shouldScroll) {
-        scrollToBottom();
-      }
-    }
-
-    function scrollToBottom() {
-      conversationBody.scrollTop = conversationBody.scrollHeight;
-    }
-
-    scrollToBottom();
-
-    setInterval(getConversationBody, 100);
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    function updateDiv()
-    {
-      $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
-    }
-    setInterval('updateDiv()', 20000);
-  });
-</script>

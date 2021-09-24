@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :typical_beers, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_one :store
+  validates :privacy_code, uniqueness: true, allow_blank: true
   def name
     email.split('@')[0]
   end

@@ -113,13 +113,19 @@
       </div>
       <div class="card">
         <% if @user == current_user %>
-          <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
-          <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
-          <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
-          <% if @user == current_user && @user.admin? %>
-            <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
+          <% if @user.store.nil? %>
+            <div class="user"><%= link_to "CRÉER CAVE", new_store_path, class: 'admin' %></div>
+          <% end %>
+          <% if @user.store.present? && @user.privacy_code == @user.store.privacy_code %>
+            <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
+            <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
+            <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
+            <% if @user == current_user && @user.admin? %>
+              <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
+            <% end %>
           <% end %>
         <% end %>
+
         <% if user_signed_in? && @user != current_user %>
           <div class="user"><%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin' %></div>
         <% end %>
@@ -713,7 +719,7 @@
                         <%= @user.store.city %>
                         <%= @user.store.address %>
                         <%= @user.store.website %>
-                        <% if @user == current_user %>
+                        <% if @user == current_user && @user.privacy_code == @user.store.privacy_code %>
                           <p class ='project-info center'><%= link_to 'edit', edit_store_path %></p>
                           <p class ='project-info center'><%= link_to "Delete #{@user.store.name}",
                             store_path,

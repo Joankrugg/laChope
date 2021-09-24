@@ -68,4 +68,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
-gem 'serviceworker-rails', "~> 0.6.0"

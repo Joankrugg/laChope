@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @stores = Store.all
@@ -27,6 +27,7 @@ class StoresController < ApplicationController
   end
 
   def edit
+    @store = current_user.store
   end
 
   def update
@@ -44,6 +45,6 @@ class StoresController < ApplicationController
   end
 
   def store_params
-    params.require(:store).permit(:name, :city, :address, :website, beer_ids: [])
+    params.require(:store).permit(:name, :city, :address, :privacy_code, :website, beer_ids: [])
   end
 end
