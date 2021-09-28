@@ -3,7 +3,7 @@
   <h1>Conversation avec <%= @conversation.with(current_user).name %></h1>
   <div id="conversation-main">
     <div id="conversationBody">
-      <%= render @conversation.personal_messages.sort_by(&:created_at) %>
+      <%= render @conversation.personal_messages.sort_by(&:created_at).reverse %>
     </div>
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
@@ -14,45 +14,11 @@
 </div>
 
 
-<script>
-  $(document).ready(function(){
-    const conversationBody = document.getElementById('conversationBody');
-
-    function appendMessage() {
-      const chatMessage = document.getElementsByClassName('chatMessage')[0];
-      const newChatMessage = chatMessage.cloneNode(true);
-      conversationBody.appendChild(newChatMessage);
-    }
-
-    function getConversationBody() {
-      // Prior to getting your conversationBody.
-      shouldScroll = conversationBody.scrollTop + conversationBody.clientHeight === conversationBody.scrollHeight;
-      /*
-       * Get your conversationBody, we'll just simulate it by appending a new one syncronously.
-       */
-      appendChatMessage();
-      // After getting your conversationBody.
-      if (!shouldScroll) {
-        scrollToBottom();
-      }
-    }
-
-    function scrollToBottom() {
-      conversationBody.scrollTop = conversationBody.scrollHeight;
-    }
-
-    scrollToBottom();
-
-    setInterval(getConversationBody, 1000);
-  });
-</script>
-
 <script type="text/javascript">
   $(document).ready(function(){
-    function updateDiv()
-    {
+    function updateDiv() {
       $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
     }
-    setInterval('updateDiv()', 20000);
+    setInterval(updateDiv, 5000);
   });
 </script>
