@@ -26,6 +26,8 @@
   <div id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <% mailbox = [] %>
+        <% unread = [] %>
         <li class="nav-item dropdown" data-toggle="modal" data-target="#actions">
           <% if current_user.photo.present? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>
@@ -33,6 +35,21 @@
             <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar" %>
           <% end %>
         </li>
+        <% conversations.each do |c| %>
+          <% if c.participates?( current_user ) %>
+            <% mailbox << c %>
+          <% end %>
+        <% end %>
+        <% if mailbox != [] %>
+          <% mailbox.each do |l| %>
+            <% if l.read == false %>
+              <% unread << l %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if unread != [] %>
+          <%= unread.count %>
+        <% end %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Connexion", new_user_session_path, class: "btn btn-ghost" %>
