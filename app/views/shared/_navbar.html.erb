@@ -42,7 +42,7 @@
         <% end %>
         <% if mailbox != [] %>
           <% mailbox.each do |l| %>
-            <% if l.read == false %>
+            <% if l.personal_messages.last.read == false && l.personal_messages.last.user != current_user %>
               <% unread << l %>
             <% end %>
           <% end %>

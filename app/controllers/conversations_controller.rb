@@ -6,9 +6,12 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    if @conversation.personal_messages.last.user != current_user
+      @conversation.personal_messages.last.update(read: true)
+      @conversation.personal_messages.last.save!
+    end
     @personal_message = PersonalMessage.new
-    @conversation.read = true
-    @conversation.save
+
   end
 
 
