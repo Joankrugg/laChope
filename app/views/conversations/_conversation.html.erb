@@ -1,5 +1,4 @@
-<div class="offnav"></div>
-<div class="container top bottom">
+<div class="container">
   De : <%= conversation.with(current_user).name %>
   <br>
   <em>MSG : <%= conversation.personal_messages.last.body.truncate(50) %></em>

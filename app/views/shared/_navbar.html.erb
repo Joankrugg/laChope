@@ -262,23 +262,6 @@
         </button>
       </div>
       <div class="modal-body bottle-available">
-        <% if user_signed_in? %>
-          <div class="col-12">
-            <%= link_to user_path(current_user) do %>
-              <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to conversations_path, class: 'admin' do %>
-              <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Mes messages</p>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="col-12">
-          <%= link_to typical_beers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Styles de bière</p>
-          <% end %>
-        </div>
         <div class="col-12">
           <%= link_to beers_path do %>
             <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Catalogue de bières</p>
@@ -290,10 +273,32 @@
           <% end %>
         </div>
         <div class="col-12">
+          <%= link_to typical_beers_path do %>
+            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Styles de bière</p>
+          <% end %>
+        </div>
+        <div class="col-12">
           <%= link_to articles_path do %>
             <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Articles</p>
           <% end %>
         </div>
+        <% if user_signed_in? %>
+          <div class="col-12">
+            <%= link_to user_path(current_user) do %>
+              <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+            <% end %>
+          </div>
+          <div class="col-12">
+            <%= link_to conversations_path, class: 'admin' do %>
+              <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Mes messages</p>
+            <% end %>
+          </div>
+          <div class="col-12">
+            <%= link_to users_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-users"></i> Membres</p>
+            <% end %>
+          </div>
+        <% end %>
         <div class="col-12">
           <%= link_to stickers_path do %>
             <p class="btn-nav-modern center"><i class="fas fa-sticky-note"></i> Stickers</p>
@@ -305,11 +310,6 @@
           <% end %>
         </div>
         <% if user_signed_in? %>
-          <div class="col-12">
-            <%= link_to users_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-users"></i> Membres</p>
-            <% end %>
-          </div>
           <div class="col-12">
             <%= link_to new_typical_beer_path do %>
               <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un dérivé de style</p>
