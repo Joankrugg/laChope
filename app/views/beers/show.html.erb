@@ -139,13 +139,13 @@
       <% else %>
         <%= render 'beer_card_show', beer: @beer  %>
       <% end %>
-      <div class="card top">
+      <div class="card top p-top p-bottom">
         <% if @beer.beer_family.present? %>
-          <p class="description"> Type de bière de la même famille : </p>
+          <p class="center"> Type de bière de la même famille : </p>
           <% @typical_beers.each do |b| %>
             <% if b.beer_family.name == @beer.beer_family.name %>
               <%= link_to b do  %>
-                <p class="description"> <%= b.name %></p>
+                <p class="description center"> <%= b.name %></p>
               <% end %>
             <% end %>
           <% end %>
