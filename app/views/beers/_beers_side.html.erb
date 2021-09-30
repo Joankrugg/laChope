@@ -2,7 +2,7 @@
   <% if @typical_beer == t.typical_beer %>
     <%= link_to t do %>
       <div class="card sides top bottom shadow">
-        <%= cl_image_tag t.photo.key, height: 100, width: 120, crop: :fill, class: 'card-img-top img-responsive beer-image' %>
+        <div class="col-8 mx-auto p-top"><%= cl_image_tag t.photo.key, height: 400, width: 300, crop: :fill, class: 'card-img-top img-responsive beer-image' %></div>
         <div class="beer-link card-infos">
           <p class='beer-link-text'>Nom : <%= t.name %></p>
           <p class="beer-link-text"><%= t.typical_beer.style.name %></p>
