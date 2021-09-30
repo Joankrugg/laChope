@@ -19,11 +19,15 @@
   <div class="cell"><%= link_to 'Pilsners', pilsners_typical_beers_path, class: 'side-link' %></div>
   <div class="cell"><%= link_to 'Porters', porters_typical_beers_path, class: 'side-link' %></div>
   <div class="cell"><%= link_to 'Stouts', stouts_typical_beers_path, class: 'side-link' %></div>
+</div>
+<div class="card sides bottom shadow">
   <h3 class="title-top">Styles de bière</h3>
-    <% @typical_beers.sort_by(&:name).each do |tb| %>
-      <div class="cell">
-        <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-      </div>
-    <% end %>
+  <% @typical_beers.sort_by(&:name).each do |tb| %>
+    <div class="cell">
+      <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+    </div>
+  <% end %>
+</div>
+<div class="card sides bottom shadow">
   <h3 class="title-top">Couleurs de bière</h3>
 </div>

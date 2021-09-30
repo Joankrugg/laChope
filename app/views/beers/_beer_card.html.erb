@@ -1,6 +1,6 @@
 <%= link_to beer do  %>
-  <div class="card beers-shadow">
-    <%= cl_image_tag beer.photo.key, height: 200, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+  <div class="card beers-shadow p-top">
+    <%= cl_image_tag beer.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
     <div class="card-body">
       <h5 class="card-title"><%= beer.name.upcase %></h5>
       <% if beer.style.present? %>
