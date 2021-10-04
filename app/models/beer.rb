@@ -18,11 +18,11 @@ class Beer < ApplicationRecord
   belongs_to :alcohol_shape, optional: true
   belongs_to :balance, optional: true
   belongs_to :main_taste, optional: true
-  has_many :store_beers
+  has_many :store_beers, dependent: :destroy
   has_many :stores, through: :store_beers
-  has_many :beer_flavours
+  has_many :beer_flavours, dependent: :destroy
   has_many :flavours, through: :beer_flavours
-  has_many :beer_feelings
+  has_many :beer_feelings, dependent: :destroy
   has_many :feelings, through: :beer_feelings
 
   include PgSearch::Model

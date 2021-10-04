@@ -4,7 +4,7 @@
     <% beer_instances << bi %>
   <% end %>
 <% end %>
-<% beer_instances.sample(3).each do |t| %>
+<% beer_instances.sample(5).each do |t| %>
   <%= link_to t do %>
     <div class="card sides top bottom shadow">
       <div class="col-8 mx-auto p-top"><%= cl_image_tag t.photo.key, height: 400, width: 300, crop: :fill, class: 'card-img-top img-responsive beer-image' %></div>
