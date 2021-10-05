@@ -1,8 +1,9 @@
 /*user cards*/
 .user{
   text-align: center;
-  color: white;
-  background: #4B535B;
+  color: #4B535B;
+  background: $light-gray;
+  border: #4B535B 1px solid;
   border-radius: 3px;
   margin-bottom: 5px;
   margin-top: 10px;
@@ -10,8 +11,10 @@
   margin-right: 15px;
 }
 .user:hover{
-  color: $light-gray;
+  color: white;
   cursor: pointer;
+  background: $my-green;
+  border: $my-green 1px solid;
 }
 
 .user-beers{
@@ -95,7 +98,8 @@
 }
 
 .introduction-user-actions:hover{
-  background-color: black;
+  background-color: $my-green;
+  border: $my-green 1px solid;
   cursor: pointer;
   .icon{
     color: white;

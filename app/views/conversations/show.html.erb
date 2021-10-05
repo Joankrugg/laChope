@@ -8,7 +8,12 @@
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
       <%= f.input :body, as: :string, required: false, label: false, class: 'inputMessage' %>
-      <%= f.input :photo, as: :file, required: false, label: false %>
+      <label class="photo">
+        <i class="fas fa-camera-retro" id='loader'></i>
+        <span style="display:none;">
+          <%= f.input :photo, as: :file, required: false, multiple: true, name: 'picture' %>
+        </span>
+      </label>
       <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
     <% end %>
   </div>

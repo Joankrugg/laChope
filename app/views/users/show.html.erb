@@ -1,12 +1,41 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
-    <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive bottom' %>
-    <% else %>
-      <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto img-responsive bottom' %>
-    <% end %>
-
+    <div class="col-12 col-lg-6 bottom">
+      <div class="card bottom">
+        <% if @user.photo.present? %>
+          <%= cl_image_tag @user.photo.key, height: 400, crop: :fill, gravity: 'faces', class: 'center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto center img-responsive p-bottom' %>
+        <% end %>
+        <div class="row icons top">
+          <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
+            <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
+            <p class='icon-legend'>Design</p>
+          </div>
+          <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
+            <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
+            <p class='icon-legend'>À tester</p>
+          </div>
+          <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
+            <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
+            <p class='icon-legend'>Ma cave</p>
+          </div>
+          <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
+            <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
+            <p class='icon-legend'>Journal</p>
+          </div>
+          <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
+            <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
+            <p class='icon-legend'>Stickers</p>
+          </div>
+          <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
+            <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
+            <p class='icon-legend'>Projets</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class='col-12 col-lg-6 bottom'>
       <div class="card bottom">
         <% if @user == current_user %>
@@ -74,63 +103,35 @@
             </div>
           <% end %>
 
-          <div class="row icons top">
-            <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
-              <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
-              <p class='icon-legend'>Design</p>
-            </div>
-            <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
-              <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-              <p class='icon-legend'>À tester</p>
-            </div>
-            <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
-              <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
-              <p class='icon-legend'>Ma cave</p>
-            </div>
-            <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
-              <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
-              <p class='icon-legend'>Journal</p>
-            </div>
-            <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
-              <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
-              <p class='icon-legend'>Stickers</p>
-            </div>
-            <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
-              <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
-              <p class='icon-legend'>Projets</p>
-            </div>
-          </div>
           <% if @user.website.present? %>
             <div class="row">
               <div class="col-lg-12">
                 <%= link_to @user.website, target: :blank do %>
-                  <div class= "introduction-data center">Visitez mon site</div>
+                  <div class= "introduction-data center p-bottom">Visitez mon site</div>
                 <% end %>
               </div>
             </div>
           <% end %>
         </div>
-      </div>
-      <div class="card">
         <% if @user == current_user %>
           <% if @user.store.nil? %>
             <div class="user"><%= link_to "CRÉER CAVE", new_store_path, class: 'admin' %></div>
           <% end %>
           <% if @user.store.present? && @user.privacy_code == @user.store.privacy_code %>
             <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
-            <div class="user"><%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin' %></div>
-            <div class="user"><%= link_to "CRÉER PROJET", new_project_path, class: 'admin' %></div>
+            <%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin user' %>
+            <%= link_to "CRÉER PROJET", new_project_path, class: 'admin user' %>
             <% if @user == current_user && @user.admin? %>
-              <div class="user"><%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin' %></div>
+              <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
             <% end %>
           <% end %>
         <% end %>
 
         <% if user_signed_in? && @user != current_user %>
-          <div class="user"><%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin' %></div>
+          <%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin user' %>
         <% end %>
         <% if user_signed_in? && @user == current_user %>
-          <div class="user"><%= link_to 'MES MESSAGES', conversations_path, class: 'admin' %></div>
+          <%= link_to 'MES MESSAGES', conversations_path, class: 'admin user' %>
         <% end %>
       </div>
 
