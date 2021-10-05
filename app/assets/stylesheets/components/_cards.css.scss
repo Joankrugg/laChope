@@ -80,7 +80,7 @@
 }
 
 .card-link{
-  color: cadetblue;
+  color: $my-green;
 }
 
 .card-link:hover{
@@ -125,7 +125,7 @@
 
 .title-top{
   color: $gray;
-  background-color: cadetblue;
+  background-color: $my-green;
   font-family: 'Allura';
   opacity: 0.8;
   padding-top: 5px;
@@ -160,7 +160,7 @@
   color: #3C3C3C;
 }
 .beer-link-text:hover{
-  color: cadetblue;
+  color: $my-green;
 }
 
 
@@ -172,7 +172,7 @@
 .legend{
   font-size: 16px;
   color: $light-gray;
-  background-image: linear-gradient(-180deg, $black, cadetblue);
+  background-image: linear-gradient(-180deg, $black, $my-green);
   border-radius: 3px;
   width: 50%;
 }
@@ -191,11 +191,11 @@
   margin-right: 40px;
   font-size: 14px;
   text-align: left;
-  color: cadetblue
+  color: $my-green
 }
 
 .rate{
- color: cadetblue;
+ color: $my-green;
 }
 
 .fancy-card-text{
@@ -207,7 +207,7 @@
 .fancy-card-text:hover{
   background-color: white;
   cursor: pointer;
-  color: cadetblue;
+  color: $my-green;
 }
 
 .admin{
@@ -274,7 +274,7 @@
 .card-section-special{
   margin-bottom: 2px;
   padding-left: 40px;
-  color: cadetblue;
+  color: $my-green;
   font-size: 14px;
   font-family: 'Work Sans';
   background-color: white;

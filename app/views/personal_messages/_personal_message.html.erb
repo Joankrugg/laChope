@@ -24,9 +24,14 @@
         <% end %>
       </div>
       <div class="col-10">
-        <p><%= personal_message.body %></p>
+        <div class="row">
+          <p><%= personal_message.body %></p>
+        </div>
         <% if personal_message.photo.present? %>
-          <%= cl_image_tag personal_message.photo.key, height: 100, crop: :fill %>
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4"><%= cl_image_tag personal_message.photo.key, height: 100, crop: :fill %></div>
+          </div>
         <% end %>
       </div>
     <% end %>

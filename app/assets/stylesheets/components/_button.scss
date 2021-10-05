@@ -1,21 +1,17 @@
 .btn-ghost {
-  color: #3C3C3C;
+  color: white;
   padding: 5px 20px;
-  border-radius: 50px;
-  border :solid 1px;
+  border-radius: 10px;
   font-weight: lighter;
-  background: $light-gray;
+  background: #54C7CF;
   margin-bottom: 5px;
   margin-top: 5px;
   transition: background 0.3s ease;
 }
 
 .btn-ghost:hover {
-  opacity: 1;
-  background: cadetblue;
-  text-decoration: none;
+  background: $my-green;
   color: white;
-  border :solid 1px white;
 }
 
 .btn-home {
@@ -41,7 +37,7 @@
   border-radius: 3px;
   background: white;
   transition: background 0.3s ease;
-  box-shadow: 1px 1px 2px black, 0 0 5px cadetblue, 0 0 5px white;
+  box-shadow: 1px 1px 2px black, 0 0 5px $my-green, 0 0 5px white;
 }
 
 .btn-flat:hover {
@@ -49,7 +45,7 @@
   color: white;
   text-decoration: none;
   opacity: 1;
-  text-shadow: 1px 1px 2px black, 0 0 25px cadetblue, 0 0 5px white;
+  text-shadow: 1px 1px 2px black, 0 0 25px $my-green, 0 0 5px white;
 }
 
 .btn-gradient {
@@ -110,7 +106,7 @@
 }
 
 .toggle:checked + label::before {
-  background-color: cadetblue;
+  background-color: $my-green;
 }
 
 .toggle + label::after {
@@ -169,7 +165,7 @@
 }
 
 .btn-nav-modern:hover{
-  background-color: cadetblue;
+  background-color: $my-green;
   opacity: 1;
   color: white;
 }

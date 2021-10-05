@@ -33,12 +33,12 @@
 }
 
 .wanted{
-  color: cadetblue;
+  color: $my-green;
   font-size: 30px;
 }
 
 .wanted:hover{
-  color: turquoise;
+  color: #48C6CF;
 
 }
 
@@ -48,6 +48,6 @@
 }
 
 .unwanted:hover{
-  color: turquoise;
+  color: #48C6CF;
 
 }

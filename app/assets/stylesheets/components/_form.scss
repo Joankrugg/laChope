@@ -17,11 +17,10 @@
     width: 100%;
     margin-bottom: 20px;
     border-radius: 3px;
-    background-color: cadetblue;
+    background-color: $my-green;
     border: none;
-    opacity: 0,7;
     .btn:hover{
-      opacity: 1;
+      background-color: #48C6CF;
     }
   }
 }
@@ -86,13 +85,13 @@
   margin-bottom: 5px;
 }
 .squaretag-selector:hover + label {
-  background-color: cadetblue;
+  background-color: $my-green;
   border: 1px solid white;
   color: white;
 }
 
 .squaretag-selector:checked + label {
-  background-color: cadetblue;
+  background-color: $my-green;
   color: white;
 }
 
@@ -205,11 +204,11 @@
   text-align: center;
 }
 .typical_beer-choice:hover {
-  background: cadetblue;
+  background: $my-green;
   cursor: pointer;
 }
 .typical_beer-choice.on {
-  background: cadetblue;
+  background: $my-green;
   color: white;
 }
 
