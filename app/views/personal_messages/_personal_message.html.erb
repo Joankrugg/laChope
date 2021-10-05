@@ -25,6 +25,9 @@
       </div>
       <div class="col-10">
         <p><%= personal_message.body %></p>
+        <% if personal_message.photo.present? %>
+          <%= cl_image_tag personal_message.photo.key, height: 100, crop: :fill %>
+        <% end %>
       </div>
     <% end %>
   </div>
