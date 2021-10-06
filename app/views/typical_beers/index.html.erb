@@ -6,11 +6,11 @@
         <h1 class='page-title center'>
           Styles De Bière
         </h1>
+      </div>
+      <div class="card space">
         <%= form_tag(typical_beers_path, method: :get) do %>
-          <%= text_field_tag :search, nil, placeholder: 'Type de bière ?', class: 'search center' %>
-          <div class="col-6 mx-auto center">
-            <%= submit_tag 'VALIDER', class: 'btn btn-modern' %>
-          </div>
+          <%= text_field_tag :search, nil, class: "search", placeholder: "Recherche", autocomplete: 'off'%>
+          <%= submit_tag 'Search', style: "display: none;" %>
         <% end %>
       </div>
       <div class="card">

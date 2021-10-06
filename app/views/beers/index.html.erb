@@ -19,11 +19,11 @@
       <div class="col-12 col-lg-9">
         <div class="card space">
           <h1 class='page-title center'>Toutes Les Bières</h1>
+        </div>
+        <div class="card space">
           <%= form_tag(beers_path, method: :get) do %>
-            <%= text_field_tag :search, nil, placeholder: 'Vous avez un nom en tête ?', class: 'search center' %>
-            <div class="col-6 mx-auto center">
-              <%= submit_tag 'VALIDER', class: 'btn btn-modern' %>
-            </div>
+            <%= text_field_tag :search, nil, class: "search", placeholder: "Recherche", autocomplete: 'off'%>
+            <%= submit_tag 'Search', style: "display: none;" %>
           <% end %>
         </div>
         <% if lagers != [] %>
