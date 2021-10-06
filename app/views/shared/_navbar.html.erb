@@ -84,25 +84,12 @@
               <p class="text-link-title"> TOUTES LES BIÈRES </p>
             </div>
           <% end %>
-          <%= link_to target_beers_path do %>
-            <div class="link">
-              <p class="text-link-title"> TARGETS </p>
-            </div>
-          <% end %>
         </div>
         <div class="col-xs-6 col-sm-4 col-lg-2">
           <%= link_to ales_beers_path do %>
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" , class: 'mx-auto avatar-nav' %>
               <p class="text-link-title"> ALES </p>
-              <div class="cell"><%= link_to 'Wheat beers', wheat_beers_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'Belgian Ales', belgian_ales_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Pale Ales', pale_ales_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Bitters', bitters_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Scottish Ales', scottish_ales_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Brown Ales', brown_ales_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Porters', porters_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Stouts', stouts_typical_beers_path, class: 'text-link' %> </div>
             </div>
           <% end %>
         </div>
@@ -111,24 +98,6 @@
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--s_3dEzRG--/q_jpegmini/v1618324165/30_LevureLager_r0wjpl.jpg", class: 'mx-auto avatar-nav' %>
               <p class="text-link-title"> LAGERS </p>
-              <div class="cell"><%= link_to 'Pilsner', pilsners_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'American Lager', american_lagers_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'European Lager', european_lagers_typical_beers_path, class: 'text-link' %> </div>
-              <div class="cell"><%= link_to 'Bock ', bocks_typical_beers_path, class: 'text-link' %></div>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-lg-2 ">
-          <%= link_to mixed_beers_path do %>
-            <div class="link">
-              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", class: 'mx-auto avatar-nav' %>
-              <p class="text-link-title"> STYLES MIXTES </p>
-              <div class="cell"><%= link_to 'Alt', alts_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'French Ale', french_ales_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'German Amber', german_ambers_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'American Special', american_specials_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'Smoked Beer', smoked_beers_typical_beers_path, class: 'text-link' %></div>
-              <div class="cell"><%= link_to 'Strong Ale', strong_ales_typical_beers_path, class: 'text-link' %></div>
             </div>
           <% end %>
         </div>
@@ -137,7 +106,14 @@
             <div class="link">
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--dYPnXHfW--/q_jpegmini/v1618324375/TYPES-OF-ALES_caruvc.jpg" , class: 'mx-auto avatar-nav' %>
               <p class="text-link-title"> SPONTANEOUS </p>
-              <div class="cell"><%= link_to 'Lambics & Sours', lambics_typical_beers_path, class: 'text-link' %></div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-lg-2 ">
+          <%= link_to target_beers_path do %>
+            <div class="link">
+              <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614876232/Target_xaorog.jpg", class: 'mx-auto avatar-nav' %>
+              <p class="text-link-title"> TARGETS </p>
             </div>
           <% end %>
         </div>
@@ -154,11 +130,6 @@
               <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1622019082/fabrication-biere2_scvgnn.jpg", class: 'mx-auto avatar-nav' %>
               <p class="text-link-title">Derniers Articles</p>
             </div>
-          <% end %>
-          <% if articles.present? %>
-            <%= link_to articles.last do %>
-              <p class="text-link"><%= articles.last.title %> </p>
-            <% end %>
           <% end %>
         </div>
         <div class="col-lg-2">
@@ -198,22 +169,20 @@
     </div>
   </div>
   <div class="tab-pane container" id="stickers">
-    <div class="card p-top">
+    <div class="card p-top p-bottom">
       <div class="row">
         <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <% if stickers.present? %>
-            <div class="row">
-              <% stickers.sample(12).each do |s| %>
-                <div class="col-lg-2 mx-auto">
-                  <%= link_to s do %>
-                    <%= cl_image_tag s.photo.key, class: 'img-fluid img-nav' %>
-                  <% end %>
+        <% if stickers.present? %>
+          <% stickers.sample(5).each do |s| %>
+            <div class="col-lg-2 ">
+              <%= link_to s do %>
+                <div class="link">
+                  <%= cl_image_tag s.photo.key, class: 'mx-auto avatar-nav' %>
                 </div>
               <% end %>
             </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
