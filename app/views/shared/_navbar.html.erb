@@ -262,26 +262,6 @@
         </button>
       </div>
       <div class="modal-body bottle-available">
-        <div class="col-12">
-          <%= link_to beers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Catalogue de bières</p>
-          <% end %>
-        </div>
-        <div class="col-12">
-          <%= link_to stores_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-store"></i> Caves à bières</p>
-          <% end %>
-        </div>
-        <div class="col-12">
-          <%= link_to typical_beers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Styles de bière</p>
-          <% end %>
-        </div>
-        <div class="col-12">
-          <%= link_to articles_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Articles</p>
-          <% end %>
-        </div>
         <% if user_signed_in? %>
           <div class="col-12">
             <%= link_to user_path(current_user) do %>
@@ -290,36 +270,16 @@
           </div>
           <div class="col-12">
             <%= link_to conversations_path, class: 'admin' do %>
-              <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Mes messages</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to users_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-users"></i> Membres</p>
+              <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
             <% end %>
           </div>
         <% end %>
         <div class="col-12">
-          <%= link_to stickers_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-sticky-note"></i> Stickers</p>
-          <% end %>
-        </div>
-        <div class="col-12">
-          <%= link_to projects_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-list"></i> Projets Target</p>
+          <%= link_to new_public_search_path do %>
+            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
           <% end %>
         </div>
         <% if user_signed_in? %>
-          <div class="col-12">
-            <%= link_to new_typical_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un dérivé de style</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to new_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
-            <% end %>
-          </div>
           <% if current_user.store.nil? %>
             <div class="col-12">
               <%= link_to new_store_path do %>
@@ -333,6 +293,16 @@
               <% end %>
             </div>
           <% end %>
+          <div class="col-12">
+            <%= link_to new_beer_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
+            <% end %>
+          </div>
+          <div class="col-12">
+            <%= link_to new_typical_beer_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un dérivé de style</p>
+            <% end %>
+          </div>
           <div class="col-12">
             <%= link_to new_project_path do %>
               <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>

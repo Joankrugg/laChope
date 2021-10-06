@@ -31,7 +31,7 @@
 
         <%= f.input :website, label: "Site Internet" %>
         <% if @user.store.present? %>
-          <%= f.input :privacy_code, label: "Code privée" %>
+          <input class="form-control password optional center connexion" type="password" name="user[privacy_code]" name="user[privacy_code]"  id="user_privacy_code">
         <% end %>
       </div>
       <div class="infos">
