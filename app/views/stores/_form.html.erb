@@ -21,7 +21,12 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <%= f.input :privacy_code, required: false, label: 'CODE PRIVÈ', input_html: { class: "center"} %>
+            <%= f.input :privacy_code, required: false, label: 'CODE PRIVÉ', input_html: { class: "center"} %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <%= f.input :visitor, as: :boolean %>
           </div>
         </div>
 

@@ -231,7 +231,7 @@
         </button>
       </div>
       <div class="modal-body bottle-available">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.store.nil? %>
           <div class="col-12">
             <%= link_to user_path(current_user) do %>
               <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
@@ -242,34 +242,19 @@
               <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
             <% end %>
           </div>
-        <% end %>
-        <div class="col-12">
-          <%= link_to new_public_search_path do %>
-            <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
-          <% end %>
-        </div>
-        <% if user_signed_in? %>
-          <% if current_user.store.nil? %>
-            <div class="col-12">
-              <%= link_to new_store_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Créer sa cave</p>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="col-12">
-              <%= link_to edit_store_path(current_user.store) do %>
-                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Mettre sa cave à jour</p>
-              <% end %>
-            </div>
-          <% end %>
           <div class="col-12">
-            <%= link_to new_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
+            <%= link_to new_public_search_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
             <% end %>
           </div>
           <div class="col-12">
-            <%= link_to new_typical_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un dérivé de style</p>
+            <%= link_to new_store_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-store"></i> Créer sa cave</p>
+            <% end %>
+          </div>
+          <div class="col-12">
+            <%= link_to new_beer_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
             <% end %>
           </div>
           <div class="col-12">
@@ -286,6 +271,67 @@
             <div class="col-12">
               <%= link_to rails_admin_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
+              <% end %>
+            </div>
+          <% end %>
+        <% elsif user_signed_in? && current_user.store.present? %>
+          <% unless current_user.access != nil && current_user.access.code != current_user.store.privacy_code  %>
+            <div class="col-12">
+              <%= link_to user_path(current_user) do %>
+                <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to conversations_path, class: 'admin' do %>
+                <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to new_public_search_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to edit_store_url(current_user, @store) do %>
+                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Mettre sa cave à jour</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to new_beer_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to new_project_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Déconnexion</p>
+              <% end %>
+            </div>
+            <% if current_user.admin? %>
+              <div class="col-12">
+                <%= link_to rails_admin_path do %>
+                  <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="col-12">
+              <%= link_to user_path(current_user) do %>
+                <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to new_public_search_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to store_path(current_user, @store) do %>
+                <p class="btn-nav-modern center"><i class="fas fa-store"></i> visiter ma cave</p>
               <% end %>
             </div>
           <% end %>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @beer = Beer.new
     @design = Design.new
     @article = Article.new
+    @access = Access.new
     @beers = Beer.all
     @typical_beers = TypicalBeer.all
     @stickers = @user.stickers

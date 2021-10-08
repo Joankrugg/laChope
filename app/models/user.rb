@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
   has_one_attached :photo
+  has_one :access, dependent: :destroy
   has_many :stickers, dependent: :destroy
   has_many :beers, dependent: :destroy
   has_many :user_activities
@@ -24,7 +25,7 @@ class User < ApplicationRecord
   has_many :personal_messages, dependent: :destroy
   has_many :typical_beers, dependent: :destroy
   has_many :projects, dependent: :destroy
-  has_one :store
+  has_one :store, dependent: :destroy
   validates :privacy_code, uniqueness: true, allow_blank: true
   def name
     email.split('@')[0]

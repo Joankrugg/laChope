@@ -34,14 +34,24 @@
             <p class='icon-legend'>Projets</p>
           </div>
         </div>
+        <% if user_signed_in? && @user == current_user && @user.store.present? %>
+          <div class="user-icons" data-toggle="modal" data-target="#code" id="user-code-link">
+            <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
+            <p class='icon-legend'>Code</p>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class='col-12 col-lg-6 bottom'>
       <div class="card bottom">
-        <% if @user == current_user %>
+        <% if @user == current_user && @user.store.nil? %>
           <div class="user-action" data-toggle="modal" data-target="#profil">
             PROFIL
           </div>
+        <% elsif @user == current_user && @user.store.present? %>
+          <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+            <div class="user" data-toggle="modal" data-target="#profil">PROFIL</div>
+          <% end %>
         <% else %>
           <div class="user-action">PROFIL</div>
         <% end %>
@@ -115,10 +125,17 @@
         </div>
 
         <% if @user == current_user %>
-          <% if @user.store.nil? %>
+          <% if @user.store.present? %>
+            <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+              <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
+              <%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin user' %>
+              <%= link_to "CRÉER PROJET", new_project_path, class: 'admin user' %>
+              <% if @user == current_user && @user.admin? %>
+                <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
+              <% end %>
+            <% end %>
+          <% else %>
             <div class="user"><%= link_to "CRÉER CAVE", new_store_path, class: 'admin' %></div>
-          <% end %>
-          <% if @user.store.present? && @user.privacy_code == @user.store.privacy_code %>
             <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
             <%= link_to "CRÉER STICKER", new_sticker_path, class: 'admin user' %>
             <%= link_to "CRÉER PROJET", new_project_path, class: 'admin user' %>
@@ -130,9 +147,6 @@
 
         <% if user_signed_in? && @user != current_user %>
           <%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin user' %>
-        <% end %>
-        <% if user_signed_in? && @user == current_user %>
-          <%= link_to 'MES MESSAGES', conversations_path, class: 'admin user' %>
         <% end %>
       </div>
 
@@ -721,7 +735,7 @@
                         <%= @user.store.city %>
                         <%= @user.store.address %>
                         <%= @user.store.website %>
-                        <% if @user == current_user && @user.privacy_code == @user.store.privacy_code %>
+                        <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
                           <p class ='project-info center'><%= link_to 'edit', edit_store_path %></p>
                           <p class ='project-info center'><%= link_to "Delete #{@user.store.name}",
                             store_path,
@@ -817,7 +831,21 @@
   </div>
 </div>
 
-   <!-- Modals -->
+<div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title center" id="exampleModalLabel">CODE D'ACCÈS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'accesses/form', access: @access %>
+      </div>
+    </div>
+  </div>
+</div>   <!-- Modals -->
 <div class="modal fade" id="beer_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -13,8 +13,14 @@
           <p class="project-top-infos"><%= @project.created_at.strftime("%d/%m/%Y") %> par <%= @project.user.username %></p>
         </div>
         <% if @project.user == current_user %>
-          <%= link_to edit_project_path(@project) do %>
-            <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+          <% if current_user.store.present? %>
+            <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+              <%= link_to edit_project_path(@project) do %>
+                <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+              <% end %>
+            <% else %>
+              <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>
+            <% end %>
           <% end %>
         <% else %>
           <%= cl_image_tag @project.sticker.photo.key, width: 800, crop: :fill, class: "img-fluid" %>

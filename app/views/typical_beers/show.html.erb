@@ -13,20 +13,22 @@
       <div class="card bottom">
         <h2 class='article-top-title top center'><%= @typical_beer.name.upcase %></h2>
         <% if user_signed_in? %>
-          <% if current_user.admin? %>
-            <%= link_to edit_typical_beer_path(@typical_beer) do %>
+          <% if current_user.admin? && current_user.store.present? %>
+            <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+              <%= link_to edit_typical_beer_path(@typical_beer) do %>
+                <% if @typical_beer.photo.present? %>
+                  <div class="center"><%= cl_image_tag @typical_beer.photo.key, height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
+                <% else %>
+                  <div class="center"><%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
+                <% end %>
+              <% end %>
+            <% else %>
               <% if @typical_beer.photo.present? %>
                 <div class="center"><%= cl_image_tag @typical_beer.photo.key, height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
               <% else %>
                 <div class="center"><%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
               <% end %>
             <% end %>
-          <% end %>
-        <% else %>
-          <% if @typical_beer.photo.present? %>
-            <div class="center"><%= cl_image_tag @typical_beer.photo.key, height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
-          <% else %>
-            <div class="center"><%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
           <% end %>
         <% end %>
         <% if @typical_beer.style.present? %>

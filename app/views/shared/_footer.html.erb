@@ -22,11 +22,29 @@
       <i class="fas fa-beer footer-link"></i>
     <% end %>
   </div>
-  <div class="d-lg-none ">
-    <%= link_to stores_path do %>
-      <i class="fas fa-store footer-link"></i>
+  <% if user_signed_in? %>
+    <% if current_user.store.nil? %>
+      <div class="d-lg-none ">
+        <%= link_to stores_path do %>
+          <i class="fas fa-store footer-link"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+        <div class="d-lg-none ">
+          <%= link_to stores_path do %>
+            <i class="fas fa-store footer-link"></i>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  </div>
+  <% else %>
+    <div class="d-lg-none ">
+      <%= link_to stores_path do %>
+        <i class="fas fa-store footer-link"></i>
+      <% end %>
+    </div>
+  <% end %>
   <div class="d-lg-none">
     <%= link_to articles_path do %>
       <i class="far fa-newspaper footer-link"></i>
@@ -38,6 +56,22 @@
     <% end %>
   </div>
   <% if user_signed_in? %>
+    <% if current_user.store.nil? %>
+      <div class="d-lg-none">
+        <%= link_to users_path do %>
+          <i class="fas fa-users footer-link"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+        <div class="d-lg-none">
+          <%= link_to users_path do %>
+            <i class="fas fa-users footer-link"></i>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
     <div class="d-lg-none">
       <%= link_to users_path do %>
         <i class="fas fa-users footer-link"></i>

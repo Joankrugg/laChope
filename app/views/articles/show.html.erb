@@ -16,8 +16,14 @@
           <p class="article-top-infos"><%= @article.created_at.strftime("%d/%m/%Y") %> | <%= @article.theme.name %> | par <%= @article.user.username %></p>
         </div>
         <% if @article.user == current_user && @article.user.admin? %>
-          <%= link_to edit_article_path(@article) do %>
-            <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+          <% if current_user.store.present? %>
+            <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+              <%= link_to edit_article_path(@article) do %>
+                <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+              <% end %>
+            <% else %>
+              <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+            <% end %>
           <% end %>
         <% else %>
           <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>

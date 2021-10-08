@@ -1,0 +1,9 @@
+<div class="container bottom">
+  <div class="form-login">
+    <h1>Code d'accès</h1>
+    <%= simple_form_for (@access) do |f| %>
+      <%= f.input :code, input_html: { class: 'center', autocomplete: 'off', value: '*****'} %>
+      <%= f.button :submit, 'Valider', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

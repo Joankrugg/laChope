@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :accesses, only: [:new, :create, :show, :edit, :update]
   resources :stickers
   resources :projects
   resources :stores
