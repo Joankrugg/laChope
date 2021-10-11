@@ -20,12 +20,14 @@
         <div class="card space">
           <h1 class='page-title center'>Toutes Les Bières</h1>
         </div>
-        <div class="card space">
-          <%= form_tag(beers_path, method: :get) do %>
-            <%= text_field_tag :search, nil, class: "search", placeholder: "Recherche", autocomplete: 'off'%>
-            <%= submit_tag 'Search', style: "display: none;" %>
-          <% end %>
-        </div>
+        <%= form_tag(beers_path, method: :get) do %>
+          <div class="search-form-control form-group">
+            <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
+            <button name="button" type="submit" class="btn btn-ghost">
+              <i class="fas fa-search"></i> Recherche
+            </button>
+          </div>
+        <% end %>
         <% if lagers != [] %>
           <div class="card">
             <h2 class="header-text">

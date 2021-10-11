@@ -1,19 +1,20 @@
-.search {
-  width: 100%;
+.search-form-control {
   position: relative;
-  text-align: center;
-  display: flex;
-  color: #3C3C3C;
-  padding: 5px 20px;
-  border-radius: 3px;
-  border :solid 1px;
-  font-weight: lighter;
-  background: white;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  transition: background 0.3s ease;
 }
 
+.search-form-control .btn {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  right: 8px;
+}
 
+.search-form-control .form-control {
+  height: 3rem;
+  border: 1px solid $my-green;
+}
 
-
+.search-form-control .form-control:focus {
+  border: 1px solid $my-green;
+  outline: none !important;
+}
