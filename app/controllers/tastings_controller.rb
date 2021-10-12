@@ -8,7 +8,7 @@ class TastingsController < ApplicationController
     if @tasting.save
       redirect_to beer_path(@beer)
     else
-      render 'beers/show'
+      redirect_to beer_path(@beer)
     end
   end
 

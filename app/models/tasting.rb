@@ -19,5 +19,4 @@ class Tasting < ApplicationRecord
   validates :weather, presence: true
   validates :context, presence: true
   validates :feelings, presence: true
-
 end

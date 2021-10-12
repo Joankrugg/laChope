@@ -18,34 +18,29 @@
       <div class="modal-body">
         <%= simple_form_for ([ @beer, @tasting ]) do |f| %>
           <%= f.input :date, required: false %>
-          <%= f.input :global_rating, input_html:{ min: '0', max:'5'}, required: true, label: 'Note sur 5' %>
-          <%= f.association :flavours, as: :check_boxes, label: 'Arômes',
-                          input_html: { class: "tag-selector" },
-                          item_wrapper_class: 'tag-item', required: false %>
-
-          <%= f.association :balance, as: :radio_buttons, label: 'Tendance',
+          <%= f.association :design_color, as: :radio_buttons, label: 'Robe',
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item', required: false %>
+          <%= f.association :context, as: :radio_buttons, label: 'Contexte',
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item', required: false %>
+          <%= f.association :weather, as: :radio_buttons, label: 'Météo',
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item', required: false %>
           <%= f.association :main_taste, as: :radio_buttons, label: 'Goût Principal',
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item', required: false %>
-
-          <%= f.association :design_color, as: :radio_buttons, label: 'Robe',
+          <%= f.association :balance, as: :radio_buttons, label: 'Tendance',
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item', required: false %>
-
-          <%= f.association :weather, as: :radio_buttons, label: 'Météo',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-
-          <%= f.association :context, as: :radio_buttons, label: 'Contexte',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-
           <%= f.association :feelings, as: :check_boxes, label: 'Sensations',
                           input_html: { class: "tag-selector" },
                           item_wrapper_class: 'tag-item', required: false %>
+          <%= f.association :flavours, as: :check_boxes, label: 'Arômes',
+                          input_html: { class: "tag-selector" },
+                          item_wrapper_class: 'tag-item', required: false %>
 
+          <%= f.input :global_rating, collection: 1..5, required: true, label: 'Note sur 5'%>
           <p class='center'>
             <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
           </p>
