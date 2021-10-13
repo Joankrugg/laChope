@@ -158,15 +158,16 @@
 }
 
 .btn-modern{
-  background-color: #4B535B;
+  background-color: #3C3C3C;
   border-radius: 4px;
   color: $light-gray;
-  opacity: 0.6;
-  margin-bottom: 10px;
+  opacity: 1;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .btn-modern:hover{
-  opacity: 1;
+  opacity: 0.8;
   color: white;
 }
 
