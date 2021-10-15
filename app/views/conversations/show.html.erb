@@ -1,6 +1,6 @@
 <div class="offnav"></div>
 <div class="container">
-  <h1 class='page-title center p-top'>Conversation avec <%= @conversation.with(current_user).name %></h1>
+  <h1 class='page-title center p-top' style='font-size: 25px;'>Conversation avec <%= @conversation.with(current_user).name %></h1>
   <div id="conversation-main">
     <div id="conversationBody">
       <%= render @conversation.personal_messages.sort_by(&:created_at).reverse %>
@@ -29,7 +29,7 @@
     function updateDiv() {
       $( "#conversationBody" ).load(window.location.href + " #conversationBody" );
     }
-    setInterval(updateDiv, 3000);
+    setInterval(updateDiv, 5000);
   });
 </script>
 
