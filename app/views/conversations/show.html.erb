@@ -1,6 +1,6 @@
 <div class="offnav"></div>
 <div class="container">
-  <h1 class='page-title center p-top' style='font-size: 25px;'>Conversation avec <%= @conversation.with(current_user).name %></h1>
+  <h1 class='page-title center p-top' id='chat-title'>Conversation avec <%= @conversation.with(current_user).name %></h1>
   <div id="conversation-main">
     <div id="conversationBody">
       <%= render @conversation.personal_messages.sort_by(&:created_at).reverse %>
