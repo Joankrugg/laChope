@@ -1,8 +1,12 @@
 #conversationBody {
-  max-height: 395px;
+  max-height: 335px;
   overflow-y: auto;
 }
 
 .body-input{
   width: 100%
+}
+.chat-datetime{
+  font-size: 12px;
+  color: $my-green;
 }
