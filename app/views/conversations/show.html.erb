@@ -7,14 +7,18 @@
     </div>
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
-      <%= f.input :body, as: :string, required: false, label: false, class: 'inputMessage' %>
-      <label class="photo">
-        <i class="fas fa-camera-retro" id='loader'></i>
-        <span style="display:none;">
-          <%= f.input :photo, as: :file, required: false, multiple: true, name: 'picture' %>
-        </span>
-      </label>
-      <p class='center'><%= f.button :submit, "Envoyer", class: 'btn btn-ghost bottom' %></p>
+      <div class="chat-form-control form-group">
+        <%= f.input :body, as: :string, required: false, label: false, autocomplete: 'off', class: "form-control string required" %>
+        <label class="photo">
+          <i class="fas fa-camera-retro"></i>
+          <span style="display:none;">
+            <%= f.input :photo, as: :file, required: false, multiple: true, name: 'picture' %>
+          </span>
+        </label>
+        <button name="button" type="submit" class="btn">
+          <i class="fas fa-arrow-circle-up" id='send'></i>
+        </button>
+      </div>
     <% end %>
   </div>
 </div>

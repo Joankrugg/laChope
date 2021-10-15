@@ -22,6 +22,7 @@ class Conversation < ApplicationRecord
     author == user || receiver == user
   end
 
+
 end
 
 
