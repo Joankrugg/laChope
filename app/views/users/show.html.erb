@@ -2,9 +2,9 @@
 <div class="container top">
   <div class="row">
     <div class="col-12 col-lg-6 bottom">
-      <div class="card p-top bottom">
+      <div class="card p-top bottom shadow">
         <% if @user.photo.present? %>
-          <%= cl_image_tag @user.photo.key, height: 400, crop: :fill, gravity: 'faces', class: 'center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
+          <%= cl_image_tag @user.photo.key, height: 400, crop: :fill, gravity: 'faces', class: 'shadow p-top center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
         <% else %>
           <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto center img-responsive p-bottom' %>
         <% end %>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class='col-12 col-lg-6 bottom'>
-      <div class="card p-top p-bottom bottom">
+      <div class="card p-top p-bottom bottom shadow">
         <% if @user == current_user && @user.store.nil? %>
           <div class="user-action" data-toggle="modal" data-target="#profil">
             PROFIL
