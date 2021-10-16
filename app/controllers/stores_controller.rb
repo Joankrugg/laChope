@@ -1,6 +1,8 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :update, :destroy]
+
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :edit, :update, :destroy]
+
   def index
     @stores = Store.all
     @articles = Article.all
@@ -9,14 +11,12 @@ class StoresController < ApplicationController
   end
 
   def new
-    @user = current_user
     @store = Store.new
   end
 
   def create
     @store = current_user.build_store(store_params)
-    if
-      @store.save
+    if @store.save
       redirect_to current_user
     else
       render :new
@@ -27,7 +27,6 @@ class StoresController < ApplicationController
   end
 
   def edit
-    @store = current_user.store
   end
 
   def update
@@ -36,6 +35,11 @@ class StoresController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @store.destroy
+    redirect_to current_user
   end
 
   private
@@ -48,3 +52,5 @@ class StoresController < ApplicationController
     params.require(:store).permit(:name, :city, :address, :privacy_code, :visitor, :website, beer_ids: [])
   end
 end
+
+

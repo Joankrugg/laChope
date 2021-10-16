@@ -6,8 +6,8 @@ class ConversationMailer < ApplicationMailer
   #   en.conversation_mailer.notification.subject
   #
   def notification
-    @personal_message = params[:personal_message]
-    @user = @personal_message.user
-    mail(to: @user.email, subject: "Vous envoyez un message!")
+    @store = params[:store]
+    @user = @store.user
+    mail(to: @user.email, subject: "Vous avez crée une cave!")
   end
 end
