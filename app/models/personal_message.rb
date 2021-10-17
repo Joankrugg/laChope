@@ -3,12 +3,11 @@ class PersonalMessage < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   validates :body, presence: true, allow_blank: true
-  after_save :notification
+  after_create :notification
 
   private
 
   def notification
-    sleep 10
     if self.read == false
       ConversationMailer.with(personal_message: self).send_notification.deliver_now
     end
