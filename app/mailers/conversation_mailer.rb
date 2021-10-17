@@ -22,6 +22,8 @@ class ConversationMailer < ApplicationMailer
         @user = u
       end
     end
-    mail(to: @user.email, subject: "Vous avez reçu un message!")
+    unless @conversation.read?
+      mail(to: @user.email, subject: "Vous avez reçu un message!")
+    end
   end
 end
