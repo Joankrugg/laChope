@@ -8,7 +8,7 @@ class PersonalMessage < ApplicationRecord
   private
 
   def notification
-    unless self.read?
+    if self.read == false
       ConversationMailer.with(personal_message: self).send_notification.deliver_now
     end
   end
