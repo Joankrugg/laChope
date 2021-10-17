@@ -3,7 +3,7 @@ class PersonalMessage < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   validates :body, presence: true, allow_blank: true
-  after_commit :notification
+  after_save :notification
 
   private
 
