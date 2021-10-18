@@ -7,12 +7,16 @@ class ConversationsController < ApplicationController
 
   def show
     if @conversation.personal_messages.last.user != current_user
-      @conversation.personal_messages.last.update(read: true)
+      @conversation.personal_messages.each do |pm|
+        pm.update(read: true)
+        pm.save!
+      end
+    else
+      @conversation.personal_messages.last.update(read: false)
       @conversation.personal_messages.last.save!
     end
     @personal_message = PersonalMessage.new
   end
-
 
   private
 

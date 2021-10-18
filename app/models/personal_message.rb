@@ -3,22 +3,13 @@ class PersonalMessage < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   validates :body, presence: true, allow_blank: true
-  after_commit :notification, unless: :check_read?
-
-
+  after_update_commit :notification
   private
 
-  def check_read?
-    if self.conversation.read?
-      true
-    else
-      false
+  def notification
+    if self.read == false && self.created_at > 2.seconds.ago
+      ConversationMailer.with(personal_message: self).send_notification.deliver_now
     end
   end
-
-  def notification
-      ConversationMailer.with(personal_message: self).send_notification.deliver_now
-  end
-
 end
 
