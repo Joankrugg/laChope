@@ -14,7 +14,25 @@ class ConversationsController < ApplicationController
       @conversation.personal_messages.last.update(read: true)
       @conversation.personal_messages.last.save!
     end
-    if @conversation.personal_messages.last.read == nil
+
+    if @conversation.personal_messages.last.read == nil && @conversation.personal_messages.last.created_at > 4.seconds.ago && @conversation.personal_messages.last.updated_at > 4.seconds.ago
+      mail =  ConversationMailer.with(personal_message: @conversation.personal_messages.last).send_notification
+      mail.deliver_now
+    end
+    @personal_message = PersonalMessage.new
+  end
+
+  private
+
+  def set_conversation
+    @conversation = Conversation.find_by(id: params[:id])
+  end
+
+  def check_participating!
+    redirect_to root_path unless @conversation && @conversation.participates?(current_user)
+  end
+end
+
       mail = ConversationMailer.with(personal_message: @conversation.personal_messages.last).send_notification
       mail.deliver_now
     end
