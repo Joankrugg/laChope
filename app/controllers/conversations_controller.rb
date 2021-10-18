@@ -10,6 +10,13 @@ class ConversationsController < ApplicationController
       @conversation.personal_messages.last.update(read: true)
       @conversation.personal_messages.last.save!
     end
+    if @conversation.personal_messages.last.read?
+      @conversation.update(read: true)
+      @conversation.save!
+    else
+      @conversation.update(read: false)
+      @conversation.save!
+    end
     @personal_message = PersonalMessage.new
 
   end
