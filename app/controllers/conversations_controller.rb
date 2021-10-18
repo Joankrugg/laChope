@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
         pm.save!
       end
     end
-    if @conversation.personal_messages.last.created_at > 4.seconds.ago && @conversation.personal_messages.last.read == false
+    if @conversation.personal_messages.last.created_at > 4.seconds.ago && @conversation.personal_messages.last.updated_at > 4.seconds.ago && @conversation.personal_messages.last.read == false
       mail =  ConversationMailer.with(personal_message: @conversation.personal_messages.last).send_notification
       mail.deliver_now
     end
