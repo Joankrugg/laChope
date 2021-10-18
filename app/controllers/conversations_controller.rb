@@ -13,6 +13,9 @@ class ConversationsController < ApplicationController
     if @conversation.personal_messages.last.user != current_user && @conversation.personal_messages.last.read == false && @conversation.personal_messages.last.created_at > 4.seconds.ago && @conversation.personal_messages.last.updated_at > 4.seconds.ago
       mail =  ConversationMailer.with(personal_message: @conversation.personal_messages.last).send_notification
       mail.deliver_now
+    elsif @conversation.personal_messages.last.user == current_user && @conversation.personal_messages.last.read == false && @conversation.personal_messages.last.created_at > 20.minutes.ago && @conversation.personal_messages.last.updated_at > 4.seconds.ago
+      mail =  ConversationMailer.with(personal_message: @conversation.personal_messages.last).send_notification
+      mail.deliver_now
     end
     @personal_message = PersonalMessage.new
   end
