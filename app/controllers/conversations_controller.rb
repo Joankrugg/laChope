@@ -16,6 +16,7 @@ class ConversationsController < ApplicationController
       mail = ConversationMailer.with(personal_message: pm).send_notification
       mail.deliver_now
     end
+
     @personal_message = PersonalMessage.new
   end
 
