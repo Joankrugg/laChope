@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
         pm.save!
       end
     end
-    unless @conversation.personal_messages.last.read?
+    unless @conversation.personal_messages.last.created_at != @conversation.personal_messages.last.updated_at
       @conversation.personal_messages.last.notification
     end
     @personal_message = PersonalMessage.new
