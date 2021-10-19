@@ -6,17 +6,15 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    pm = @conversation.personal_messages.last
-    pm.update(read: nil)
-    if pm.user != current_user
-      pm.update(read: true)
-      pm.save!
+    if @conversation.personal_messages.last.user != current_user
+      @conversation.personal_messages.each do |pm|
+        pm.update(read: true)
+        pm.save!
+      end
     end
-    if pm.created_at != pm.updated_at && pm.read != true && pm.created_at > 2.seconds.ago
-      mail = ConversationMailer.with(personal_message: pm).send_notification
-      mail.deliver_now
+    unless @conversation.personal_messages.last.read?
+      @conversation.personal_messages.last.notification
     end
-
     @personal_message = PersonalMessage.new
   end
 
