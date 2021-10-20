@@ -1,8 +1,11 @@
 <div class="container">
   De : <%= conversation.with(current_user).name %>
+  <% if conversation.personal_messages.last.read != true %>
+    <%= 'statue: non lu' %>
+  <% end %>
   <br>
   <em>MSG : <%= conversation.personal_messages.last.body.truncate(50) %></em>
   <br>
-  <%= link_to 'Répondre', conversation_path(conversation) %>
+  <%= link_to 'Répondre', conversation_path(conversation), class: 'btn btn-ghost' %>
   <hr>
 </div>
