@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id='mailbox'>
   De : <%= conversation.with(current_user).name %>
   <% if conversation.personal_messages.last.read != true %>
     <%= 'statue: non lu' %>
@@ -9,3 +9,12 @@
   <%= link_to 'Répondre', conversation_path(conversation), class: 'btn btn-ghost' %>
   <hr>
 </div>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    function updateDiv() {
+      $( "#mailbox" ).load(window.location.href + " #mailbox" );
+    }
+    setInterval(updateDiv, 4000);
+  });
+</script>
