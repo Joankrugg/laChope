@@ -1,18 +1,20 @@
-<div class="container" id='mailbox'>
+<div class="container">
   De : <%= conversation.with(current_user).name %>
-  <% if conversation.personal_messages.last.read != true %>
-    <%= 'statue: non lu' %>
-  <% end %>
-  <br>
-  <em>MSG : <%= conversation.personal_messages.last.body.truncate(50) %></em>
-  <br>
+  <div id='mailbox'>
+    <% if conversation.personal_messages.last.read != true %>
+      <%= 'statue: non lu' %>
+    <% end %>
+    <br>
+    <em>MSG : <%= conversation.personal_messages.last.body.truncate(50) %></em>
+    <br>
+  </div>
   <%= link_to 'Répondre', conversation_path(conversation), class: 'btn btn-ghost' %>
   <hr>
 </div>
 <script type="text/javascript">
 
   $(document).ready(function(){
-    function updateDiv() {
+    function updateStatus() {
       $( "#mailbox" ).load(window.location.href + " #mailbox" );
     }
     setInterval(updateDiv, 4000);
