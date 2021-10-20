@@ -18,9 +18,6 @@ class AccessesController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
   end
 

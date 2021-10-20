@@ -12,7 +12,8 @@ class ConversationMailer < ApplicationMailer
   end
 
   def send_notification
-    @personal_message = params[:personal_message]
+    @mail_alert = params[:mail_alert]
+    @personal_message = @mail_alert.personal_message
     @conversation = @personal_message.conversation
     users = []
     users << User.find_by_id(@conversation.author_id)

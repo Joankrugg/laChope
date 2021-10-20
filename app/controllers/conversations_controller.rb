@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
       end
     end
     @personal_message = PersonalMessage.new
+    @mail_alert = MailAlert.new
   end
 
   private

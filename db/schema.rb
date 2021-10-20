@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_134557) do
+ActiveRecord::Schema.define(version: 2021_10_20_151705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -235,6 +235,14 @@ ActiveRecord::Schema.define(version: 2021_10_06_134557) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mail_alerts", force: :cascade do |t|
+    t.boolean "mail_notification"
+    t.bigint "personal_message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["personal_message_id"], name: "index_mail_alerts_on_personal_message_id"
   end
 
   create_table "main_tastes", force: :cascade do |t|
@@ -548,6 +556,7 @@ ActiveRecord::Schema.define(version: 2021_10_06_134557) do
   add_foreign_key "designs", "users"
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
+  add_foreign_key "mail_alerts", "personal_messages"
   add_foreign_key "packs", "bottles"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"

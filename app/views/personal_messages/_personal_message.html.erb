@@ -26,6 +26,11 @@
         <% else %>
           <%= cl_image_tag("Capture_d_e%CC%81cran_2021-07-21_a%CC%80_15.35.37_k4mmnn.png", class: 'avatar' )%>
         <% end %>
+        <% if personal_message == c.personal_messages.last %>
+          <% unless personal_message.mail_alert.present? %>
+            <%= link_to 'Send', new_personal_message_mail_alert_path(personal_message) %>
+          <% end %>
+        <% end %>
       </div>
     <% else %>
       <div class="col-2">

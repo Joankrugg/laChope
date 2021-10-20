@@ -1,0 +1,12 @@
+<div class="offnav"></div>
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-4 mx-auto form-login">
+      <h2>Notifier</h2>
+      <%= simple_form_for [@personal_message, @mail_alert] do |f| %>
+        <%= f.input :mail_notification, as: :radio_buttons %>
+        <%= f.button :submit, 'valider', class: 'btn btn-ghost' %>
+      <% end %>
+    </div>
+  </div>
+</div>

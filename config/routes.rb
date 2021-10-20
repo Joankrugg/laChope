@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'mail_alerts/new'
+  get 'mail_alerts/create'
   resources :public_searches, only: [:new, :create, :show]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
@@ -31,7 +33,9 @@ Rails.application.routes.draw do
       get :strong_ales
     end
   end
-  resources :personal_messages, only: [:new, :create]
+  resources :personal_messages, only: [:new, :create] do
+    resources :mail_alerts, only: [:new, :create]
+  end
   resources :conversations, only: [:index, :show]
   resources :designs
   resources :beers do
