@@ -18,39 +18,4 @@
   outline: none !important;
 }
 
-.chat-form-control {
-  position: relative;
-  padding-bottom: 50px;
-}
 
-.chat-form-control .photo {
-  margin-top:35;
-  border-radius: 50%;
-  position: absolute;
-  padding: 5px 11px;
-  top: -29px;
-  bottom: -5px;
-  left: 0px;
-}
-
-.chat-form-control .form-control {
-  position: absolute;
-  height: 3rem;
-  width: 70%;
-  left: 14%;
-}
-
-.chat-form-control .form-control:focus {
-  border: 1px solid #4A4A4A;
-  outline: none !important;
-}
-
-.chat-form-control .btn {
-  position: absolute;
-  top: -3px;
-  right: 0%;
-}
-#send{
-  font-size: 40px;
-  color: $my-green;
-}

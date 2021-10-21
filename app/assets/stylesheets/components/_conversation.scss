@@ -10,8 +10,49 @@
   font-size: 12px;
   color: $my-green;
 }
-
-
 #chat-with{
   font-size: 25px;
+}
+
+.chat-form-control {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.chat-form-control .photo {
+  border-radius: 50%;
+  position: absolute;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  bottom: 0px;
+  left: 14px;
+}
+
+.chat-form-control .form-control {
+  position: absolute;
+  height: 3rem;
+  border-radius: 30px;
+}
+
+.chat-form-control .form-control:focus {
+  border: 1px solid #4A4A4A;
+  outline: none !important;
+}
+
+#personal_message_body{
+  position: absolute;
+  padding-left: 70px;
+  padding-right: 55px;
+}
+
+.chat-form-control .btn {
+  position: absolute;
+  top: -3px;
+  right: 0%;
+}
+#send{
+  font-size: 39px;
+  color: $my-green;
 }
