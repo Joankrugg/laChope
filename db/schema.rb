@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_104434) do
+ActiveRecord::Schema.define(version: 2021_10_21_123741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -399,6 +399,8 @@ ActiveRecord::Schema.define(version: 2021_10_21_104434) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "privacy_code"
     t.boolean "visitor", default: false
+    t.bigint "market_place_id"
+    t.index ["market_place_id"], name: "index_stores_on_market_place_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -593,6 +595,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_104434) do
   add_foreign_key "stickers", "users"
   add_foreign_key "store_beers", "beers"
   add_foreign_key "store_beers", "stores"
+  add_foreign_key "stores", "market_places"
   add_foreign_key "stores", "users"
   add_foreign_key "tasting_feelings", "feelings"
   add_foreign_key "tasting_feelings", "tastings"
