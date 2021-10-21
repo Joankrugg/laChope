@@ -19,22 +19,25 @@ window.$ = $;
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import "bootstrap";
+// CSS
+import 'mapbox-gl/dist/mapbox-gl.css';
+// internal imports
+import { initMapbox } from '../plugins/init_mapbox';
 
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 // External imports
-import "bootstrap";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-
-  // initSelect2();
-});
 
 

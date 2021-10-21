@@ -2,6 +2,14 @@ class MarketPlacesController < ApplicationController
   before_action :set_market_place, only: [:show, :edit, :update, :destroy]
   def index
     @market_places = MarketPlace.all
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @market_places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def new
