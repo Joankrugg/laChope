@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'market_places/index'
+  get 'market_places/new'
+  get 'market_places/create'
+  get 'market_places/show'
+  get 'market_places/edit'
+  get 'market_places/update'
+  get 'market_places/destroy'
   get 'mail_alerts/new'
   get 'mail_alerts/create'
   resources :public_searches, only: [:new, :create, :show]
@@ -10,6 +17,7 @@ Rails.application.routes.draw do
   resources :stickers
   resources :projects
   resources :stores
+  resources :market_places
   resources :typical_beers do
     collection do
       get :wheat_beers

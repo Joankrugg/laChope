@@ -248,6 +248,11 @@
             <% end %>
           </div>
           <div class="col-12">
+            <%= link_to new_market_place_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Créer une adresse</p>
+            <% end %>
+          </div>
+          <div class="col-12">
             <%= link_to new_store_path do %>
               <p class="btn-nav-modern center"><i class="fas fa-store"></i> Créer sa cave</p>
             <% end %>
@@ -292,6 +297,11 @@
               <% end %>
             </div>
             <div class="col-12">
+              <%= link_to new_market_place_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Créer une adresse</p>
+              <% end %>
+            </div>
+            <div class="col-12">
               <%= link_to edit_store_url(current_user, @store) do %>
                 <p class="btn-nav-modern center"><i class="fas fa-store"></i> Mettre sa cave à jour</p>
               <% end %>
@@ -327,6 +337,11 @@
             <div class="col-12">
               <%= link_to new_public_search_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to new_market_place_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Créer une adresse</p>
               <% end %>
             </div>
             <div class="col-12">

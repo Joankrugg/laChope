@@ -1,0 +1,9 @@
+<div class="offnav"></div>
+<div class="container top bottom">
+  <%= @market_place.name %>
+  <%= @market_place.city %>
+  <%= @market_place.zipcode %>
+  <% if @market_place.website.present? %>
+    <%= @market_place.website %>
+  <% end %>
+</div>
