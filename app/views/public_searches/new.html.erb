@@ -4,16 +4,10 @@
     <%= simple_form_for @public_search do |f| %>
       <div class="form-inputs">
         <div class="center">
-          <%= f.association :category, as: :radio_buttons, required: false,
+          <%= f.association :design_color, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'CATÉGORIE' %>
-          <p class='form-legend'>Pour faire simple ces catégories font référence aux types de fermentation. La fermentation 'ale' est caractéristique du style anglais ; c'est une fermentation haute (température entre 19 et 24°c) qui permettra le developpement de certaines molécules qui cofèrent des arômes dits 'esthers' à la bière. La fermentation 'lager' est caractéristique du climat continental (Allemagne, Europe de l'est) ; c'est une fermentation basse (température entre 12 et 15°c) qui donne à la bière son côté fin, c'est aujourd'hui le type de fermentation le plus utilisé par les industriels. La fermentation spontanée est caractéristique des bières belges dites acides... les levures contenues dans l'air ambient permet la fermentation du moût qui donnera la bière. La fermentation mixte combine plusieurs types de fermentations de manière à obtenir des caractéristiques plurielles </p>
-        </div>
-        <div class="center">
-          <%= f.association :balance, as: :radio_buttons, required: false,
-            input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
-          <p class='form-legend'>L'équilibre est assez facile à definir, le côté malté c'est celui qui apporte corps, et épaisseur à la bière, le coté houblonné c'est celui de l'amertume et du végétal. Ce qui est sympa c'est qu'une bière peut aussi bien être équilibré en étant forte en malt et forte en houblon qu'en étant faible en malt et faible en houblon. Faîtes confiance à vos sens.</p>
+            item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
+          <p class='form-legend'>4 couleurs de bière sont bien connues la blanche, la blonde, l'ambrée et la brune mais on peut aller bien au delà, tant la couleur peut se révéler subjective. Il existe pourtant 2 échelles objectives pour appécier la bière ; le loviblond et l'EBC, mais ce n'est pas la technique qui nous intéresse, alors voici une échelle subjective plus fine que les classiques</p>
         </div>
         <div class="center">
           <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
@@ -22,22 +16,22 @@
           <p class='form-legend'>Sans aucun doute la notion qui nous est la plus familière. Notez juste qu'une bière dite classique, c'est 5% d'alcool, tout simplement parce qu'il y a 10g d'alcool dans 25 cl de bière à 5%. Pour le reste, c'est une question de calcul, de goût et de modération</p>
         </div>
         <div class="center">
-          <%= f.association :design_color, as: :radio_buttons, required: false,
-            input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'ROBE' %>
-          <p class='form-legend'>4 couleurs de bière sont bien connues la blanche, la blonde, l'ambrée et la brune mais on peut aller bien au delà, tant la couleur peut se révéler subjective. Il existe pourtant 2 échelles objectives pour appécier la bière ; le loviblond et l'EBC, mais ce n'est pas la technique qui nous intéresse, alors voici une échelle subjective plus fine que les classiques</p>
-        </div>
-        <div class="center">
           <%= f.association :main_taste, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
               item_wrapper_class: 'squaretag-item', label: 'PALAIS' %>
           <p class='form-legend'>Le palais c'est souvent la première bouche mais c'est surtout le goût dominant, l'impression générale.</p>
         </div>
         <div class="center">
+          <%= f.association :balance, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
+          <p class='form-legend'>L'équilibre est assez facile à definir, le côté malté c'est celui qui apporte corps, et épaisseur à la bière, le coté houblonné c'est celui de l'amertume et du végétal. Ce qui est sympa c'est qu'une bière peut aussi bien être équilibré en étant forte en malt et forte en houblon qu'en étant faible en malt et faible en houblon. Faîtes confiance à vos sens.</p>
+        </div>
+        <div class="center">
           <%= f.association :feelings, as: :check_boxes, required: false,
                         input_html: { class: "squaretag-selector" },
-                        item_wrapper_class: 'squaretag-item', label: 'TEXTURES' %>
-          <p class='form-legend'>Les textures sont des sensations qui font appel au touché ... celui de la langue et l'intérieur des joues, parfois subtiles et parfois franches</p>
+                        item_wrapper_class: 'squaretag-item', label: 'APPARENCE & SENSATIONS' %>
+          <p class='form-legend'>C'est ce que tu vois quand tu observes la bière, sa couleur subjective, sa densité, sa clarté et j'en passe</p>
         </div>
         <div class="center">
           <%= f.association :flavours, as: :check_boxes, required: false,

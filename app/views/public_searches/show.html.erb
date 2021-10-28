@@ -2,7 +2,6 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12 mx-auto center">
-      <%= @public_search.category.name %>
       <%= @public_search.balance.name %>
       <%= @public_search.alcohol_shape.name %>
       <%= @public_search.design_color.name %>
@@ -29,7 +28,6 @@
   </div>
 </div>
 <br>
-<% pscategory = [] %>
 <% psbalance = [] %>
 <% pslevel = [] %>
 <% pscolor = [] %>
@@ -42,20 +40,6 @@
 <% if user_signed_in? && current_user.store.present? %>
 
   <div class="container">
-    <% @current_user.store.beers.each do |sb| %>
-      <% if @public_search.category.present? %>
-        <% if sb.category.present? %>
-          <% if @public_search.category.name == sb.category.name %>
-            <% pscategory << sb %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if pscategory != [] %>
-      <% result << pscategory %>
-    <% end %>
-
     <% @current_user.store.beers.each do |tb| %>
       <% if @public_search.balance.present? %>
         <% if tb.balance.present? %>
@@ -237,20 +221,6 @@
 <% else %>
 
   <div class="container">
-    <% @beers.each do |sb| %>
-      <% if @public_search.category.present? %>
-        <% if sb.category.present? %>
-          <% if @public_search.category.name == sb.category.name %>
-            <% pscategory << sb %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if pscategory != [] %>
-      <% result << pscategory %>
-    <% end %>
-
     <% @beers.each do |tb| %>
       <% if @public_search.balance.present? %>
         <% if tb.balance.present? %>
