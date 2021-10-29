@@ -18,13 +18,13 @@
         <div class="center">
           <%= f.association :main_taste, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'PALAIS' %>
+              item_wrapper_class: 'squaretag-item', label: 'TENDANCE' %>
           <p class='form-legend'>Le palais c'est souvent la première bouche mais c'est surtout le goût dominant, l'impression générale.</p>
         </div>
         <div class="center">
           <%= f.association :balance, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
+            item_wrapper_class: 'squaretag-item', label: 'PALAIS' %>
           <p class='form-legend'>L'équilibre est assez facile à definir, le côté malté c'est celui qui apporte corps, et épaisseur à la bière, le coté houblonné c'est celui de l'amertume et du végétal. Ce qui est sympa c'est qu'une bière peut aussi bien être équilibré en étant forte en malt et forte en houblon qu'en étant faible en malt et faible en houblon. Faîtes confiance à vos sens.</p>
         </div>
         <div class="center">
