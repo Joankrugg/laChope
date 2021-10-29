@@ -30,6 +30,12 @@
               <% end %>
             <% end %>
           <% end %>
+        <% else %>
+          <% if @typical_beer.photo.present? %>
+            <div class="center"><%= cl_image_tag @typical_beer.photo.key, height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
+          <% else %>
+            <div class="center"><%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 400 ,width: 300, crop: :fill, class: "img-fluid" %></div>
+          <% end %>
         <% end %>
         <% if @typical_beer.style.present? %>
           <h4 class='content'>Caractéristiques principales des <%= @typical_beer.name %></h4>
