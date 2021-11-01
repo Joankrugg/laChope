@@ -1,12 +1,9 @@
 <div class="offnavs"></div>
-<h1 class='page-title center'><%= @store.name %></h1>
 <% if @store.user == current_user %>
   <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
-    <p class ='project-info center'><%= link_to 'edit', edit_store_path(@store) %></p>
-    <p class ='project-info center'><%= link_to "Delete #{@store.name}",
-      store_path(@store),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></p>
+    <h1 class='page-title center'><%= link_to @store.name, edit_store_path(@store) %></h1>
+  <% else %>
+    <h1 class='page-title center'><%= @store.name %></h1>
   <% end %>
 <% end %>
 <% if @store.beers.present? %>
@@ -19,4 +16,12 @@
       <% end %>
     </div>
   </div>
+<% end %>
+<% if @store.user == current_user %>
+  <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+    <p class ='project-info center'><%= link_to "Delete #{@store.name}",
+          store_path(@store),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: 'btn btn-ghost bottom' %></p>
+  <% end %>
 <% end %>
