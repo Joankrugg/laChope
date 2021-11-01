@@ -1,44 +1,49 @@
-<div class="container bottom">
-  <div class="form-login">
-    <h1>Profil</h1>
-    <%= simple_form_for @user do |f| %>
-      <div class="form-inputs">
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-lg-12">
-            <label class="photo">
-              <i class="fas fa-camera-retro"></i>
-              <span style="display:none;">
-                <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-              </span>
-            </label>
-          </div>
-          <div class="col-lg-12">
-            <%= f.input :username, required: false, label: "Nom d'utilisateur",input_html: { class: "center" } %>
-          </div>
-          <div class="col-lg-12">
-            <%= f.input :age, input_html: { min: '18', max:'80'}, required: false,input_html: { class: "center" } %>
-          </div>
-          <div class="col-lg-12">
-            <%= f.association :sexe, required: false %>
-          </div>
-          <div class="col-lg-12">
-            <%= f.input :city, required: false, label: "Ville",input_html: { class: "center" } %>
-          </div>
-        </div>
-        <%= f.association :activities, as: :check_boxes, label: "Activités",
-                      input_html: { class: "tag-selector" },
-                      item_wrapper_class: 'tag-item' %>
+<%= simple_form_for @user do |f| %>
+  <div class="form-input">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-lg-12">
+        <label class="photo">
+          <i class="fas fa-camera-retro"></i>
+          <span style="display:none;">
+            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+          </span>
+        </label>
+      </div>
+      <div class="col-lg-12">
+        <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= f.association :sexe, required: false, as: :check_boxes,
+                    input_html: { class: "squaretag-selector center" },
+                    item_wrapper_class: 'squaretag-item', label: 'SEXE' %>
+      </div>
 
-        <%= f.input :website, label: "Site Internet" %>
-        <% if @user.store.present? %>
-          <input class="form-control password optional center connexion" type="password" name="user[privacy_code]" name="user[privacy_code]"  id="user_privacy_code">
-        <% end %>
-      </div>
-      <div class="infos">
-        <p class='center'>
-          <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
-        </p>
-      </div>
+    </div>
+    <%= f.association :activities, as: :check_boxes, label: "Activités",
+                  input_html: { class: "squaretag-selector center" },
+                    item_wrapper_class: 'squaretag-item', label: 'ACTIVITÉ(S)' %>
+
+    <%= f.input :website, label: "Site Internet" %>
+    <% if @user.store.present? %>
+      <input class="form-control password optional center connexion" type="password" name="user[privacy_code]" name="user[privacy_code]"  id="user_privacy_code">
     <% end %>
+
+    <div class="infos">
+      <p class='center'>
+        <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
+      </p>
+    </div>
   </div>
-</div>
+<% end %>
+
+

@@ -39,7 +39,7 @@
     <div class='col-12 col-lg-6 bottom'>
       <div class="card p-top p-bottom bottom shadow">
         <% if @user == current_user && @user.store.nil? %>
-          <div class="user-action" data-toggle="modal" data-target="#profil">
+          <div class="user" data-toggle="modal" data-target="#profil">
             PROFIL
           </div>
         <% elsif @user == current_user && @user.store.present? %>
@@ -47,7 +47,7 @@
             <div class="user" data-toggle="modal" data-target="#profil">PROFIL</div>
           <% end %>
         <% else %>
-          <div class="user-action">PROFIL</div>
+          <div class="user">PROFIL</div>
         <% end %>
         <div class="design">
           <% if @user.username.present? %>
@@ -353,19 +353,19 @@
                       <% classic_results << tb %>
                     <% end %>
                   <% end %>
-                  <% if @user.design.balance.name == 'très houblonnée' %>
+                  <% if @user.design.balance.name == 'Très houblonnée' %>
                     <% results << extra_hoppy %>
                   <% end %>
-                  <% if @user.design.balance.name == 'houblonnée' %>
+                  <% if @user.design.balance.name == 'Houblonnée' %>
                     <% results << slighty_hoppy %>
                   <% end %>
-                  <% if @user.design.balance.name == 'équilibrée' %>
+                  <% if @user.design.balance.name == 'Équilibrée' %>
                     <% results << balanced %>
                   <% end %>
-                  <% if @user.design.balance.name == 'maltée' %>
+                  <% if @user.design.balance.name == 'Maltée' %>
                     <% results << slighty_malty %>
                   <% end %>
-                  <% if @user.design.balance.name == 'très maltée' %>
+                  <% if @user.design.balance.name == 'Très maltée' %>
                     <% results << extra_malty %>
                   <% end %>
                 <% end %>
