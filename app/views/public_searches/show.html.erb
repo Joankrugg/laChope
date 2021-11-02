@@ -1,39 +1,37 @@
 <div class="offnavs"></div>
 <div class="container">
   <h1 class='page-title center'>Tes critères de recherche</h1>
-  <div class="col-lg-8 mx-auto">
-    <div class="card shadow p-top p-bottom">
-      <div class="row">
-        <div class="mx-auto center">
-          <p class='center'> Tu veux une bière</p>
-          <p class='center criteria'> * <%= @public_search.design_color.name %></p>
-          <p class='center'> Plutôt</p>
-          <p class='center criteria'> * <%= @public_search.alcohol_shape.name %></p>
-          <p class='center'> Avec une tendance</p>
-          <p class='center criteria'> * <%= @public_search.main_taste.name %></p>
-          <p class='center'> Et un palais</p>
-          <p class='center criteria'> * <%= @public_search.balance.name %></p>
-        </div>
+  <div class="shadow p-top p-bottom">
+    <div class="row">
+      <div class="mx-auto center">
+        <p class='center'> Tu veux une bière</p>
+        <p class='center criteria'> * <%= @public_search.design_color.name %></p>
+        <p class='center'> Plutôt</p>
+        <p class='center criteria'> * <%= @public_search.alcohol_shape.name %></p>
+        <p class='center'> Avec une tendance</p>
+        <p class='center criteria'> * <%= @public_search.main_taste.name %></p>
+        <p class='center'> Et un palais</p>
+        <p class='center criteria'> * <%= @public_search.balance.name %></p>
       </div>
-      <div class="row">
-        <div class="mx-auto center">
-          <p class='center'> Pour l'apparence et les sensations</p>
-          <% if @public_search.feelings.present? %>
-            <% @public_search.feelings.each do |f| %>
-              <p class='center criteria'> * <%= f.name %></p>
-            <% end %>
+    </div>
+    <div class="row">
+      <div class="mx-auto center">
+        <p class='center'> Pour l'apparence et les sensations</p>
+        <% if @public_search.feelings.present? %>
+          <% @public_search.feelings.each do |f| %>
+            <p class='center criteria'> * <%= f.name %></p>
           <% end %>
-        </div>
+        <% end %>
       </div>
-      <div class="row">
-        <div class="mx-auto center">
-          <p class='center'> Et Niveau arômes ....</p>
-          <% if @public_search.flavours.present? %>
-            <% @public_search.flavours.each do |f| %>
-              <p class='center criteria'><%= f.name %></p>
-            <% end %>
+    </div>
+    <div class="row">
+      <div class="mx-auto center">
+        <p class='center'> Et Niveau arômes ....</p>
+        <% if @public_search.flavours.present? %>
+          <% @public_search.flavours.each do |f| %>
+            <p class='center criteria'><%= f.name %></p>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -186,22 +184,8 @@
       <% five_stars = first_choices.keys %>
       <% if five_stars != [] %>
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <p class='user-section'>Types de bières</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <p class='user_section'>
-                <% five_stars.each do |f| %>
-                  <% typical_beer_style << f.typical_beer %>
-                <% end %>
-                  <% typical_beer_style.uniq.each do |f| %>
-                  |<%= f.name %>|
-                <% end %>
-              </p>
-            </div>
+          <div class="col-12 col-lg-6 mx-auto">
+            <div class='center p-top p-bottom shadow'>Types de bières</div>
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
@@ -215,7 +199,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-lg-6 mx-auto">
-              <p class='user-section'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</p>
+              <div class='center p-top p-bottom shadow'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</div>
             </div>
           </div>
           <div class="row">
@@ -304,7 +288,6 @@
         <% result << psmaintaste %>
       <% end %>
 
-
       <% @beers.each do |tb| %>
         <% if @public_search.feelings.present? %>
           <% @public_search.feelings.each do |psf| %>
@@ -365,22 +348,8 @@
       <% five_stars = first_choices.keys %>
       <% if five_stars != [] %>
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <p class='user-section'>Types de bières</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <p class='user-section'>
-                <% five_stars.each do |f| %>
-                  <% typical_beer_style << f.typical_beer %>
-                <% end %>
-                  <% typical_beer_style.uniq.each do |f| %>
-                  |<%= f.name %>|
-                <% end %>
-              </p>
-            </div>
+          <div class="col-12 col-lg-6 mx-auto">
+            <div class='center p-top p-bottom shadow'>Types de bières</div>
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
@@ -394,7 +363,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-lg-6 mx-auto">
-              <p class='user-section'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+              <div class='center p-top p-bottom shadow'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </div>
             </div>
           </div>
           <div class="row">
