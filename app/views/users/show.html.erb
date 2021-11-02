@@ -8,6 +8,315 @@
         <% else %>
           <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 600, crop: :fill, gravity: 'faces', class: 'col-12 col-lg-6 mx-auto center img-responsive p-bottom' %>
         <% end %>
+
+        <% if @user == current_user %>
+          <% if @user.store.nil? %>
+            <% if @user.age.nil? %>
+              <div class="user" data-toggle="modal" data-target="#profil">
+                1ère Étape: Remplis ton profil
+              </div>
+            <% else %>
+              <div class="user" data-toggle="modal" data-target="#profil">
+                PROFIL
+              </div>
+              <div class="design">
+                <% if @user.username.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Nom d'utilisateur: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.username %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.city.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Ville: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.city %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.sexe.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Genre: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.sexe.name %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.age.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Âge: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.age %> ans</div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.activities.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Activité(s): </div>
+                    </div>
+                    <div class="col-6">
+                      <% @user.activities.each do |a| %>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="introduction-data"><%= a.name %></div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.website.present? %>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <%= link_to @user.website, target: :blank do %>
+                        <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+              <% if @user.age.nil? %>
+                <div class="user" data-toggle="modal" data-target="#profil">
+                  Remplis ton profil
+                </div>
+              <% else %>
+                <div class="user" data-toggle="modal" data-target="#profil">
+                  PROFIL
+                </div>
+              <% end %>
+              <div class="design">
+                <% if @user.username.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Nom d'utilisateur: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.username %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.city.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Ville: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.city %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.sexe.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Genre: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.sexe.name %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.age.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Âge: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.age %> ans</div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.activities.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Activité(s): </div>
+                    </div>
+                    <div class="col-6">
+                      <% @user.activities.each do |a| %>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="introduction-data"><%= a.name %></div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.website.present? %>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <%= link_to @user.website, target: :blank do %>
+                        <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="user" data-toggle="modal" data-target="#code" id="user-code-link">CODE</div>
+            <% else %>
+              <div class="user-section">
+                PROFIL
+              </div>
+              <div class="design">
+                <% if @user.username.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Nom d'utilisateur: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.username %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.city.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Ville: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.city %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.sexe.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Genre: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.sexe.name %></div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.age.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Âge: </div>
+                    </div>
+                    <div class="col-6">
+                      <div class= "introduction-data"><%= @user.age %> ans</div>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.activities.present? %>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="introduction-user">Activité(s): </div>
+                    </div>
+                    <div class="col-6">
+                      <% @user.activities.each do |a| %>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="introduction-data"><%= a.name %></div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+                <% if @user.website.present? %>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <%= link_to @user.website, target: :blank do %>
+                        <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="user" data-toggle="modal" data-target="#code" id="user-code-link">CODE</div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="user-section">
+            PROFIL
+          </div>
+          <div class="design">
+            <% if @user.username.present? %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="introduction-user">Nom d'utilisateur: </div>
+                </div>
+                <div class="col-6">
+                  <div class= "introduction-data"><%= @user.username %></div>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.city.present? %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="introduction-user">Ville: </div>
+                </div>
+                <div class="col-6">
+                  <div class= "introduction-data"><%= @user.city %></div>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.sexe.present? %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="introduction-user">Genre: </div>
+                </div>
+                <div class="col-6">
+                  <div class= "introduction-data"><%= @user.sexe.name %></div>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.age.present? %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="introduction-user">Âge: </div>
+                </div>
+                <div class="col-6">
+                  <div class= "introduction-data"><%= @user.age %> ans</div>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.activities.present? %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="introduction-user">Activité(s): </div>
+                </div>
+                <div class="col-6">
+                  <% @user.activities.each do |a| %>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="introduction-data"><%= a.name %></div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if @user.website.present? %>
+              <div class="row">
+                <div class="col-lg-12">
+                  <%= link_to @user.website, target: :blank do %>
+                    <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col-12 col-lg-6 bottom'>
+      <div class="card p-top p-bottom bottom shadow">
         <div class="row icons top">
           <div class="user-icons" data-toggle="modal" data-target="#design" id="design-link">
             <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
@@ -34,247 +343,10 @@
             <p class='icon-legend'>Projets</p>
           </div>
         </div>
-      </div>
-    </div>
-    <div class='col-12 col-lg-6 bottom'>
-      <div class="card p-top p-bottom bottom shadow">
         <% if @user == current_user && @user.store.nil? %>
-          <% if @user.age.nil? %>
-            <div class="user" data-toggle="modal" data-target="#profil">
-              1ère Étape: Remplis ton profil
-            </div>
+          <% if @user.design.nil? %>
+            <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ta bière du moment</div>
           <% else %>
-            <div class="user" data-toggle="modal" data-target="#profil">
-              PROFIL
-            </div>
-            <div class="design">
-              <% if @user.username.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Nom d'utilisateur: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.username %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.city.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Ville: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.city %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.sexe.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Genre: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.sexe.name %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.age.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Âge: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.age %> ans</div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.activities.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Activité(s): </div>
-                  </div>
-                  <div class="col-6">
-                    <% @user.activities.each do |a| %>
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="introduction-data"><%= a.name %></div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.website.present? %>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <%= link_to @user.website, target: :blank do %>
-                      <div class= "introduction-data center p-bottom">Visitez mon site</div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-            <% if @user.design.nil? %>
-              <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ta bière du moment</div>
-            <% else %>
-              <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
-              <div class="design">
-                <% if @user.design.category.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Fermentation: </div>
-                    </div>
-                    <div class="col-6">
-                      <div class= "introduction-data"><%= @user.design.category.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.design_color.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Couleur: </div>
-                    </div>
-                    <div class="col-6">
-                      <div class= "introduction-data"><%= @user.design.design_color.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.alcohol_shape.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Niveau d'alcool: </div>
-                    </div>
-                    <div class="col-6">
-                      <div class= "introduction-data"><%= @user.design.alcohol_shape.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.main_taste.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Tendance: </div>
-                    </div>
-                    <div class="col-6">
-                      <div class= "introduction-data"><%= @user.design.main_taste.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.balance.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Équilibre: </div>
-                    </div>
-                    <div class="col-6">
-                      <div class= "introduction-data"><%= @user.design.balance.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.flavours.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Arômes: </div>
-                    </div>
-                    <div class="col-6">
-                      <% @user.design.flavours.each do |a| %>
-                        <div class="row">
-                          <div class="col-12">
-                            <div class="introduction-data"><%= a.name %></div>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-                <% if @user.design.feelings.present? %>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="introduction-user">Apparences: </div>
-                    </div>
-                    <div class="col-6">
-                      <% @user.design.feelings.each do |a| %>
-                        <div class="row">
-                          <div class="col-12">
-                            <div class="introduction-data"><%= a.name %></div>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-              <div class="user"><%= link_to "3ème Étape: Créé ta cave", new_store_path, class: 'admin' %></div>
-            <% end %>
-          <% end %>
-        <% elsif @user == current_user && @user.store.present? %>
-          <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-            <div class="user" data-toggle="modal" data-target="#profil">PROFIL</div>
-            <div class="design">
-              <% if @user.username.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Nom d'utilisateur: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.username %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.city.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Ville: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.city %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.sexe.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Genre: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.sexe.name %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.age.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Âge: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.age %> ans</div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.activities.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Activité(s): </div>
-                  </div>
-                  <div class="col-6">
-                    <% @user.activities.each do |a| %>
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="introduction-data"><%= a.name %></div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.website.present? %>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <%= link_to @user.website, target: :blank do %>
-                      <div class= "introduction-data center p-bottom">Visitez mon site</div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
             <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
             <div class="design">
               <% if @user.design.category.present? %>
@@ -360,77 +432,11 @@
                 </div>
               <% end %>
             </div>
-            <div class="user" data-toggle="modal" data-target="#code" id="user-code-link">CODE</div>
-          <% else %>
-            <div class="user">PROFIL</div>
-            <div class="design">
-              <% if @user.username.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Nom d'utilisateur: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.username %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.city.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Ville: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.city %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.sexe.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Genre: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.sexe.name %></div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.age.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Âge: </div>
-                  </div>
-                  <div class="col-6">
-                    <div class= "introduction-data"><%= @user.age %> ans</div>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.activities.present? %>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="introduction-user">Activité(s): </div>
-                  </div>
-                  <div class="col-6">
-                    <% @user.activities.each do |a| %>
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="introduction-data"><%= a.name %></div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-              <% if @user.website.present? %>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <%= link_to @user.website, target: :blank do %>
-                      <div class= "introduction-data center p-bottom">Visitez mon site</div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-            <div class="user">STYLE DU MOMENT</div>
+            <div class="user"><%= link_to "3ème Étape: Créé ta cave", new_store_path, class: 'admin' %></div>
+          <% end %>
+        <% elsif @user == current_user && @user.store.present? %>
+          <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+            <div class="user" data-toggle="modal" data-target="#beer_seek">STYLE DU MOMENT</div>
             <div class="design">
               <% if @user.design.category.present? %>
                 <div class="row">
@@ -515,78 +521,95 @@
                 </div>
               <% end %>
             </div>
-            <div class="user" data-toggle="modal" data-target="#code" id="user-code-link">CODE</div>
+          <% else %>
+            <div class="user-section">STYLE DU MOMENT</div>
+            <div class="design">
+              <% if @user.design.category.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Fermentation: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.category.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.design_color.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Couleur: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.design_color.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.alcohol_shape.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Niveau d'alcool: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.alcohol_shape.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.main_taste.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Tendance: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.main_taste.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.balance.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Équilibre: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.balance.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.flavours.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Arômes: </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.design.flavours.each do |a| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.feelings.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Apparences: </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.design.feelings.each do |a| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
         <% else %>
-          <div class="">PROFIL</div>
-          <div class="design">
-            <% if @user.username.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Nom d'utilisateur: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.username %></div>
-                </div>
-              </div>
-            <% end %>
-            <% if @user.city.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Ville: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.city %></div>
-                </div>
-              </div>
-            <% end %>
-            <% if @user.sexe.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Genre: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.sexe.name %></div>
-                </div>
-              </div>
-            <% end %>
-            <% if @user.age.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Âge: </div>
-                </div>
-                <div class="col-6">
-                  <div class= "introduction-data"><%= @user.age %> ans</div>
-                </div>
-              </div>
-            <% end %>
-            <% if @user.activities.present? %>
-              <div class="row">
-                <div class="col-6">
-                  <div class="introduction-user">Activité(s): </div>
-                </div>
-                <div class="col-6">
-                  <% @user.activities.each do |a| %>
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="introduction-data"><%= a.name %></div>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-            <% if @user.website.present? %>
-              <div class="row">
-                <div class="col-lg-12">
-                  <%= link_to @user.website, target: :blank do %>
-                    <div class= "introduction-data center p-bottom">Visitez mon site</div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <div class="">STYLE DU MOMENT</div>
+          <div class="user-section">STYLE DU MOMENT</div>
           <div class="design">
             <% if @user.design.category.present? %>
               <div class="row">
