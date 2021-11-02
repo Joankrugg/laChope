@@ -47,186 +47,186 @@
 <% result = [] %>
 
 <% if user_signed_in? && current_user.store.present? %>
-
-  <div class="container">
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.balance.present? %>
-        <% if tb.balance.present? %>
-          <% if @public_search.balance.name == tb.balance.name %>
-            <% psbalance << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.balance.name == tb.typical_beer.balance.name %>
-            <% psbalance << tb %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if psbalance != [] %>
-      <% result << psbalance %>
-    <% end %>
-
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.alcohol_shape.present? %>
-        <% if tb.alcohol_shape.present? %>
-          <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
-            <% pslevel << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
-            <% pslevel << tb %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if pslevel != [] %>
-      <% result << pslevel %>
-    <% end %>
-
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.design_color.present? %>
-        <% if tb.design_color.present? %>
-          <% if @public_search.design_color.name == tb.design_color.name %>
-            <% pscolor << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
-            <% pscolor << tb %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if pscolor != [] %>
-      <% result << pscolor %>
-    <% end %>
-
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.main_taste.present? %>
-        <% if tb.main_taste.present? %>
-          <% if @public_search.main_taste.name == tb.main_taste.name %>
-            <% psmaintaste << tb %>
-          <% end %>
-        <% else %>
-          <% if tb.typical_beer.main_taste.present? %>
-            <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
-              <% psmaintaste << tb %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if psmaintaste != [] %>
-      <% result << psmaintaste %>
-    <% end %>
-
-
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.feelings.present? %>
-        <% @public_search.feelings.each do |psf| %>
-          <% if tb.feelings.present? %>
-            <% tb.feelings.each do |tbf| %>
-              <% if psf.name == tbf.name %>
-                <% psfeelings << tb %>
-              <% end %>
+  <% if current_user.store.visitor? %>
+    <div class="container">
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.balance.present? %>
+          <% if tb.balance.present? %>
+            <% if @public_search.balance.name == tb.balance.name %>
+              <% psbalance << tb %>
             <% end %>
           <% else %>
-            <% if tb.typical_beer.feelings.present? %>
-              <% tb.typical_beer.feelings.each do |tbf| %>
+            <% if @public_search.balance.name == tb.typical_beer.balance.name %>
+              <% psbalance << tb %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if psbalance != [] %>
+        <% result << psbalance %>
+      <% end %>
+
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.alcohol_shape.present? %>
+          <% if tb.alcohol_shape.present? %>
+            <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
+              <% pslevel << tb %>
+            <% end %>
+          <% else %>
+            <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
+              <% pslevel << tb %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if pslevel != [] %>
+        <% result << pslevel %>
+      <% end %>
+
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.design_color.present? %>
+          <% if tb.design_color.present? %>
+            <% if @public_search.design_color.name == tb.design_color.name %>
+              <% pscolor << tb %>
+            <% end %>
+          <% else %>
+            <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
+              <% pscolor << tb %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if pscolor != [] %>
+        <% result << pscolor %>
+      <% end %>
+
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.main_taste.present? %>
+          <% if tb.main_taste.present? %>
+            <% if @public_search.main_taste.name == tb.main_taste.name %>
+              <% psmaintaste << tb %>
+            <% end %>
+          <% else %>
+            <% if tb.typical_beer.main_taste.present? %>
+              <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
+                <% psmaintaste << tb %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if psmaintaste != [] %>
+        <% result << psmaintaste %>
+      <% end %>
+
+
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.feelings.present? %>
+          <% @public_search.feelings.each do |psf| %>
+            <% if tb.feelings.present? %>
+              <% tb.feelings.each do |tbf| %>
                 <% if psf.name == tbf.name %>
                   <% psfeelings << tb %>
                 <% end %>
               <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-
-    <% if psfeelings != [] %>
-      <% result << psfeelings.uniq %>
-    <% end %>
-
-    <% @current_user.store.beers.each do |tb| %>
-      <% if @public_search.flavours.present? %>
-        <% @public_search.flavours.each do |psf| %>
-          <% if tb.flavours.present? %>
-            <% tb.flavours.each do |tbf| %>
-              <% if psf.name == tbf.name %>
-                <% psflavours << tb %>
-              <% end %>
-            <% end %>
-          <% else %>
-            <% if tb.typical_beer.flavours.present? %>
-              <% tb.typical_beer.flavours.each do |tbf| %>
-                <% if psf.name == tbf.name %>
-                  <% psflavours << tb %>
+            <% else %>
+              <% if tb.typical_beer.feelings.present? %>
+                <% tb.typical_beer.feelings.each do |tbf| %>
+                  <% if psf.name == tbf.name %>
+                    <% psfeelings << tb %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
-    <% end %>
 
-    <% if psflavours != [] %>
-      <% result << psflavours.uniq %>
-    <% end %>
-  </div>
+      <% if psfeelings != [] %>
+        <% result << psfeelings.uniq %>
+      <% end %>
 
-  <% must = result.flatten.group_by(&:itself) %>
-  <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-  <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
-  <% if !first_choices.nil? %>
-    <% five_stars = first_choices.keys %>
-    <% if five_stars != [] %>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6 mx-auto">
-            <p class='user'>Types de bières</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-6 mx-auto">
-            <p class='user'>
-              <% five_stars.each do |f| %>
-                <% typical_beer_style << f.typical_beer %>
+      <% @current_user.store.beers.each do |tb| %>
+        <% if @public_search.flavours.present? %>
+          <% @public_search.flavours.each do |psf| %>
+            <% if tb.flavours.present? %>
+              <% tb.flavours.each do |tbf| %>
+                <% if psf.name == tbf.name %>
+                  <% psflavours << tb %>
+                <% end %>
               <% end %>
-                <% typical_beer_style.uniq.each do |f| %>
-                |<%= f.name %>|
+            <% else %>
+              <% if tb.typical_beer.flavours.present? %>
+                <% tb.typical_beer.flavours.each do |tbf| %>
+                  <% if psf.name == tbf.name %>
+                    <% psflavours << tb %>
+                  <% end %>
+                <% end %>
               <% end %>
-            </p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if psflavours != [] %>
+        <% result << psflavours.uniq %>
+      <% end %>
+    </div>
+
+    <% must = result.flatten.group_by(&:itself) %>
+    <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
+    <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
+    <% if !first_choices.nil? %>
+      <% five_stars = first_choices.keys %>
+      <% if five_stars != [] %>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-6 mx-auto">
+              <p class='user'>Types de bières</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-6 mx-auto">
+              <p class='user'>
+                <% five_stars.each do |f| %>
+                  <% typical_beer_style << f.typical_beer %>
+                <% end %>
+                  <% typical_beer_style.uniq.each do |f| %>
+                  |<%= f.name %>|
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <% five_stars.each do |f| %>
+              <% typical_beer_style << f.typical_beer %>
+            <% end %>
+            <% typical_beer_style.uniq.each do |f| %>
+              <div class="mx-auto col-6 col-lg-3 index">
+                <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
+              </div>
+            <% end %>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-6 mx-auto">
+              <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</p>
+            </div>
+          </div>
+          <div class="row">
+            <% five_stars.each do |f| %>
+              <div class="mx-auto col-6 col-lg-3 index">
+                <%= render 'beers/beer_card', beer: f %>
+              </div>
+            <% end %>
           </div>
         </div>
-        <div class="row">
-          <% five_stars.each do |f| %>
-            <% typical_beer_style << f.typical_beer %>
-          <% end %>
-          <% typical_beer_style.uniq.each do |f| %>
-            <div class="mx-auto col-6 col-lg-3 index">
-              <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
-            </div>
-          <% end %>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-6 mx-auto">
-            <p class='user'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</p>
-          </div>
-        </div>
-        <div class="row">
-          <% five_stars.each do |f| %>
-            <div class="mx-auto col-6 col-lg-3 index">
-              <%= render 'beers/beer_card', beer: f %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
-
 <% else %>
 
   <div class="container">
