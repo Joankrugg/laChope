@@ -1,13 +1,18 @@
 <div class="offnav"></div>
 <div class="container top bottom">
-  <%= link_to 'créer un lieu', new_market_place_path, class: "btn btn-ghost center" %>
+  <h1 class='page-title center'>Points de vente et Brasseries</h1>
 </div>
 <div class="container top bottom">
-  <div id="map"
+  <div class="col-lg-8 mx-auto">
+    <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 </div>
 <% if user_signed_in? && current_user.admin? %>
   <%= button_to 'Scrape', scrape_market_places_path, class: 'bottom' %>
 <% end %>
+<div class="container">
+  <%= link_to 'créer un lieu', new_market_place_path, class: "btn btn-ghost center" %>
+</div>
