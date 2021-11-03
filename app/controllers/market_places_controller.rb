@@ -25,6 +25,20 @@ class MarketPlacesController < ApplicationController
     end
   end
 
+  def scrape
+    html_file = RestClient.get('http://projet.amertume.free.fr/html/liste_brasseries.htm')
+    html_doc = Nokogiri::HTML(html_file)
+    g = html_doc.css('#table1').children
+    g.css('tr').each do |mp|
+      MarketPlace.create(
+        name: mp.css('td')[0]&.text.strip,
+        zipcode: mp.css('td')[1]&.text.strip,
+        city: mp.css('td')[2]&.text.strip,
+        website: mp.css('td')[3]&.text.strip
+      )
+    end
+  end
+
   def show
 
   end

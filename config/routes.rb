@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'market_places/index'
-  get 'market_places/new'
-  get 'market_places/create'
-  get 'market_places/show'
-  get 'market_places/edit'
-  get 'market_places/update'
-  get 'market_places/destroy'
+  resources :market_places do
+    match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
+  end
   get 'mail_alerts/new'
   get 'mail_alerts/create'
   resources :public_searches, only: [:new, :create, :show]
