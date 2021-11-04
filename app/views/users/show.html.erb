@@ -579,7 +579,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de fermentation </div>
                 <div class="row">
                   <% targets_yeast.each do |y| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: y %>
                     </div>
                   <% end %>
@@ -601,7 +601,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de niveau d'alcool </div>
                 <div class="row">
                   <% targets_alcohol.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
@@ -623,7 +623,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère d'équilibre</div>
                 <div class="row">
                   <% targets_b.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
@@ -645,7 +645,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de palais</div>
                 <div class="row">
                   <% targets_mt.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
@@ -667,7 +667,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de couleur </div>
                 <div class="row">
                   <% targets_c.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
@@ -689,7 +689,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'arômes</div>
                 <div class="row">
                   <% targets_a.uniq.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
@@ -711,7 +711,7 @@
                 <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'apparences</div>
                 <div class="row">
                   <% targets_s.uniq.each do |b| %>
-                    <div class="mx-auto col-4">
+                    <div class="mx-auto col-12">
                       <%= render 'typical_beers/sober_card', typical_beer: b %>
                     </div>
                   <% end %>
