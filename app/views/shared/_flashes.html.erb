@@ -6,6 +6,7 @@
 <% if alert %>
   <div id="flash-alert-wrapper" class="alert alert-warning alert-dismissible" role="alert">
     <div class="advice"><%= alert %></div>
+  </div>
 <% end %>
 
 <script>
@@ -18,3 +19,12 @@
   });
 </script>
 
+<script>
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flash-alert-wrapper').fadeOut("slow", function(){
+        $('#flash-alert-wrapper').remove();
+      })
+    }, 3000 );
+  });
+</script>
