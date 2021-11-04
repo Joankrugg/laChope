@@ -509,7 +509,8 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
-                  <p class='shadow p-top p-bottom center'>Classiques par critères <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+                  <p class='shadow p-top p-bottom center'>Styles à privilégier</p>
+                  <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
                   <p class='shadow p-top p-bottom center'>
                     <% five_stars.each do |f| %>
                       |<%= f.name %>|
@@ -562,7 +563,7 @@
           </div>
           <div class="user-icons" data-toggle="modal" data-target="#best" id="feeling-link">
             <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-            <p class='icon-legend'>Idéal</p>
+            <p class='icon-legend'>Bières à goûter</p>
           </div>
         </div>
 
@@ -742,7 +743,8 @@
                     <div class="container">
                       <div class="row">
                         <div class="col-lg-12">
-                          <p class='shadow p-top p-bottom center'>Styles <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
+                          <p class='shadow p-top p-bottom center'>Bières </p>
+                          <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
                           <p class='shadow p-top p-bottom center'>
                             <% five_stars.each do |f| %>
                               |<%= f %>|
