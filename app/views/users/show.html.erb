@@ -8,7 +8,29 @@
       <% else %>
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top col-12 col-lg-6 mx-auto center img-responsive p-bottom bottom' %>
       <% end %>
-
+      <% if @user.hobbyist %>
+        <p class='user-section'>Cow Boy</p>
+      <% end %>
+      <% if @user.creative %>
+        <p class='user-section'>Crea</p>
+      <% end %>
+      <% if @user.beer_connaisseur %>
+        <p class='user-section'>Zytho</p>
+      <% end %>
+      <% if @user.target_angel %>
+        <p class='user-section'>Target Angel</p>
+      <% end %>
+      <% if @user.businessman %>
+        <% if @user.sexe.present? %>
+          <% if @user.sexe.name == 'Homme'%>
+            <p class='user-section'>Businessman</p>
+          <% elsif @user.sexe.name == 'Femme'%>
+            <p class='user-section'>Businesswoman</p>
+          <% else %>
+            <p class='user-section'>Businessperson</p>
+          <% end %>
+        <% end %>
+      <% end %>
       <% unless @user.age.nil? %>
         <div class="design">
           <% if @user.username.present? %>

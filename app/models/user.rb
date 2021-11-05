@@ -31,6 +31,39 @@ class User < ApplicationRecord
     email.split('@')[0]
   end
 
+  def hobbyist
+    b = Beer.where(user_id: self)
+    if b.count >= 10
+      true
+    end
+  end
+
+  def creative
+    s = Sticker.where(user_id: self)
+    if s.count >= 5
+      true
+    end
+  end
+
+  def beer_connaisseur
+    t = Tasting.where(user_id: self)
+    if t.count >= 10
+      true
+    end
+  end
+
+  def target_angel
+    ta = Project.where(user_id: self)
+    if ta.count >= 1
+      true
+    end
+  end
+  def businessman
+    if self.store.present? && self.store.market_place_id != nil
+      true
+    end
+  end
+
   after_create :send_welcome_email
 
   private
