@@ -165,6 +165,28 @@
   opacity: 1;
 }
 
+.market_place-available {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.market_place-choice {
+  background: white;
+  padding: 10px;
+  flex: 0 0 100%;
+  text-align: center;
+}
+.market_place-choice:hover {
+  background-color: $light-gray;
+  cursor: pointer;
+}
+.market_place-choice.choosen {
+  background: $light-gray;
+  opacity: 1;
+}
+
 .beyond{
   cursor: pointer;
 }

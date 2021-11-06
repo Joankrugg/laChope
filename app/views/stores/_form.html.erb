@@ -3,22 +3,28 @@
     <h1>Cave à bières</h1>
     <%= simple_form_for @store do |f| %>
       <div class="form-inputs">
-        <div class="row">
-          <div class="col-12">
-            <%= f.input :name, required: false, label: 'NOM', input_html: { class: "center"} %>
-          </div>
-          <div class="col-12">
-            <%= f.input :website, required: false, label: 'SITE WEB', input_html: { class: "center"} %>
-          </div>
+        <div class="col-12">
+          <%= f.input :name, required: false, label: 'NOM', input_html: { class: "center"} %>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <%= f.input :address, required: false, label: 'ADRESSE', input_html: { class: "center"} %>
-          </div>
-          <div class="col-12">
-            <%= f.input :city, required: false, label: 'VILLE', input_html: { class: "center"} %>
-          </div>
+        <div class="col-12">
+          <%= f.input :address, required: false, label: 'ADRESSE', input_html: { class: "center"} %>
         </div>
+        <div class="col-12">
+          <%= f.input :city, required: false, label: 'VILLE', input_html: { class: "center"} %>
+        </div>
+        <div class="col-12">
+          <label class="control-label check_boxes optional">Point De Vente</label>
+        </div>
+        <select class="js-example-basic-single col-12" name="store[market_place_id]" value="">
+          <% MarketPlace.all.sort_by(&:city).each do |market_place| %>
+            <option value="<%= market_place.id %>">Brasserie <%= market_place.name %> à <%= market_place.city %> </option>
+          <% end %>
+        </select>
+
+        <div class="col-12">
+          <%= f.input :website, required: false, label: 'SITE WEB', input_html: { class: "center"} %>
+        </div>
+
         <div class="row">
           <div class="col-12">
             <%= f.input :privacy_code, required: false, label: 'CODE PRIVÉ', input_html: { class: "center"} %>
@@ -29,12 +35,6 @@
             <%= f.input :visitor, as: :boolean, label: 'MODE MAGASIN' %>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <%= f.association :market_place, label: 'POINT DE VENTE' %>
-          </div>
-        </div>
-
         <div class="row">
           <div class="col-12">
             <%= f.association :beers, as: :check_boxes, required: false,
@@ -50,4 +50,8 @@
   </div>
 </div>
 
-
+<script>
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+  });
+</script>
