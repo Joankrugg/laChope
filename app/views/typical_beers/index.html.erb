@@ -2,20 +2,21 @@
 <div class="container top">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-9">
-      <div class="card space">
+      <div class="card space shadow">
         <h1 class='page-title center'>
           Styles De Bière
         </h1>
       </div>
       <%= form_tag(typical_beers_path, method: :get) do %>
         <div class="search-form-control form-group">
+          <i class="fas fa-search search-img"></i>
           <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
           <button name="button" type="submit" class="btn btn-ghost-2">
-            <i class="fas fa-search"></i> Recherche
+            Allons-y
           </button>
         </div>
       <% end %>
-      <div class="card">
+      <div class="card shadow">
         <h2 class='header-text'>Les bières classiques sont les bières représentatives d'un style ; on trouve facilement les marques citées en exemple dans le commerce ; elles participent à l'histoire et à l'évolution d'un ou de plusieurs styles de bières. À l'atelier, elle servent d'indicateur pour définir un projet et de socle pour la compréhension d'un style. Ces styles appartiennent aux familles plus larges.</h2>
       </div>
       <div class="row">
