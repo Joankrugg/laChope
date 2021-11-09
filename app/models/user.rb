@@ -65,11 +65,20 @@ class User < ApplicationRecord
   end
 
   after_create :send_welcome_email
+  after_create :send_admin_mail
 
   private
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
+  end
+  def notify_admin_email
+    AdminMailer.new_registration(@user).deliver_now
+  end
+
+
+  def send_admin_mail
+    AdminMailer.new_user_waiting_for_approval(email).deliver_now
   end
 
 end

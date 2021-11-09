@@ -8,29 +8,38 @@
       <% else %>
         <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top col-12 col-lg-6 mx-auto center img-responsive p-bottom bottom' %>
       <% end %>
-      <% if @user.hobbyist %>
-        <p class='user-section'>Cow Boy</p>
-      <% end %>
-      <% if @user.creative %>
-        <p class='user-section'>Crea</p>
-      <% end %>
-      <% if @user.beer_connaisseur %>
-        <p class='user-section'>Zytho</p>
-      <% end %>
-      <% if @user.target_angel %>
-        <p class='user-section'>Target Angel</p>
-      <% end %>
-      <% if @user.businessman %>
-        <% if @user.sexe.present? %>
-          <% if @user.sexe.name == 'Homme'%>
-            <p class='user-section'>Businessman</p>
-          <% elsif @user.sexe.name == 'Femme'%>
-            <p class='user-section'>Businesswoman</p>
-          <% else %>
-            <p class='user-section'>Businessperson</p>
-          <% end %>
+      <div class="row col-9 mx-auto icons bottom">
+        <% if @user.hobbyist %>
+          <div class="rocket">
+            <i class="fas fa-hat-cowboy-side award"></i>
+            <p class= 'badge-legend badge-legend'>Cow Boy</p>
+          </div>
         <% end %>
-      <% end %>
+        <% if @user.creative %>
+          <div class="rocket">
+            <i class="fab fa-angrycreative award"></i>
+            <p class= 'badge-legend'>Creatif</p>
+          </div>
+        <% end %>
+        <% if @user.beer_connaisseur %>
+          <div class="rocket">
+            <i class="fas fa-icon award award"></i>
+            <p class= 'badge-legend'>Zytho</p>
+          </div>
+        <% end %>
+        <% if @user.target_angel %>
+          <div class="rocket">
+            <i class="fab fa-angellist award"></i>
+            <p class= 'badge-legend'>T.Angel</p>
+          </div>
+        <% end %>
+        <% if @user.businessman %>
+          <div class="rocket">
+            <i class="fas fa-user-tie award"></i>
+            <p class= 'badge-legend'>Business</p>
+          </div>
+        <% end %>
+      </div>
       <% unless @user.age.nil? %>
         <div class="design">
           <% if @user.username.present? %>
@@ -117,7 +126,7 @@
         <% end %>
       <% end %>
 
-      <div class="row icons top">
+      <div class="row col-9 mx-auto icons top">
         <% if @user == current_user %>
           <% if @user.store.present? %>
             <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
@@ -550,7 +559,7 @@
             </div>
           <% end %>
         <% end %>
-        <div class="row icons top">
+        <div class="row col-9 mx-auto icons top">
           <div class="user-icons" data-toggle="modal" data-target="#yeast" id="yeast-link">
             <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
             <p class='icon-legend'>Levures</p>
@@ -570,7 +579,7 @@
             <p class='icon-legend'>Tendance</p>
           </div>
         </div>
-        <div class="row icons top">
+        <div class="row col-9 mx-auto icons top">
           <div class="user-icons" data-toggle="modal" data-target="#color" id="color-link">
             <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
             <p class='icon-legend'>Couleur</p>
@@ -581,11 +590,11 @@
           </div>
           <div class="user-icons" data-toggle="modal" data-target="#feeling" id="feeling-link">
             <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-            <p class='icon-legend'>Apparences</p>
+            <p class='icon-legend'>Visuel</p>
           </div>
           <div class="user-icons" data-toggle="modal" data-target="#best" id="feeling-link">
             <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-            <p class='icon-legend'>Bières à goûter</p>
+            <p class='icon-legend'>Trackr</p>
           </div>
         </div>
 
@@ -818,7 +827,7 @@
       <% else %>
         <div class='user-section'>Construction de cave</div>
       <% end %>
-      <div class="row icons top">
+      <div class="row col-9 mx-auto icons top">
         <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
           <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
           <p class='icon-legend'>À tester</p>
@@ -837,7 +846,7 @@
   <div class='col-12 col-lg-9 bottom'>
     <div class="card p-top p-bottom bottom shadow">
       <div class='user-section'>Caisse à outils</div>
-      <div class="row icons top">
+      <div class="row col-9 mx-auto icons top">
         <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
           <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
           <p class='icon-legend'>Stickers</p>

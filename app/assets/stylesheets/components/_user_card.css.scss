@@ -77,6 +77,33 @@
   color: #3C3C3C;
 }
 
+.rocket{
+  color: cadetblue;
+  font-size: 25px;
+  border: 2px solid;
+  height: 50px;
+  width: 50px;
+  padding-top: 10px;
+  padding-left: 8px;
+  border-radius: 12px;
+  position: relative;
+  .award{
+    position: absolute;
+  }
+  .badge-legend{
+    position: absolute;
+    font-size: 8px;
+    margin-top: 40px;
+  }
+}
+
+.award{
+  padding: 10px;
+  top: 0px;
+  left: 0px;
+}
+
+
 .user-action{
   text-align: center;
   color: #4B535B;

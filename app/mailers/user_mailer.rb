@@ -10,4 +10,6 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Bienvenue à l'Atelier Target")
     # This will render a view in `app/views/user_mailer`!
   end
+
+
 end

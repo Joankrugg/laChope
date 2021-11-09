@@ -27,16 +27,6 @@
       <i class="fas fa-store footer-link"></i>
     <% end %>
   </div>
-  <div class="d-lg-none">
-    <%= link_to articles_path do %>
-      <i class="far fa-newspaper footer-link"></i>
-    <% end %>
-  </div>
-  <div class="d-lg-none">
-    <%= link_to target_beers_path do %>
-      <i class="fas fa-bullseye footer-link"></i>
-    <% end %>
-  </div>
   <% if user_signed_in? %>
     <% if current_user.store.nil? %>
       <div class="d-lg-none">
@@ -60,6 +50,16 @@
       <% end %>
     </div>
   <% end %>
+  <div class="d-lg-none">
+    <%= link_to articles_path do %>
+      <i class="far fa-newspaper footer-link"></i>
+    <% end %>
+  </div>
+  <div class="d-lg-none">
+    <%= link_to target_beers_path do %>
+      <i class="fas fa-bullseye footer-link"></i>
+    <% end %>
+  </div>
 </div>
 
 

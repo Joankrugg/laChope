@@ -28,9 +28,14 @@ header.masthead {
 }
 .slogan{
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 16px;
   padding-bottom: 2rem;
   color: $my-green;
+}
+
+.slogan:hover{
+  color: white;
+  text-shadow: 1px #3C3C3C;
 }
 
 .home-title{
