@@ -5,6 +5,9 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
     @publication = Publication.new
     @answer = Answer.new
+    @beers = Beer.all
+    @stores = Store.all
+    @users = User.all
   end
 
   def new
