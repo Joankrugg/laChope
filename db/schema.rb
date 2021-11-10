@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_131743) do
+ActiveRecord::Schema.define(version: 2021_11_10_144359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 2021_10_21_131743) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content"
+    t.string "photo"
+    t.string "link"
+    t.bigint "user_id", null: false
+    t.bigint "publication_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["publication_id"], name: "index_answers_on_publication_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -338,6 +350,15 @@ ActiveRecord::Schema.define(version: 2021_10_21_131743) do
     t.index ["main_taste_id"], name: "index_public_searches_on_main_taste_id"
   end
 
+  create_table "publications", force: :cascade do |t|
+    t.string "content"
+    t.string "link"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_publications_on_user_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
     t.datetime "created_at", precision: 6, null: false
@@ -542,6 +563,8 @@ ActiveRecord::Schema.define(version: 2021_10_21_131743) do
 
   add_foreign_key "accesses", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "publications"
+  add_foreign_key "answers", "users"
   add_foreign_key "articles", "themes"
   add_foreign_key "articles", "users"
   add_foreign_key "beer_feelings", "beers"
@@ -587,6 +610,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_131743) do
   add_foreign_key "public_searches", "categories"
   add_foreign_key "public_searches", "design_colors"
   add_foreign_key "public_searches", "main_tastes"
+  add_foreign_key "publications", "users"
   add_foreign_key "ratings", "beers"
   add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "actions"

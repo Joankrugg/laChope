@@ -1,0 +1,21 @@
+<div class="offnavs"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form">
+      <%= simple_form_for [@publication, @answer] do |f| %>
+        <h4>Answer</h4>
+        <div class="answer-form-control form-group">
+          <%= f.input :content, as: :string, required: false, label: false, autocomplete: 'off', class: "form-control string required" %>
+          <label class="answer-img">
+            <i class="fas fa-camera-retro"></i>
+            <span style="display:none;">
+              <%= f.input :photo, as: :file, required: false, multiple: true, name: 'picture' %>
+            </span>
+          </label>
+          <%= f.input :link, label: false %>
+          <%= f.button :submit, "Poster", class: "btn btn-ghost" %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

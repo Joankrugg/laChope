@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :market_places do
     match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
   end
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :accesses, only: [:new, :create, :show, :edit, :update]
   resources :stickers
+  resources :publications do
+    resources :answers
+  end
   resources :projects
   resources :stores
   resources :market_places
