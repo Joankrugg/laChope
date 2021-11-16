@@ -1,7 +1,7 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
-    <div class="publications col-9">
+    <div class="publications col-lg-9">
       <div class="row bottom">
         <div class="col-12">
           <div class="card shadow publication-pack bottom">
@@ -45,45 +45,45 @@
                     <div class="btn btn-ghost">commenter</div>
                   <% end %>
                 </div>
-              </div>
-              <% if publication.answers.present? %>
-                <% publication.answers.sort_by(&:created_at).reverse.each do |answer| %>
-                  <div class="row bottom">
-                    <div class="col-10 col-lg-8">
-                      <div class="card green-shadow corner">
-                        <div class="answer-item">
-                          <% if answer.user.photo.present? %>
-                            <%= cl_image_tag answer.user.photo.key, class: 'avatar answer-avatar' %>
-                          <% else %>
-                            <%= cl_image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1636547916/Admin/Logo.png', class: 'avatar' %>
-                          <% end %>
-                            <p class='answer-publication-date'>le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
-                          <% if answer.user.username.present? %>
-                            <p class='answer-publication-user'><%= answer.user.username %></p>
-                          <% else %>
-                            <p class='answer-publication-user'><%= answer.user.name %></p>
-                          <% end %>
-                          <% if answer.photo.present? %>
-                            <div class="row">
-                              <%= cl_image_tag answer.photo.key, height: 300, crop: :fill, class: 'top center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
-                            </div>
-                          <% end %>
-                            <p class='answer-publication-content bottom'><%= answer.content %></p>
-                          <% if answer.link.present? %>
-                            <p><%= answer.link %></p>
-                          <% end %>
+                <% if publication.answers.present? %>
+                  <div class="answers top bottom">
+                    <% publication.answers.sort_by(&:created_at).reverse.each do |answer| %>
+                      <div class="row top">
+                        <div class="col-10 mx-auto">
+                          <div class="answer-item">
+                            <% if answer.user.photo.present? %>
+                              <%= cl_image_tag answer.user.photo.key, class: 'avatar answer-avatar' %>
+                            <% else %>
+                              <%= cl_image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1636547916/Admin/Logo.png', class: 'avatar' %>
+                            <% end %>
+                              <p class='answer-publication-date'>le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
+                            <% if answer.user.username.present? %>
+                              <p class='answer-publication-user'><%= answer.user.username %></p>
+                            <% else %>
+                              <p class='answer-publication-user'><%= answer.user.name %></p>
+                            <% end %>
+                            <% if answer.photo.present? %>
+                              <div class="row">
+                                <%= cl_image_tag answer.photo.key, height: 300, crop: :fill, class: 'top center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
+                              </div>
+                            <% end %>
+                              <p class='answer-publication-content bottom'><%= answer.content %></p>
+                            <% if answer.link.present? %>
+                              <p><%= answer.link %></p>
+                            <% end %>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                   </div>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="counters col-3">
+    <div class="counters col-lg-3">
       <% if @beers.present? %>
         <div class="row bottom">
           <div class="col-12" id="beer"">
