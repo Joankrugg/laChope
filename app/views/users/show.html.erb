@@ -1,861 +1,953 @@
 <div class="offnavs"></div>
 <div class="container top">
-  <div class="col-12 col-lg-9 bottom">
-    <div class="card p-top bottom shadow">
-      <div class='user-section'>Profil</div>
-      <% if @user.photo.present? %>
-        <%= cl_image_tag @user.photo.key, height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top center col-12 col-lg-6 mx-auto img-responsive p-bottom bottom' %>
-      <% else %>
-        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top col-12 col-lg-6 mx-auto center img-responsive p-bottom bottom' %>
-      <% end %>
-      <div class="row col-9 mx-auto icons bottom">
-        <% if @user.hobbyist %>
-          <div class="rocket">
-            <i class="fas fa-hat-cowboy-side award"></i>
-            <p class= 'badge-legend badge-legend'>Cow Boy</p>
-          </div>
-        <% end %>
-        <% if @user.creative %>
-          <div class="rocket">
-            <i class="fab fa-angrycreative award"></i>
-            <p class= 'badge-legend'>Creatif</p>
-          </div>
-        <% end %>
-        <% if @user.beer_connaisseur %>
-          <div class="rocket">
-            <i class="fas fa-icon award award"></i>
-            <p class= 'badge-legend'>Zytho</p>
-          </div>
-        <% end %>
-        <% if @user.target_angel %>
-          <div class="rocket">
-            <i class="fab fa-angellist award"></i>
-            <p class= 'badge-legend'>T.Angel</p>
-          </div>
-        <% end %>
-        <% if @user.businessman %>
-          <div class="rocket">
-            <i class="fas fa-user-tie award"></i>
-            <p class= 'badge-legend'>Business</p>
-          </div>
-        <% end %>
-      </div>
-      <% unless @user.age.nil? %>
-        <div class="design">
-          <% if @user.username.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Nom d'utilisateur: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.username %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.city.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Ville: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.city %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.sexe.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Genre: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.sexe.name %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.age.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Âge: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.age %> ans</div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.activities.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Activité(s): </div>
-              </div>
-              <div class="col-6">
-                <% @user.activities.each do |a| %>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="introduction-data"><%= a.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.website.present? %>
-            <div class="row">
-              <div class="col-lg-12">
-                <%= link_to @user.website, target: :blank do %>
-                  <div class= "introduction-data center p-bottom">Visitez mon site</div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <% if @user == current_user %>
-          <% if @user.store.present? %>
-            <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-              <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
-              <% if @user.design.nil? %>
-                <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
-              <% end %>
-            <% end %>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="col-12 bottom">
+        <div class="card p-top bottom shadow">
+          <div class='user-section'>Profil</div>
+          <% if @user.photo.present? %>
+            <%= cl_image_tag @user.photo.key, height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top center col-12 col-lg-6 mx-auto img-responsive p-bottom bottom' %>
           <% else %>
-            <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
-            <% if @user.design.nil? %>
-              <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
-            <% end %>
+            <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", height: 400, crop: :fill, gravity: 'faces', class: 'top shadow p-top col-12 col-lg-6 mx-auto center img-responsive p-bottom bottom' %>
           <% end %>
-        <% end %>
-      <% end %>
-
-      <div class="row col-9 mx-auto icons top">
-        <% if @user == current_user %>
-          <% if @user.store.present? %>
-            <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-              <div class="user-icons" data-toggle="modal" data-target="#profil" id="profil-link">
-                <div class="introduction-user-actions"> <i class="fa fa-user icon"></i></div>
-                <p class='icon-legend'>Profil</p>
+          <div class="row col-9 mx-auto icons bottom">
+            <% if @user.hobbyist %>
+              <div class="rocket">
+                <i class="fas fa-hat-cowboy-side award"></i>
+                <p class= 'badge-legend badge-legend'>Cow Boy</p>
               </div>
             <% end %>
-          <% else %>
-            <div class="user-icons" data-toggle="modal" data-target="#profil" id="profil-link">
-              <div class="introduction-user-actions"> <i class="fa fa-user icon"></i></div>
-              <p class='icon-legend'>Profil</p>
-            </div>
-          <% end %>
-        <% end %>
-        <% if @user == current_user %>
-          <% if @user.store.present? %>
-            <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-              <div class="user-icons" data-toggle="modal" data-target="#style_seek" id="design-link">
-                <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
-                <p class='icon-legend'>Design</p>
+            <% if @user.creative %>
+              <div class="rocket">
+                <i class="fab fa-angrycreative award"></i>
+                <p class= 'badge-legend'>Creatif</p>
               </div>
             <% end %>
-          <% else %>
-            <div class="user-icons" data-toggle="modal" data-target="#style_seek" id="design-link">
-              <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
-              <p class='icon-legend'>Design</p>
-            </div>
-          <% end %>
-        <% end %>
-        <% if @user == current_user %>
-          <% if @user.store.present? %>
-            <div class="user-icons" data-toggle="modal" data-target="#code" id="user-code-link">
-              <div class="introduction-user-actions"> <i class="fa fa-lock icon"></i></div>
-              <p class='icon-legend'>Code</p>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <% if @user == current_user %>
-        <% if @user.store.present? %>
-          <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-            <% if @user == current_user && @user.admin? %>
-              <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
+            <% if @user.beer_connaisseur %>
+              <div class="rocket">
+                <i class="fas fa-icon award award"></i>
+                <p class= 'badge-legend'>Zytho</p>
+              </div>
             <% end %>
-          <% end %>
-        <% else %>
-          <% if @user == current_user && @user.admin? %>
-            <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <% if user_signed_in? && @user != current_user %>
-        <%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin user' %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title center" id="exampleModalLabel">Mon Profil</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render 'form'%>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title center" id="exampleModalLabel">CODE D'ACCÈS</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render 'accesses/form', access: @access %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="style_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title center" id="exampleModalLabel">BIÈRE IDÉALE</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render 'designs/form', design: @design %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class='col-12 col-lg-9 bottom'>
-    <div class="card p-top p-bottom bottom shadow">
-      <div class='user-section'>Mon style de bière du moment</div>
-      <% if @user.design.present? %>
-        <div class="design">
-          <% if @user.design.category.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Fermentation: </div>
+            <% if @user.target_angel %>
+              <div class="rocket">
+                <i class="fab fa-angellist award"></i>
+                <p class= 'badge-legend'>T.Angel</p>
               </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.design.category.name %></div>
+            <% end %>
+            <% if @user.businessman %>
+              <div class="rocket">
+                <i class="fas fa-user-tie award"></i>
+                <p class= 'badge-legend'>Business</p>
               </div>
-            </div>
-          <% end %>
-          <% if @user.design.design_color.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Couleur: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.design.design_color.name %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.design.alcohol_shape.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Niveau d'alcool: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.design.alcohol_shape.name %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.design.main_taste.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Tendance: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.design.main_taste.name %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.design.balance.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Équilibre: </div>
-              </div>
-              <div class="col-6">
-                <div class= "introduction-data"><%= @user.design.balance.name %></div>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.design.flavours.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Arômes: </div>
-              </div>
-              <div class="col-6">
-                <% @user.design.flavours.each do |a| %>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="introduction-data"><%= a.name %></div>
-                    </div>
+            <% end %>
+          </div>
+          <% unless @user.age.nil? %>
+            <div class="design">
+              <% if @user.username.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Nom d'utilisateur: </div>
                   </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-          <% if @user.design.feelings.present? %>
-            <div class="row">
-              <div class="col-6">
-                <div class="introduction-user">Apparences: </div>
-              </div>
-              <div class="col-6">
-                <% @user.design.feelings.each do |a| %>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="introduction-data"><%= a.name %></div>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-        <% ales = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Flanders Red', 'Fruit Beer', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout' ] %>
-
-        <% spontaneous = ['Lambic', 'Gueuze', 'Faro', 'Fruit Beer'] %>
-
-        <% lagers = ['German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock'] %>
-
-        <% mixed_styles = ['Kölsch', 'Altbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Ranchbier', 'English Strong Ale', 'Cream Ale', 'Barley Wine', 'Steam Beer', 'Scotch Ale'] %>
-
-        <% very_strong_beers = ['Weizenbock', 'Tripel' , 'Belgian Dark Ale', 'Russian Imperial Stout', 'Eisbock', 'Barley Wine'] %>
-
-        <% strong_beers = ['Weizenbock', 'Lambic' , 'Gueuze', 'Fruit Beer', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison' , 'Belgian Dark Ale', 'Dubbel', 'India Pale Ale', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'Dortmunder', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Bière De Garde', 'Oktoberfest', 'Cream Ale', 'Barley Wine', 'Scotch Ale', 'English Old Ale' ] %>
-
-        <% regular_beers = ['Belgian White', 'American wheat', 'Weizenbier', 'Dunkelweizen', 'Lambic', 'Gueuze', 'Fruit Beer', 'Fruit Beer', 'Flanders Red', 'Oud Bruin', 'Saison', 'Belgian Pale Ale', 'Dubbel', 'Sweet Stout', 'Oatmeal Stout', 'India Pale Ale', 'American Amber Ale' , 'Special Bitter', 'Extra Special Bitter', 'Scottish Heavy', 'Scottish Export', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter' , 'Dry Stout' , 'Sweet Stout', 'Oatmeal Stout', 'F,eign Extra Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder' ,'Munich Dunkel', 'Schwartzbier', 'Kölsch' ,'Altbier' ,'Bière De Garde', 'Oktoberfest', 'Vienna', 'Cream Ale','Steam Beer', 'Rauchbier' ] %>
-
-        <% light_beers = ['Berliner Weiss', 'American Wheat', 'Belgian Pale Ale', 'Dubbel', 'Ordinary Bitter' ,'Special Bitter' ,'Extra Special Bitter' ,'Scottish Light' , 'Scottish Heavy', 'English Mild', 'English Brown', 'Brown Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'American Light','Schwartzbier', 'Steam Beer'] %>
-
-        <% yellow = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Lambic', 'Gueuze', 'Faro', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Pale Ale', 'American Pale Ale', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American light', 'American Standard', 'American Premium', 'Munich Helles', 'Dortmunder', 'Helles Bock', 'Kölsch', 'Bière de Garde'] %>
-
-        <% blonde = ['American Wheat', 'Weizenbier', 'Lambic', 'Gueuze', 'Faro', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'Ordinary Bitter', 'Scottish Light', 'American Pilsner', 'American Standard', 'American Premium', 'Dortmunder', 'Helles Bock', 'Bière de Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Rauchbier'] %>
-
-        <% golden = ['Weizenbock', 'Lambic', 'Gueuze', 'Faro', 'Flanders Red', 'Oud Bruin', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Dark', 'Doppelbock', 'Altbier', 'Bière de Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Barley Wine', 'Scotch Ale', 'English Old Ale'] %>
-
-        <% rousse = ['Dunkelweizen', 'Weizenbock', 'Flanders Red', 'Oud Bruin', 'Belgian Dark Ale', 'Dubbel', 'American Amber Ale', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'American Dark', 'Munich Dunkel', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Altbier', 'Steam Beer', 'Barley Wine', 'Scotch Ale', 'English Old Ale'] %>
-
-        <% brune = ['Weizenbock', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Munich Dunkel', 'Schwartzbier', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Barley Wine', 'Scotch Ale' ] %>
-
-        <% black = ['Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'Schwartzbier', 'Eisbock', 'Scotch Ale'] %>
-
-        <% extra_malty = ['Berliner Weiss', 'Tripel' , 'American Wheat', 'Saison', 'Pale Ale', 'Flanders Red', 'Dubbel', 'English Mild', 'Sweet Stout', 'Belgian Dark Ale', 'Scottish Heavy', 'Weizenbock', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'Munich Dunkel', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Scotch Ale', 'Bière De Garde', 'English old Ale', 'Cream Ale' ] %>
-
-        <% slighty_malty = ['Belgian Gold', 'English Brown', 'American Amber Ale', 'Scottish Export', 'Oud Bruin', 'Robust Porter', 'American Wheat', 'Saison' , 'Pale Ale', 'Flanders Red', 'Dubbel', 'Scottish Light', 'Sweet Stout', 'English Mild', 'Belgian Dark Ale', 'Scottish Heavy', 'Brown Porter',' American Pilsner', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Traditional Bock', 'Eisbock', 'Rauchbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Scotch Ale'] %>
-
-        <% balanced = ['Belgian White', 'Oud Bruin', 'English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'American Wheat', 'Saison', 'Pale Ale', 'Belgian Pale Ale', 'American Pale Ale', 'Scottish Light', 'English Mild', 'Sweet Stout', 'Belgian Dark Ale', 'Scottish Heavy', 'Foreign Extra Stout', 'Brown Porter', 'German Pilsner', 'American Pilsner', 'American Dark', 'Munich Helles', 'Dortmunder', 'Schwartzbier', 'Helles Bock', 'Eisbock', 'Rauchbier', 'Kölsch', 'Altbier' , 'Oktoberfest', 'Barley Wine', 'Cream Ale', 'Steam Beer', 'Scotch Ale' ] %>
-
-        <% slighty_hoppy = ['English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'American Wheat', 'Saison', 'Pale Ale', 'Imperial Stout', 'Belgian Pale Ale', 'American Pale Ale', 'Ordinary Bitter', 'Extra Special Bitter', 'Scottish Light', 'Sweet Stout', 'English Mild', 'Belgian Dark Ale', 'Scottish Heavy', 'Foreign Extra Stout', 'Brown Porter', 'India Pale Ale', 'American Brown', 'Special Bitter', 'German Pilsner', 'American Pilsner', 'Schwartzbier', 'Kölsch', 'Altbier', 'Barley Wine', 'Cream Ale' ] %>
-
-        <% extra_hoppy = ['English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'Imperial Stout', 'Ordinary Bitter', 'Extra Special Bitter', 'English Mild', 'Sweet Stout', 'Dry Stout', 'Oatmeal Stout', 'Russian Imperial Stout', 'Foreign Extra Stout', 'India Pale Ale', 'American Brown', 'Special Bitter', 'German Pilsner', 'American Pilsner', 'Kölsch', 'Altbier', 'Barley Wine'] %>
-
-        <% sour = ['Berliner Weiss', 'Belgian White', 'Lambic', 'Gueuze', 'Faro', 'Fruit', 'Flanders Red', 'Oud Bruins' ] %>
-
-        <% neutral = ['American Wheat', 'American Light', 'American Standard', 'American Premium', 'American Dark'] %>
-
-        <% sweet = ['Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'Brown Porter', 'Robust Porter', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Altbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Ranchbier', 'English Strong Ale', 'Cream Ale', 'Barley Wine', 'Steam Beer', 'Scotch Ale' ] %>
-
-        <% bitter = ['Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner'] %>
-        <% spicy = ['Belgian Gold', 'Saison', 'Belgian Pale', 'Belgian Dark Ale', 'Dubbel', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier'] %>
-        <% smoked = ['Rauchbier', 'Scotch Ale' ] %>
-
-        <% results = [] %>
-        <% targets_alcohol = [] %>
-        <% trash = [] %>
-        <% targets_yeast = [] %>
-        <% targets_b = [] %>
-        <% targets_mt = [] %>
-        <% targets_c = [] %>
-        <% vst = [] %>
-        <% st = [] %>
-        <% rt = [] %>
-        <% lt = [] %>
-        <% aft = [] %>
-        <% targets_a = [] %>
-        <% targets_s = [] %>
-        <% classic_results = [] %>
-
-        <% if @user.design.category.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.category.name == @user.design.category.name %>
-              <% targets_yeast << tb %>
-              <% classic_results << tb %>
-            <% end %>
-          <% end %>
-          <% if @user.design.category.name == 'Ales' %>
-            <% results << ales %>
-          <% end %>
-          <% if @user.design.category.name == 'Lagers' %>
-            <% results << lagers %>
-          <% end %>
-          <% if @user.design.category.name == 'Mixed Styles' %>
-            <% results << mixed_styles %>
-          <% end %>
-          <% if @user.design.category.name == 'Spontaneous' %>
-            <% results << spontaneous %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.alcohol_shape.present? %>
-          <% @typical_beers.each do |c| %>
-            <% if c.alcohol_shape.present? %>
-              <% if c.alcohol_shape.name == @user.design.alcohol_shape.name %>
-                <% targets_alcohol << c  %>
-                <% classic_results << c %>
-              <% end %>
-            <% end %>
-          <% end %>
-          <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
-            <% results << very_strong_beers %>
-          <% end %>
-          <% if @user.design.alcohol_shape.name == '6°≤ Forte ≤ 9°'%>
-            <% results << strong_beers %>
-          <% end %>
-          <% if @user.design.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
-            <% results << regular_beers %>
-          <% end %>
-          <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
-            <% results << light_beers %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.balance.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.balance.name == @user.design.balance.name %>
-              <% targets_b << tb %>
-              <% classic_results << tb %>
-            <% end %>
-          <% end %>
-          <% if @user.design.balance.name == 'Très houblonnée' %>
-            <% results << extra_hoppy %>
-          <% end %>
-          <% if @user.design.balance.name == 'Houblonnée' %>
-            <% results << slighty_hoppy %>
-          <% end %>
-          <% if @user.design.balance.name == 'Équilibrée' %>
-            <% results << balanced %>
-          <% end %>
-          <% if @user.design.balance.name == 'Maltée' %>
-            <% results << slighty_malty %>
-          <% end %>
-          <% if @user.design.balance.name == 'Très maltée' %>
-            <% results << extra_malty %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.flavours.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% tb.flavours.each do |f| %>
-              <% @user.design.flavours.each do |uf| %>
-                <% if f.name == uf.name %>
-                  <% targets_a << tb %>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.feelings.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% tb.feelings.each do |f| %>
-              <% @user.design.feelings.each do |uf| %>
-                <% if f.name == uf.name %>
-                  <% targets_s << tb %>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.design_color.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.design_color.name == @user.design.design_color.name %>
-              <% targets_c << tb %>
-              <% classic_results << tb %>
-            <% end %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Blanche' %>
-            <% results << yellow %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Blonde' %>
-            <% results << blonde %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Ambrée' %>
-            <% results << golden %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Rousse' %>
-            <% results << rousse %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Brune' %>
-            <% results << brune %>
-          <% end %>
-          <% if @user.design.design_color.name == 'Noire' %>
-            <% results << black %>
-          <% end %>
-        <% end %>
-
-        <% if @user.design.main_taste.present? %>
-          <% @typical_beers.each do |tb| %>
-            <% if tb.main_taste.name == @user.design.main_taste.name %>
-              <% targets_mt << tb %>
-              <% classic_results << tb %>
-            <% end %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Acidulé' %>
-            <% results << sour %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Doux' %>
-            <% results << neutral %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Liquoreux' %>
-            <% results << sweet %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Amer' %>
-            <% results << bitter %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Épicé' %>
-            <% results << spicy %>
-          <% end %>
-          <% if @user.design.main_taste.name == 'Fumé' %>
-            <% results << smoked %>
-          <% end %>
-        <% end %>
-
-
-        <% must = classic_results.flatten.group_by(&:itself) %>
-        <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-        <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
-        <% if !first_choices.nil? %>
-          <% five_stars = first_choices.keys %>
-          <% if five_stars != [] %>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <p class='shadow p-top p-bottom center'>Styles à privilégier</p>
-                  <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
-                  <p class='shadow p-top p-bottom center'>
-                    <% five_stars.each do |f| %>
-                      |<%= f.name %>|
-                    <% end %>
-                  </p>
-                  <div class="row">
-                    <% five_stars.each do |f| %>
-                      <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                        <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
-                      </div>
-                    <% end %>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.username %></div>
                   </div>
                 </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-        <div class="row col-9 mx-auto icons top">
-          <div class="user-icons" data-toggle="modal" data-target="#yeast" id="yeast-link">
-            <div class="introduction-user-actions"> <i class="fas fa-bread-slice icon"></i></div>
-            <p class='icon-legend'>Levures</p>
-          </div>
-          <% if @user.design.alcohol_shape.present? %>
-            <div class="user-icons" data-toggle="modal" data-target="#alcohol_level" id="alcohol_level-link">
-              <div class="introduction-user-actions"><i class="fas fa-wine-bottle icon"></i></div>
-              <p class='icon-legend'>Alcool</p>
-            </div>
-          <% end %>
-          <div class="user-icons" data-toggle="modal" data-target="#balance" id="balance-link">
-            <div class="introduction-user-actions"> <i class="fas fa-balance-scale icon"></i></div>
-            <p class='icon-legend'>Équilibre</p>
-          </div>
-          <div class="user-icons" data-toggle="modal" data-target="#main_taste"id="main_taste-link">
-            <div class="introduction-user-actions"> <i class="far fa-grin-tongue icon"></i></div>
-            <p class='icon-legend'>Tendance</p>
-          </div>
-        </div>
-        <div class="row col-9 mx-auto icons top">
-          <div class="user-icons" data-toggle="modal" data-target="#color" id="color-link">
-            <div class="introduction-user-actions"> <i class="fas fa-palette icon"></i></div>
-            <p class='icon-legend'>Couleur</p>
-          </div>
-          <div class="user-icons" data-toggle="modal" data-target="#flavour"id="flavour-link">
-            <div class="introduction-user-actions"> <i class="fas fa-list-ol icon"></i></div>
-            <p class='icon-legend'>Arômes</p>
-          </div>
-          <div class="user-icons" data-toggle="modal" data-target="#feeling" id="feeling-link">
-            <div class="introduction-user-actions"><i class="fas fa-eye icon"></i></div>
-            <p class='icon-legend'>Visuel</p>
-          </div>
-          <div class="user-icons" data-toggle="modal" data-target="#best" id="feeling-link">
-            <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-            <p class='icon-legend'>Trackr</p>
-          </div>
-        </div>
-
-        <div class="modal fade" id="yeast" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Fermentation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de fermentation </div>
+              <% end %>
+              <% if @user.city.present? %>
                 <div class="row">
-                  <% targets_yeast.each do |y| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: y %>
-                    </div>
-                  <% end %>
+                  <div class="col-6">
+                    <div class="introduction-user">Ville: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.city %></div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="alcohol_level" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Niveau d'Alcool</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de niveau d'alcool </div>
+              <% end %>
+              <% if @user.sexe.present? %>
                 <div class="row">
-                  <% targets_alcohol.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
+                  <div class="col-6">
+                    <div class="introduction-user">Genre: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.sexe.name %></div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="balance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Équilibre</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère d'équilibre</div>
+              <% end %>
+              <% if @user.age.present? %>
                 <div class="row">
-                  <% targets_b.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
+                  <div class="col-6">
+                    <div class="introduction-user">Âge: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.age %> ans</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="main_taste" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Tendance</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de palais</div>
+              <% end %>
+              <% if @user.activities.present? %>
                 <div class="row">
-                  <% targets_mt.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="color" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Couleur</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de couleur </div>
-                <div class="row">
-                  <% targets_c.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="flavour" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Arômes</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'arômes</div>
-                <div class="row">
-                  <% targets_a.uniq.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="feeling" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Apparences</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'apparences</div>
-                <div class="row">
-                  <% targets_s.uniq.each do |b| %>
-                    <div class="mx-auto col-12">
-                      <%= render 'typical_beers/sober_card', typical_beer: b %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="modal fade" id="best" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title center" id="exampleModalLabel">Synthese du Beertrackr</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <% must = results.flatten.group_by(&:itself) %>
-                <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
-                <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
-                <% if !first_choices.nil? %>
-                  <% five_stars = first_choices.keys %>
-                  <% if five_stars != [] %>
-                    <div class="container">
+                  <div class="col-6">
+                    <div class="introduction-user">Activité(s): </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.activities.each do |a| %>
                       <div class="row">
-                        <div class="col-lg-12">
-                          <p class='shadow p-top p-bottom center'>Bières </p>
-                          <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
-                          <p class='shadow p-top p-bottom center'>
-                            <% five_stars.each do |f| %>
-                              |<%= f %>|
-                            <% end %>
-                          </p>
-                          <div class="row">
-                            <% five_stars.each do |f| %>
-                              <% @beers.each do |b| %>
-                                <% if b.style.present? %>
-                                  <% if f == b.style.name %>
-                                    <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                                      <%= render 'beers/sober_card', beer: b %>
-                                    </div>
-                                  <% end %>
-                                <% elsif b.typical_beer.style.present? %>
-                                  <% if f == b.typical_beer.style.name %>
-                                    <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
-                                      <%= render 'beers/sober_card', beer: b %>
-                                    </div>
-                                  <% end %>
-                                <% end %>
-                              <% end %>
-                            <% end %>
-                          </div>
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.website.present? %>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <%= link_to @user.website, target: :blank do %>
+                      <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <% if @user == current_user %>
+              <% if @user.store.present? %>
+                <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                  <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
+                  <% if @user.design.nil? %>
+                    <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
                   <% end %>
                 <% end %>
+              <% else %>
+                <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
+                <% if @user.design.nil? %>
+                  <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <div class="row col-9 mx-auto icons top">
+            <% if @user == current_user %>
+              <% if @user.store.present? %>
+                <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                  <div class="user-icons" data-toggle="modal" data-target="#profil" id="profil-link">
+                    <div class="introduction-user-actions"> <i class="fa fa-user icon"></i></div>
+                    <p class='icon-legend'>Profil</p>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="user-icons" data-toggle="modal" data-target="#profil" id="profil-link">
+                  <div class="introduction-user-actions"> <i class="fa fa-user icon"></i></div>
+                  <p class='icon-legend'>Profil</p>
+                </div>
+              <% end %>
+            <% end %>
+            <% if @user == current_user %>
+              <% if @user.store.present? %>
+                <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                  <div class="user-icons" data-toggle="modal" data-target="#style_seek" id="design-link">
+                    <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
+                    <p class='icon-legend'>Design</p>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="user-icons" data-toggle="modal" data-target="#style_seek" id="design-link">
+                  <div class="introduction-user-actions"> <i class="fa fa-heart icon"></i></div>
+                  <p class='icon-legend'>Design</p>
+                </div>
+              <% end %>
+            <% end %>
+            <% if @user == current_user %>
+              <% if @user.store.present? %>
+                <div class="user-icons" data-toggle="modal" data-target="#code" id="user-code-link">
+                  <div class="introduction-user-actions"> <i class="fa fa-lock icon"></i></div>
+                  <p class='icon-legend'>Code</p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <% if @user == current_user %>
+            <% if @user.store.present? %>
+              <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                <% if @user == current_user && @user.admin? %>
+                  <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <% if @user == current_user && @user.admin? %>
+                <%= link_to "ADMINISTRATION", rails_admin_path, class: 'admin user' %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if user_signed_in? && @user != current_user %>
+            <%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin user' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title center" id="exampleModalLabel">Mon Profil</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render 'form'%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title center" id="exampleModalLabel">CODE D'ACCÈS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render 'accesses/form', access: @access %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="style_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title center" id="exampleModalLabel">BIÈRE IDÉALE</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render 'designs/form', design: @design %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-12 bottom'>
+        <div class="card p-top p-bottom bottom shadow">
+          <div class='user-section'>Mon style de bière du moment</div>
+          <% if @user.design.present? %>
+            <div class="design">
+              <% if @user.design.category.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Fermentation: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.category.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.design_color.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Couleur: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.design_color.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.alcohol_shape.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Niveau d'alcool: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.alcohol_shape.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.main_taste.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Tendance: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.main_taste.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.balance.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Équilibre: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.design.balance.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.flavours.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Arômes: </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.design.flavours.each do |a| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.design.feelings.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Apparences: </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.design.feelings.each do |a| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <% ales = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Flanders Red', 'Fruit Beer', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout' ] %>
+
+            <% spontaneous = ['Lambic', 'Gueuze', 'Faro', 'Fruit Beer'] %>
+
+            <% lagers = ['German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock'] %>
+
+            <% mixed_styles = ['Kölsch', 'Altbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Ranchbier', 'English Strong Ale', 'Cream Ale', 'Barley Wine', 'Steam Beer', 'Scotch Ale'] %>
+
+            <% very_strong_beers = ['Weizenbock', 'Tripel' , 'Belgian Dark Ale', 'Russian Imperial Stout', 'Eisbock', 'Barley Wine'] %>
+
+            <% strong_beers = ['Weizenbock', 'Lambic' , 'Gueuze', 'Fruit Beer', 'Oud Bruin', 'Belgian Gold', 'Tripel', 'Saison' , 'Belgian Dark Ale', 'Dubbel', 'India Pale Ale', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'Dortmunder', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Bière De Garde', 'Oktoberfest', 'Cream Ale', 'Barley Wine', 'Scotch Ale', 'English Old Ale' ] %>
+
+            <% regular_beers = ['Belgian White', 'American wheat', 'Weizenbier', 'Dunkelweizen', 'Lambic', 'Gueuze', 'Fruit Beer', 'Fruit Beer', 'Flanders Red', 'Oud Bruin', 'Saison', 'Belgian Pale Ale', 'Dubbel', 'Sweet Stout', 'Oatmeal Stout', 'India Pale Ale', 'American Amber Ale' , 'Special Bitter', 'Extra Special Bitter', 'Scottish Heavy', 'Scottish Export', 'American Brown', 'English Brown', 'Brown Porter', 'Robust Porter' , 'Dry Stout' , 'Sweet Stout', 'Oatmeal Stout', 'F,eign Extra Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder' ,'Munich Dunkel', 'Schwartzbier', 'Kölsch' ,'Altbier' ,'Bière De Garde', 'Oktoberfest', 'Vienna', 'Cream Ale','Steam Beer', 'Rauchbier' ] %>
+
+            <% light_beers = ['Berliner Weiss', 'American Wheat', 'Belgian Pale Ale', 'Dubbel', 'Ordinary Bitter' ,'Special Bitter' ,'Extra Special Bitter' ,'Scottish Light' , 'Scottish Heavy', 'English Mild', 'English Brown', 'Brown Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'American Light','Schwartzbier', 'Steam Beer'] %>
+
+            <% yellow = ['Berliner Weiss', 'Belgian White' , 'American Wheat', 'Weizenbier', 'Lambic', 'Gueuze', 'Faro', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Pale Ale', 'American Pale Ale', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner', 'American light', 'American Standard', 'American Premium', 'Munich Helles', 'Dortmunder', 'Helles Bock', 'Kölsch', 'Bière de Garde'] %>
+
+            <% blonde = ['American Wheat', 'Weizenbier', 'Lambic', 'Gueuze', 'Faro', 'Belgian Gold', 'Tripel', 'Saison', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'Ordinary Bitter', 'Scottish Light', 'American Pilsner', 'American Standard', 'American Premium', 'Dortmunder', 'Helles Bock', 'Bière de Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Rauchbier'] %>
+
+            <% golden = ['Weizenbock', 'Lambic', 'Gueuze', 'Faro', 'Flanders Red', 'Oud Bruin', 'Belgian Pale Ale', 'Belgian Dark Ale', 'Dubbel', 'Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Dark', 'Doppelbock', 'Altbier', 'Bière de Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Barley Wine', 'Scotch Ale', 'English Old Ale'] %>
+
+            <% rousse = ['Dunkelweizen', 'Weizenbock', 'Flanders Red', 'Oud Bruin', 'Belgian Dark Ale', 'Dubbel', 'American Amber Ale', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'English Brown', 'American Dark', 'Munich Dunkel', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Altbier', 'Steam Beer', 'Barley Wine', 'Scotch Ale', 'English Old Ale'] %>
+
+            <% brune = ['Weizenbock', 'English Mild', 'American Brown', 'English Brown', 'Brown Porter', 'Munich Dunkel', 'Schwartzbier', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Barley Wine', 'Scotch Ale' ] %>
+
+            <% black = ['Brown Porter', 'Robust Porter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'Schwartzbier', 'Eisbock', 'Scotch Ale'] %>
+
+            <% extra_malty = ['Berliner Weiss', 'Tripel' , 'American Wheat', 'Saison', 'Pale Ale', 'Flanders Red', 'Dubbel', 'English Mild', 'Sweet Stout', 'Belgian Dark Ale', 'Scottish Heavy', 'Weizenbock', 'American Pilsner', 'American Light', 'American Standard', 'American Premium', 'Munich Dunkel', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Scotch Ale', 'Bière De Garde', 'English old Ale', 'Cream Ale' ] %>
+
+            <% slighty_malty = ['Belgian Gold', 'English Brown', 'American Amber Ale', 'Scottish Export', 'Oud Bruin', 'Robust Porter', 'American Wheat', 'Saison' , 'Pale Ale', 'Flanders Red', 'Dubbel', 'Scottish Light', 'Sweet Stout', 'English Mild', 'Belgian Dark Ale', 'Scottish Heavy', 'Brown Porter',' American Pilsner', 'American Standard', 'American Premium', 'American Dark', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier', 'Helles Bock', 'Traditional Bock', 'Eisbock', 'Rauchbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Cream Ale', 'Steam Beer', 'Scotch Ale'] %>
+
+            <% balanced = ['Belgian White', 'Oud Bruin', 'English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'American Wheat', 'Saison', 'Pale Ale', 'Belgian Pale Ale', 'American Pale Ale', 'Scottish Light', 'English Mild', 'Sweet Stout', 'Belgian Dark Ale', 'Scottish Heavy', 'Foreign Extra Stout', 'Brown Porter', 'German Pilsner', 'American Pilsner', 'American Dark', 'Munich Helles', 'Dortmunder', 'Schwartzbier', 'Helles Bock', 'Eisbock', 'Rauchbier', 'Kölsch', 'Altbier' , 'Oktoberfest', 'Barley Wine', 'Cream Ale', 'Steam Beer', 'Scotch Ale' ] %>
+
+            <% slighty_hoppy = ['English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'American Wheat', 'Saison', 'Pale Ale', 'Imperial Stout', 'Belgian Pale Ale', 'American Pale Ale', 'Ordinary Bitter', 'Extra Special Bitter', 'Scottish Light', 'Sweet Stout', 'English Mild', 'Belgian Dark Ale', 'Scottish Heavy', 'Foreign Extra Stout', 'Brown Porter', 'India Pale Ale', 'American Brown', 'Special Bitter', 'German Pilsner', 'American Pilsner', 'Schwartzbier', 'Kölsch', 'Altbier', 'Barley Wine', 'Cream Ale' ] %>
+
+            <% extra_hoppy = ['English Brown', 'American Amber Ale', 'Scottish Export', 'Robust Porter', 'Imperial Stout', 'Ordinary Bitter', 'Extra Special Bitter', 'English Mild', 'Sweet Stout', 'Dry Stout', 'Oatmeal Stout', 'Russian Imperial Stout', 'Foreign Extra Stout', 'India Pale Ale', 'American Brown', 'Special Bitter', 'German Pilsner', 'American Pilsner', 'Kölsch', 'Altbier', 'Barley Wine'] %>
+
+            <% sour = ['Berliner Weiss', 'Belgian White', 'Lambic', 'Gueuze', 'Faro', 'Fruit', 'Flanders Red', 'Oud Bruins' ] %>
+
+            <% neutral = ['American Wheat', 'American Light', 'American Standard', 'American Premium', 'American Dark'] %>
+
+            <% sweet = ['Weizenbier', 'Dunkelweizen', 'Weizenbock', 'Scottish Light', 'Scottish Heavy', 'Scottish Export', 'English Mild', 'American Brown', 'Brown Porter', 'Robust Porter', 'Helles Bock', 'Doppelbock', 'Traditional Bock', 'Eisbock', 'Altbier', 'Bière De Garde', 'Oktoberfest', 'Vienna', 'Ranchbier', 'English Strong Ale', 'Cream Ale', 'Barley Wine', 'Steam Beer', 'Scotch Ale' ] %>
+
+            <% bitter = ['Pale Ale', 'American Pale Ale', 'India Pale Ale', 'American Amber Ale', 'Ordinary Bitter', 'Special Bitter', 'Extra Special Bitter', 'Dry Stout', 'Sweet Stout', 'Oatmeal Stout', 'Foreign Extra Stout', 'Imperial Stout', 'Russian Imperial Stout', 'German Pilsner', 'Bohemian Pilsner', 'American Pilsner'] %>
+            <% spicy = ['Belgian Gold', 'Saison', 'Belgian Pale', 'Belgian Dark Ale', 'Dubbel', 'Munich Helles', 'Dortmunder', 'Munich Dunkel', 'Schwartzbier'] %>
+            <% smoked = ['Rauchbier', 'Scotch Ale' ] %>
+
+            <% results = [] %>
+            <% targets_alcohol = [] %>
+            <% trash = [] %>
+            <% targets_yeast = [] %>
+            <% targets_b = [] %>
+            <% targets_mt = [] %>
+            <% targets_c = [] %>
+            <% vst = [] %>
+            <% st = [] %>
+            <% rt = [] %>
+            <% lt = [] %>
+            <% aft = [] %>
+            <% targets_a = [] %>
+            <% targets_s = [] %>
+            <% classic_results = [] %>
+
+            <% if @user.design.category.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% if tb.category.name == @user.design.category.name %>
+                  <% targets_yeast << tb %>
+                  <% classic_results << tb %>
+                <% end %>
+              <% end %>
+              <% if @user.design.category.name == 'Ales' %>
+                <% results << ales %>
+              <% end %>
+              <% if @user.design.category.name == 'Lagers' %>
+                <% results << lagers %>
+              <% end %>
+              <% if @user.design.category.name == 'Mixed Styles' %>
+                <% results << mixed_styles %>
+              <% end %>
+              <% if @user.design.category.name == 'Spontaneous' %>
+                <% results << spontaneous %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.alcohol_shape.present? %>
+              <% @typical_beers.each do |c| %>
+                <% if c.alcohol_shape.present? %>
+                  <% if c.alcohol_shape.name == @user.design.alcohol_shape.name %>
+                    <% targets_alcohol << c  %>
+                    <% classic_results << c %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if @user.design.alcohol_shape.name == '9°≤ Très forte ' %>
+                <% results << very_strong_beers %>
+              <% end %>
+              <% if @user.design.alcohol_shape.name == '6°≤ Forte ≤ 9°'%>
+                <% results << strong_beers %>
+              <% end %>
+              <% if @user.design.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
+                <% results << regular_beers %>
+              <% end %>
+              <% if @user.design.alcohol_shape.name == '1° ≤ Légère ≤ 4°' %>
+                <% results << light_beers %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.balance.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% if tb.balance.name == @user.design.balance.name %>
+                  <% targets_b << tb %>
+                  <% classic_results << tb %>
+                <% end %>
+              <% end %>
+              <% if @user.design.balance.name == 'Très houblonnée' %>
+                <% results << extra_hoppy %>
+              <% end %>
+              <% if @user.design.balance.name == 'Houblonnée' %>
+                <% results << slighty_hoppy %>
+              <% end %>
+              <% if @user.design.balance.name == 'Équilibrée' %>
+                <% results << balanced %>
+              <% end %>
+              <% if @user.design.balance.name == 'Maltée' %>
+                <% results << slighty_malty %>
+              <% end %>
+              <% if @user.design.balance.name == 'Très maltée' %>
+                <% results << extra_malty %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.flavours.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% tb.flavours.each do |f| %>
+                  <% @user.design.flavours.each do |uf| %>
+                    <% if f.name == uf.name %>
+                      <% targets_a << tb %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.feelings.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% tb.feelings.each do |f| %>
+                  <% @user.design.feelings.each do |uf| %>
+                    <% if f.name == uf.name %>
+                      <% targets_s << tb %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.design_color.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% if tb.design_color.name == @user.design.design_color.name %>
+                  <% targets_c << tb %>
+                  <% classic_results << tb %>
+                <% end %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Blanche' %>
+                <% results << yellow %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Blonde' %>
+                <% results << blonde %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Ambrée' %>
+                <% results << golden %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Rousse' %>
+                <% results << rousse %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Brune' %>
+                <% results << brune %>
+              <% end %>
+              <% if @user.design.design_color.name == 'Noire' %>
+                <% results << black %>
+              <% end %>
+            <% end %>
+
+            <% if @user.design.main_taste.present? %>
+              <% @typical_beers.each do |tb| %>
+                <% if tb.main_taste.name == @user.design.main_taste.name %>
+                  <% targets_mt << tb %>
+                  <% classic_results << tb %>
+                <% end %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Acidulé' %>
+                <% results << sour %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Doux' %>
+                <% results << neutral %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Liquoreux' %>
+                <% results << sweet %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Amer' %>
+                <% results << bitter %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Épicé' %>
+                <% results << spicy %>
+              <% end %>
+              <% if @user.design.main_taste.name == 'Fumé' %>
+                <% results << smoked %>
+              <% end %>
+            <% end %>
+
+
+            <% must = classic_results.flatten.group_by(&:itself) %>
+            <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
+            <% first_choices = sorted_must.select! { |key, value| value == 5 } %>
+            <% if !first_choices.nil? %>
+              <% five_stars = first_choices.keys %>
+              <% if five_stars != [] %>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <p class='shadow p-top p-bottom center'>Styles à privilégier</p>
+                      <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </p>
+                      <p class='shadow p-top p-bottom center'>
+                        <% five_stars.each do |f| %>
+                          |<%= f.name %>|
+                        <% end %>
+                      </p>
+                      <div class="row">
+                        <% five_stars.each do |f| %>
+                          <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                            <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <div class="row col-9 mx-auto icons top">
+              <div class="user-icons" data-toggle="modal" data-target="#yeast" id="yeast-link">
+                <div class="introduction-user-actions"> <i class="fas fa-bread-slice icon"></i></div>
+                <p class='icon-legend'>Levures</p>
+              </div>
+              <% if @user.design.alcohol_shape.present? %>
+                <div class="user-icons" data-toggle="modal" data-target="#alcohol_level" id="alcohol_level-link">
+                  <div class="introduction-user-actions"><i class="fas fa-wine-bottle icon"></i></div>
+                  <p class='icon-legend'>Alcool</p>
+                </div>
+              <% end %>
+              <div class="user-icons" data-toggle="modal" data-target="#balance" id="balance-link">
+                <div class="introduction-user-actions"> <i class="fas fa-balance-scale icon"></i></div>
+                <p class='icon-legend'>Équilibre</p>
+              </div>
+              <div class="user-icons" data-toggle="modal" data-target="#main_taste"id="main_taste-link">
+                <div class="introduction-user-actions"> <i class="far fa-grin-tongue icon"></i></div>
+                <p class='icon-legend'>Tendance</p>
+              </div>
+            </div>
+            <div class="row col-9 mx-auto icons top">
+              <div class="user-icons" data-toggle="modal" data-target="#color" id="color-link">
+                <div class="introduction-user-actions"> <i class="fas fa-palette icon"></i></div>
+                <p class='icon-legend'>Couleur</p>
+              </div>
+              <div class="user-icons" data-toggle="modal" data-target="#flavour"id="flavour-link">
+                <div class="introduction-user-actions"> <i class="fas fa-list-ol icon"></i></div>
+                <p class='icon-legend'>Arômes</p>
+              </div>
+              <div class="user-icons" data-toggle="modal" data-target="#feeling" id="feeling-link">
+                <div class="introduction-user-actions"><i class="fas fa-eye icon"></i></div>
+                <p class='icon-legend'>Visuel</p>
+              </div>
+              <div class="user-icons" data-toggle="modal" data-target="#best" id="feeling-link">
+                <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
+                <p class='icon-legend'>Trackr</p>
+              </div>
+            </div>
+
+            <div class="modal fade" id="yeast" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Fermentation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de fermentation </div>
+                    <div class="row">
+                      <% targets_yeast.each do |y| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: y %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="alcohol_level" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Niveau d'Alcool</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère de niveau d'alcool </div>
+                    <div class="row">
+                      <% targets_alcohol.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="balance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Équilibre</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critère d'équilibre</div>
+                    <div class="row">
+                      <% targets_b.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="main_taste" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Tendance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de palais</div>
+                    <div class="row">
+                      <% targets_mt.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="color" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Couleur</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères de couleur </div>
+                    <div class="row">
+                      <% targets_c.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="flavour" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Arômes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'arômes</div>
+                    <div class="row">
+                      <% targets_a.uniq.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="feeling" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Apparences</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='shadow p-top p-bottom center'>Styles Sélectionnées sur critères d'apparences</div>
+                    <div class="row">
+                      <% targets_s.uniq.each do |b| %>
+                        <div class="mx-auto col-12">
+                          <%= render 'typical_beers/sober_card', typical_beer: b %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="modal fade" id="best" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title center" id="exampleModalLabel">Synthese du Beertrackr</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <% must = results.flatten.group_by(&:itself) %>
+                    <% sorted_must = must.map{|k, v| [k, v.length]}.to_h.sort_by {|_key, value| value}.to_h %>
+                    <% first_choices = sorted_must.select! { |key, value| value >= 5 } %>
+                    <% if !first_choices.nil? %>
+                      <% five_stars = first_choices.keys %>
+                      <% if five_stars != [] %>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <p class='shadow p-top p-bottom center'>Bières </p>
+                              <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
+                              <p class='shadow p-top p-bottom center'>
+                                <% five_stars.each do |f| %>
+                                  |<%= f %>|
+                                <% end %>
+                              </p>
+                              <div class="row">
+                                <% five_stars.each do |f| %>
+                                  <% @beers.each do |b| %>
+                                    <% if b.style.present? %>
+                                      <% if f == b.style.name %>
+                                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                                          <%= render 'beers/sober_card', beer: b %>
+                                        </div>
+                                      <% end %>
+                                    <% elsif b.typical_beer.style.present? %>
+                                      <% if f == b.typical_beer.style.name %>
+                                        <div class="mx-auto col-xs-12 col-sm-4 col-lg-3 index">
+                                          <%= render 'beers/sober_card', beer: b %>
+                                        </div>
+                                      <% end %>
+                                    <% end %>
+                                  <% end %>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class='col-12 bottom'>
+        <div class="card p-top p-bottom bottom shadow">
+          <% if @user == current_user %>
+            <% if @user.store.present? %>
+              <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                <div class='user-section'>Construction de cave</div>
+              <% else %>
+                <div class='user-section'>Visite de cave</div>
+              <% end %>
+            <% else %>
+              <div class='user-section'>Construction de cave</div>
+            <% end %>
+          <% else %>
+            <div class='user-section'>Construction de cave</div>
+          <% end %>
+          <div class="row col-9 mx-auto icons top">
+            <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
+              <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
+              <p class='icon-legend'>À tester</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
+              <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
+              <p class='icon-legend'>Ma cave</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
+              <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
+              <p class='icon-legend'>Journal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-12 bottom'>
+        <div class="card p-top p-bottom bottom shadow">
+          <div class='user-section'>Caisse à outils</div>
+          <div class="row col-9 mx-auto icons top">
+            <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
+              <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
+              <p class='icon-legend'>Stickers</p>
+            </div>
+            <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
+              <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
+              <p class='icon-legend'>Projets</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="counters col-lg-3">
+      <% if @beers.present? %>
+        <div class="row bottom">
+          <div class="col-12" id="beer"">
+            <% b = @beers.last %>
+            <%= link_to b do  %>
+              <div class="card shadow p-top">
+                <p class="card-text p-bottom">Dernière bière crèé</p>
+                <%= cl_image_tag b.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= b.name.upcase %></h5>
+                  <% if b.style.present? %>
+                    <p class="card-text"><%= b.style.name %></p>
+                  <% else %>
+                    <p class="card-text"><%= b.typical_beer.style.name %></p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @stores.present? %>
+        <div class="row bottom">
+          <div class="col-12"  id="store">
+            <% s = @stores.last %>
+            <%= link_to s do  %>
+              <div class="card shadow p-top">
+                <p class="card-text">Dernière cave crèé</p>
+                <div class="card-body">
+                  <h5 class="card-title"><%= s.name %></h5>
+                  <p class="card-text"><%= s.city %></p>
+                  <p class="card-text"><%= @stores.count %> Caves sur Beertrackr</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @users.present? %>
+        <div class="row bottom" >
+          <div class="col-12" id="user">
+            <% u = @users.last %>
+            <%= link_to u do  %>
+              <div class="card shadow p-top">
+                <p class="card-text">Nouvel arrivé sur le BeerWidr</p>
+                <div class="card-body">
+                  <h5 class="card-title"><%= u.name %></h5>
+                  <p class="card-text"><%= @users.count %> Académiciens sur le BeerWidr</p>
+                  <p class="card-text"><%= @users.count %> Caves sur Beertrackr</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @stickers.present? %>
+        <div class="row bottom" >
+          <div class="col-12" id="sticker">
+            <% s = @stickers.last %>
+            <div class="card shadow p-top">
+              <p class="card-text">Nouvelle création d'étiquette sur le BeerMakr</p>
+              <div class="card-body">
+                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <h5 class="card-title"><%= s.user.name %></h5>
+                <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
-  </div>
-  <div class='col-12 col-lg-9 bottom'>
-    <div class="card p-top p-bottom bottom shadow">
-      <% if @user == current_user %>
-        <% if @user.store.present? %>
-          <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-            <div class='user-section'>Construction de cave</div>
-          <% else %>
-            <div class='user-section'>Visite de cave</div>
-          <% end %>
-        <% else %>
-          <div class='user-section'>Construction de cave</div>
-        <% end %>
-      <% else %>
-        <div class='user-section'>Construction de cave</div>
+      <% if @publications.present? %>
+        <div class="row bottom" >
+          <div class="col-12" id="sticker">
+            <% s = @publications.last %>
+            <div class="card shadow p-top">
+              <p class="card-text">BeerNews</p>
+              <div class="card-body">
+                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <h5 class="card-title"><%= s.user.name %></h5>
+                <% if s.content.present? %>
+                  <p class="card-text"><%= s.content %></p>
+                <% end %>
+                <p class="card-text"><%= @publications.count %> News sur le BeerNews</p>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <div class="row col-9 mx-auto icons top">
-        <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
-          <div class="introduction-user-actions"> <i class="fa fa-beer icon"></i></div>
-          <p class='icon-legend'>À tester</p>
-        </div>
-        <div class="user-icons" data-toggle="modal" data-target="#cave" id="cave-link">
-          <div class="introduction-user-actions"> <i class="fas fa-wine-bottle icon"></i></div>
-          <p class='icon-legend'>Ma cave</p>
-        </div>
-        <div class="user-icons" data-toggle="modal" data-target="#tastings" id="tastings-link">
-          <div class="introduction-user-actions"> <i class="fa fa-newspaper icon"></i></div>
-          <p class='icon-legend'>Journal</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class='col-12 col-lg-9 bottom'>
-    <div class="card p-top p-bottom bottom shadow">
-      <div class='user-section'>Caisse à outils</div>
-      <div class="row col-9 mx-auto icons top">
-        <div class="user-icons" data-toggle="modal" data-target="#user-stickers" id="user-stickers-link">
-          <div class="introduction-user-actions"> <i class="fas fa-sticky-note icon"></i></div>
-          <p class='icon-legend'>Stickers</p>
-        </div>
-        <div class="user-icons" data-toggle="modal" data-target="#user-projects" id="user-projects-link">
-          <div class="introduction-user-actions"> <i class="fas fa-cogs icon"></i></div>
-          <p class='icon-legend'>Projets</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>

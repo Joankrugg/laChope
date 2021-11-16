@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @typical_beers = TypicalBeer.all
     @stickers = @user.stickers
     @projects = @user.projects
+    @stores = Store.all
+    @users = User.all
+    @publications = Publication.all
+
   end
 
   def edit
