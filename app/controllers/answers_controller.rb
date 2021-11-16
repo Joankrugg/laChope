@@ -7,16 +7,19 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @answer = @user.answers.new(answer_params)
-    # we need `publication_id` to associate answer with corresponding publication
     @publication = Publication.find(params[:publication_id])
+    @answer = Answer.new(answer_params)
+    # we need `publication_id` to associate answer with corresponding publication
+
     @answer.publication = @publication
+    @answer.user = current_user
+    @answer.save
     if @answer.save
-      redirect_to publications_path(anchor: "@publication")
+      redirect_to publication_path(@publication)
     else
       render :new
     end
+
   end
 
   def edit

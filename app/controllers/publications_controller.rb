@@ -1,10 +1,9 @@
 class PublicationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_publication, only: [:edit, :update, :destroy]
+  before_action :set_publication, only: [:show, :edit, :update, :destroy]
   def index
     @publications = Publication.all
     @publication = Publication.new
-    @answer = Answer.new
     @beers = Beer.all
     @stores = Store.all
     @users = User.all
@@ -25,7 +24,9 @@ class PublicationsController < ApplicationController
       render :new
     end
   end
-
+  def show
+    @answer = Answer.new
+  end
   def edit
   end
 

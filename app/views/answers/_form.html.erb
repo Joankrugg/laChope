@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 mx-auto form">
-      <%= simple_form_for [@publication, @answer] do |f| %>
+      <%= simple_form_for [@publication, @answer], url: publication_answers_path, method: :post do |f| %>
         <h4>Answer</h4>
         <div class="answer-form-control form-group">
           <%= f.input :content, as: :string, required: false, label: false, autocomplete: 'off', class: "form-control string required" %>
