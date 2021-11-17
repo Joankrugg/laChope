@@ -234,7 +234,7 @@
       </div>
       <div class='col-12 bottom'>
         <div class="card p-top p-bottom bottom shadow">
-          <div class='user-section'>Mon style de bière du moment</div>
+          <div class='user-section'>Style du moment</div>
           <% if @user.design.present? %>
             <div class="design">
               <% if @user.design.category.present? %>
@@ -817,15 +817,15 @@
           <% if @user == current_user %>
             <% if @user.store.present? %>
               <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-                <div class='user-section'>Construction de cave</div>
+                <div class='user-section'>Dégustations</div>
               <% else %>
-                <div class='user-section'>Visite de cave</div>
+                <div class='user-section'>Dégustations</div>
               <% end %>
             <% else %>
-              <div class='user-section'>Construction de cave</div>
+              <div class='user-section'>Dégustations</div>
             <% end %>
           <% else %>
-            <div class='user-section'>Construction de cave</div>
+            <div class='user-section'>Dégustations</div>
           <% end %>
           <div class="row col-9 mx-auto icons top">
             <div class="user-icons" data-toggle="modal" data-target="#fancies" id="fancies-link">
@@ -862,7 +862,7 @@
     <div class="counters col-lg-3">
       <% if @beers.present? %>
         <div class="row bottom">
-          <div class="col-12" id="beer"">
+          <div class="col-12" id="beer">
             <% b = @beers.last %>
             <%= link_to b do  %>
               <div class="card shadow p-top">
