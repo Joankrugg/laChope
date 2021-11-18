@@ -21,7 +21,6 @@
           <h1 class='page-title center'>Toutes Les Bières</h1>
         </div>
 
-
         <%= form_tag(beers_path, method: :get) do %>
           <div class="search-form-control form-group">
             <i class="fas fa-search search-img"></i>
@@ -32,12 +31,16 @@
           </div>
         <% end %>
 
+        <div class="card shadow">
+          <h2 class="header-text">
+            Le brasseur fait le moût mais c'est la fermentation qui fait la bière. On distingue trois types de fermentation.
+          </h2>
+        </div>
+
         <% if lagers != [] %>
-          <div class="card shadow">
+          <div class="card shadow top">
             <h2 class="header-text">
-              Le Brasseur fait le moût, les levures font la bière... En effet, pour fermenter le moût, il est nécessaire de l'ensemencer avec des levures qui vont se charger de transformer les sucres en alcool, et en dioxyde de carbone.
-              La fermentation basse nécessite l'adjonction dans le moût de levures dont l'activité est optimale à des températures basses (idéalement 10-15 °C).
-              Une bière obtenue par fermentation basse est généralement appelée <%= link_to 'Lager', lagers_beers_path %>.
+              La fermentation basse  appelée <%= link_to 'Lager', lagers_beers_path %> nécessite l'ajoût dans le moût de levures dont l'activité est optimale à des températures basses (idéalement 10-15 °C), c'est pour cette raison que cette technique originaire de l'europe centrale est aujourd'hui la plus répandue en brasserie industrielle ; la technologie du siècle dernier a permis le contrôle de la température.
             </h2>
           </div>
           <div class="row">
@@ -52,9 +55,7 @@
         <% if ales != [] %>
           <div class="card shadow">
             <h2 class="header-text">
-              Le Brasseur fait le moût, les levures font la bière... En effet, pour fermenter le moût, il est nécessaire de l'ensemencer avec des levures qui vont se charger de transformer les sucres en alcool, et en dioxyde de carbone.
-              La fermentation haute nécessite l'adjonction dans le moût de levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C).
-              Une bière obtenue par fermentation haute est couramment appelée <%= link_to 'Ale', ales_beers_path %>, notamment au Royaume-Uni.
+              La fermentation haute appelée <%= link_to 'Ale', ales_beers_path %> se fait avec des levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C). Cette technique est plus courante en brasserie artisanale pour des questions d'équipement mais pas que. Évidemment.
             </h2>
           </div>
           <div class="row">
@@ -69,8 +70,8 @@
         <% if mixed_styles != [] %>
           <div class="card shadow">
             <h2 class="header-text">
-              La fermentation mixte combine une fermentation par des levures classiques de brasseries (Saccharomyces pastorianus et Saccharomyces cerevisiae) et une fermentation par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...).
-              Les différents microorganismes peuvent être ensemencés simultanément ou de manière différée selon les résultats escomptés. Il en résulte une grande variété de dynamiques de fermentations dites <%= link_to 'mixtes', mixed_beers_path %>.
+              La fermentation mixte combine les deux types de fermentation précédent de manière à tirer le meilleur parti de chacun.
+              Il s'agit là d'un technique et non d'un type de fermentation à part entière dites. Les bières issues de cette technique sont dites de fermentations <%= link_to 'mixtes', mixed_beers_path %>.
             </h2>
           </div>
           <div class="row">
@@ -88,7 +89,7 @@
             </h2>
           </div>
           <div class="row">
-            <% mixed_styles.each do |b| %>
+            <% spontaneous.each do |b| %>
               <div class="mx-auto col-6 col-lg-4">
                 <%= render 'beer_card', beer: b %>
               </div>

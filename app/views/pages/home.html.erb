@@ -6,13 +6,12 @@
     <div class="row">
       <div class="col-9 mx-auto">
         <h1 class="home-title">BEERTRACKR</h1>
-        <h2 class="slogan">Découvrez des Bières, des Styles, des Caves et les Targets</h2>
+        <h2 class="slogan">Découvre des bières, leurs styles, des caves et les Targets</h2>
         <div><%= link_to 'Cliquez ICI', new_public_search_path, class: 'btn btn-home' %></div>
       </div>
     </div>
   </div>
 </header>
-
 <!-- Icons Grid -->
 <section class="features-icons bg-light text-center">
   <div class="container">
@@ -22,9 +21,9 @@
           <div class="features-icons-icon d-flex ">
             <i class="fas fa-beer m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Découvrez des bières et des styles</h3>
-          <p>Remplissez vos critères sur le BEERTRACKR et retrouvez des exemples commerciaux ou targets qui correspondent à vos goûts </p>
-          <%= link_to "Cliquez ICI", new_public_search_path, class: 'btn btn-modern' %>
+          <h3 class='goodies'>Découvre des styles à explorer</h3>
+          <p>Remplis les critères sur le BEERTRACKR et retrouve des exemples de bières et de styles qui correspondent à tes goûts </p>
+          <%= link_to "BEERTRACKR", new_public_search_path, class: 'btn btn-modern' %>
         </div>
       </div>
       <div class="col-lg-3">
@@ -32,19 +31,9 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-store m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Créez ou trouvez une Cave </h3>
-          <p>Les Magasins, caves à bière, webstores, brasseurs artisanaux et amateurs sont les bienvenus pour faire connaître leurs produits</p>
-          <%= link_to "Cliquez ICI", stores_path, class: 'btn btn-modern' %>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-          <div class="features-icons-icon d-flex">
-            <i class="fas fa-newspaper m-auto" aria-hidden="true"></i>
-          </div>
-          <h3 class='goodies'>Tenez un carnet de dégustations</h3>
-          <p>Créez votre liste d'envie et mettez en ligne vos dégustations en fonction du contexte. Vos appréciations affineront le BEERTRACKR</p>
-          <%= link_to "Cliquez ICI", new_user_registration_path, class: 'btn btn-modern' %>
+          <h3 class='goodies'>Trouve une Brasserie ou un point de vente </h3>
+          <p>Consulte ou ajoute un point de vente de bière qu'on pourra y fasse un tour à l'occasion. On aime les découvertes </p>
+          <%= link_to "BEERMARKETS", market_places_path, class: 'btn btn-modern' %>
         </div>
       </div>
       <div class="col-lg-3">
@@ -52,9 +41,19 @@
           <div class="features-icons-icon d-flex">
             <i class="fas fa-heart m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Designez des Target Beers</h3>
-          <p>Vous pouvez créer un design de bière sur-mesure avec le Brasseur de l'Atelier Target, décrivez vos critères de la boisson au flacon</p>
-          <%= link_to "Cliquez ICI", new_user_registration_path, class: 'btn btn-modern' %>
+          <h3 class='goodies'>Tiens un carnet de dégustations</h3>
+          <p>Enregistre tes dégustations en fonction du contexte et affine le BEERTRACKR. Deviens Zythologue de la communauté</p>
+          <%= link_to "INSCRIPTION", new_user_registration_path, class: 'btn btn-modern' %>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="features-icons-icon d-flex">
+            <i class="fas fa-newspaper m-auto" aria-hidden="true"></i>
+          </div>
+          <h3 class='goodies'>Consulte les actualités du réseau</h3>
+          <p>Si un festival de bière ou une nouvelle brasserie ouvre pas loin de chez toi, tu veux sans doute être au courant non?</p>
+          <%= link_to "ACTUALITÉS", publications_path, class: 'btn btn-modern' %>
         </div>
       </div>
     </div>

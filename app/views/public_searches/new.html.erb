@@ -7,25 +7,25 @@
           <%= f.association :design_color, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
             item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
-          <p class='form-legend'>4 couleurs de bière sont bien connues la blanche, la blonde, l'ambrée et la brune mais on peut aller bien au delà, tant la couleur peut se révéler subjective. Il existe pourtant 2 échelles objectives pour appécier la bière ; le loviblond et l'EBC, mais ce n'est pas la technique qui nous intéresse, alors voici une échelle subjective plus fine que les classiques</p>
+          <p class='form-legend'>Choisis la couleur du genre de bière que tu aimes.</p>
         </div>
         <div class="center">
           <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
             item_wrapper_class: 'squaretag-item', label: "NIVEAU D'ALCOOL" %>
-          <p class='form-legend'>Sans aucun doute la notion qui nous est la plus familière. Notez juste qu'une bière dite classique, c'est 5% d'alcool, tout simplement parce qu'il y a 10g d'alcool dans 25 cl de bière à 5%. Pour le reste, c'est une question de calcul, de goût et de modération</p>
+          <p class='form-legend'>Choisis le niveau d'alcool que tu recherches dans une bière.</p>
         </div>
         <div class="center">
           <%= f.association :main_taste, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
               item_wrapper_class: 'squaretag-item', label: 'TENDANCE' %>
-          <p class='form-legend'>Le palais c'est souvent la première bouche mais c'est surtout le goût dominant, l'impression générale.</p>
+          <p class='form-legend'>La tendance, c'est le goût dominant, l'impression générale.</p>
         </div>
         <div class="center">
           <%= f.association :balance, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'PALAIS' %>
-          <p class='form-legend'>L'équilibre est assez facile à definir, le côté malté c'est celui qui apporte corps, et épaisseur à la bière, le coté houblonné c'est celui de l'amertume et du végétal. Ce qui est sympa c'est qu'une bière peut aussi bien être équilibré en étant forte en malt et forte en houblon qu'en étant faible en malt et faible en houblon. Faîtes confiance à vos sens.</p>
+            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
+          <p class='form-legend'>L'équilibre peut paraitre technique mais pour faire simple, malté c'est plutôt épais et sucré et houblonné plutôt végétal</p>
         </div>
         <div class="center">
           <%= f.association :feelings, as: :check_boxes, required: false,
@@ -37,7 +37,7 @@
           <%= f.association :flavours, as: :check_boxes, required: false,
                         input_html: { class: "squaretag-selector" },
                         item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
-          <p class='form-legend'>Au delà de ce qu'on en connait, ils ont différentes origines, la fermentation, le houblonnage, l'arômatisation, la maturation et j'en passe. Sentez, goûtez, ressentez et regoûtez.</p>
+          <p class='form-legend'>C'est vraiment à ce moment-là qu'il faut faire confiance à ses sens. Les arômes sont parfois francs mais souvent subtils.</p>
         </div>
         <div class="form-actions">
           <%= f.button :submit, "VALIDER", class: "col-3 mx-auto btn btn-primary bottom" %></p>
