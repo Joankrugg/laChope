@@ -1,40 +1,37 @@
 <%= simple_form_for @user do |f| %>
   <div class="form-input">
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-lg-12">
-        <label class="photo">
-          <i class="fas fa-camera-retro"></i>
-          <span style="display:none;">
-            <div class="form-group file required user_photo"><label class="file required" for="user_photo">Photo <abbr title="required">*</abbr></label><input class="form-control-file file required" required="required" aria-required="true" type="file" name="user[photo]" id="user_photo" name="image" accept="image/*" capture="environment"></div>
-          </span>
-        </label>
-      </div>
-      <div class="col-lg-12">
-        <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
-      </div>
+    <div class="col-lg-12 center">
+      <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
     </div>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 center">
         <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 center">
         <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <%= f.association :sexe, required: false, as: :radio_buttons,
-                    input_html: { class: "squaretag-selector center" },
-                    item_wrapper_class: 'squaretag-item', label: 'SEXE' %>
-      </div>
-
-    </div>
-    <%= f.association :activities, as: :check_boxes, label: "Activités",
+    <div class="col-lg-12 center">
+      <%= f.association :activities, as: :check_boxes, label: "Activités",
                   input_html: { class: "squaretag-selector center" },
                     item_wrapper_class: 'squaretag-item', label: 'ACTIVITÉ(S)' %>
-
-    <%= f.input :website, label: "Site Internet" %>
-
+    </div>
+    <div class="col-lg-12 center">
+      <%= f.input :website, label: "Site Internet" %>
+    </div>
+    <div class="col-lg-12 center">
+      <label class="photo">
+        <i class="fas fa-camera-retro"></i>
+        <span style="display:none;">
+          <div class="form-group file required user_photo"><label class="file required" for="user_photo">Photo <abbr title="required">*</abbr></label><input class="form-control-file file required" required="required" aria-required="true" type="file" name="user[photo]" id="user_photo" name="image" accept="image/*" capture="environment"></div>
+        </span>
+      </label>
+    </div>
+    <div class="col-lg-12 center">
+      <%= f.association :sexe, required: false, as: :radio_buttons,
+                  input_html: { class: "squaretag-selector center" },
+                  item_wrapper_class: 'squaretag-item', label: 'SEXE' %>
+    </div>
     <div class="infos">
       <p class='center'>
         <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
