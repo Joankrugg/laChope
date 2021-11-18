@@ -6,7 +6,7 @@
         <label class="photo bottom">
             Choisir une photo
           <span style="display:none;">
-            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture', background_removal: 'pixelz' %>
           </span>
         </label>
 
@@ -15,7 +15,7 @@
         <fieldset class="form-group radio_buttons optional beer_typical_beer">
           <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
           <input type="hidden" name="beer[typical_beer_id]" value="">
-          <% TypicalBeer.all.each do |typical_beer| %>
+          <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
             <div class="squaretag-item">
               <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= typical_beer.id %>"  name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
               <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
