@@ -864,11 +864,11 @@
     <div class="counters col-lg-3">
       <% if @beers.present? %>
         <div class="row bottom">
-          <div class="col-12" id="beer">
-            <% b = @beers.last %>
+          <div class="col-12" >
+            <% b = @beers.sample %>
             <%= link_to b do  %>
-              <div class="card shadow p-top">
-                <p class="card-text p-bottom">Dernière bière crèé</p>
+              <div class="card shadow" id="beer-roulette">
+                <p class="card-text p-top p-bottom">BeerRoulette</p>
                 <%= cl_image_tag b.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
                 <div class="card-body">
                   <h5 class="card-title"><%= b.name.upcase %></h5>
@@ -923,8 +923,8 @@
             <% s = @stickers.last %>
             <div class="card shadow p-top">
               <p class="card-text">Nouvelle création d'étiquette sur le BeerMakr</p>
+              <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
               <div class="card-body">
-                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
                 <h5 class="card-title"><%= s.user.name %></h5>
                 <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
               </div>
@@ -1204,5 +1204,13 @@
       });
     });
 </script>
+<script type="text/javascript">
 
+  $(document).ready(function(){
+    function updateStatus() {
+      $( "#beer-roulette" ).load(window.location.href + " #beer-roulette" );
+    }
+    setInterval(updateStatus, 5000);
+  });
+</script>
 
