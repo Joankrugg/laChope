@@ -82,17 +82,51 @@ class BeersController < ApplicationController
   def ales
     @beers = Beer.all
     @articles = Article.all
-
   end
 
   def mixed
     @beers = Beer.all
     @articles = Article.all
   end
-
   def spontaneous
     @beers = Beer.all
     @articles = Article.all
+  end
+
+  def white
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def gold
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def amber
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def brown
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def ruby
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def black
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
   end
 
   private

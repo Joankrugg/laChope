@@ -60,6 +60,12 @@ Rails.application.routes.draw do
       get :spring
       get :autumn
       get :featuring
+      get :white
+      get :gold
+      get :amber
+      get :brown
+      get :ruby
+      get :black
     end
   end
   get 'concept', to: 'pages#concept'
