@@ -30,6 +30,10 @@
                     </div>
                   <% end %>
                   <p class='wall-publication-content bottom'><%= publication.content %></p>
+                  <% link = URI.extract(publication.content) %>
+                  <%= link_to link[0], target: :blank do %>
+                    <% link[0] %>
+                  <% end %>
                   <% if publication.link.present? %>
                     <p><%= publication.link %></p>
                   <% end %>
