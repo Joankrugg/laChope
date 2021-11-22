@@ -30,12 +30,16 @@
                     </div>
                   <% end %>
                   <p class='wall-publication-content bottom'><%= publication.content %></p>
-                  <% link = URI.extract(publication.content) %>
-                  <%= link_to link[0], target: :blank do %>
-                    <% link[0] %>
-                  <% end %>
                   <% if publication.link.present? %>
-                    <p><%= publication.link %></p>
+                    <% preview = LinkThumbnailer.generate(publication.link) %>
+                    <%= link_to publication.link, target: :blank do %>
+                      <div class="preview">
+                        <h4><%= preview.title %></h4>
+                        <p><%= image_tag preview.favicon %></p>
+                        <p><%= preview.description %></p>
+                        <p><%= image_tag preview.images.first.src, height: 100, crop: :fill, class: "img-responsive" %></p>
+                      </div>
+                    <% end %>
                   <% end %>
                   <% if publication.video.present? %>
                     <%= cl_video_tag(publication.video, :transformation=>[

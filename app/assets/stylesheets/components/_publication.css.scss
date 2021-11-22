@@ -12,7 +12,7 @@
 .publication-form-control .form-control {
   height: 3rem;
   border-radius: 6px;
-  padding-left: 8px;
+  padding-left: 120px;
   padding-right: 5px;
   margin-top: 10px;
   margin-left: 10px;
@@ -30,7 +30,29 @@
   font-size: 24px;
   left: 20px;
 }
+.preview-link{
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #F4F4F4;
+  font-size: 12px;
+}
 
+.comment{
+  position: absolute;
+  bottom: -2px;
+  left: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #F4F4F4;
+  font-size: 12px;
+}
 .publication-action{
   margin-top: 10px;
   margin-left: 10px;
@@ -128,4 +150,8 @@
 }
 .green-shadow{
   box-shadow: 2px 2px 5px $my-green;
+}
+
+.preview{
+  padding: 55px;
 }

@@ -27,6 +27,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'rest-client'
 gem 'nokogiri'
 gem 'pg_search', '~> 2.3.0'
+gem 'metainspector'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -38,6 +39,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'turbolinks_render'
+gem 'link_thumbnailer'
 
 
 group :development, :test do  gem 'pry-byebug'
