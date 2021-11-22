@@ -939,7 +939,11 @@
             <div class="card shadow p-top">
               <p class="card-text">BeerNews</p>
               <div class="card-body">
-                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <% if s.photo.present? %>
+                  <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <% else %>
+                  <%= cl_image_tag"https://res.cloudinary.com/da2krghvd/image/upload/v1633435031/Tu_restes_avec_moi_vbs1in.png", height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <% end %>
                 <h5 class="card-title"><%= s.user.name %></h5>
                 <% if s.content.present? %>
                   <p class="card-text"><%= s.content %></p>
