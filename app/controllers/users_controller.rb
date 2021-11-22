@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :destroy, :update]
 
   def index
-    @users = User.all
-    @articles = Article.all
+    if params[:search].present?
+      @users = User.global_search(params[:search])
+      @articles = Article.all
+    else
+      @users = User.all
+      @articles = Article.all
+    end
   end
 
   def show

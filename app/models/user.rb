@@ -29,6 +29,16 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_one :store, dependent: :destroy
   validates :privacy_code, uniqueness: true, allow_blank: true
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :email ],
+    associated_against: {
+      activities: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
+
   def name
     email.split('@')[0]
   end
