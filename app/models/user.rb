@@ -31,9 +31,10 @@ class User < ApplicationRecord
   validates :privacy_code, uniqueness: true, allow_blank: true
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :email ],
+    against: [ :email, :city, :age ],
     associated_against: {
-      activities: [ :name ]
+      activities: [ :name ],
+      sexe: [ :name]
     },
     using: {
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
