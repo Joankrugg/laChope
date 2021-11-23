@@ -1,15 +1,27 @@
 class MarketPlacesController < ApplicationController
   before_action :set_market_place, only: [:show, :edit, :update, :destroy]
   def index
-    @market_places = MarketPlace.all
 
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @market_places.geocoded.map do |place|
-      {
-        lat: place.latitude,
-        lng: place.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { place: place })
-      }
+    if params[:search].present?
+      @market_places = MarketPlace.global_search(params[:search])
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    else
+      @market_places = MarketPlace.all
+
+      # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
     end
   end
 

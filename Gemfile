@@ -40,6 +40,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'turbolinks_render'
 gem 'link_thumbnailer'
+gem 'simple_form_fancy_uploads'
 
 
 group :development, :test do  gem 'pry-byebug'
