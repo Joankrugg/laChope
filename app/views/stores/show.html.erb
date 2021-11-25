@@ -1,7 +1,11 @@
 <div class="offnavs"></div>
 <% if @store.user == current_user %>
   <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
-    <h1 class='page-title center'><%= link_to @store.name, edit_store_path(@store) %></h1>
+    <%= link_to edit_store_path(@store) do %>
+      <h1 class='page-title center'>
+        <%= @store.name %>
+      </h1>
+    <% end %>
   <% else %>
     <h1 class='page-title center'><%= @store.name %></h1>
   <% end %>

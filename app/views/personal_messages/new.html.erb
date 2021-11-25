@@ -1,7 +1,7 @@
 <div class="offnav"></div>
 <div class="container top bottom">
   <div class="chatMessage">
-    <h1>Nouveau message pour <%= @receiver.name %></h1>
+    <h1 class='page-title'>Nouveau message pour <%= @receiver.name %></h1>
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'receiver_id', @receiver.id  %>
       <div class="search-form-control form-group">

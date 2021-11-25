@@ -1,8 +1,8 @@
 <div class="offnav"></div>
 <div class="container top bottom">
   <div class="row">
-    <div class="col-12 col-lg-8 mx-auto">
-      <div class="card shadow">
+    <div class= "col-12 col-lg-8 mx-auto">
+      <div class="card form shadow">
         <%= simple_form_for [@store, @draftset] do |f| %>
           <div class="col-12">
             <div class="form-group">
@@ -17,9 +17,7 @@
                 <% end %>
               </div>
             </div>
-            <div class="mx-auto">
-              <%= f.button :submit, 'valider', class: 'btn btn-ghost center' %>
-            </div>
+            <p class='center'><%= f.button :submit, 'valider', class: 'btn btn-ghost' %></p>
           </div>
         <% end %>
       </div>

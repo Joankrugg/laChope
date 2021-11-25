@@ -1,5 +1,5 @@
 <%= simple_form_for @publication do |f| %>
-  <h4 class='publication-action'>Publication</h4>
+  <h1 class='publication-action'>Publication</h1>
   <div class="publication-form-control form-group">
     <% if current_user.photo.present? %>
       <%= cl_image_tag current_user.photo.key, class: 'avatar publication-avatar' %>
