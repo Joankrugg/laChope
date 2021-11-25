@@ -29,7 +29,7 @@
                       <%= cl_image_tag publication.photo.key, height: 300, crop: :fill, class: 'top center col-12 col-lg-6 mx-auto img-responsive p-bottom' %>
                     </div>
                   <% end %>
-                  <p class='wall-publication-content bottom'><%= publication.content %></p>
+                  <p class='wall-publication-content'><%= publication.content %></p>
                   <% if publication.link.present? %>
                     <%= link_to publication.link, target: :blank do %>
                       <div class="preview">
