@@ -6,7 +6,7 @@
         <%= simple_form_for [@store, @draftset] do |f| %>
           <div class="col-12">
             <div class="form-group">
-              <label class="control-label check_boxes optional">beers played</label>
+              <h1 class="center control-label check_boxes optional">Disponible à la pression</h1>
               <input type="hidden" name="draftset[beer_ids][]" value="">
               <div class="beer-choices">
                 <% @store.beers.all.each do |beer| %>
@@ -17,7 +17,7 @@
                 <% end %>
               </div>
             </div>
-          <%= f.button :submit %>
+          <%= f.button :submit, 'valider', class: 'btn btn-ghost center' %>
         <% end %>
       </div>
     </div>
