@@ -33,10 +33,10 @@
                   <% if publication.link.present? %>
                     <%= link_to publication.link, target: :blank do %>
                       <div class="preview">
-                        <h4><%= publication.link_title %></h4>
-                        <p><%= image_tag publication.link_favicon %></p>
-                        <p><%= publication.link_description %></p>
-                        <p><%= image_tag publication.link_image, height: 100, crop: :fill, class: "img-responsive" %></p>
+                        <h4 class='preview-title'><%= publication.link_title %></h4>
+                        <p class='preview-favicon'><%= image_tag publication.link_favicon %></p>
+                        <p class='preview-description'><%= publication.link_description %></p>
+                        <p class='preview-image'><%= image_tag publication.link_image, height: 100, crop: :fill, class: "img-responsive" %></p>
                       </div>
                     <% end %>
                   <% end %>
@@ -164,47 +164,12 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  $(document).ready(function(){
-    function updateStatus() {
-      $( "#beer" ).load(window.location.href + " #beer" );
-    }
-    setInterval(updateStatus, 60000);
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    function updateStatus() {
-      $( "#store" ).load(window.location.href + " #store" );
-    }
-    setInterval(updateStatus, 60000);
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    function updateStatus() {
-      $( "#user" ).load(window.location.href + " #user" );
-    }
-    setInterval(updateStatus, 60000);
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    function updateStatus() {
-      $( "#sticker" ).load(window.location.href + " #sticker" );
-    }
-    setInterval(updateStatus, 1000);
-  });
-</script>
 
 <script type="text/javascript">
   $(document).ready(function(){
     function updateStatus() {
       $( "#publications" ).load(window.location.href + " #publications" );
     }
-    setInterval(updateStatus, 10000);
+    setInterval(updateStatus, 60000);
   });
 </script>
