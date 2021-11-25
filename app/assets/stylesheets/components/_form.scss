@@ -264,9 +264,12 @@
 .beer-choice:hover {
   background-color: $my-green;
   cursor: pointer;
+  opacity: 0.7;
+  color: white
 }
 .beer-choice.active {
   background: $my-green;
   opacity: 1;
+  color: white
 }
 
