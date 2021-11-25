@@ -31,13 +31,12 @@
                   <% end %>
                   <p class='wall-publication-content bottom'><%= publication.content %></p>
                   <% if publication.link.present? %>
-                    <% preview = LinkThumbnailer.generate(publication.link) %>
                     <%= link_to publication.link, target: :blank do %>
                       <div class="preview">
-                        <h4><%= preview.title %></h4>
-                        <p><%= image_tag preview.favicon %></p>
-                        <p><%= preview.description %></p>
-                        <p><%= image_tag preview.images.first.src, height: 100, crop: :fill, class: "img-responsive" %></p>
+                        <h4><%= publication.link_title %></h4>
+                        <p><%= image_tag publication.link_favicon %></p>
+                        <p><%= publication.link_description %></p>
+                        <p><%= image_tag publication.link_image, height: 100, crop: :fill, class: "img-responsive" %></p>
                       </div>
                     <% end %>
                   <% end %>
@@ -113,6 +112,21 @@
           </div>
         </div>
       <% end %>
+      <% if @stickers.present? %>
+        <div class="row bottom" >
+          <div class="col-12" >
+            <% s = @stickers.sample %>
+            <div class="card shadow " id="sticker">
+              <p class="card-text p-top">StickrRoulette</p>
+              <div class="card-body">
+                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <h5 class="card-title"><%= s.name %></h5>
+                <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
       <% if @stores.present? %>
         <div class="row bottom">
           <div class="col-12"  >
@@ -147,26 +161,10 @@
           </div>
         </div>
       <% end %>
-      <% if @stickers.present? %>
-        <div class="row bottom" >
-          <div class="col-12" >
-            <% s = @stickers.last %>
-            <div class="card shadow " id="sticker">
-              <p class="card-text p-top">Nouvelle création d'étiquette sur le BeerMakr</p>
-              <div class="card-body">
-                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
-                <h5 class="card-title"><%= u.name %></h5>
-                <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
 <script type="text/javascript">
-
   $(document).ready(function(){
     function updateStatus() {
       $( "#beer" ).load(window.location.href + " #beer" );
@@ -176,7 +174,6 @@
 </script>
 
 <script type="text/javascript">
-
   $(document).ready(function(){
     function updateStatus() {
       $( "#store" ).load(window.location.href + " #store" );
@@ -186,7 +183,6 @@
 </script>
 
 <script type="text/javascript">
-
   $(document).ready(function(){
     function updateStatus() {
       $( "#user" ).load(window.location.href + " #user" );
@@ -196,17 +192,15 @@
 </script>
 
 <script type="text/javascript">
-
   $(document).ready(function(){
     function updateStatus() {
       $( "#sticker" ).load(window.location.href + " #sticker" );
     }
-    setInterval(updateStatus, 60000);
+    setInterval(updateStatus, 1000);
   });
 </script>
 
 <script type="text/javascript">
-
   $(document).ready(function(){
     function updateStatus() {
       $( "#publications" ).load(window.location.href + " #publications" );

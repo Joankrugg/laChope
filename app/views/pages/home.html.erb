@@ -5,7 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-9 mx-auto">
-        <h1 class="home-title">BEERTRACKR</h1>
+        <%= link_to new_public_search_path do %>
+          <h1 class="home-title">BEERTRACKR</h1>
+        <% end %>
         <h2 class="slogan">Découvre des bières, leurs styles, des caves et les Targets</h2>
         <div><%= link_to 'Cliquez ICI', new_public_search_path, class: 'btn btn-home' %></div>
       </div>

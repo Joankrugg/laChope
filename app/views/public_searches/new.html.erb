@@ -1,8 +1,8 @@
 <div class="container bottom">
-  <div class="form-login shadow">
-    <h1 class="center">BEERTRACKR</h1>
-    <%= simple_form_for @public_search do |f| %>
-      <div class="form-inputs">
+  <div class="row">
+    <div class="col-lg-8 mx-auto form shadow">
+      <h1 class="center">BEERTRACKR</h1>
+      <%= simple_form_for @public_search do |f| %>
         <div class="center">
           <%= f.association :design_color, as: :radio_buttons, required: false,
             input_html: { class: "squaretag-selector" },
@@ -39,11 +39,11 @@
                         item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
           <p class='form-legend'>C'est vraiment à ce moment-là qu'il faut faire confiance à ses sens. Les arômes sont parfois francs mais souvent subtils.</p>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "VALIDER", class: "col-3 mx-auto btn btn-primary bottom" %></p>
+        <div class="infos">
+          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
