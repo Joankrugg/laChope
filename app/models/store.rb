@@ -9,6 +9,7 @@ class Store < ApplicationRecord
   has_many :beers, through: :store_beers
   belongs_to :market_place, optional: true
   after_create :store_notification
+  has_one :draftset, dependent: :destroy
   private
 
   def store_notification

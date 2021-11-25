@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_144359) do
+ActiveRecord::Schema.define(version: 2021_11_24_142534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,6 +219,22 @@ ActiveRecord::Schema.define(version: 2021_11_10_144359) do
     t.index ["design_color_id"], name: "index_designs_on_design_color_id"
     t.index ["main_taste_id"], name: "index_designs_on_main_taste_id"
     t.index ["user_id"], name: "index_designs_on_user_id"
+  end
+
+  create_table "draftset_beers", force: :cascade do |t|
+    t.bigint "draftset_id", null: false
+    t.bigint "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_draftset_beers_on_beer_id"
+    t.index ["draftset_id"], name: "index_draftset_beers_on_draftset_id"
+  end
+
+  create_table "draftsets", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_draftsets_on_store_id"
   end
 
   create_table "duration_units", force: :cascade do |t|
@@ -590,6 +606,9 @@ ActiveRecord::Schema.define(version: 2021_11_10_144359) do
   add_foreign_key "designs", "design_colors"
   add_foreign_key "designs", "main_tastes"
   add_foreign_key "designs", "users"
+  add_foreign_key "draftset_beers", "beers"
+  add_foreign_key "draftset_beers", "draftsets"
+  add_foreign_key "draftsets", "stores"
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
   add_foreign_key "mail_alerts", "personal_messages"

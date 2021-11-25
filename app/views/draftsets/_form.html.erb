@@ -1,0 +1,35 @@
+<div class="offnav"></div>
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <div class="card shadow">
+        <%= simple_form_for [@store, @draftset] do |f| %>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label check_boxes optional">beers played</label>
+              <input type="hidden" name="draftset[beer_ids][]" value="">
+              <div class="beer-choices">
+                <% @store.beers.all.each do |beer| %>
+                  <input type="checkbox" class="hidden" value="<%= beer.id %>" name="draftset[beer_ids][]" id="draftset_beer_ids_<%= beer.id %>">
+                  <label class="beer-choice" for="draftset_beer_ids_<%= beer.id %>">
+                    <%= beer.name %>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(".beer-choice").click(function(){
+      $(this).toggleClass("active");
+    });
+  });
+</script>
+
+

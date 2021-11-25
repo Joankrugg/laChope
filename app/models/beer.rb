@@ -20,6 +20,8 @@ class Beer < ApplicationRecord
   belongs_to :main_taste, optional: true
   has_many :store_beers, dependent: :destroy
   has_many :stores, through: :store_beers
+  has_many :draftset_beers, dependent: :destroy
+  has_many :draftsets, through: :draftset_beers
   has_many :beer_flavours, dependent: :destroy
   has_many :flavours, through: :beer_flavours
   has_many :beer_feelings, dependent: :destroy

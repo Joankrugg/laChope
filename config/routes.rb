@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :market_places do
     match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
   end
@@ -16,7 +15,10 @@ Rails.application.routes.draw do
     resources :answers
   end
   resources :projects
-  resources :stores
+  resources :stores do
+    resources :draftsets
+  end
+
   resources :market_places
   resources :typical_beers do
     collection do

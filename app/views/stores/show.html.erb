@@ -13,7 +13,26 @@
     <div class="row">
       <% @store.beers.each do |beer| %>
         <div class="col-lg-3 mx-auto">
-          <%= render 'beers/beer_card', beer: beer %>
+          <div class="card beers-shadow p-top">
+            <%= link_to beer do  %>
+              <%= cl_image_tag beer.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+              <div class="card-body">
+                <h5 class="card-title"><%= beer.name.upcase %></h5>
+                <% if beer.style.present? %>
+                  <p class="card-text"><%= beer.style.name %></p>
+                <% else %>
+                  <p class="card-text"><%= beer.typical_beer.style.name %></p>
+                <% end %>
+                <% if @store.draftset.present? %>
+                  <% @store.draftset.beers.each do |b| %>
+                    <% if b.name == beer.name %>
+                      <p class="card-text">Disponible à la pression</p>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -21,9 +40,16 @@
 <% end %>
 <% if @store.user == current_user %>
   <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+    <%= link_to new_store_draftset_path(@store, @draft) do %>
+      <div class="center">
+        <p>"Bières à la pression"</p>
+      </div>
+    <% end %>
     <p class ='project-info center'><%= link_to "Delete #{@store.name}",
           store_path(@store),
           method: :delete,
           data: { confirm: "Are you sure?" }, class: 'btn btn-ghost bottom' %></p>
   <% end %>
 <% end %>
+
+
