@@ -1,12 +1,12 @@
 <div class="offnav"></div>
 <div class="container top bottom">
   <div class="row">
-    <div class="col-8 mx-auto">
+    <div class="col-12 col-lg-8 mx-auto">
       <div class="card shadow">
         <%= simple_form_for [@store, @draftset] do |f| %>
           <div class="col-12">
             <div class="form-group">
-              <h1 class="center control-label check_boxes optional">Disponible à la pression</h1>
+              <h1 class="center control-label check_boxes optional page-title">Disponible à la pression</h1>
               <input type="hidden" name="draftset[beer_ids][]" value="">
               <div class="beer-choices">
                 <% @store.beers.all.each do |beer| %>
@@ -17,7 +17,8 @@
                 <% end %>
               </div>
             </div>
-          <%= f.button :submit, 'valider', class: 'btn btn-ghost center' %>
+            <%= f.button :submit, 'valider', class: 'btn btn-ghost center' %>
+          </div>
         <% end %>
       </div>
     </div>
