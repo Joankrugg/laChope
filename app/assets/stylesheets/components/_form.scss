@@ -254,7 +254,7 @@
   margin: 20px 0;
 }
 .beer-choice {
-  background: white;
+  background: $light-gray;
   padding: 10px;
   border-radius: 5px;
   opacity: 1;
@@ -262,11 +262,11 @@
   text-align: center;
 }
 .beer-choice:hover {
-  background-color: $light-gray;
+  background-color: $my-green;
   cursor: pointer;
 }
 .beer-choice.active {
-  background: $light-gray;
+  background: $my-green;
   opacity: 1;
 }
 
