@@ -1,2 +1,2 @@
-<%= @personal_message.user.email%> <p>vous a envoyé un message <p>
-<%= @personal_message.body %>
+<p><%= @personal_message.user.email%> vous a envoyé un message sur BEERTRACKR<p>
+<%= link_to 'Voir le message', conversation_url(@personal_message.conversation) %>
