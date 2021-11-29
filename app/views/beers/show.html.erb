@@ -123,24 +123,36 @@
                         </div>
                       <% end %>
                     <% else %>
-                      <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+                      <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
+                        <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+                          <input type="hidden" name="fancy[heart]" value="">
+
+                            <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
+                            <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
+
+                        </fieldset>
                         <div class="center">
-                          <%= f.input :heart, as: :boolean, required: false,
-                            input_html: { class: "tag-selector" },
-                            item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
+                          <%= f.button :button do %>
+                            <i class="far fa-heart"></i>
+                          <% end %>
                         </div>
-                        <p class='card-text center'><%= f.button :submit, "Valider" %></p>
                       <% end %>
                     <% end %>
                   <% end %>
                 <% end %>
               <% else %>
-                <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-                  <div class="center top">
-                    <%= f.input :heart, as: :boolean, required: false,
-                      input_html: { class: "tag-selector" },
-                      item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
-                    <p class='card-text'><%= f.button :submit, "Valider" %></p>
+                <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
+                  <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+                    <input type="hidden" name="fancy[heart]" value="">
+
+                      <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
+                      <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
+
+                  </fieldset>
+                  <div class="center">
+                    <%= f.button :button do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
                   </div>
                 <% end %>
               <% end %>
@@ -248,24 +260,36 @@
                           </div>
                         <% end %>
                       <% else %>
-                        <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+                        <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
+                          <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+                            <input type="hidden" name="fancy[heart]" value="">
+
+                              <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
+                              <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
+
+                          </fieldset>
                           <div class="center">
-                            <%= f.input :heart, as: :boolean, required: false,
-                              input_html: { class: "tag-selector" },
-                              item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
+                            <%= f.button :button do %>
+                              <i class="far fa-heart"></i>
+                            <% end %>
                           </div>
-                          <p class='card-text center'><%= f.button :submit, "Valider" %></p>
                         <% end %>
                       <% end %>
                     <% end %>
                   <% end %>
                 <% else %>
-                  <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-                    <div class="center top">
-                      <%= f.input :heart, as: :boolean, required: false,
-                        input_html: { class: "tag-selector" },
-                        item_wrapper_class: 'tag-item', label: "Ajouter à ma liste d'envies" %>
-                      <p class='card-text'><%= f.button :submit, "Valider" %></p>
+                  <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
+                    <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+                      <input type="hidden" name="fancy[heart]" value="">
+
+                        <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
+                        <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
+
+                    </fieldset>
+                    <div class="center">
+                      <%= f.button :button do %>
+                        <i class="far fa-heart"></i>
+                      <% end %>
                     </div>
                   <% end %>
                 <% end %>

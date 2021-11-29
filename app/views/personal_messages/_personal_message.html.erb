@@ -28,7 +28,12 @@
         <% end %>
         <% if personal_message == c.personal_messages.last %>
           <% unless personal_message.mail_alert.present? || personal_message.read? %>
-            <%= link_to 'Send', new_personal_message_mail_alert_path(personal_message) %>
+            <%= simple_form_for [personal_message, @mail_alert] do |f| %>
+              <%= f.input :mail_notification, as: :boolean, default: true, required: false, as: :hidden %>
+              <%= f.button :button do %>
+                <i class="far fa-envelope"></i>
+              <% end %>
+            <% end %>
           <% end %>
         <% end %>
       </div>

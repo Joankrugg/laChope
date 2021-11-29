@@ -1,11 +1,16 @@
+<div class="offnavs"></div>
 <div class="container bottom">
   <div class="form-login">
-    <h1 class="page-title center">retirer de ma liste d'envie</h1>
-    <%= simple_form_for([ @beer, @fancy ]) do |f| %>
-      <%= f.input :heart, as: :radio_buttons, required: false,
-        input_html: { class: "squaretag-selector" },
-        item_wrapper_class: 'squaretag-item', label: "Autre" %>
-      <p class='card-text center'><%= f.button :submit, "Valider" %></p>
-    <% end %>
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <h1 class="page-title center">Garder dans ma liste d'envies</h1>
+        <%= simple_form_for([ @beer, @fancy ]) do |f| %>
+          <%= f.input :heart, as: :radio_buttons, required: false,
+            input_html: { class: "squaretag-selector" },
+            item_wrapper_class: 'squaretag-item', label: "Autre" %>
+          <p class='card-text center'><%= f.button :submit, "Valider" %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
