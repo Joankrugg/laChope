@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 mx-auto form">
-      <h1 class='page-title'>Recipe</h1>
+      <h1 class='page-title'><%= title 'Recette' %></h1>
       <%= simple_form_for [ @beer, @recipe ], remote: true do |f| %>
         <div class="form-inputs">
           <div class="row">

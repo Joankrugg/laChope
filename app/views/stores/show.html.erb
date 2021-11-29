@@ -7,10 +7,10 @@
       </h1>
     <% end %>
   <% else %>
-    <h1 class='page-title center'><%= @store.name %></h1>
+    <h1 class='page-title center'><%= title @store.name %></h1>
   <% end %>
 <% else %>
-  <h1 class='page-title center'><%= @store.name %></h1>
+  <h1 class='page-title center'><%= title @store.name %></h1>
 <% end %>
 <% if @store.beers.present? %>
   <div class="container">
