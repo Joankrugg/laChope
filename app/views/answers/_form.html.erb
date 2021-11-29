@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8 mx-auto form">
       <%= simple_form_for [@publication, @answer], url: publication_answers_path, method: :post do |f| %>
-        <h1 class='page-title'>Answer</h1>
+        <h1 class='page-title'><%= title Answer%></h1>
         <div class="answer-form-control form-group">
           <%= f.input :content, as: :string, required: false, label: false, autocomplete: 'off', class: "form-control string required" %>
           <label class="answer-img">
