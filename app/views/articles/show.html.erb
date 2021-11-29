@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-lg-9">
       <div class="card">
-        <h4 class='article-top-title top center'><%= @article.title.upcase %></h4>
+        <h4 class='article-top-title top center'><%= title @article.title.upcase %></h4>
         <div class="article-top center">
           <p class="article-top-infos"><%= @article.created_at.strftime("%d/%m/%Y") %> | <%= @article.theme.name %> | par <%= @article.user.username %></p>
         </div>
