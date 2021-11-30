@@ -236,6 +236,9 @@
 #BeerFamily.create({name:'Strong Ale'})
 
 
+MarketStyle.create({name:'Bar'})
+MarketStyle.create({name:'Cave'})
+MarketStyle.create({name:'Brasserie'})
 
 
 

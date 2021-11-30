@@ -8,6 +8,9 @@
         <%= f.input :city, required: false, label: 'Ville', input_html: { class: 'center'}   %>
         <%= f.input :zipcode, required: false, label: 'Code Postal', input_html: { class: 'center'}   %>
         <%= f.input :website, required: false, label: 'Site Internet', input_html: { class: 'center'}   %>
+        <%= f.association :market_style, as: :radio_buttons, required: false, label: "Type d'adresse",
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item' %>
         <%= f.button :submit, 'valider', class: 'btn btn-ghost' %>
       <% end %>
     </div>

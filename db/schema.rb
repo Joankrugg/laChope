@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_142534) do
+ActiveRecord::Schema.define(version: 2021_11_30_144225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -288,6 +288,14 @@ ActiveRecord::Schema.define(version: 2021_11_24_142534) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "market_style_id"
+    t.index ["market_style_id"], name: "index_market_places_on_market_style_id"
+  end
+
+  create_table "market_styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "packs", force: :cascade do |t|
@@ -612,6 +620,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_142534) do
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
   add_foreign_key "mail_alerts", "personal_messages"
+  add_foreign_key "market_places", "market_styles"
   add_foreign_key "packs", "bottles"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"
