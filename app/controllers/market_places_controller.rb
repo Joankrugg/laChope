@@ -13,9 +13,17 @@ class MarketPlacesController < ApplicationController
       end
     else
       @market_places = MarketPlace.all
-
+      @bars = @market_places.where(market_style_id: 1)
+      @breweries = @market_places.where(market_style_id: 3)
       # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-      @markers = @market_places.geocoded.map do |place|
+      @markers = @breweries.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+      @trackers = @bars.geocoded.map do |place|
         {
           lat: place.latitude,
           lng: place.longitude,
@@ -79,6 +87,6 @@ class MarketPlacesController < ApplicationController
   end
 
   def market_place_params
-    params.require(:market_place).permit(:name, :city, :zipcode, :website)
+    params.require(:market_place).permit(:name, :city, :zipcode, :website, :market_style_id)
   end
 end
