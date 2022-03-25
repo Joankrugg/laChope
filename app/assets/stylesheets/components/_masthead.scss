@@ -1,6 +1,6 @@
 header.masthead {
   position: relative;
-  background-color: $gray-800;
+  background-color: $gray;
   background: url('https://res.cloudinary.com/da2krghvd/image/upload/v1622019894/front-black-small_euz3fo.jpg') no-repeat;
   background-size: cover !important;
   background-position: center center !important;
@@ -8,7 +8,7 @@ header.masthead {
   padding-bottom: 8rem;
   .overlay {
     position: absolute;
-    background-color: $gray-900;
+    background-color: $gray;
     height: 100%;
     width: 100%;
     top: 0;
