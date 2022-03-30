@@ -11,23 +11,47 @@ class Publication < ApplicationRecord
   after_create :link_image
 
   def link_title
-    preview = LinkThumbnailer.generate(link)
-    preview.title
+    if link[0..6] == 'http://' || link[0..7] == 'https://'
+      begin
+      preview = LinkThumbnailer.generate(link)
+      preview.title
+      rescue LinkThumbnailer::Exceptions => e
+      preview = 'No title'
+      end
+    end
   end
 
   def link_favicon
-    preview = LinkThumbnailer.generate(link)
-    preview.favicon
+    if link[0..6] == 'http://' || link[0..7] == 'https://'
+      begin
+      preview = LinkThumbnailer.generate(link)
+      preview.favicon
+      rescue LinkThumbnailer::Exceptions => e
+      preview = 'https://res.cloudinary.com/da2krghvd/image/upload/v1636547916/Admin/Logo.png'
+      end
+    end
   end
 
   def link_description
-    preview = LinkThumbnailer.generate(link)
-    preview.description
+    if link[0..6] == 'http://' || link[0..7] == 'https://'
+      begin
+      preview = LinkThumbnailer.generate(link)
+      preview.description
+      rescue LinkThumbnailer::Exceptions => e
+      preview = 'No description'
+      end
+    end
   end
 
   def link_image
-    preview = LinkThumbnailer.generate(link)
-    preview.images.first.src
+    if link[0..6] == 'http://' || link[0..7] == 'https://'
+      begin
+      preview = LinkThumbnailer.generate(link)
+      preview.image
+      rescue LinkThumbnailer::Exceptions => e
+      preview = 'https://res.cloudinary.com/da2krghvd/image/upload/v1636547916/Admin/Logo.png'
+      end
+    end
   end
 
 end
