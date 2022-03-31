@@ -19,14 +19,14 @@
           <% if current_user.store.present? %>
             <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
               <%= link_to edit_article_path(@article) do %>
-                <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+                <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid", alt: @article.title %>
               <% end %>
             <% else %>
-              <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+              <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid", alt: @article.title %>
             <% end %>
           <% end %>
         <% else %>
-          <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid" %>
+          <%= cl_image_tag @article.photo.key, width: 900, crop: :fill, class: "img-fluid", alt: @article.title %>
         <% end %>
         <% content = @article.content.split('  ') %>
         <% content.each do |text| %>
