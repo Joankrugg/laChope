@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-lewagon fixed-top">
-  <%= link_to root_path do %>
+  <%= link_to root_path, alt: 'Home' do %>
     <%= cl_image_tag"https://res.cloudinary.com/da2krghvd/image/upload/v1633435031/Tu_restes_avec_moi_vbs1in.webp", class: 'business-avatar', id: 'brand_root' %>
   <% end %>
   <ul class="navbar-nav mr-auto">
@@ -32,7 +32,7 @@
           <% if current_user.photo.present? %>
             <%= cl_image_tag current_user.photo.key, fetch_format: :auto, class: "avatar" %>
           <% else %>
-            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", class: "avatar" %>
+            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1614174132/logo_la_chope_gqgs3l.png", alt: 'Logo' , class: "avatar" %>
           <% end %>
         </li>
         <% conversations.each do |c| %>
