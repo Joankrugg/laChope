@@ -1,37 +1,49 @@
-<div class="offnavs"></div>
-<div class="container">
-  <h1 class='page-title center'><%= title 'Tes critères de recherche' %></h1>
-  <div class="shadow p-top p-bottom">
-    <div class="row">
-      <div class="mx-auto center">
-        <p class='center'> Tu veux une bière</p>
-        <p class='center criteria'> * <%= @public_search.design_color.name %></p>
-        <p class='center'> Plutôt</p>
-        <p class='center criteria'> * <%= @public_search.alcohol_shape.name %></p>
-        <p class='center'> Avec une tendance</p>
-        <p class='center criteria'> * <%= @public_search.main_taste.name %></p>
-        <p class='center'> Et un palais</p>
-        <p class='center criteria'> * <%= @public_search.balance.name %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="mx-auto center">
-        <p class='center'> Pour l'apparence et les sensations</p>
-        <% if @public_search.feelings.present? %>
-          <% @public_search.feelings.each do |f| %>
-            <p class='center criteria'> * <%= f.name %></p>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="mx-auto center">
-        <p class='center'> Et Niveau arômes ....</p>
-        <% if @public_search.flavours.present? %>
-          <% @public_search.flavours.each do |f| %>
-            <p class='center criteria'><%= f.name %></p>
-          <% end %>
-        <% end %>
+<div class="container bottom">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <div class="blackboard">
+        <h1><%= title 'Tes critères de recherche' %></h1>
+        <div class="shadow p-top p-bottom">
+          <div class="row">
+            <div class="mx-auto">
+              <p class='center'> Tu veux une bière</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-lg-4 mx-auto">
+              <div class='validate'><%= @public_search.alcohol_shape.name %></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-lg-3 mx-auto">
+              <div class='validate'><%= @public_search.design_color.name %></div>
+            </div>
+            <div class="col-6 col-lg-3 mx-auto">
+              <div class='validate'><%= @public_search.main_taste.name %></div>
+            </div>
+            <div class="col-6 col-lg-3 mx-auto">
+              <div class='validate'><%= @public_search.balance.name %></div>
+            </div>
+          </div>
+          <div class="row">
+            <% if @public_search.feelings.present? %>
+              <% @public_search.feelings.each do |f| %>
+                <div class="col-6 col-lg-3 mx-auto">
+                  <div class='validate'><%= f.name %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="row">
+            <% if @public_search.flavours.present? %>
+              <% @public_search.flavours.each do |f| %>
+                <div class="col-6 col-lg-3 mx-auto">
+                  <div class='validate'><%= f.name %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -211,6 +223,8 @@
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class='center p-top p-bottom shadow'>Mais... malheureusement, nous n'avons pas ce genre de bière en base</div>
     <% end %>
   <% else %>
     <div class="container">
@@ -375,9 +389,12 @@
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class='center p-top p-bottom shadow'>Mais... malheureusement, nous n'avons pas ce genre de bière en base</div>
     <% end %>
   <% end %>
 <% else %>
+
   <div class="container">
     <% @beers.each do |tb| %>
       <% if @public_search.balance.present? %>
@@ -540,6 +557,8 @@
         </div>
       </div>
     <% end %>
+  <% else %>
+    <div class='center p-top p-bottom shadow'>Mais... malheureusement, nous n'avons pas ce genre de bière en base</div>
   <% end %>
 <% end %>
 
