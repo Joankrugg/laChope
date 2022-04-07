@@ -25,26 +25,26 @@ header.masthead {
     }
   }
 }
+.home-title{
+  color: #151718;
+  text-shadow: 2px 2px 5px white;
+  padding-bottom: 20px;
+}
+
+.home-title:hover{
+  color: white;
+  text-shadow: none;
+}
 .slogan{
   font-weight: lighter;
   font-size: 16px;
-  padding-bottom: 2rem;
+  padding-bottom: 26px;
   color: $my-green;
 }
 
 .slogan:hover{
   color: white;
   text-shadow: 1px #3C3C3C;
-}
-
-.home-title{
-  color: #151718;
-  text-shadow: 2px 2px 5px white;
-}
-
-.home-title:hover{
-  color: white;
-  text-shadow: none;
 }
 
 .fa-hand-point-left{
