@@ -3,16 +3,18 @@
   padding: 5px 20px;
   border-radius: 4px;
   font-weight: lighter;
-  background-image: linear-gradient(-270deg, #368c8c, #54C7CF);
+  background-image: linear-gradient(-270deg, black, #3C3C3C);
   margin-bottom: 5px;
   margin-top: 5px;
-  border: none;
-  transition: background 0.3s ease;
+  border: 1px solid $my-gold;
+  transition: all 0.3s ease;
 }
 
 .btn-ghost:hover {
-  background-image: linear-gradient(-270deg, $my-green, $my-green);
-  color: white;
+  background: $my-gold;
+  border: 1px solid black;
+  color: black;
+  transform: scale(1.1);
 }
 
 .btn-alternative {
