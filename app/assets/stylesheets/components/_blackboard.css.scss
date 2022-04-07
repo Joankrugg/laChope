@@ -1,0 +1,41 @@
+.blackboard{
+  background-image: linear-gradient(-245deg, black, #3C3C3C);
+  padding: 10px 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  border-radius: 30px;
+}
+
+.blackboard h1{
+  font-size: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Allura', sans-serif;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+}
+
+.blackboard legend{
+  color: white;
+  text-align: center;
+}
+
+.blackboard p{
+  font-size: 14px;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.blackboard .validate{
+  background-color: black;
+  border: 1px solid #ffc65a;
+  color: white;
+  text-align: center;
+  border-radius: 25px;
+  padding: 6px 30px;
+}

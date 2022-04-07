@@ -1,48 +1,48 @@
 <div class="container bottom">
   <div class="row">
-    <div class="col-lg-8 mx-auto form shadow">
-      <h1 class="center page-title"><%= title 'Beertrackr' %></h1>
-      <%= simple_form_for @public_search do |f| %>
-        <div class="center">
-          <%= f.association :design_color, as: :radio_buttons, required: false,
-            input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
-          <p class='form-legend'>Choisis la couleur du genre de bière que tu aimes.</p>
-        </div>
-        <div class="center">
-          <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
-            input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: "NIVEAU D'ALCOOL" %>
-          <p class='form-legend'>Choisis le niveau d'alcool que tu recherches dans une bière.</p>
-        </div>
-        <div class="center">
-          <%= f.association :main_taste, as: :radio_buttons, required: false,
+    <div class="col-lg-8 mx-auto">
+      <div class="blackboard">
+        <h1><%= title 'Beertrackr' %></h1>
+        <%= simple_form_for @public_search do |f| %>
+          <div class="center">
+            <%= f.association :design_color, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'TENDANCE' %>
-          <p class='form-legend'>La tendance, c'est le goût dominant, l'impression générale.</p>
-        </div>
-        <div class="center">
-          <%= f.association :balance, as: :radio_buttons, required: false,
-            input_html: { class: "squaretag-selector" },
-            item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
-          <p class='form-legend'>L'équilibre peut paraitre technique mais pour faire simple, malté c'est plutôt épais et sucré et houblonné plutôt végétal</p>
-        </div>
-        <div class="center">
-          <%= f.association :feelings, as: :check_boxes, required: false,
-                        input_html: { class: "squaretag-selector" },
-                        item_wrapper_class: 'squaretag-item', label: 'APPARENCE & SENSATIONS' %>
-          <p class='form-legend'>C'est ce que tu vois quand tu observes la bière, sa couleur subjective, sa densité, sa clarté et j'en passe</p>
-        </div>
-        <div class="center">
-          <%= f.association :flavours, as: :check_boxes, required: false,
-                        input_html: { class: "squaretag-selector" },
-                        item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
-          <p class='form-legend'>C'est vraiment à ce moment-là qu'il faut faire confiance à ses sens. Les arômes sont parfois francs mais souvent subtils.</p>
-        </div>
-        <div class="infos">
-          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %></p>
-        </div>
-      <% end %>
+              item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
+            <p>Choisis la couleur du genre de bière que tu aimes.</p>
+          </div>
+          <div class="center">
+            <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item', label: "NIVEAU D'ALCOOL" %>
+            <p>Choisis le niveau d'alcool que tu recherches dans une bière.</p>
+          </div>
+          <div class="center">
+            <%= f.association :main_taste, as: :radio_buttons, required: false,
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item', label: 'TENDANCE' %>
+            <p>La tendance, c'est le goût dominant, l'impression générale.</p>
+          </div>
+          <div class="center">
+            <%= f.association :balance, as: :radio_buttons, required: false,
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item', label: 'ÉQUILIBRE' %>
+            <p>L'équilibre peut paraitre technique mais pour faire simple, malté c'est plutôt épais et sucré et houblonné plutôt végétal</p>
+          </div>
+          <div class="center">
+            <%= f.association :feelings, as: :check_boxes, required: false,
+                          input_html: { class: "squaretag-selector" },
+                          item_wrapper_class: 'squaretag-item', label: 'APPARENCE & SENSATIONS' %>
+            <p>C'est ce que tu vois quand tu observes la bière, sa couleur subjective, sa densité, sa clarté et j'en passe</p>
+          </div>
+          <div class="center">
+            <%= f.association :flavours, as: :check_boxes, required: false,
+                          input_html: { class: "squaretag-selector" },
+                          item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
+            <p>C'est vraiment à ce moment-là qu'il faut faire confiance à ses sens. Les arômes sont parfois francs mais souvent subtils.</p>
+          </div>
+          <p class='center'><%= f.button :submit, "Valider", class: "btn validate bottom" %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -80,21 +80,23 @@
   font-family: 'Allura';
   border-radius: 5px;
   padding: 5px 10px;
-  background-color: $light-gray;
-  color: #3C3C3C;
-  border: 1px solid #3C3C3C;
+  background-color: black;
+  color: $light-gray;
+  border: 1px solid #ffc65a;
   margin-right: 5px;
   margin-bottom: 5px;
+  transition: .3s ease-in-out;
 }
 .squaretag-selector:hover + label {
-  background-color: $my-green;
-  border: 1px solid white;
-  color: white;
+  background-color: #ffc65a;
+  border: 1px solid #ffc65a;
+  color: black;
+  transform: scale(1.1);
 }
 
 .squaretag-selector:checked + label {
-  background-color: $my-green;
-  color: white;
+  background-color: #ffc65a;
+  color: black;
 }
 
 // Checkboxes design
