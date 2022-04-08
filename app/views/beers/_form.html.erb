@@ -1,79 +1,83 @@
 <div class="container bottom">
-  <div class="form-login">
-    <h1 class='page-title'><%= title 'Ajoute une bière au catalogue'%></h1>
-    <%= simple_form_for @beer do |f| %>
-      <div class="form-inputs">
-        <label class="photo bottom">
-            Choisir une photo
-          <span style="display:none;">
-            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-          </span>
-        </label>
+  <div class="row">
+    <div class="col-lg-10 col-12 mx-auto">
+      <div class="form-login">
+        <h1 class='page-title'><%= title 'Ajoute une bière au catalogue'%></h1>
+        <%= simple_form_for @beer do |f| %>
+          <div class="form-inputs">
+            <label class="photo bottom">
+                Choisir une photo
+              <span style="display:none;">
+                <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+              </span>
+            </label>
 
-        <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
+            <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
 
-        <fieldset class="form-group radio_buttons optional beer_typical_beer">
-          <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
-          <input type="hidden" name="beer[typical_beer_id]" value="">
-          <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
-            <div class="squaretag-item">
-              <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= typical_beer.id %>"  name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
-              <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
-                <%= cl_image_tag typical_beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
-                <%= typical_beer.name %>
-              </label>
+            <fieldset class="form-group radio_buttons optional beer_typical_beer">
+              <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
+              <input type="hidden" name="beer[typical_beer_id]" value="">
+              <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
+                <div class="squaretag-item">
+                  <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= typical_beer.id %>"  name="beer[typical_beer_id]" id="beer_typical_beer_id_<%= typical_beer.id %>">
+                  <label class="form-check-label collection_radio_buttons" for="beer_typical_beer_id_<%= typical_beer.id %>">
+                    <%= cl_image_tag typical_beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
+                    <%= typical_beer.name %>
+                  </label>
+                </div>
+              <% end %>
+            </fieldset>
+            <%= f.association :beer_family, required: false, as: :radio_buttons,
+                      input_html: { class: "squaretag-selector center" },
+                      item_wrapper_class: 'squaretag-item', label: 'FAMILLE DE BIÈRE' %>
+
+            <label class="geek-link center photo bottom">SPÉCIFICITÉS</label>
+
+            <div class="geek">
+              <%= f.association :design_color, required: false, as: :radio_buttons,
+                      input_html: { class: "squaretag-selector center" },
+                      item_wrapper_class: 'squaretag-item', label: 'ROBE' %>
+
+              <%= f.association :alcohol_shape, required: false, as: :radio_buttons,
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', label: 'TENEUR EN ALCOOL' %>
+
+              <%= f.association :main_taste, required: false, as: :radio_buttons,
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', label: 'GOÛT PRINCIPAL' %>
+
+              <%= f.association :balance, required: false, as: :radio_buttons,
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', label: 'EQUILIBRE'  %>
+
+              <%= f.association :flavours, as: :check_boxes,
+                              input_html: { class: "squaretag-selector" },
+                              item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
+
+              <%= f.association :feelings, as: :check_boxes,
+                              input_html: { class: "squaretag-selector" },
+                              item_wrapper_class: 'squaretag-item', label: 'TEXTURE' %>
+              <div class="row">
+                <div class="col-4">
+                  <%= f.input :color, input_html: { min: '1', max:'80'}, required: false, label: 'EBC' %>
+                </div>
+                <div class="col-4">
+                  <%= f.input :alcohol_level, input_html: { min: '0'}, required: false, label: "ABV"  %>
+                </div>
+                <div class="col-4">
+                  <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false, label: "IBU" %>
+                </div>
+              </div>
+              <%= f.input :description, as: :string, required: false, label: "Description de la Brasserie"  %>
             </div>
-          <% end %>
-        </fieldset>
-        <%= f.association :beer_family, required: false, as: :radio_buttons,
-                  input_html: { class: "squaretag-selector center" },
-                  item_wrapper_class: 'squaretag-item', label: 'FAMILLE DE BIÈRE' %>
 
-        <label class="geek-link center photo bottom">SPÉCIFICITÉS</label>
-
-        <div class="geek">
-          <%= f.association :design_color, required: false, as: :radio_buttons,
-                  input_html: { class: "squaretag-selector center" },
-                  item_wrapper_class: 'squaretag-item', label: 'ROBE' %>
-
-          <%= f.association :alcohol_shape, required: false, as: :radio_buttons,
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'TENEUR EN ALCOOL' %>
-
-          <%= f.association :main_taste, required: false, as: :radio_buttons,
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'GOÛT PRINCIPAL' %>
-
-          <%= f.association :balance, required: false, as: :radio_buttons,
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'EQUILIBRE'  %>
-
-          <%= f.association :flavours, as: :check_boxes,
-                          input_html: { class: "squaretag-selector" },
-                          item_wrapper_class: 'squaretag-item', label: 'ARÔMES' %>
-
-          <%= f.association :feelings, as: :check_boxes,
-                          input_html: { class: "squaretag-selector" },
-                          item_wrapper_class: 'squaretag-item', label: 'TEXTURE' %>
-          <div class="row">
-            <div class="col-4">
-              <%= f.input :color, input_html: { min: '1', max:'80'}, required: false, label: 'EBC' %>
-            </div>
-            <div class="col-4">
-              <%= f.input :alcohol_level, input_html: { min: '0'}, required: false, label: "ABV"  %>
-            </div>
-            <div class="col-4">
-              <%= f.input :bitterness, input_html: { min: '1', max:'100'}, required: false, label: "IBU" %>
+            <div class="form-actions col-12 col-lg-4 mx-auto">
+              <%= f.button :submit, "VALIDER", class: "btn btn-primary" %></p>
             </div>
           </div>
-          <%= f.input :description, as: :string, required: false, label: "Description de la Brasserie"  %>
-        </div>
-
-        <div class="form-actions col-12 col-lg-4 mx-auto">
-          <%= f.button :submit, "VALIDER", class: "btn btn-primary" %></p>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 
