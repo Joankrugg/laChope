@@ -16,7 +16,19 @@
   color: black;
   transform: scale(1.1);
 }
-
+.btn-publication{
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-weight: lighter;
+  background: $my-gold;
+  color: black;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+.btn-publication:hover{
+  transform: scale(1.1);
+}
 .btn-alternative {
   color: white;
   padding: 5px 20px;
@@ -189,21 +201,23 @@
 }
 
 .btn-nav-modern{
-  background-color: $light-gray;
+  background-color: black;
+  border: 1px solid $my-gold;
+  opacity: 1;
+  color: white;
   font-weight: bold;
   border-radius: 4px;
-  color: #4B535B;
   font-size: 22px;
-  opacity: 0.7;
   padding: 15px;
   margin-bottom: 10px;
   font-family: 'Allura';
 }
 
 .btn-nav-modern:hover{
-  background-color: $my-green;
-  opacity: 1;
-  color: white;
+  border: 1px solid black;
+  background-color: $my-gold;
+  color: black;
+  opacity: 0.8;
 }
 
 .soft{

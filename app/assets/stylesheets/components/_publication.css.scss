@@ -6,7 +6,7 @@
   position: absolute;
   top: 115px;
   font-size: 15px;
-  right: 14px;
+  right: 25px;
 }
 
 .publication-form-control .form-control {
@@ -58,6 +58,7 @@
   margin-left: 10px;
   font-family: 'Allura', sans-serif;
   font-weight: lighter;
+  color: white;
 }
 
 .publication-form-control .publication-video {
@@ -67,14 +68,15 @@
   left: 60px;
 }
 .publication-pack{
+  background-image: linear-gradient(-270deg, black, #3C3C3C);
   padding-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 
 .publication-avatar{
   position: absolute;
   right: 15px;
-  bottom: 138px;
+  bottom: 160px;
 }
 .wall-item{
   position: relative;
@@ -125,7 +127,6 @@
   font-size: 15px;
   right: 14px;
 }
-
 .answer-publication-date{
   position: absolute;
   right: 55px;
@@ -136,7 +137,6 @@
   padding-right: 3px;
   padding-left: 3px;
 }
-
 .answer-publication-user{
   position: absolute;
   left: 55px;
@@ -159,14 +159,21 @@
   padding-left: 55px;
   padding-right: 55px;
   padding-bottom: 60px;
-  background-color: #f4f4f4;
+  background-image: linear-gradient(-270deg, black, #3C3C3C);
 }
 
 .preview-title{
-  color: #3C3C3C;
+  color: white;
 }
 
 .preview-description{
-  color: black;
+  color: white;
 }
 
+.fa-camera-retro{
+  color: white;
+}
+
+.fa-video{
+  color: white;
+}
