@@ -2,7 +2,6 @@
   background-image: linear-gradient(-245deg, black, #3C3C3C);
   padding: 10px 20px;
   margin-top: 100px;
-  margin-bottom: 100px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   border-radius: 30px;
@@ -40,3 +39,19 @@
   padding: 6px 30px;
   margin-bottom: 20px;
 }
+
+.head{
+  background-image: linear-gradient(-245deg, black, #3C3C3C);
+  padding: 10px 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  border-radius: 30px;
+}
+
+.head h2{
+  font-size: 24px;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+}
+

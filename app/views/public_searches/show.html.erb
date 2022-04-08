@@ -10,25 +10,25 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6 col-lg-4 mx-auto">
+            <div class="col-8 col-lg-4 mx-auto">
               <div class='validate'><%= @public_search.alcohol_shape.name %></div>
             </div>
           </div>
           <div class="row">
-            <div class="col-6 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-3 mx-auto">
               <div class='validate'><%= @public_search.design_color.name %></div>
             </div>
-            <div class="col-6 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-3 mx-auto">
               <div class='validate'><%= @public_search.main_taste.name %></div>
             </div>
-            <div class="col-6 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-3 mx-auto">
               <div class='validate'><%= @public_search.balance.name %></div>
             </div>
           </div>
           <div class="row">
             <% if @public_search.feelings.present? %>
               <% @public_search.feelings.each do |f| %>
-                <div class="col-6 col-lg-3 mx-auto">
+                <div class="col-8 col-lg-3 mx-auto">
                   <div class='validate'><%= f.name %></div>
                 </div>
               <% end %>
@@ -37,7 +37,7 @@
           <div class="row">
             <% if @public_search.flavours.present? %>
               <% @public_search.flavours.each do |f| %>
-                <div class="col-6 col-lg-3 mx-auto">
+                <div class="col-8 col-lg-3 mx-auto">
                   <div class='validate'><%= f.name %></div>
                 </div>
               <% end %>
@@ -196,8 +196,12 @@
       <% five_stars = first_choices.keys %>
       <% if five_stars != [] %>
         <div class="container">
-          <div class="col-12 col-lg-6 mx-auto">
-            <div class='center p-top p-bottom shadow'>Types de bières</div>
+          <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
+              <div class='head shadow'>
+                <h2>Types de bières</h2>
+              </div>
+            </div>
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
@@ -210,8 +214,10 @@
             <% end %>
           </div>
           <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <div class='center p-top p-bottom shadow'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</div>
+            <div class="col-12 col-lg-10 mx-auto">
+              <div class='head shadow'>
+                <h2>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</h2>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -362,8 +368,12 @@
       <% five_stars = first_choices.keys %>
       <% if five_stars != [] %>
         <div class="container">
-          <div class="col-12 col-lg-6 mx-auto">
-            <div class='center p-top p-bottom shadow'>Types de bières</div>
+          <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
+              <div class='head shadow'>
+                <h2>Types de bières</h2>
+              </div>
+            </div>
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
@@ -376,8 +386,10 @@
             <% end %>
           </div>
           <div class="row">
-            <div class="col-12 col-lg-6 mx-auto">
-              <div class='center p-top p-bottom shadow'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </div>
+            <div class="col-12 col-lg-10 mx-auto">
+              <div class='head shadow'>
+                <h2>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</h2>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -544,8 +556,10 @@
           <% end %>
         </div>
         <div class="row">
-          <div class="col-12 col-lg-6 mx-auto">
-            <div class='center p-top p-bottom shadow'>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> </div>
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class='head shadow'>
+              <h2>Quelques exemples <%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> en magasin</h2>
+            </div>
           </div>
         </div>
         <div class="row">
