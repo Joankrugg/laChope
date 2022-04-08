@@ -37,11 +37,12 @@
   background-image: linear-gradient(-180deg, black, #3C3C3C);
   margin-bottom: 5px;
   margin-top: 5px;
+  border: 1px solid $my-gold;
   transition: background 0.3s ease;
 }
 
 .btn-alternative:hover {
-  background: $my-green;
+  background: $my-gold;
   color: white;
 }
 
