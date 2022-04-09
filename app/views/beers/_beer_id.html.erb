@@ -1,4 +1,9 @@
 <div class="card shadow p-bottom">
   <h5 class='target-top-title center'><%= beer.name.upcase %></h5>
   <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
+  <% if user_signed_in? %>
+    <div class="center">
+      <%= render 'tastings/form' %>
+    </div>
+  <% end %>
 </div>
