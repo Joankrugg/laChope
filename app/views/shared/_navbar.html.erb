@@ -82,15 +82,11 @@
           <div class="link">
             <p class="text-link-title">ALLEMAGNE</p>
           </div>
-          <% allemagne = [] %>
-          <% @typical_beers.each do |tb| %>
+          <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Allemagne' %>
-              <% allemagne << tb %>
-              <% allemagne.sort_by(&:name).each do |a| %>
-                <div class="cell">
-                  <%= link_to "#{a.name}", typical_beer_path(a), class: 'side-link'  %>
-                </div>
-              <% end %>
+              <div class="cell">
+                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -98,15 +94,11 @@
           <div class="link">
             <p class="text-link-title">BELGIQUE</p>
           </div>
-          <% belgique = [] %>
-          <% @typical_beers.each do |tb| %>
+          <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Belgique' %>
-              <% belgique << tb %>
-              <% belgique.sort_by(&:name).each do |a| %>
-                <div class="cell">
-                  <%= link_to "#{a.name}", typical_beer_path(a), class: 'side-link'  %>
-                </div>
-              <% end %>
+              <div class="cell">
+                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -115,15 +107,11 @@
           <div class="link">
             <p class="text-link-title">ÎLES ANGLO-CELTES</p>
           </div>
-          <% islands = [] %>
-          <% @typical_beers.each do |tb| %>
+          <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Îles Anglo-celtes ' %>
-              <% islands << tb %>
-              <% islands.sort_by(&:name).each do |a| %>
-                <div class="cell">
-                  <%= link_to "#{a.name}", typical_beer_path(a), class: 'side-link'  %>
-                </div>
-              <% end %>
+              <div class="cell">
+                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -131,15 +119,11 @@
           <div class="link">
             <p class="text-link-title"> U.S.A </p>
           </div>
-          <% usa = [] %>
-          <% @typical_beers.each do |tb| %>
+          <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'U.S.A' %>
-              <% usa << tb %>
-              <% usa.sort_by(&:name).each do |a| %>
-                <div class="cell">
-                  <%= link_to "#{a.name}", typical_beer_path(a), class: 'side-link'  %>
-                </div>
-              <% end %>
+              <div class="cell">
+                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -149,15 +133,11 @@
           <div class="link">
             <p class="text-link-title"> AUTRES </p>
           </div>
-          <% other = [] %>
-          <% @typical_beers.each do |tb| %>
+          <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Autres' %>
-              <% other << tb %>
-              <% other.sort_by(&:name).each do |a| %>
-                <div class="cell">
-                  <%= link_to "#{a.name}", typical_beer_path(a), class: 'side-link'  %>
-                </div>
-              <% end %>
+              <div class="cell">
+                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
+              </div>
             <% end %>
           <% end %>
         </div>
