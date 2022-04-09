@@ -2,10 +2,13 @@
 <div class="container top">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-9">
-      <div class="card space shadow">
-        <h1 class='page-title center'>
+      <div class="head">
+        <h1>
           <%= title 'Styles De Bière' %>
         </h1>
+      </div>
+      <div class="page-description">
+        <p>Les styles définis ici répondent à des critères précis utilisés en concours, de manière à identifier si le brasseur est en phase avec son intention. À l'atelier, ces styles servent plutôt d'indicateur pour définir un projet et de socle pour la compréhension d'un style. Ces styles appartiennent aux familles plus larges.</p>
       </div>
       <%= form_tag(typical_beers_path, method: :get) do %>
         <div class="search-form-control form-group">
@@ -16,9 +19,7 @@
           </button>
         </div>
       <% end %>
-      <div class="card shadow">
-        <h2 class='header-text'>Les styles définis ici répondent à des critères précis utilisés en concours, de manière à identifier si le brasseur est en phase avec son intention. À l'atelier, ces styles servent plutôt d'indicateur pour définir un projet et de socle pour la compréhension d'un style. Ces styles appartiennent aux familles plus larges.</h2>
-      </div>
+
       <div class="row">
         <% @typical_beers.each do |b| %>
           <div class="mx-auto col-6 col-lg-4">
