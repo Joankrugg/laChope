@@ -1,66 +1,72 @@
 <div class="container bottom">
-  <div class="mx-auto form-login">
-    <h1 class='page-title'><%= title 'Style de bière' %></h1>
-    <%= simple_form_for @typical_beer do |f| %>
-      <div class="form-inputs">
-        <label class="photo bottom">
-          <% if @typical_beer.photo.present? %>
-            <%= cl_image_tag @typical_beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
-          <% else %>
-            Choisir une photo
+  <div class="row">
+    <div class="mx-auto col-lg-10 form-login">
+      <h1 class='page-title'><%= title 'Style de bière' %></h1>
+      <%= simple_form_for @typical_beer do |f| %>
+        <div class="form-inputs">
+          <label class="photo bottom">
+            <% if @typical_beer.photo.present? %>
+              <%= cl_image_tag @typical_beer.photo.key, height: 200, width: 240, crop: :fill, class: 'img-fluid' %>
+            <% else %>
+              Choisir une photo
+            <% end %>
+            <span style="display:none;">
+              <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+            </span>
+          </label>
+          <%= f.input :name, required: false, label:'NOM', input_html: {class: 'center'}  %>
+
+          <%= f.association :category, required: false, as: :radio_buttons, label:'CATÉGORIE',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :style, required: false, as: :radio_buttons, label:'STYLE',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item'  %>
+
+          <%= f.association :beer_family, required: false, as: :radio_buttons, label:'FAMILLE',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :design_color, required: false, as: :radio_buttons, label:'COULEUR',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :balance, required: false, as: :radio_buttons, label:'ÉQUILIBRE',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :alcohol_shape, required: false, as: :radio_buttons, label:"NIVEAU D'ALCOOL",
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :main_taste, required: false, as: :radio_buttons, label:'PALAIS',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :flavours, required: false, as: :check_boxes, label:'ARÔMES',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :feelings, required: false, as: :check_boxes, label:'TEXTURES',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.association :origin, required: false, as: :radio_buttons, label:'ORIGINE',
+                input_html: { class: "squaretag-selector" },
+                item_wrapper_class: 'squaretag-item' %>
+
+          <%= f.input :description, required: false  %>
+
+          <% if current_user.admin? %>
+            <%= f.input :wiki_link, required: false  %>
           <% end %>
-          <span style="display:none;">
-            <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-          </span>
-        </label>
-        <%= f.input :name, required: false, label:'NOM', input_html: {class: 'center'}  %>
 
-        <%= f.association :category, required: false, as: :radio_buttons, label:'CATÉGORIE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :style, required: false, as: :radio_buttons, label:'STYLE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item'  %>
-
-        <%= f.association :beer_family, required: false, as: :radio_buttons, label:'FAMILLE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :design_color, required: false, as: :radio_buttons, label:'COULEUR',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :balance, required: false, as: :radio_buttons, label:'ÉQUILIBRE',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :alcohol_shape, required: false, as: :radio_buttons, label:"NIVEAU D'ALCOOL",
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :main_taste, required: false, as: :radio_buttons, label:'PALAIS',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :flavours, required: false, as: :check_boxes, label:'ARÔMES',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.association :feelings, required: false, as: :check_boxes, label:'TEXTURES',
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-
-        <%= f.input :description, required: false  %>
-
-        <% if current_user.admin? %>
-          <%= f.input :wiki_link, required: false  %>
-        <% end %>
-
-        <div class="form-actions">
-          <p class='center'><%= f.button :submit, "Valider", class: "btn btn-primary bottom"  %></p>
+          <div class="form-actions">
+            <p class='center'><%= f.button :submit, "Valider", class: "btn btn-primary bottom"  %></p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

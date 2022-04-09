@@ -236,10 +236,15 @@
 #BeerFamily.create({name:'Strong Ale'})
 
 
-MarketStyle.create({name:'Bar'})
-MarketStyle.create({name:'Cave'})
-MarketStyle.create({name:'Brasserie'})
+#MarketStyle.create({name:'Bar'})
+#MarketStyle.create({name:'Cave'})
+#MarketStyle.create({name:'Brasserie'})
 
+Origin.create({name:'Allemagne'})
+Origin.create({name:'Belgique'})
+Origin.create({name:'Îles Anglo-celtes '})
+Origin.create({name:'U.S.A'})
+Origin.create({name:'Autres'})
 
 
 
