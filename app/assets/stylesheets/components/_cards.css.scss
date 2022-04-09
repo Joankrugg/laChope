@@ -291,3 +291,14 @@
   color: #3C3C3C;
   cursor: pointer;
 }
+
+.family{
+  margin-top: 100px;
+  padding: 20px;
+  .btn{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
