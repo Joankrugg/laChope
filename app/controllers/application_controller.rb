@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_targets
   before_action :set_articles
   before_action :set_stickers
+  before_action :set_typicals
   before_action :set_user
   before_action :set_projects
   before_action :set_conversations
@@ -22,6 +23,9 @@ class ApplicationController < ActionController::Base
 
   def set_stickers
     @stickers = Sticker.all
+  end
+  def set_typicals
+    @typical_beers = TypicalBeer.all
   end
   def set_user
     @u = User.find_by_id(1)
