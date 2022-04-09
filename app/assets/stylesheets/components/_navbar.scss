@@ -101,10 +101,13 @@
 
 .cell{
   margin-bottom: 3px;
+  background-color: $light-gray;
+  text-align: center;
 }
 
 .cell:hover{
-  background-color: $light-gray;
+  background-color: $my-gold;
+  border: 1px solid black;
 }
 
 .second-nav-link{
