@@ -103,11 +103,11 @@
   margin-bottom: 3px;
   background-color: $light-gray;
   text-align: center;
+  border-radius: 3px;
 }
 
 .cell:hover{
   background-color: $my-gold;
-  border: 1px solid black;
 }
 
 .second-nav-link{
