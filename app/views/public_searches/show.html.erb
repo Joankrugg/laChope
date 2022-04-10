@@ -235,15 +235,13 @@
   <% else %>
     <div class="container">
       <% @beers.each do |tb| %>
-        <% if @public_search.balance.present? %>
-          <% if tb.balance.present? %>
-            <% if @public_search.balance.name == tb.balance.name %>
-              <% psbalance << tb %>
-            <% end %>
-          <% else %>
-            <% if @public_search.balance.name == tb.typical_beer.balance.name %>
-              <% psbalance << tb %>
-            <% end %>
+        <% if tb.balance.present? %>
+          <% if @public_search.balance.name == tb.balance.name %>
+            <% psbalance << tb %>
+          <% end %>
+        <% else %>
+          <% if @public_search.balance.name == tb.typical_beer.balance.name %>
+            <% psbalance << tb %>
           <% end %>
         <% end %>
       <% end %>
@@ -253,15 +251,13 @@
       <% end %>
 
       <% @beers.each do |tb| %>
-        <% if @public_search.alcohol_shape.present? %>
-          <% if tb.alcohol_shape.present? %>
-            <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
-              <% pslevel << tb %>
-            <% end %>
-          <% else %>
-            <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
-              <% pslevel << tb %>
-            <% end %>
+        <% if tb.alcohol_shape.present? %>
+          <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
+            <% pslevel << tb %>
+          <% end %>
+        <% else %>
+          <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
+            <% pslevel << tb %>
           <% end %>
         <% end %>
       <% end %>
@@ -271,15 +267,13 @@
       <% end %>
 
       <% @beers.each do |tb| %>
-        <% if @public_search.design_color.present? %>
-          <% if tb.design_color.present? %>
-            <% if @public_search.design_color.name == tb.design_color.name %>
-              <% pscolor << tb %>
-            <% end %>
-          <% else %>
-            <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
-              <% pscolor << tb %>
-            <% end %>
+        <% if tb.design_color.present? %>
+          <% if @public_search.design_color.name == tb.design_color.name %>
+            <% pscolor << tb %>
+          <% end %>
+        <% else %>
+          <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
+            <% pscolor << tb %>
           <% end %>
         <% end %>
       <% end %>
@@ -289,16 +283,14 @@
       <% end %>
 
       <% @beers.each do |tb| %>
-        <% if @public_search.main_taste.present? %>
-          <% if tb.main_taste.present? %>
-            <% if @public_search.main_taste.name == tb.main_taste.name %>
+        <% if tb.main_taste.present? %>
+          <% if @public_search.main_taste.name == tb.main_taste.name %>
+            <% psmaintaste << tb %>
+          <% end %>
+        <% else %>
+          <% if tb.typical_beer.main_taste.present? %>
+            <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
               <% psmaintaste << tb %>
-            <% end %>
-          <% else %>
-            <% if tb.typical_beer.main_taste.present? %>
-              <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
-                <% psmaintaste << tb %>
-              <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -409,15 +401,13 @@
 
   <div class="container">
     <% @beers.each do |tb| %>
-      <% if @public_search.balance.present? %>
-        <% if tb.balance.present? %>
-          <% if @public_search.balance.name == tb.balance.name %>
-            <% psbalance << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.balance.name == tb.typical_beer.balance.name %>
-            <% psbalance << tb %>
-          <% end %>
+      <% if tb.balance.present? %>
+        <% if @public_search.balance.name == tb.balance.name %>
+          <% psbalance << tb %>
+        <% end %>
+      <% else %>
+        <% if @public_search.balance.name == tb.typical_beer.balance.name %>
+          <% psbalance << tb %>
         <% end %>
       <% end %>
     <% end %>
@@ -427,15 +417,13 @@
     <% end %>
 
     <% @beers.each do |tb| %>
-      <% if @public_search.alcohol_shape.present? %>
-        <% if tb.alcohol_shape.present? %>
-          <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
-            <% pslevel << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
-            <% pslevel << tb %>
-          <% end %>
+      <% if tb.alcohol_shape.present? %>
+        <% if @public_search.alcohol_shape.name == tb.alcohol_shape.name %>
+          <% pslevel << tb %>
+        <% end %>
+      <% else %>
+        <% if @public_search.alcohol_shape.name == tb.typical_beer.alcohol_shape.name %>
+          <% pslevel << tb %>
         <% end %>
       <% end %>
     <% end %>
@@ -445,15 +433,13 @@
     <% end %>
 
     <% @beers.each do |tb| %>
-      <% if @public_search.design_color.present? %>
-        <% if tb.design_color.present? %>
-          <% if @public_search.design_color.name == tb.design_color.name %>
-            <% pscolor << tb %>
-          <% end %>
-        <% else %>
-          <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
-            <% pscolor << tb %>
-          <% end %>
+      <% if tb.design_color.present? %>
+        <% if @public_search.design_color.name == tb.design_color.name %>
+          <% pscolor << tb %>
+        <% end %>
+      <% else %>
+        <% if @public_search.design_color.name == tb.typical_beer.design_color.name %>
+          <% pscolor << tb %>
         <% end %>
       <% end %>
     <% end %>
@@ -463,16 +449,14 @@
     <% end %>
 
     <% @beers.each do |tb| %>
-      <% if @public_search.main_taste.present? %>
-        <% if tb.main_taste.present? %>
-          <% if @public_search.main_taste.name == tb.main_taste.name %>
+      <% if tb.main_taste.present? %>
+        <% if @public_search.main_taste.name == tb.main_taste.name %>
+          <% psmaintaste << tb %>
+        <% end %>
+      <% else %>
+        <% if tb.typical_beer.main_taste.present? %>
+          <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
             <% psmaintaste << tb %>
-          <% end %>
-        <% else %>
-          <% if tb.typical_beer.main_taste.present? %>
-            <% if @public_search.main_taste.name == tb.typical_beer.main_taste.name %>
-              <% psmaintaste << tb %>
-            <% end %>
           <% end %>
         <% end %>
       <% end %>
