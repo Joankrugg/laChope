@@ -5,6 +5,12 @@
         <h1><%= title 'Beertrackr' %></h1>
         <%= simple_form_for @public_search do |f| %>
           <div class="center">
+            <%= f.association :category, as: :radio_buttons, required: false,
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
+            <p>Choisis la fermentation.</p>
+          </div>
+          <div class="center">
             <%= f.association :design_color, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
               item_wrapper_class: 'squaretag-item', label: 'COULEUR' %>
