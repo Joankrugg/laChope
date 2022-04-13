@@ -1,0 +1,102 @@
+.banner {
+  position: relative;
+  background: $my-gold;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  h1 {
+    font-size: 38px;
+  }
+  @media (min-width: 768px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    h1 {
+      font-size: 38px;
+    }
+  }
+}
+.square-left{
+  border: 1px solid $black;
+  height: 500px;
+  margin-bottom: 20px;
+  p{
+    text-align: left;
+    color: $black;
+    padding: 20px 10px 20px 10px;
+  }
+  .home-title{
+  text-align: left;
+  color: #151718;
+  text-shadow: 2px 2px 5px white;
+  padding: 60px 6px 20px 6px;
+  }
+  .home-title:hover{
+    color: white;
+    text-shadow: none;
+  }
+  .slogan{
+    text-align: left;
+    font-size: 24px;
+    padding: 20px 10px 20px 10px;
+    color: $black;
+  }
+  .btn-home {
+  background-color: $black;
+  border: 1px solid #ffc65a;
+  color: white;
+  text-align: center;
+  border-radius: 25px;
+  padding: 7px 32px;
+  transition: background 0.3s ease;
+  }
+  .btn-home:hover {
+    background: white;
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.square-right{
+  position: relative;
+  height: 500px;
+  margin-bottom: 20px;
+}
+.design-element-1{
+  width: 60%;
+  position: absolute;
+  top: 20px;
+  left: 0px;
+}
+.design-element-2{
+  width: 50%;
+  position: absolute;
+  top: 120px;
+  right: 20px;
+}
+.design-element-3{
+  height: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+
+
+.fa-hand-point-left{
+  color: $my-gray;
+}
+
+.fa-hand-point-left:hover{
+  color: #3C3C3C;
+}
+
+h3.goodies{
+  font-family: 'Allura', cursive;
+  font-size: 30px;
+  color: $my-gold;
+}
+
+.subtitle{
+  font-family: 'Allura', cursive;
+  font-size: 50px;
+
+}
