@@ -15,12 +15,13 @@
         <div class="col-12">
           <label class="control-label check_boxes optional">Point De Vente</label>
         </div>
-        <select class="js-example-basic-single col-12" name="store[market_place_id]" value="">
-          <% MarketPlace.all.sort_by(&:city).each do |market_place| %>
-            <option value="<%= market_place.id %>">Brasserie <%= market_place.name %> à <%= market_place.city %> </option>
-          <% end %>
-        </select>
-
+        <div class="col-12">
+          <select class="js-example-basic-single col-12" name="store[market_place_id]" value="">
+            <% MarketPlace.all.sort_by(&:city).each do |market_place| %>
+              <option value="<%= market_place.id %>">Brasserie <%= market_place.name %> à <%= market_place.city %> </option>
+            <% end %>
+          </select>
+        </div>
         <div class="col-12">
           <%= f.input :website, required: false, label: 'SITE WEB', input_html: { class: "center"} %>
         </div>
