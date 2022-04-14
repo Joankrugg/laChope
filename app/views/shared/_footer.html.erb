@@ -19,7 +19,15 @@
     <%= link_to beers_path do %>
       <div class="mobile-link">
         <i class="fas fa-beer footer-link"></i>
-        <p>bières</p>
+        <p>Bières</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-lg-none ">
+    <%= link_to typical_beers_path do %>
+      <div class="mobile-link">
+        <i class="fas fa-list footer-link"></i>
+        <p>Styles</p>
       </div>
     <% end %>
   </div>
@@ -32,45 +40,24 @@
     <% end %>
   </div>
   <% if user_signed_in? %>
-    <% if current_user.store.nil? %>
-      <div class="d-lg-none">
-        <%= link_to users_path do %>
-          <div class="mobile-link">
-            <i class="fas fa-users footer-link"></i>
-            <p>Users</p>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
-        <div class="d-lg-none">
-          <%= link_to users_path do %>
-            <div class="mobile-link">
-              <i class="fas fa-users footer-link"></i>
-              <p>Users</p>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
     <div class="d-lg-none">
-      <%= link_to users_path do %>
+      <%= link_to publications_path do %>
         <div class="mobile-link">
           <i class="fas fa-users footer-link"></i>
-          <p>Users</p>
+          <p>Salon</p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="d-lg-none">
+      <%= link_to articles_path do %>
+        <div class="mobile-link">
+          <i class="far fa-newspaper footer-link"></i>
+          <p>Infos</p>
         </div>
       <% end %>
     </div>
   <% end %>
-  <div class="d-lg-none">
-    <%= link_to articles_path do %>
-      <div class="mobile-link">
-        <i class="far fa-newspaper footer-link"></i>
-        <p>Infos</p>
-      </div>
-    <% end %>
-  </div>
 </div>
 
 

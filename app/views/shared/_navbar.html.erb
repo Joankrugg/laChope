@@ -7,16 +7,16 @@
       <%= link_to 'Recherche', new_public_search_path, class: 'second-nav-link', id: 'root' %><i class="fa fa-caret-down" aria-hidden="true"></i>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="beers-link"> Styles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="beers-link"> Bières <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </li>
+    <li class="nav-item d-none d-lg-block">
+      <a class="second-nav-link" data-toggle="pill" id="styles-link"> Styles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </li>
+    <li class="nav-item d-none d-lg-block">
+      <a class="second-nav-link" data-toggle="pill" id="spots-link"> Spots <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="articles-link"> Articles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-    </li>
-    <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="stickers-link"> Stickers <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-    </li>
-    <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="projects-link"> Projects <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="contact-link"> Contact <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -74,6 +74,31 @@
     </div>
   </div>
   <div class="tab-pane container" id="beers">
+    <div class="card p-top shadow">
+      <div class="row">
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Blanches', white_beers_path, class: 'side-link' %></div>
+        </div>
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Blondes', gold_beers_path, class: 'side-link' %></div>
+        </div>
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Ambrées', amber_beers_path, class: 'side-link' %></div>
+        </div>
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Brunes', brown_beers_path, class: 'side-link' %></div>
+        </div>
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Ruby', ruby_beers_path, class: 'side-link' %></div>
+        </div>
+        <div class="col-2">
+          <div class="cell"><%= link_to 'Noires', black_beers_path, class: 'side-link' %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane container" id="styles">
     <div class="card p-top shadow">
       <div class="row">
         <div class="col-1">
@@ -144,6 +169,19 @@
         <div class="col-1"></div>
       </div>
     </div>
+
+  </div>
+  <div class="tab-pane container" id="spots">
+    <div class="card p-top p-bottom">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2"><div class="cell"><%= link_to 'Caves', caves_market_places_path, class: 'side-link' %></div></div>
+        <div class="col-lg-2"><div class="cell"><%= link_to 'Bars', bars_market_places_path, class: 'side-link' %></div></div>
+        <div class="col-lg-2"><div class="cell"><%= link_to 'Brasseries', breweries_market_places_path, class: 'side-link' %></div></div>
+        <div class="col-lg-2"><div class="cell"><%= link_to 'Tous', market_places_path, class: 'side-link' %></div></div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
   </div>
   <div class="tab-pane container" id="articles">
     <div class="card p-top">
@@ -190,44 +228,6 @@
           <% end %>
         </div>
         <div class="col-lg-1"></div>
-      </div>
-    </div>
-  </div>
-  <div class="tab-pane container" id="stickers">
-    <div class="card p-top p-bottom">
-      <div class="row">
-        <div class="col-lg-1"></div>
-        <% if stickers.present? %>
-          <% stickers.sample(5).each do |s| %>
-            <div class="col-lg-2 ">
-              <%= link_to s do %>
-                <div class="link">
-                  <%= cl_image_tag s.photo.key, fetch_format: :auto, alt: s.name, class: 'mx-auto avatar-nav' %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="tab-pane container" id="projects">
-    <div class="card p-top">
-      <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <% if projects.present? %>
-            <div class="row">
-              <% projects.sample(3).each do |s| %>
-                <div class="col-4 mx-auto">
-                  <%= link_to s do %>
-                    <%= render 'projects/nav_project_card', project: s %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
@@ -420,7 +420,7 @@
 <script>
   $(document).ready(function(){
     $("#beers-link").hover(function(){
-      $("#articles").hide();
+      $("#styles").hide();
     });
   });
 </script>
@@ -437,6 +437,68 @@
 
 <script>
   $(document).ready(function(){
+    $("#styles-link").hover(function(){
+      $("#styles").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#styles-link").hover(function(){
+      $("#beers").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#styles-link").hover(function(){
+      $("#spots").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#styles").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#spots-link").hover(function(){
+      $("#spots").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#spots-link").hover(function(){
+      $("#styles").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#spots-link").hover(function(){
+      $("#articles").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#spots").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
     $("#articles-link").hover(function(){
       $("#articles").show();
     });
@@ -445,82 +507,20 @@
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
-      $("#beers").hide();
+      $("#spots").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
-      $("#stickers").hide();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#articles").on({
-      mouseleave: function(){
-        $(this).hide();
-      },
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#stickers").show();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#articles").hide();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#projects").hide();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#stickers").on({
-      mouseleave: function(){
-        $(this).hide();
-      },
-    });
-  });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#projects-link").hover(function(){
-      $("#projects").show();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#projects-link").hover(function(){
-      $("#stickers").hide();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#projects-link").hover(function(){
       $("#contact").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#projects").on({
+    $("#articles").on({
       mouseleave: function(){
         $(this).hide();
       },
@@ -538,7 +538,7 @@
 <script>
   $(document).ready(function(){
     $("#contact-link").hover(function(){
-      $("#projects").hide();
+      $("#articles").hide();
     });
   });
 </script>
@@ -551,5 +551,4 @@
     });
   });
 </script>
-
 

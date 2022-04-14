@@ -1,7 +1,7 @@
 class MarketPlacesController < ApplicationController
   before_action :set_market_place, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!
   def index
-
     if params[:search].present?
       @market_places = MarketPlace.global_search(params[:search])
       @markers = @market_places.geocoded.map do |place|
@@ -13,17 +13,72 @@ class MarketPlacesController < ApplicationController
       end
     else
       @market_places = MarketPlace.all
-      @bars = @market_places.where(market_style_id: 1)
-      @breweries = @market_places.where(market_style_id: 3)
-      # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-      @markers = @breweries.geocoded.map do |place|
+      @markers = @market_places.geocoded.map do |place|
         {
           lat: place.latitude,
           lng: place.longitude,
           info_window: render_to_string(partial: "info_window", locals: { place: place })
         }
       end
-      @trackers = @bars.geocoded.map do |place|
+    end
+  end
+  def breweries
+    if params[:search].present?
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Brasserie' }).global_search(params[:search])
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    else
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Brasserie' })
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    end
+  end
+
+  def bars
+    if params[:search].present?
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Bar' }).global_search(params[:search])
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    else
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Bar' })
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    end
+  end
+
+  def caves
+    if params[:search].present?
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Cave' }).global_search(params[:search])
+      @markers = @market_places.geocoded.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+    else
+      @market_places = MarketPlace.joins(:market_style).where(market_styles: { name: 'Cave' })
+      @markers = @market_places.geocoded.map do |place|
         {
           lat: place.latitude,
           lng: place.longitude,

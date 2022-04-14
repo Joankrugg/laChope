@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :market_places do
     match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
+    collection do
+      get :bars
+      get :breweries
+      get :caves
+    end
   end
   get 'mail_alerts/new'
   get 'mail_alerts/create'
