@@ -1,0 +1,37 @@
+<p class="center btn btn-ghost" data-toggle="modal" data-target="#tasting_place">
+  Enregistrer un lieu de dégustation
+</p>
+
+<!-- The Modal -->
+<div class="modal" id="tasting_place">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Dégustation</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <%= simple_form_for ([ @beer, @tasting_place ]) do |f| %>
+          <div class="col-12">
+            <%= f.input :active, as: :radio_buttons, label: 'Statue',
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item', required: false %>
+          </div>
+          <div class="col-12">
+            <select class="js-example-basic-single col-12" name="tasting_place[market_place_id]" value="">
+              <% MarketPlace.all.sort_by(&:city).each do |market_place| %>
+                <option value="<%= market_place.id %>">Brasserie <%= market_place.name %> à <%= market_place.city %> </option>
+              <% end %>
+            </select>
+          </div>
+          <p class='center'>
+            <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

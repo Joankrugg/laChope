@@ -47,7 +47,7 @@ class Publication < ApplicationRecord
     if link[0..6] == 'http://' || link[0..7] == 'https://'
       begin
       preview = LinkThumbnailer.generate(link)
-      preview.image
+      preview.images.first.src.to_s
       rescue LinkThumbnailer::Exceptions => e
       preview = 'https://res.cloudinary.com/da2krghvd/image/upload/v1636547916/Admin/Logo.png'
       end

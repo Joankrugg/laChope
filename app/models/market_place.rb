@@ -3,6 +3,7 @@ class MarketPlace < ApplicationRecord
   validates :city, presence: true
   has_one :store
   belongs_to :market_style, optional: true
+  has_many :tasting_places
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
   include PgSearch::Model

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_170512) do
+ActiveRecord::Schema.define(version: 2022_04_14_111153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -481,6 +481,16 @@ ActiveRecord::Schema.define(version: 2022_04_09_170512) do
     t.index ["tasting_id"], name: "index_tasting_flavours_on_tasting_id"
   end
 
+  create_table "tasting_places", force: :cascade do |t|
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "beer_id"
+    t.bigint "market_place_id"
+    t.index ["beer_id"], name: "index_tasting_places_on_beer_id"
+    t.index ["market_place_id"], name: "index_tasting_places_on_market_place_id"
+  end
+
   create_table "tastings", force: :cascade do |t|
     t.datetime "date"
     t.integer "global_rating"
@@ -663,6 +673,8 @@ ActiveRecord::Schema.define(version: 2022_04_09_170512) do
   add_foreign_key "tasting_feelings", "tastings"
   add_foreign_key "tasting_flavours", "flavours"
   add_foreign_key "tasting_flavours", "tastings"
+  add_foreign_key "tasting_places", "beers"
+  add_foreign_key "tasting_places", "market_places"
   add_foreign_key "tastings", "balances"
   add_foreign_key "tastings", "beers"
   add_foreign_key "tastings", "contexts"

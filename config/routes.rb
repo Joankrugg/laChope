@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     resources :draftsets
   end
 
-  resources :market_places
   resources :typical_beers do
     collection do
       get :wheat_beers
@@ -52,6 +51,7 @@ Rails.application.routes.draw do
     resources :tastings, only: [:create, :edit, :update]
     resources :fancies, only: [:create, :edit, :update]
     resources :ratings, only: [:create, :update]
+    resources :tasting_places, only: [:index, :create, :edit, :update]
     resources :recipes
     collection do
       get :target

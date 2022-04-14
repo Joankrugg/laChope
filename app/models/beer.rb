@@ -12,6 +12,7 @@ class Beer < ApplicationRecord
   has_many :users, through: :ratings
   has_many :tastings, dependent: :destroy
   has_many :users, through: :tastings
+  has_many :tasting_places, dependent: :destroy
   belongs_to :beer_family
   belongs_to :typical_beer
   belongs_to :design_color, optional: true
@@ -26,6 +27,8 @@ class Beer < ApplicationRecord
   has_many :flavours, through: :beer_flavours
   has_many :beer_feelings, dependent: :destroy
   has_many :feelings, through: :beer_feelings
+  has_many :users, through: :ratings
+
 
   include PgSearch::Model
   pg_search_scope :global_search,

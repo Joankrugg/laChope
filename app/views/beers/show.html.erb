@@ -8,6 +8,9 @@
             <%= link_to edit_beer_path (@beer) do  %>
               <%= render 'beer_id', beer: @beer %>
             <% end %>
+            <div class="center">
+              <%= render 'tastings/form' %>
+            </div>
           <% else %>
             <%= render 'beer_id', beer: @beer %>
           <% end %>
@@ -19,7 +22,26 @@
       <% else %>
         <%= render 'beer_id', beer: @beer %>
       <% end %>
+      <div class="center">
+        <%= render 'tasting_places/form' %>
+      </div>
     </div>
+    <div class="col-lg-6">
+      <div class="card family">
+        <% if @beer.beer_family.present? %>
+          <p class="center"> Type de bière de la même famille : </p>
+          <% @typical_beers.each do |b| %>
+            <% if b.beer_family.name == @beer.beer_family.name %>
+              <%= link_to b do  %>
+                <div class="center btn btn-alternative"> <%= b.name %></div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-6">
       <% if user_signed_in? %>
         <% if current_user.store.nil? %>
@@ -302,18 +324,6 @@
       <% else %>
         <%= render 'beer_card_show', beer: @beer  %>
       <% end %>
-      <div class="card family">
-        <% if @beer.beer_family.present? %>
-          <p class="center"> Type de bière de la même famille : </p>
-          <% @typical_beers.each do |b| %>
-            <% if b.beer_family.name == @beer.beer_family.name %>
-              <%= link_to b do  %>
-                <div class="center btn btn-alternative"> <%= b.name %></div>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
     </div>
   </div>
   <% if @beer.target? %>
