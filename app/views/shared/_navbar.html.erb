@@ -74,32 +74,32 @@
     </div>
   </div>
   <div class="tab-pane container" id="beers">
-    <div class="card p-top shadow">
+    <div class="card p-top p-bottom shadow">
       <div class="row">
         <div class="col-2">
-          <div class="cell"><%= link_to 'Blanches', white_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Blanches', white_beers_path, class: 'side-link' %>
         </div>
         <div class="col-2">
-          <div class="cell"><%= link_to 'Blondes', gold_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Blondes', gold_beers_path, class: 'side-link' %>
         </div>
         <div class="col-2">
-          <div class="cell"><%= link_to 'Ambrées', amber_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Ambrées', amber_beers_path, class: 'side-link' %>
         </div>
         <div class="col-2">
-          <div class="cell"><%= link_to 'Brunes', brown_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Brunes', brown_beers_path, class: 'side-link' %>
         </div>
         <div class="col-2">
-          <div class="cell"><%= link_to 'Ruby', ruby_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Ruby', ruby_beers_path, class: 'side-link' %>
         </div>
         <div class="col-2">
-          <div class="cell"><%= link_to 'Noires', black_beers_path, class: 'side-link' %></div>
+          <%= link_to 'Noires', black_beers_path, class: 'side-link' %>
         </div>
       </div>
     </div>
   </div>
 
   <div class="tab-pane container" id="styles">
-    <div class="card p-top shadow">
+    <div class="card p-top p-bottom shadow">
       <div class="row">
         <div class="col-1">
         </div>
@@ -109,9 +109,7 @@
           </div>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Allemagne' %>
-              <div class="cell">
-                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-              </div>
+              <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
             <% end %>
           <% end %>
         </div>
@@ -121,9 +119,7 @@
           </div>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Belgique' %>
-              <div class="cell">
-                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-              </div>
+              <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
             <% end %>
           <% end %>
         </div>
@@ -134,9 +130,7 @@
           </div>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Îles Anglo-celtes ' %>
-              <div class="cell">
-                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-              </div>
+              <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
             <% end %>
           <% end %>
         </div>
@@ -146,9 +140,7 @@
           </div>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'U.S.A' %>
-              <div class="cell">
-                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-              </div>
+              <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
             <% end %>
           <% end %>
         </div>
@@ -160,9 +152,7 @@
           </div>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Autres' %>
-              <div class="cell">
-                <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
-              </div>
+              <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
             <% end %>
           <% end %>
         </div>
@@ -175,10 +165,10 @@
     <div class="card p-top p-bottom">
       <div class="row">
         <div class="col-lg-2"></div>
-        <div class="col-lg-2"><div class="cell"><%= link_to 'Caves', caves_market_places_path, class: 'side-link' %></div></div>
-        <div class="col-lg-2"><div class="cell"><%= link_to 'Bars', bars_market_places_path, class: 'side-link' %></div></div>
-        <div class="col-lg-2"><div class="cell"><%= link_to 'Brasseries', breweries_market_places_path, class: 'side-link' %></div></div>
-        <div class="col-lg-2"><div class="cell"><%= link_to 'Tous', market_places_path, class: 'side-link' %></div></div>
+        <div class="col-lg-2"><%= link_to 'Caves', caves_market_places_path, class: 'side-link' %></div>
+        <div class="col-lg-2"><%= link_to 'Bars', bars_market_places_path, class: 'side-link' %></div>
+        <div class="col-lg-2"><%= link_to 'Brasseries', breweries_market_places_path, class: 'side-link' %></div>
+        <div class="col-lg-2"><%= link_to 'Tous', market_places_path, class: 'side-link' %></div>
         <div class="col-lg-2"></div>
       </div>
     </div>

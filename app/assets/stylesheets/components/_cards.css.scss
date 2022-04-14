@@ -280,14 +280,23 @@
 }
 
 .side-link{
+  margin-bottom: 3px;
+  background-color: $light-gray;
+  border-radius: 3px;
   text-align: center;
   color: #3C3C3C;
   font-weight: light;
   font-size: 14px;
   margin-top: 0px;
+  padding: 3px 20px;
+  width: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .side-link:hover{
+  background-color: $my-gold;
   color: #3C3C3C;
   cursor: pointer;
 }
