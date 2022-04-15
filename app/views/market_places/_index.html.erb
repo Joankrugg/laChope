@@ -1,0 +1,63 @@
+<div class="offnav"></div>
+<div class="container top bottom">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="card space shadow">
+        <h1 class='page-title center'><%= title 'Points de vente et Brasseries' %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="row d-lg-none ">
+    <div class="col-6">
+      <%= link_to caves_market_places_path do %>
+        <p class="btn-nav-modern center">Caves</p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= link_to bars_market_places_path do %>
+        <p class="btn-nav-modern center">Bars</p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= link_to breweries_market_places_path do %>
+        <p class="btn-nav-modern center">Brasseries</p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= link_to market_places_path do %>
+        <p class="btn-nav-modern center">Tous</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <%= form_tag(market_places_path, method: :get) do %>
+        <div class="search-form-control form-group">
+          <i class="fas fa-search search-img"></i>
+          <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
+          <button name="button" type="submit" class="btn btn-ghost-2">
+            Allons-y
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto ">
+      <div class="shadow" id="map"
+         style="width: 100%; height: 600px;"
+         data-markers="<%= @markers.to_json %>"
+         data-trackers="<%= @trackers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= button_to 'Scrape', scrape_market_places_path, class: 'bottom' %>
+  <% end %>
+  <div class="row">
+    <%= link_to 'créer un lieu', new_market_place_path, class: "btn btn-ghost center" %>
+  </div>
+</div>
