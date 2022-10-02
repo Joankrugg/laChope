@@ -2,13 +2,37 @@
 <div class="container top">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-title center"><%= title 'Famille des' + @typical_beer.beer_family.name %></h1>
+      <h1 class="page-title center"><%= title 'Famille des'+' '+ @typical_beer.beer_family.name %></h1>
     </div>
   </div>
 </div>
 
 <div class="container top bottom">
   <div class="row">
+    <div class="d-none d-lg-block col-lg-3 bottom">
+      <div class="card bottom">
+        <% if @typical_beer.user.photo.present? %>
+          <%= cl_image_tag @typical_beer.user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
+        <% end %>
+        <div class="show-infos">
+          <div class="legend center col-lg-8 mx-auto">Auteur</div>
+          <% if @typical_beer.user.username.present? %>
+            <p class='profil'><%= @typical_beer.user.username %></p>
+          <% else %>
+            <p class='profil'><%=@typical_beer.user.email %></p>
+          <% end %>
+          <% if user_signed_in? && current_user.admin?%>
+            <%= link_to new_typical_beer_path do %>
+              <div class="legend center col-lg-8 mx-auto bottom">New Beer</div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= render 'articles/articles_side' %>
+      <%= render 'beers/beers_side' %>
+    </div>
     <div class="col-lg-9">
       <div class="card bottom">
         <h2 class='article-top-title top center'><%= @typical_beer.name.upcase %></h2>
@@ -77,31 +101,6 @@
           <% end %>
         <% end %>
       </div>
-    </div>
-
-    <div class="col-lg-3 bottom">
-      <div class="card bottom">
-        <% if @typical_beer.user.photo.present? %>
-          <%= cl_image_tag @typical_beer.user.photo.key, height: 250, width: 250, crop: :fill, class: 'show-img avatar-large' %>
-        <% else %>
-          <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1598020963/19_C2_B0_International_Jazz_Festival_of_Punta_del_Este_-_150111-2052-jikatu__2816077813707_29_drogug.jpg", class: 'show-img avatar-large', height: 250, width: 250, crop: :fill %>
-        <% end %>
-        <div class="show-infos">
-          <div class="legend center col-lg-8 mx-auto">Auteur</div>
-          <% if @typical_beer.user.username.present? %>
-            <p class='profil'><%= @typical_beer.user.username %></p>
-          <% else %>
-            <p class='profil'><%=@typical_beer.user.email %></p>
-          <% end %>
-          <% if user_signed_in? && current_user.admin?%>
-            <%= link_to new_typical_beer_path do %>
-              <div class="legend center col-lg-8 mx-auto bottom">New Beer</div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%= render 'articles/articles_side' %>
-      <%= render 'beers/beers_side' %>
     </div>
   </div>
 </div>
