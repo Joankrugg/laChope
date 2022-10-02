@@ -40,6 +40,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'turbolinks_render'
 gem 'link_thumbnailer'
+gem 'rails_admin_import', '~> 2.3'
 
 
 group :development, :test do  gem 'pry-byebug'
