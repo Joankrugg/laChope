@@ -7,21 +7,21 @@
 <% end %>
 <div class="container top">
   <div class="row">
+    <div class="mx-auto d-none d-lg-block col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'shared/intra_links' %>
+    </div>
     <div class="col-lg-9">
       <div class="head">
         <h1><%= title 'Bières Brunes' %></h1>
       </div>
       <div class="row">
-        <% brown.each do |b| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 index">
+        <% ruby.each do |b| %>
+          <div class="mx-auto col-6 col-sm-6 col-lg-4 index">
             <%= render 'beer_card', beer: b %>
           </div>
         <% end %>
       </div>
-    </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
-      <%= render 'articles/articles_side' %>
-      <%= render 'shared/intra_links' %>
     </div>
   </div>
 </div>
