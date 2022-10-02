@@ -130,6 +130,7 @@ class BeersController < ApplicationController
     @typical_beers = TypicalBeer.all
   end
 
+
   private
 
   def set_beer

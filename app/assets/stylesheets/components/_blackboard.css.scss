@@ -33,12 +33,19 @@
 
 .blackboard .validate{
   background-color: black;
-  border: 1px solid #ffc65a;
+  border: 1px solid white;
   color: white;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 6px 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.blackboard .validate:hover{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
 }
 
 .head{

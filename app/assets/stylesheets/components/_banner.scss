@@ -40,10 +40,10 @@
   }
   .btn-home {
   background-color: $black;
-  border: 1px solid #ffc65a;
+  border: 1px solid $black;
   color: white;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 5px;
   margin-top: 20px;
   padding: 7px 32px;
   transition: background 0.3s ease;
@@ -86,12 +86,6 @@
   color: #3C3C3C;
 }
 
-h3.goodies{
-  font-family: 'Oswald';
-  font-weight: bold;
-  font-size: 30px;
-  color: $my-gold;
-}
 
 .subtitle{
   font-family: 'Oswald';

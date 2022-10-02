@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_14_111153) do
+ActiveRecord::Schema.define(version: 2022_05_22_175403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 2022_04_14_111153) do
     t.bigint "alcohol_shape_id"
     t.bigint "balance_id"
     t.bigint "main_taste_id"
+    t.string "page_link"
     t.index ["alcohol_shape_id"], name: "index_beers_on_alcohol_shape_id"
     t.index ["balance_id"], name: "index_beers_on_balance_id"
     t.index ["beer_family_id"], name: "index_beers_on_beer_family_id"

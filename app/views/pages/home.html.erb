@@ -6,9 +6,9 @@
       <div class="col-lg-5 col-12 mx-auto">
         <div class="square-left">
           <%= link_to new_public_search_path do %>
-            <h1 class="home-title"><%= title 'DÉCOUVRE DES BIÈRES AVEC LE BEERTRACKR' %></h1>
+            <h1 class="home-title"><%= title 'DÉCOUVRE LE BEERTRACKR' %></h1>
           <% end %>
-          <h2 class="slogan">Il en existe forcément à ton goût.</h2>
+          <p class="slogan">Il existe forcément une bière à ton goût.</p>
           <%= link_to 'Trouve ta bière!', new_public_search_path, class: 'btn btn-home' %>
         </div>
       </div>
@@ -32,9 +32,11 @@
           <div class="features-icons-icon d-flex ">
             <i class="fas fa-beer m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Découvre des styles à explorer</h3>
+          <div class="goodies">
+            <h3>Découvre des styles à explorer</h3>
+          </div>
           <p>Remplis les critères sur le BEERTRACKR et retrouve des exemples de bières et de styles qui correspondent à tes goûts </p>
-          <%= link_to "BEERTRACKR", new_public_search_path, alt: 'Recherche' , class: 'btn btn-modern' %>
+          <%= link_to "BEERTRACKR", new_public_search_path, alt: 'Recherche' , class: 'btn btn-homepage' %>
         </div>
       </div>
       <div class="col-lg-3">
@@ -42,9 +44,11 @@
           <div class="features-icons-icon d-flex">
             <i class="fa fa-store m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Trouve une Brasserie ou un point de vente </h3>
+          <div class="goodies">
+            <h3>Trouve un point de vente </h3>
+          </div>
           <p>Consulte ou ajoute un point de vente de bière qu'on pourra y fasse un tour à l'occasion. On aime les découvertes </p>
-          <%= link_to "BEERMARKETS", market_places_path, alt: 'Brasseries artisanales' , class: 'btn btn-modern' %>
+          <%= link_to "BEERMARKETS", market_places_path, alt: 'Brasseries artisanales' , class: 'btn btn-homepage' %>
         </div>
       </div>
       <div class="col-lg-3">
@@ -52,19 +56,23 @@
           <div class="features-icons-icon d-flex">
             <i class="fas fa-heart m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Tiens un carnet de dégustations</h3>
+          <div class="goodies">
+            <h3>Tiens ton carnet de dégustations</h3>
+          </div>
           <p>Enregistre tes dégustations en fonction du contexte et affine le BEERTRACKR. Deviens Zythologue de la communauté</p>
-          <%= link_to "INSCRIPTION", new_user_registration_path, alt: 'Inscription' , class: 'btn btn-modern' %>
+          <%= link_to "INSCRIPTION", new_user_registration_path, alt: 'Inscription' , class: 'btn btn-homepage' %>
         </div>
       </div>
       <div class="col-lg-3">
-        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+        <div class="features-icons-item mx-auto mb-lg-3">
           <div class="features-icons-icon d-flex">
             <i class="fas fa-newspaper m-auto" aria-hidden="true"></i>
           </div>
-          <h3 class='goodies'>Consulte les actualités du réseau</h3>
+          <div class="goodies">
+            <h3>Consulte les actualités du réseau</h3>
+          </div>
           <p>Si un festival de bière ou une nouvelle brasserie ouvre pas loin de chez toi, tu veux sans doute être au courant non?</p>
-          <%= link_to "ACTUALITÉS", publications_path, alt: 'Publications' , class: 'btn btn-modern' %>
+          <%= link_to "ACTUALITÉS", publications_path, alt: 'Publications' , class: 'btn btn-homepage' %>
         </div>
       </div>
     </div>

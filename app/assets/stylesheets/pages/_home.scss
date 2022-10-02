@@ -44,3 +44,32 @@
   text-shadow: 1px 1px 2px black, 0 0 25px $my-blue, 0 0 5px white;
 }
 
+.goodies{
+  margin-bottom: 20px;
+  h3{
+  font-family: 'Oswald';
+  font-weight: bold;
+  font-size: 30px;
+  color: $my-gold;
+  }
+}
+
+
+
+.btn-homepage {
+  background-color: $black;
+  border: 1px solid $black;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 7px 32px;
+  transition: background 0.3s ease;
+  }
+.btn-homepage:hover {
+  background: white;
+  text-decoration: none;
+  color: $black;
+}
+
+
