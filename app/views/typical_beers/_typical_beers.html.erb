@@ -1,6 +1,11 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
+    <div class="mx-auto d-none d-lg-block col-lg-3">
+      <%= render 'articles/articles_side' %>
+      <%= render 'beers/ales_side' %>
+      <%= render 'beers/mixed_side' %>
+    </div>
     <div class="col-lg-9">
       <div class="head">
         <h1>
@@ -15,16 +20,12 @@
       </div>
       <div class="row">
         <% @typical_beers.each do |tb| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-6">
+          <div class="mx-auto col-6 col-sm-6 col-lg-4">
             <%= render 'typical_beer_card', typical_beer: tb %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3">
-      <%= render 'articles/articles_side' %>
-      <%= render 'beers/ales_side' %>
-      <%= render 'beers/mixed_side' %>
-    </div>
+
   </div>
 </div>
