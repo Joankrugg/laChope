@@ -14,6 +14,7 @@
 
             <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
 
+
             <fieldset class="form-group radio_buttons optional beer_typical_beer">
               <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
               <input type="hidden" name="beer[typical_beer_id]" value="">
@@ -31,6 +32,7 @@
                 </div>
               <% end %>
             </fieldset>
+
             <%= f.association :beer_family, required: false, as: :radio_buttons,
                       input_html: { class: "squaretag-selector center" },
                       item_wrapper_class: 'squaretag-item', label: 'FAMILLE DE BIÈRE' %>
