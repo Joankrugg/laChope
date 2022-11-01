@@ -47,14 +47,13 @@
 .goodies{
   margin-bottom: 20px;
   h3{
-  font-family: 'Oswald';
-  font-weight: bold;
-  font-size: 30px;
-  color: $my-gold;
+    font-size: 22px;
+    color: $my-green;
+  }
+  p{
+    font-size: 14px;
   }
 }
-
-
 
 .btn-homepage {
   background-color: $black;
@@ -72,4 +71,6 @@
   color: $black;
 }
 
-
+#carouselExampleFade{
+  z-index: -1;
+}

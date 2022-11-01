@@ -6,12 +6,12 @@
   background-image: linear-gradient(-270deg, black, #3C3C3C);
   margin-bottom: 5px;
   margin-top: 5px;
-  border: 1px solid $my-gold;
+  border: 1px solid #225aaa;
   transition: all 0.3s ease;
 }
 
 .btn-ghost:hover {
-  background: $my-gold;
+  background: $my-green;
   border: 1px solid black;
   color: black;
   transform: scale(1.1);
@@ -20,7 +20,7 @@
   padding: 5px 20px;
   border-radius: 4px;
   font-weight: lighter;
-  background: $my-gold;
+  background: $my-green;
   color: black;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -37,12 +37,12 @@
   background-image: linear-gradient(-180deg, black, #3C3C3C);
   margin-bottom: 5px;
   margin-top: 5px;
-  border: 1px solid $my-gold;
+  border: 1px solid $my-green;
   transition: background 0.3s ease;
 }
 
 .btn-alternative:hover {
-  background: $my-gold;
+  background: $my-green;
   color: white;
 }
 
@@ -187,7 +187,7 @@
 
 .btn-nav-modern{
   background-color: black;
-  border: 1px solid $my-gold;
+  border: 1px solid $my-green;
   opacity: 1;
   color: white;
   font-weight: bold;
@@ -200,9 +200,8 @@
 }
 
 .btn-nav-modern:hover{
-  border: 1px solid black;
-  background-color: $my-gold;
-  color: black;
+  border: 1px solid white;
+  background-color: $my-green;
   opacity: 0.8;
 }
 

@@ -11,6 +11,8 @@
   position: fixed;
   width: 100%;
   z-index: 10;
+  padding-left: 34px;
+  padding-right: 34px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -107,7 +109,7 @@
 }
 
 .cell:hover{
-  background-color: $my-gold;
+  background-color: $my-green;
 }
 
 .second-nav-link{
@@ -144,4 +146,19 @@
 
 .fa-sign-out-alt {
   color: #3C3C3C;
+}
+.fa-bars{
+  font-size: 22px;
+}
+.fa-bars:hover{
+  cursor: pointer;
+}
+.fa-user{
+  font-size: 22px;
+}
+.fa-user:hover{
+  cursor: pointer;
+}
+.fa-sign-out-alt{
+  color: white;
 }
