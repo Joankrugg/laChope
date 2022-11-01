@@ -2,25 +2,39 @@
   <!-- Masthead -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active" data-interval="4000">
       <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_fill,g_center,h_1000,w_2400/v1667301980/missy-fant-OMIgwm1i_NY-unsplash_c01def.webp" class="d-block w-100 img-fluid" alt="...">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption">
         <h5>BEERTRACKR</h5>
         <p>DÉCOUVRE DES STYLES DE BIÈRE À EXPLORER</p>
+        <div class="couple">
+          <%= link_to new_public_search_path do %>
+            <div class='btn btn-carousel'>ESSAYER</div>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <div class='btn btn-carousel-2'>S'INSCRIRE</div>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-interval="4000">
       <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_fill,g_center,h_1000,w_2400/v1667304062/alban-martel-nhX8QhXMBkM-unsplash_hsbokx.jpg" class="d-block w-100 img-fluid" alt="...">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption">
         <h5>BEERTRACKR</h5>
-        <p>DÉCOUVRE DES STYLES DE BIÈRE À EXPLORER</p>
+        <p>TROUVE DES POINTS DE VENTE COMME TU LES AIMES</p>
+        <%= link_to market_places_path do %>
+          <div class='btn btn-carousel'>EXPLORER</div>
+        <% end %>
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-interval="4000">
       <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_fill,g_center,h_1000,w_2400/v1667305032/mary-rebecca-elliott--V-ENAd192g-unsplash_cnpacp.webp" class="d-block w-100 img-fluid" alt="...">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption">
         <h5>BEERTRACKR</h5>
-        <p>DÉCOUVRE DES STYLES DE BIÈRE À EXPLORER</p>
+        <p>TIENS UN CARNET DE DÉGUSTATION</p>
+        <%= link_to new_user_registration_path do %>
+          <div class='btn btn-carousel-2'>S'INSCRIRE</div>
+        <% end %>
       </div>
     </div>
   </div>

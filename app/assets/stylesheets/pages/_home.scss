@@ -72,5 +72,9 @@
 }
 
 #carouselExampleFade{
-  z-index: -1;
+  z-index: 1;
 }
+.carousel-caption{
+  top: 25%;
+}
+
