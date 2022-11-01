@@ -1,22 +1,28 @@
 <div class="container bottom">
   <div class="row">
-    <div class="col-lg-10 col-12 mx-auto">
+    <div class="col-lg-8 col-12 mx-auto">
       <div class="form-login">
         <h1 class='page-title'><%= title 'Ajoute une bière au catalogue'%></h1>
         <%= simple_form_for @beer do |f| %>
           <div class="form-inputs">
-            <label class="photo bottom">
-                Choisir une photo
-              <span style="display:none;">
-                <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-              </span>
-            </label>
-
-            <%= f.input :name, required: false, label: 'NOM', input_html: { class: 'center'}  %>
-
+            <div class="row">
+              <div class="col-6 mx-auto">
+                <label class="beer-photo">
+                    Choisir une photo
+                  <span style="display:none;">
+                    <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 mx-auto">
+                <%= f.input :name, required: false, label: 'Nom de la bière', input_html: { class: 'center'}  %>
+              </div>
+            </div>
 
             <fieldset class="form-group radio_buttons optional beer_typical_beer">
-              <legend class="col-form-label pt-0">STYLE DE BIÈRE</legend>
+              <legend class="col-form-label pt-0">Style de bière</legend>
               <input type="hidden" name="beer[typical_beer_id]" value="">
               <% TypicalBeer.all.sort_by(&:name).each do |typical_beer| %>
                 <div class="squaretag-item">
@@ -33,14 +39,14 @@
               <% end %>
             </fieldset>
 
-            <%= f.association :beer_family, required: false, as: :radio_buttons,
+            <%= f.association :beer_family, label: 'famille de style bière', required: false, as: :radio_buttons,
                       input_html: { class: "squaretag-selector center" },
-                      item_wrapper_class: 'squaretag-item', label: 'FAMILLE DE BIÈRE' %>
+                      item_wrapper_class: 'squaretag-item' %>
 
-            <label class="geek-link center photo bottom">SPÉCIFICITÉS</label>
+            <label class="geek-link center beer-photo">Clique ici pour ajouter des spécificités !</label>
 
             <div class="geek">
-              <%= f.association :design_color, required: false, as: :radio_buttons,
+              <%= f.association :design_color,required: false, as: :radio_buttons,
                       input_html: { class: "squaretag-selector center" },
                       item_wrapper_class: 'squaretag-item', label: 'ROBE' %>
 

@@ -23,14 +23,11 @@
   }
   .home-title{
   text-align: center;
-  color: #151718;
-  text-shadow: 2px 2px 5px white;
-  padding: 160px 6px 20px 6px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  padding: 20px 6px 20px 6px;
   }
-  .home-title:hover{
-    color: white;
-    text-shadow: none;
-  }
+
   .slogan{
     text-align: center;
     font-size: 24px;
@@ -43,7 +40,6 @@
   color: white;
   text-align: center;
   border-radius: 5px;
-  margin-top: 20px;
   padding: 7px 32px;
   transition: background 0.3s ease;
   }
@@ -90,5 +86,10 @@
   font-family: 'Oswald';
   font-weight: bold;
   font-size: 50px;
+}
 
+.universe{
+  margin: -10px;
+  height: 150px;
+  background-color: black;
 }

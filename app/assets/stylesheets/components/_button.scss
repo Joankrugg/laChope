@@ -94,6 +94,27 @@
   opacity: 0,8;
 }
 
+.beer-photo{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: $my-green;
+  border: 1px solid $my-green;
+  background: black;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+  transition: .3s ease-in-out;
+}
+
+.beer-photo:hover{
+  cursor: pointer;
+  color: black;
+  border: 1px solid $my-green;
+  background: $my-green;
+  transform: scale(1.1);
+}
+
 .photo{
   margin-top: 32px;
   color: $light-gray;

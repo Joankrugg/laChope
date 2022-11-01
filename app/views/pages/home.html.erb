@@ -53,9 +53,25 @@
 
       <div class="col-lg-5 col-12 mx-auto">
         <div class="square-left">
-          <%= link_to new_public_search_path do %>
-            <h1 class="home-title"><%= title 'DÉCOUVRE LE BEERTRACKR' %></h1>
-          <% end %>
+          <h1 class="home-title"><%= title 'DÉCOUVRE LE BEERTRACKR & LES DIFFÉRENTS UNIVERS' %></h1>
+          <div class="row">
+            <div class='col-3 mx-auto'>
+              <div class="universe"></div>
+              <p>Les styles</p>
+            </div>
+            <div class='col-3 mx-auto'>
+              <div class="universe"></div>
+              <p>Les recettes</p>
+            </div>
+            <div class='col-3 mx-auto'>
+              <div class="universe"></div>
+              <p>Les caves</p>
+            </div>
+            <div class='col-3 mx-auto'>
+              <div class="universe"></div>
+              <p>Les articles</p>
+            </div>
+          </div>
           <p class="slogan">Il existe forcément une bière à ton goût.</p>
           <%= link_to 'Trouve ta bière!', new_public_search_path, class: 'btn btn-home' %>
         </div>
@@ -63,7 +79,7 @@
       <div class="col-lg-1 d-none d-lg-block"></div>
       <div class="col-lg-6 col-12 mx-auto">
         <div class="square-right">
-          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649843769/beertrackr/white_cross.svg', class: 'design-element-1' %>
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667330610/Groupe_10_zc2ivh.png', class: 'design-element-1' %>
           <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649843769/beertrackr/Black_circle.svg', class: 'design-element-2' %>
           <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649850862/beertrackr/beertracker_model_right.webp', class: 'design-element-3' %>
         </div>
