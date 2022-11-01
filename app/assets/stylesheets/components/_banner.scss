@@ -25,7 +25,7 @@
   text-align: center;
   color: white;
   text-shadow: 2px 2px 5px black;
-  padding: 20px 6px 20px 6px;
+  padding: 30px 6px 20px 6px;
   }
 
   .slogan{
@@ -89,7 +89,10 @@
 }
 
 .universe{
-  margin: -10px;
-  height: 150px;
-  background-color: black;
+  width: 100%;
+}
+
+#universe-legend{
+  color: white;
+  margin-top: -60px;
 }
