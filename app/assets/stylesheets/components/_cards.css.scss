@@ -115,22 +115,18 @@
   width: 100%;
 }
 
-
 .index:hover .middle {
   opacity: 1;
 }
 
-
 .title-top{
   color: black;
-  background-color: $my-green;
+  text-align: center;
   font-family: 'Oswald';
-  font-weight: bold;
+  font-weight: lighter;
   opacity: 0.8;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 20px;
-  margin-bottom: 0px;
 }
 
 .title-top-right{
@@ -310,4 +306,8 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.box{
+  border: none;
 }

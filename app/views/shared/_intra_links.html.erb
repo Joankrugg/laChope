@@ -1,38 +1,39 @@
-<div class="card sides bottom shadow">
-  <h3 class="title-top">Couleurs de bière</h3>
-  <%= link_to 'Blanches', white_beers_path, class: 'cell' %>
-  <%= link_to 'Blondes', gold_beers_path, class: 'cell' %>
-  <%= link_to 'Ambrées', amber_beers_path, class: 'cell' %>
-  <%= link_to 'Brunes', brown_beers_path, class: 'cell' %>
-  <%= link_to 'Ruby', ruby_beers_path, class: 'cell' %>
-  <%= link_to 'Noires', black_beers_path, class: 'cell' %>
+<h3 class="title-top">Couleurs de bière</h3>
+<div class="card bottom box">
+  <%= link_to 'Blanches', white_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Blondes', gold_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Ambrées', amber_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Brunes', brown_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Ruby', ruby_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Noires', black_beers_path, class: 'side-cell shadow' %>
 </div>
-<div class="card sides bottom shadow">
-  <h3 class="title-top">Familles de Styles</h3>
-  <%= link_to 'Ales belges', belgian_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Ales écossaises', scottish_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Ales fortes', strong_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Altbiers', alts_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Ambrées allemandes', german_ambers_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Américaines spéciales', american_specials_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bières de garde', french_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bières fumées', smoked_beers_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bières de blé', wheat_beers_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bières acides', lambics_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bitters', bitters_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Bocks', bocks_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Brown ales', brown_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'lagers européennes', european_lagers_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Pale ales', pale_ales_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Pale lagers', american_lagers_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Pilsners', pilsners_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Porters', porters_typical_beers_path, class: 'cell' %>
-  <%= link_to 'Stouts', stouts_typical_beers_path, class: 'cell' %>
+<h3 class="title-top">Familles de Styles</h3>
+<div class="card bottom box">
+
+  <%= link_to 'Ales belges', belgian_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Ales écossaises', scottish_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Ales fortes', strong_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Altbiers', alts_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Ambrées allemandes', german_ambers_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Américaines spéciales', american_specials_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bières de garde', french_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bières fumées', smoked_beers_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bières de blé', wheat_beers_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bières acides', lambics_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bitters', bitters_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Bocks', bocks_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Brown ales', brown_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'lagers européennes', european_lagers_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Pale ales', pale_ales_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Pale lagers', american_lagers_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Pilsners', pilsners_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Porters', porters_typical_beers_path, class: 'side-cell shadow' %>
+  <%= link_to 'Stouts', stouts_typical_beers_path, class: 'side-cell shadow' %>
 </div>
-<div class="card sides bottom shadow">
-  <h3 class="title-top">Styles de bière</h3>
+<h3 class="title-top">Styles de bière</h3>
+<div class="card bottom box">
   <% @typical_beers.sort_by(&:name).each do |tb| %>
-    <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'cell'  %>
+    <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-cell shadow'  %>
   <% end %>
 </div>
 

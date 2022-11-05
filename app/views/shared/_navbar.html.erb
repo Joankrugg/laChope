@@ -239,9 +239,9 @@
 <!-- Modal -->
 <div class="modal fade" id="actions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Actions</h5>
+        <h5 class="modal-title-black" id="exampleModalLabel">Actions</h5>
         <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -402,11 +402,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= render 'shared/intra_links'%>
       </div>
     </div>
   </div>
