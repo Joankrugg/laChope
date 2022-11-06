@@ -22,6 +22,11 @@
       <% else %>
         <%= render 'beer_id', beer: @beer %>
       <% end %>
+      <% if user_signed_in? %>
+        <div class="center">
+          <%= render 'tastings/form' %>
+        </div>
+      <% end %>
       <div class="center">
         <%= render 'tasting_places/form' %>
       </div>
