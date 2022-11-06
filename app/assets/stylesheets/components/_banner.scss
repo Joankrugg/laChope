@@ -30,23 +30,26 @@
 
   .slogan{
     text-align: center;
-    font-size: 24px;
+    font-weight: lighter;
+    font-size: 20px;
     padding: 20px 10px 20px 10px;
     color: $black;
   }
-  .btn-home {
-  background-color: $black;
-  border: 1px solid $black;
+  .btn-banner {
+  background-color: black;
+  border: 1px solid black;
   color: white;
+  font-family: 'Roboto';
   text-align: center;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 7px 32px;
   transition: background 0.3s ease;
+  opacity: 0.8;
   }
-  .btn-home:hover {
+  .btn-banner:hover {
     background: white;
     text-decoration: none;
-    color: $black;
+    color: black;
   }
 }
 
