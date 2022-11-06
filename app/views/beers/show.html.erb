@@ -8,9 +8,6 @@
             <%= link_to edit_beer_path (@beer) do  %>
               <%= render 'beer_id', beer: @beer %>
             <% end %>
-            <div class="center">
-              <%= render 'tastings/form' %>
-            </div>
           <% else %>
             <%= render 'beer_id', beer: @beer %>
           <% end %>
