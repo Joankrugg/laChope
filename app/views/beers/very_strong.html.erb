@@ -2,7 +2,7 @@
 <% very_strong = [] %>
 <% @beers.each do |b| %>
   <% if b.alcohol_shape != nil %>
-     <% if alcohol_shape == '9°≤ Très forte' %>
+     <% if b.alcohol_shape.name == '9°≤ Très forte' %>
       <% very_strong << b %>
     <% end %>
   <% end %>

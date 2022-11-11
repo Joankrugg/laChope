@@ -2,7 +2,7 @@
 <% regular = [] %>
 <% @beers.each do |b| %>
   <% if b.alcohol_shape != nil %>
-     <% if alcohol_shape == '4° ≤ Classique ≤ 6°' %>
+     <% if b.alcohol_shape.name == '4° ≤ Classique ≤ 6°' %>
       <% regular << b %>
     <% end %>
   <% end %>
