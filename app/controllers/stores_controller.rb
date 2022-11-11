@@ -14,7 +14,8 @@ class StoresController < ApplicationController
   end
 
   def create
-    @store = current_user.build_store(store_params)
+    @user = current_user
+    @store = @user.build_store(store_params)
     if @store.save
       redirect_to current_user
     else

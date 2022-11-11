@@ -6,6 +6,8 @@
         <%= link_to edit_beer_path (beer) do  %>
           <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
         <% end %>
+      <% else %>
+        <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
       <% end %>
     <% else %>
       <%= link_to edit_beer_path (beer) do  %>
