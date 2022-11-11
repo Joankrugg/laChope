@@ -3,36 +3,56 @@
 </p>
 <div class="modal" id="tasting">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content blackboard">
       <div class="modal-header">
-        <h4 class="modal-title">Dégustation</h4>
+        <h2 class="modal-title" style='color:white;'>Dégustation</h2>
+        <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         <%= simple_form_for ([ @beer, @tasting ]) do |f| %>
-          <%= f.input :date, required: false %>
-          <%= f.association :design_color, as: :radio_buttons, label: 'Robe',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :context, as: :radio_buttons, label: 'Contexte',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :weather, as: :radio_buttons, label: 'Météo',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :main_taste, as: :radio_buttons, label: 'Goût Principal',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :balance, as: :radio_buttons, label: 'Tendance',
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :feelings, as: :check_boxes, label: 'Sensations',
-                          input_html: { class: "tag-selector" },
-                          item_wrapper_class: 'tag-item', required: false %>
-          <%= f.association :flavours, as: :check_boxes, label: 'Arômes',
-                          input_html: { class: "tag-selector" },
-                          item_wrapper_class: 'tag-item', required: false %>
-
-          <%= f.input :global_rating, collection: 1..5, required: true, label: 'Note sur 5'%>
+          <div class="center">
+            <%= f.input :date, required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :design_color, as: :radio_buttons, label: 'Robe',
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :context, as: :radio_buttons, label: 'Contexte',
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :weather, as: :radio_buttons, label: 'Météo',
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :main_taste, as: :radio_buttons, label: 'Goût Principal',
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :balance, as: :radio_buttons, label: 'Tendance',
+                  input_html: { class: "squaretag-selector" },
+                  item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :feelings, as: :check_boxes, label: 'Sensations',
+                          input_html: { class: "squaretag-selector" },
+                          item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.association :flavours, as: :check_boxes, label: 'Arômes',
+                          input_html: { class: "squaretag-selector" },
+                          item_wrapper_class: 'squaretag-item', required: false %>
+          </div>
+          <div class="center">
+            <%= f.input :global_rating, collection: 1..5, required: true, label: 'Note sur 5'%>
+          </div>
           <p class='center'>
             <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
           </p>
