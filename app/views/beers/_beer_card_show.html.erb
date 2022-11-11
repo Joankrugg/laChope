@@ -1,46 +1,46 @@
 <div class="card shadow">
   <div class="card-infos">
     <%= link_to beer.typical_beer do  %>
-      <div class='col-9 mx-auto btn-modern center'> | <%= beer.typical_beer.name %> | </div>
+      <div class='col-11 mx-auto btn-modern center'> | <%= beer.typical_beer.name %> | </div>
     <% end %>
-    <p class='card-section col-9 mx-auto'>Catégorie: </p>
-    <p class='col-9 mx-auto card-section-item'><%= beer.typical_beer.category.name %></p>
-    <p class='card-section col-9 mx-auto'>Niveau d'alcool: </p>
+    <p class='card-section col-11 mx-auto'>Catégorie: </p>
+    <p class='col-11 mx-auto card-section-item'><%= beer.typical_beer.category.name %></p>
+    <p class='card-section col-11 mx-auto'>Niveau d'alcool: </p>
     <% if beer.alcohol_shape.present? && beer.alcohol_shape.name != beer.typical_beer.alcohol_shape.name %>
-      <p class='col-9 mx-auto card-section-special'><%= beer.alcohol_shape.name %></p>
+      <p class='col-11 mx-auto card-section-special'><%= beer.alcohol_shape.name %></p>
     <% else %>
-      <p class='col-9 mx-auto card-section-item'><%= beer.typical_beer.alcohol_shape.name %></p>
+      <p class='col-11 mx-auto card-section-item'><%= beer.typical_beer.alcohol_shape.name %></p>
     <% end %>
-    <p class='card-section col-9 mx-auto'>Robe: </p>
+    <p class='card-section col-11 mx-auto'>Robe: </p>
     <% if beer.design_color.present? && beer.design_color.name != beer.typical_beer.design_color.name %>
-      <p class='col-9 mx-auto card-section-special'><%= beer.design_color.name %></p>
+      <p class='col-11 mx-auto card-section-special'><%= beer.design_color.name %></p>
     <% else %>
-      <p class='col-9 mx-auto card-section-item'> <%= beer.typical_beer.design_color.name %></p>
+      <p class='col-11 mx-auto card-section-item'> <%= beer.typical_beer.design_color.name %></p>
     <% end %>
-    <p class='card-section col-9 mx-auto'>Tendance: </p>
+    <p class='card-section col-11 mx-auto'>Tendance: </p>
     <% if beer.balance.present? && beer.balance.name != beer.typical_beer.balance.name %>
-      <p class='col-9 mx-auto card-section-special'><%= beer.balance.name %></p>
+      <p class='col-11 mx-auto card-section-special'><%= beer.balance.name %></p>
     <% else %>
-      <p class='col-9 mx-auto card-section-item'><%= beer.typical_beer.balance.name %></p>
+      <p class='col-11 mx-auto card-section-item'><%= beer.typical_beer.balance.name %></p>
     <% end %>
-    <p class='card-section col-9 mx-auto'>Palais: </p>
+    <p class='card-section col-11 mx-auto'>Palais: </p>
     <% if beer.main_taste.present? %>
       <% if beer.main_taste.name != beer.typical_beer.main_taste.name %>
-        <p class='col-9 mx-auto card-section-special'> <%= beer.main_taste.name %></p>
+        <p class='col-11 mx-auto card-section-special'> <%= beer.main_taste.name %></p>
       <% else %>
-        <p class='col-9 mx-auto card-section-item'><%= beer.typical_beer.main_taste.name %></p>
+        <p class='col-11 mx-auto card-section-item'><%= beer.typical_beer.main_taste.name %></p>
       <% end %>
     <% end %>
     <% if @beer.description.present? %>
-      <p class='card-section col-9 mx-auto'>Brasserie: </p>
-      <p class="col-9 mx-auto card-section-item"> <%= beer.description %> </p>
+      <p class='card-section col-11 mx-auto'>Brasserie: </p>
+      <p class="col-11 mx-auto card-section-item"> <%= beer.description %> </p>
     <% end %>
 
     <% beerflavours = [] %>
     <% typicalflavours = [] %>
 
     <% if beer.flavours.present? %>
-      <p class='card-section col-9 mx-auto'>Arômes:</p>
+      <p class='card-section col-11 mx-auto'>Arômes:</p>
       <% beer.typical_beer.flavours.each do |tb| %>
         <% typicalflavours << tb.name %>
       <% end %>
@@ -48,7 +48,7 @@
         <% beerflavours << b.name %>
       <% end %>
       <% special = typicalflavours & beerflavours %>
-      <div class="col-9 mx-auto">
+      <div class="col-11 mx-auto">
         <div class="row">
           <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
         </div>
@@ -62,7 +62,7 @@
     <% typicalfeelings = [] %>
 
     <% if beer.feelings.present? %>
-      <p class='card-section col-9 mx-auto'>Textures:</p>
+      <p class='card-section col-11 mx-auto'>Textures:</p>
       <% beer.typical_beer.feelings.each do |tb| %>
         <% typicalfeelings << tb.name %>
       <% end %>
@@ -70,7 +70,7 @@
         <% beerfeelings << b.name %>
       <% end %>
       <% special = typicalfeelings & beerfeelings %>
-      <div class="col-9 mx-auto">
+      <div class="col-11 mx-auto">
         <div class="row">
           <p class='col-lg-12 card-section-item'><%= special.join(", ") %></p>
         </div>
@@ -83,5 +83,17 @@
     <% if beer.ratings.present? %>
       <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
     <% end %>
+    <div class="family">
+      <% if beer.beer_family.present? %>
+        <p class="center"> Type de bière de la même famille : </p>
+        <% @typical_beers.each do |b| %>
+          <% if b.beer_family.name == beer.beer_family.name %>
+            <%= link_to b do  %>
+              <div class="side-cell shadow"> <%= b.name %></div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
