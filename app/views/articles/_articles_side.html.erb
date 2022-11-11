@@ -1,16 +1,9 @@
-<div class="card sides bottom shadow">
+<div class="sides bottom">
   <h4 class="title-top">A Lire</h4>
   <% @articles.each do |a| %>
     <%= link_to a do %>
-      <div class="row article-link card-infos">
-        <div class="col-lg-4"><%= cl_image_tag a.photo.key, height: 100, width: 120, crop: :fill, class: 'card-img-top img-responsive beer-image' %></div>
-        <div class="col-lg-8">
-          <p class='article-link-text'><%= a.title %></p>
-          <p class='article-link-text'><%= a.theme.name %></p>
-          <p class='article-link-text'><%= a.created_at.strftime("%d/%m/%Y") %> </p>
-          <div class="line center"></div><br>
-        </div>
-      </div>
+      <p class='side-cell shadow'><%= a.title %></p>
     <% end %>
   <% end %>
 </div>
+
