@@ -1,0 +1,29 @@
+<div class="offnavs"></div>
+<% regular = [] %>
+<% @beers.each do |b| %>
+  <% if b.alcohol_level != nil %>
+     <% if alcohol_level == 0 %>
+      <% regular << b %>
+    <% end %>
+  <% end %>
+<% end %>
+<div class="container top">
+  <div class="row">
+    <div class="mx-auto d-none d-lg-block col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'shared/intra_links' %>
+    </div>
+    <div class="col-lg-9">
+      <div class="card shadow">
+        <h1 class='title-top'><%= title 'Bières classiques' %></h1>
+      </div>
+      <div class="row">
+        <% regular.each do |b| %>
+          <div class="mx-auto col-6 col-sm-6 col-lg-4 index">
+            <%= render 'beer_card', beer: b %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

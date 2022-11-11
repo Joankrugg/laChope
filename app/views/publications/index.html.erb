@@ -1,6 +1,78 @@
 <div class="offnavs"></div>
 <div class="container top">
   <div class="row">
+    <div class="counters col-lg-3 d-none d-lg-block">
+      <% if @beers.present? %>
+        <div class="row bottom">
+          <div class="col-12" >
+            <% b = @beers.last %>
+            <%= link_to b do  %>
+              <div class="card shadow" id="beer">
+                <p class="card-text p-top p-bottom">Dernière bière crèée</p>
+                <%= cl_image_tag b.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= b.name.upcase %></h5>
+                  <% if b.style.present? %>
+                    <p class="card-text"><%= b.style.name %></p>
+                  <% else %>
+                    <p class="card-text"><%= b.typical_beer.style.name %></p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @stickers.present? %>
+        <div class="row bottom" >
+          <div class="col-12" >
+            <% s = @stickers.sample %>
+            <div class="card shadow " id="sticker">
+              <p class="card-text p-top">StickrRoulette</p>
+              <div class="card-body">
+                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
+                <h5 class="card-title"><%= s.name %></h5>
+                <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% if @stores.present? %>
+        <div class="row bottom">
+          <div class="col-12"  >
+            <% s = @stores.last %>
+            <%= link_to s do  %>
+              <div class="card shadow "id="store">
+                <p class="card-text p-top">Dernière cave crèé</p>
+                <div class="card-body">
+                  <h5 class="card-title"><%= s.name %></h5>
+                  <p class="card-text"><%= s.city %></p>
+                  <p class="card-text"><%= @stores.count %> Caves sur Beertrackr</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @users.present? %>
+        <div class="row bottom" >
+          <div class="col-12" >
+            <% u = @users.last %>
+            <%= link_to u do  %>
+              <div class="card shadow "id="user">
+                <p class="card-text p-top">Nouvel arrivé sur le BeerWidr</p>
+                <div class="card-body">
+                  <h5 class="card-title"><%= u.name %></h5>
+                  <p class="card-text"><%= @users.count %> Académiciens sur le BeerWidr</p>
+                  <p class="card-text"><%= @users.count %> Caves sur Beertrackr</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <div class="publications col-lg-9">
       <div class="row bottom">
         <div class="col-12">
@@ -88,78 +160,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-    <div class="counters col-lg-3">
-      <% if @beers.present? %>
-        <div class="row bottom">
-          <div class="col-12" >
-            <% b = @beers.last %>
-            <%= link_to b do  %>
-              <div class="card shadow" id="beer">
-                <p class="card-text p-top p-bottom">Dernière bière crèée</p>
-                <%= cl_image_tag b.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= b.name.upcase %></h5>
-                  <% if b.style.present? %>
-                    <p class="card-text"><%= b.style.name %></p>
-                  <% else %>
-                    <p class="card-text"><%= b.typical_beer.style.name %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-      <% if @stickers.present? %>
-        <div class="row bottom" >
-          <div class="col-12" >
-            <% s = @stickers.sample %>
-            <div class="card shadow " id="sticker">
-              <p class="card-text p-top">StickrRoulette</p>
-              <div class="card-body">
-                <%= cl_image_tag s.photo.key, height: 250, width: 250, crop: :fill, class: 'beer-image card-img-top img-responsive' %>
-                <h5 class="card-title"><%= s.name %></h5>
-                <p class="card-text"><%= @stickers.count %> Créations sur le BeerStickr</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <% if @stores.present? %>
-        <div class="row bottom">
-          <div class="col-12"  >
-            <% s = @stores.last %>
-            <%= link_to s do  %>
-              <div class="card shadow "id="store">
-                <p class="card-text p-top">Dernière cave crèé</p>
-                <div class="card-body">
-                  <h5 class="card-title"><%= s.name %></h5>
-                  <p class="card-text"><%= s.city %></p>
-                  <p class="card-text"><%= @stores.count %> Caves sur Beertrackr</p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-      <% if @users.present? %>
-        <div class="row bottom" >
-          <div class="col-12" >
-            <% u = @users.last %>
-            <%= link_to u do  %>
-              <div class="card shadow "id="user">
-                <p class="card-text p-top">Nouvel arrivé sur le BeerWidr</p>
-                <div class="card-body">
-                  <h5 class="card-title"><%= u.name %></h5>
-                  <p class="card-text"><%= @users.count %> Académiciens sur le BeerWidr</p>
-                  <p class="card-text"><%= @users.count %> Caves sur Beertrackr</p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

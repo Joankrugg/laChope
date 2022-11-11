@@ -130,7 +130,35 @@ class BeersController < ApplicationController
     @typical_beers = TypicalBeer.all
   end
 
+  def alcohol_free
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
 
+  def light
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def regular
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def strong
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
+  def very_strong
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
   private
 
   def set_beer

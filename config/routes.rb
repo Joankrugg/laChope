@@ -74,6 +74,11 @@ Rails.application.routes.draw do
       get :brown
       get :ruby
       get :black
+      get :alcohol_free
+      get :light
+      get :regular
+      get :strong
+      get :very_strong
     end
   end
   get 'concept', to: 'pages#concept'
