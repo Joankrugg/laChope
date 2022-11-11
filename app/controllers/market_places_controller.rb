@@ -29,7 +29,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "brasserie_info_window", locals: { place: place })
         }
       end
     else
@@ -38,7 +38,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "brasserie_info_window", locals: { place: place })
         }
       end
     end
@@ -51,7 +51,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "bar_info_window", locals: { place: place })
         }
       end
     else
@@ -60,7 +60,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "bar_info_window", locals: { place: place })
         }
       end
     end
@@ -73,7 +73,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "cave_info_window", locals: { place: place })
         }
       end
     else
@@ -82,7 +82,7 @@ class MarketPlacesController < ApplicationController
         {
           lat: place.latitude,
           lng: place.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { place: place })
+          info_window: render_to_string(partial: "cave_info_window", locals: { place: place })
         }
       end
     end
