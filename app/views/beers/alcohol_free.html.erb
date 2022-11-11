@@ -2,7 +2,7 @@
 <% alcohol_free = [] %>
 <% @beers.each do |b| %>
   <% if b.alcohol_shape != nil %>
-     <% if alcohol_shape == 0 %>
+     <% if alcohol_shape == 'Sans Alcool ≤ 1°' %>
       <% alcohol_free << b %>
     <% end %>
   <% end %>
