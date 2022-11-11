@@ -2,31 +2,7 @@
 <div class="container top">
   <div class="row">
     <div class="col-lg-6 bottom">
-      <% if user_signed_in? && @beer.user == current_user %>
-        <% if current_user.store.present? %>
-          <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
-            <%= link_to edit_beer_path (@beer) do  %>
-              <%= render 'beer_id', beer: @beer %>
-            <% end %>
-          <% else %>
-            <%= render 'beer_id', beer: @beer %>
-          <% end %>
-        <% else %>
-          <%= link_to edit_beer_path (@beer) do  %>
-            <%= render 'beer_id', beer: @beer %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= render 'beer_id', beer: @beer %>
-      <% end %>
-      <% if user_signed_in? %>
-        <div class="center">
-          <%= render 'tastings/form' %>
-        </div>
-      <% end %>
-      <div class="center">
-        <%= render 'tasting_places/form' %>
-      </div>
+      <%= render 'beer_id', beer: @beer %>
     </div>
     <div class="col-lg-6">
       <div class="card family">

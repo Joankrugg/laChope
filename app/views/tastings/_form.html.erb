@@ -1,20 +1,12 @@
-
-<!-- Button to Open the Modal -->
-<p class="center btn btn-ghost" data-toggle="modal" data-target="#tasting">
+<p class="side-cell shadow" data-toggle="modal" data-target="#tasting">
   Enregistrer une Dégustation
 </p>
-
-<!-- The Modal -->
 <div class="modal" id="tasting">
   <div class="modal-dialog">
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Dégustation</h4>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
         <%= simple_form_for ([ @beer, @tasting ]) do |f| %>
           <%= f.input :date, required: false %>

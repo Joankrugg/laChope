@@ -16,9 +16,26 @@
     <% end %>
   <% end %>
     <div class="row">
+      <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 ">
+        <%= render 'articles/articles_side' %>
+        <%= render 'shared/intra_links' %>
+        <div class="card sides bottom index-side">
+          <% @beers.each do |b| %>
+            <% if b.target? %>
+              <%= link_to b do %>
+                <div class="beer-link card-infos">
+                  <p class='beer-link-text'>Nom : <%= b.name %></p>
+                  <p class='beer-link-text'>Style : <%= b.style.name %></p>
+                  <div class="line"></div><br>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div class="col-12 col-lg-9">
-        <div class="head">
-          <h1><%= title 'Toutes Les Bières' %></h1>
+        <div class="card shadow">
+          <h1 class='title-top'><%= title 'Toutes Les Bières' %></h1>
         </div>
         <div class="page-description">
           <p>Le brasseur fait le moût mais c'est la fermentation qui fait la bière. On distingue trois types de fermentation.</p>
@@ -92,25 +109,6 @@
             <% end %>
           </div>
         <% end %>
-      </div>
-      <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 ">
-        <%= render 'shared/social-networks' %>
-        <%= render 'shared/intra_links' %>
-        <div class="card sides bottom index-side">
-          <h3 class="title-top">Target</h3>
-          <% @beers.each do |b| %>
-            <% if b.target? %>
-              <%= link_to b do %>
-                <div class="beer-link card-infos">
-                  <p class='beer-link-text'>Nom : <%= b.name %></p>
-                  <p class='beer-link-text'>Style : <%= b.style.name %></p>
-                  <div class="line"></div><br>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-        <%= render 'articles/articles_side' %>
       </div>
     </div>
   </div>
