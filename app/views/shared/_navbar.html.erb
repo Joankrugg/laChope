@@ -259,12 +259,11 @@
   <div class="tab-pane container" id="stickers">
     <div class="card p-top">
       <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <p>Association 1901 l'atelier target </p>
-          <p>3, place de la Chapelle, 33550 Langoiran</p>
-            <p><%= link_to 'envoyer un message', new_personal_message_path(receiver_id: @u), class: 'btn-ghost' %></p>
-        </div>
+        <% @stickers.sample(4).each do |f| %>
+          <div class="col-lg-2 mx-auto">
+            <%= cl_image_tag f.photo.key, class: 'img-fluid'%>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
