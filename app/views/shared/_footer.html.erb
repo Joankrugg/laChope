@@ -1,63 +1,38 @@
 <div class="footer">
-  <div class="footer-copyright d-none d-lg-block">
-    Atelier Target 2021 <i class="far fa-copyright"></i>
-  </div>
-  <div class="d-none d-lg-block">
-    <a href="#"><i class="fab fa-instagram nav-link-2"></i></a>
-    <a href="#"><i class="fab fa-youtube nav-link-2"></i></a>
-    <a href="#"><i class="fab fa-linkedin nav-link-2"></i></a>
-  </div>
-  <div class="d-lg-none ">
-    <%= link_to new_public_search_path do %>
-      <div class="mobile-link">
-        <i class="fas fa-search footer-link"></i>
-        <p>Tracker</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1667300910/Black_trackr_ik3gwk.webp", class: 'img-fluid footer-logo', alt: 'logo' %>
       </div>
-    <% end %>
-  </div>
-  <div class="d-lg-none ">
-    <%= link_to beers_path do %>
-      <div class="mobile-link">
-        <i class="fas fa-beer footer-link"></i>
-        <p>Bières</p>
-      </div>
-    <% end %>
-  </div>
-  <div class="d-lg-none ">
-    <%= link_to typical_beers_path do %>
-      <div class="mobile-link">
-        <i class="fas fa-list footer-link"></i>
-        <p>Styles</p>
-      </div>
-    <% end %>
-  </div>
-  <div class="d-lg-none ">
-    <%= link_to market_places_path do %>
-      <div class="mobile-link">
-        <i class="fas fa-store footer-link"></i>
-        <p>Caves</p>
-      </div>
-    <% end %>
-  </div>
-  <% if user_signed_in? %>
-    <div class="d-lg-none">
-      <%= link_to publications_path do %>
-        <div class="mobile-link">
-          <i class="fas fa-users footer-link"></i>
-          <p>Salon</p>
-        </div>
-      <% end %>
     </div>
-  <% else %>
-    <div class="d-lg-none">
-      <%= link_to articles_path do %>
-        <div class="mobile-link">
-          <i class="far fa-newspaper footer-link"></i>
-          <p>Infos</p>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mx-auto">
+        <div class="item">
+          <p>Vente de remorques et accessoires</p>
+          <p>Location de remorques</p>
+          <p>Atelier d'entretien et installation</p>
+          <p>Services réglementaires</p>
         </div>
-      <% end %>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mx-auto">
+        <div class="item">
+          <p>Mentions légales</p>
+          <p>Conditions générales d'utilisation</p>
+          <p>Politique de confidentialité</p>
+          <p>Partenaires</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 mx-auto">
+        <div class="item">
+          <p>Philippe Chambon</p>
+          <p>Envoyer un message</p>
+          <p>Atelier Target 2021 <i class="far fa-copyright"></i></p>
+          <p> <a href="#"><i class="fab fa-instagram nav-link-2"></i></a>
+            <a href="#"><i class="fab fa-youtube nav-link-2"></i></a>
+            <a href="#"><i class="fab fa-linkedin nav-link-2"></i></a>
+          </p>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>
-
-
