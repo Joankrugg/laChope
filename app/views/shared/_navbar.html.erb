@@ -272,7 +272,7 @@
       <div class="row">
         <% @beers.where(target: true).sample(4).each do |f| %>
           <div class="col-lg-2 mx-auto">
-            <%= cl_image_tag f.photo.key, heigth: 100 , crop: :fill, class: 'img-fluid'%>
+            <%= cl_image_tag f.photo.key, height: 90, width: 120, crop: :fill, class: 'img-fluid'%>
           </div>
         <% end %>
       </div>
