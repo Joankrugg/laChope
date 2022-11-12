@@ -21,7 +21,10 @@
       <a class="second-nav-link" data-toggle="pill" id="articles-link"> Articles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="contact-link"> Contact <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="stickers-link"> Stickers <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+    </li>
+    <li class="nav-item d-none d-lg-block">
+      <a class="second-nav-link" data-toggle="pill" id="targets-link"> Targets <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
   </ul>
 
@@ -253,7 +256,19 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="contact">
+  <div class="tab-pane container" id="stickers">
+    <div class="card p-top">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <p>Association 1901 l'atelier target </p>
+          <p>3, place de la Chapelle, 33550 Langoiran</p>
+            <p><%= link_to 'envoyer un message', new_personal_message_path(receiver_id: @u), class: 'btn-ghost' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane container" id="targets">
     <div class="card p-top">
       <div class="row">
         <div class="col-lg-1"></div>
@@ -552,7 +567,7 @@
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
-      $("#contact").hide();
+      $("#stickers").hide();
     });
   });
 </script>
@@ -568,21 +583,28 @@
 
 <script>
   $(document).ready(function(){
-    $("#contact-link").hover(function(){
-      $("#contact").show();
+    $("#stickers-link").hover(function(){
+      $("#stickers").show();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#contact-link").hover(function(){
+    $("#stickers-link").hover(function(){
       $("#articles").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#contact").on({
+    $("#stickers-link").hover(function(){
+      $("#targets").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#stickers").on({
       mouseleave: function(){
         $(this).hide();
       },
@@ -590,3 +612,26 @@
   });
 </script>
 
+<script>
+  $(document).ready(function(){
+    $("#targets-link").hover(function(){
+      $("#targets").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#targets-link").hover(function(){
+      $("#stickers").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#targets").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>

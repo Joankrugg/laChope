@@ -5,24 +5,25 @@
       <p>Tracker</p>
     </div>
   <% end %>
-  <%= link_to beers_path do %>
-    <div class="mobile-link">
-      <i class="fas fa-beer footer-link"></i>
-      <p>Bières</p>
-    </div>
-  <% end %>
-  <%= link_to typical_beers_path do %>
-    <div class="mobile-link">
-      <i class="fas fa-list footer-link"></i>
-      <p>Styles</p>
-    </div>
-  <% end %>
   <%= link_to market_places_path do %>
     <div class="mobile-link">
       <i class="fas fa-store footer-link"></i>
       <p>Caves</p>
     </div>
   <% end %>
+  <%= link_to articles_path do %>
+    <div class="mobile-link">
+      <i class="fas fa-newspaper footer-link"></i>
+      <p>Articles</p>
+    </div>
+  <% end %>
+  <%= link_to stickers_path do %>
+    <div class="mobile-link">
+      <i class="fas fa-list footer-link"></i>
+      <p>Stickers</p>
+    </div>
+  <% end %>
+
   <% if user_signed_in? %>
     <%= link_to publications_path do %>
       <div class="mobile-link">
@@ -31,10 +32,10 @@
       </div>
     <% end %>
   <% else %>
-      <%= link_to articles_path do %>
+    <%= link_to target_beers_path do %>
       <div class="mobile-link">
-        <i class="far fa-newspaper footer-link"></i>
-        <p>Infos</p>
+        <i class="fas fa-bullseye footer-link"></i>
+        <p>Targets</p>
       </div>
     <% end %>
   <% end %>
