@@ -11,9 +11,7 @@
       <%= render 'articles/articles_side' %>
       <%= render 'ales_families' %>
       <% ales.each do |b| %>
-        <div class="mx-auto col-xs-8 col-sm-6 col-lg-3 index">
-          <%= render 'beer_card', beer: b %>
-        </div>
+        <%= render 'beer_card', beer: b %>
       <% end %>
     </div>
     <div class="col-lg-9">
