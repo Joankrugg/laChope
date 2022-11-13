@@ -1,17 +1,23 @@
 #conversationBody {
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
 .body-input{
   width: 100%
 }
+
 .chat-datetime{
   font-size: 12px;
   color: $my-green;
 }
+
 #chat-with{
   font-size: 25px;
+}
+
+.chat-message{
+  max-height: 400px;
 }
 
 .chat-form-control {
@@ -53,6 +59,9 @@
   right: 0%;
 }
 #send{
-  font-size: 39px;
   color: $my-green;
+}
+
+.fa-arrow-circle-up{
+  font-size: 39px;
 }

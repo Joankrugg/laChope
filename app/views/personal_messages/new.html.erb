@@ -4,7 +4,7 @@
     <h1 class='page-title'>Nouveau message pour <%= @receiver.name %></h1>
     <%= simple_form_for @personal_message do |f| %>
       <%= hidden_field_tag 'receiver_id', @receiver.id  %>
-      <div class="search-form-control form-group">
+      <div class="chat-form-control form-group">
         <%= f.input :body, as: :string, required: false, label: false, autocomplete: 'off', class: "form-control string required" %>
         <label class="photo">
           <i class="fas fa-camera-retro"></i>
