@@ -7,26 +7,26 @@
 <% end %>
 <div class="container top">
   <div class="row">
+    <div class="mx-auto d-none d-lg-block col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'lagers_families' %>
+    </div>
     <div class="col-lg-9">
-      <div class="head">
-        <h1><%= title 'Lagers' %></h1>
+      <div class="card shadow bottom">
+        <h1 class='title-top'><%= title 'Lagers' %></h1>
       </div>
-      <div class="page-description">
-        <p>
+      <div class="card shadow">
+        <p class= 'page-description'>
           La fraîcheur requise par le procédé de fermentation basse a l'avantage de protéger la bière contre les bactéries et les champignons. Les lagers ont une durée de conservation supérieure à celle des bières produites par fermentation haute. En revanche, les levures basses produisent moins d'alcool que les hautes, car leur action est ralentie par le froid, qui ralentit leur métabolisme. Le terme « lager » vient du mot lagern, « stocker » en allemand, la fermentation basse étant suivie d'une phase de stockage au froid qui durait quelques mois — aujourd'hui, quelques semaines.
         </p>
       </div>
       <div class="row">
         <% lagers.each do |b| %>
-          <div class="mx-auto col-xs-8 col-sm-6 col-lg-4 index">
+          <div class="col-lg-4 col-6">
             <%= render 'beer_card', beer: b %>
           </div>
         <% end %>
       </div>
-    </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 index">
-      <%= render 'articles/articles_side' %>
-      <%= render 'lagers_families' %>
     </div>
   </div>
 </div>
