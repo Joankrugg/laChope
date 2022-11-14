@@ -1,53 +1,7 @@
 <div class="offnavs"></div>
 <div class="container top bottom">
   <div class="row">
-    <div class="col-12 col-lg-9">
-      <div class="card space shadow">
-        <h1 class='page-title center'><%= title 'Tous Les Membres' %></h1>
-      </div>
-      <div class="card space shadow">
-        <h2 class='header-text'>Il est proposé aux membres de <%= link_to 'créer des bières', new_beer_path %> de référence de manière à offrir aux utilisateurs du site un large catalogue d'expériences, de <%= link_to 'créer des étiquettes', new_sticker_path %>, des <%= link_to 'projets de brassins', new_project_path %> et de consulter des recettes. Pour goûter les Targets c'est à la pico-brasserie ; circuit ultra court. convenons ensemble d'un rendez-vous directement avec moi en <%= link_to 'envoyant un message', new_personal_message_path(receiver_id: User.first) %></h2>
-      </div>
-      <%= form_tag(users_path, method: :get) do %>
-        <div class="search-form-control form-group">
-          <i class="fas fa-search search-img"></i>
-          <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
-          <button name="button" type="submit" class="btn btn-ghost-2">
-            Allons-y
-          </button>
-        </div>
-      <% end %>
-      <div class="row">
-        <% @users.each do |u| %>
-          <div class="col-6 col-lg-4 mx-auto bottom">
-            <%= link_to u do %>
-              <% unless u.photo.present? %>
-                <div class="members">
-                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 200, width: 250, crop: :fill, class: " image img-fluid" %></div>
-                  <div class="middle">
-                    <p class='infos center'><%= u.email %></p>
-                    <% if u != current_user %>
-                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
-                    <% end %>
-                  </div>
-                </div>
-              <% else %>
-                <div class="members">
-                  <div class="user-card"><%= cl_image_tag u.photo.key, height: 200, width: 250, crop: :fill, class: "image img-fluid" %></div>
-                  <div class="middle">
-                    <p class='infos center'><%= u.email %></p>
-                    <% if u != current_user %>
-                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="mx-auto col-xs-8 col-sm-12 col-lg-3 d-none d-lg-block d-xl-block">
+    <div class="mx-auto col-lg-3 d-none d-lg-block d-xl-block">
       <%= render 'shared/social-networks' %>
       <div class="card sides bottom index-side">
         <h4 class="title-top">Targets</h4>
@@ -80,5 +34,52 @@
         <% end %>
       </div>
     </div>
+    <div class="col-12 col-lg-9">
+      <div class="card space shadow">
+        <h1 class='page-title center'><%= title 'Les Beertrackrs' %></h1>
+      </div>
+      <div class="card space shadow">
+        <h2 class='header-text'>Les beertrackrs font pas mal de choses ici ; ils peuvent <%= link_to 'créer une bière dans le catalogue', new_beer_path %>, ils peuvent <%= link_to 'créer leur cave', new_store_path %>, tenir un journal de dégustation de chacune des bières sur le site, ils peuvent <%= link_to 'partager des étiquettes pour construire des projets de bière', new_sticker_path %>, et beaucoup d'autres choses encore.... Pour goûter les Targets c'est à la pico-brasserie ; circuit ultra court. Il suffit de <%= link_to "m'envoyer un message", new_personal_message_path(receiver_id: User.first) %></h2>
+      </div>
+      <%= form_tag(users_path, method: :get) do %>
+        <div class="search-form-control form-group">
+          <i class="fas fa-search search-img"></i>
+          <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
+          <button name="button" type="submit" class="btn btn-ghost-2">
+            Allons-y
+          </button>
+        </div>
+      <% end %>
+      <div class="row">
+        <% @users.each do |u| %>
+          <div class="col-6 col-lg-4 bottom">
+            <%= link_to u do %>
+              <% unless u.photo.present? %>
+                <div class="members">
+                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 200, width: 250, crop: :fill, class: " image img-fluid" %></div>
+                  <div class="middle">
+                    <p class='infos center'><%= u.email %></p>
+                    <% if u != current_user %>
+                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
+                    <% end %>
+                  </div>
+                </div>
+              <% else %>
+                <div class="members">
+                  <div class="user-card"><%= cl_image_tag u.photo.key, height: 200, width: 250, crop: :fill, class: "image img-fluid" %></div>
+                  <div class="middle">
+                    <p class='infos center'><%= u.email %></p>
+                    <% if u != current_user %>
+                      <p class='infos center'><%= link_to 'send a message', new_personal_message_path(receiver_id: u) %></p>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>

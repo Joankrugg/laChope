@@ -7,7 +7,7 @@
       <div class="carousel-caption hook">
         <h1 class="home-title">BEERTRACKR</h1>
         <p>DÉCOUVRE DES STYLES DE BIÈRE À EXPLORER</p>
-        <div class="couple">
+        <div class="couple d-none d-sm-block">
           <%= link_to new_public_search_path do %>
             <div class='btn btn-carousel'>ESSAYER</div>
           <% end %>
@@ -22,9 +22,11 @@
       <div class="carousel-caption hook">
         <h1 class="home-title">BEERTRACKR</h1>
         <p>TROUVE DES POINTS DE VENTE COMME TU LES AIMES</p>
-        <%= link_to market_places_path do %>
-          <div class='btn btn-carousel'>EXPLORER</div>
-        <% end %>
+        <div class="d-none d-sm-block">
+          <%= link_to market_places_path do %>
+            <div class='btn btn-carousel'>EXPLORER</div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="carousel-item" data-interval="4000">
@@ -32,9 +34,11 @@
       <div class="carousel-caption hook">
         <h1 class="home-title">BEERTRACKR</h1>
         <p>TIENS UN CARNET DE DÉGUSTATION</p>
-        <%= link_to new_user_registration_path do %>
-          <div class='btn btn-carousel-2'>S'INSCRIRE</div>
-        <% end %>
+        <div class="d-none d-sm-block">
+          <%= link_to new_user_registration_path do %>
+            <div class='btn btn-carousel-2'>S'INSCRIRE</div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -46,6 +50,22 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto d-block d-sm-none">
+      <%= link_to new_public_search_path do %>
+        <div class='btn btn-mobile'>ESSAYER</div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mx-auto d-block d-sm-none">
+      <%= link_to new_user_registration_path do %>
+        <div class='btn btn-mobile-2'>S'INSCRIRE</div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <header class="banner text-white text-center">
   <div class="container">
@@ -75,7 +95,11 @@
 
           </div>
           <p class="slogan">Il existe forcément une bière à ton goût.</p>
-          <%= link_to 'TROUVE TA BIÈRE !', new_public_search_path, class: 'btn btn-banner' %>
+          <div class="row">
+            <div class="col-6 mx-auto">
+              <%= link_to 'TROUVE TA BIÈRE !', new_public_search_path, class: 'btn btn-mobile' %>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-1 d-none d-lg-block"></div>
@@ -99,7 +123,9 @@
       </div>
       <div class="col-6">
         <h3 class="decision-action-text">AJOUTE TA PREMIÈRE BIÈRE AU CATALOGUE</h3>
-        <div class="btn btn-decision">S'INSCRIRE</div>
+        <div class="col-6 mx-auto">
+          <div class="btn btn-mobile">S'INSCRIRE</div>
+        </div>
       </div>
     </div>
   </div>
