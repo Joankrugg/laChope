@@ -83,11 +83,11 @@ GEM
     aws_cf_signer (0.1.3)
     bcrypt (3.1.18)
     bindex (0.8.1)
-    bootsnap (1.13.0)
+    bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.37.1)
+    capybara (3.38.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -118,11 +118,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
-    ethon (0.15.0)
+    ethon (0.16.0)
       ffi (>= 1.15.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-sass (6.2.0)
+    font-awesome-sass (6.2.1)
       sassc (~> 2.0)
     geocoder (1.8.1)
     globalid (1.0.0)
@@ -192,14 +192,14 @@ GEM
     net_http_timeout_errors (0.3.5)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.8)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     oga (3.4)
       ast
       ruby-ll (~> 2.1)
     orm_adapter (0.5.0)
-    pg (1.4.3)
+    pg (1.4.5)
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
@@ -240,7 +240,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_admin (3.0.0)
+    rails_admin (3.1.0)
       activemodel-serializers-xml (>= 1.0)
       kaminari (>= 0.14, < 2.0)
       nested_form (~> 0.3)
@@ -262,7 +262,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.8.0)
-    regexp_parser (2.6.0)
+    regexp_parser (2.6.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -286,7 +286,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.5.0)
+    selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -311,7 +311,7 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
-    turbo-rails (1.3.0)
+    turbo-rails (1.3.2)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -355,7 +355,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.1)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
@@ -381,7 +381,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
-  rails (~> 6.0.3, >= 6.0.3.4)
+  rails (~> 6.0.5)
   rails_admin (~> 3.0)
   rails_admin_import (~> 3.0, >= 3.0.3)
   redactor-rails!
