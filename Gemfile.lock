@@ -382,7 +382,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.5)
-  rails_admin (~> 3.1.0.beta)
+  rails_admin (~> 3.0)
   rails_admin_import (~> 3.0, >= 3.0.3)
   redactor-rails!
   redis (~> 4.0)
