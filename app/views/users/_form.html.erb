@@ -1,6 +1,25 @@
-<div class="blackboard">
-  <%= simple_form_for @user do |f| %>
-    <div class="center">
+<%= simple_form_for @user do |f| %>
+  <div class="form-input">
+    <div class="col-lg-12 center">
+      <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 center">
+        <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
+      </div>
+      <div class="col-lg-6 center">
+        <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
+      </div>
+    </div>
+    <div class="col-lg-12 center">
+      <%= f.association :activities, as: :check_boxes, label: "Activités",
+                  input_html: { class: "squaretag-selector center" },
+                    item_wrapper_class: 'squaretag-item', label: 'ACTIVITÉ(S)' %>
+    </div>
+    <div class="col-lg-12 center">
+      <%= f.input :website, label: "Site Internet" %>
+    </div>
+    <div class="col-lg-12 center">
       <label class="photo">
         <i class="fas fa-camera-retro"></i>
         <span style="display:none;">
@@ -8,35 +27,17 @@
         </span>
       </label>
     </div>
-    <div class="center">
-      <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
-    </div>
-    <div class="center">
-      <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
-    </div>
-    <div class="center">
-      <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
-    </div>
-    <div class="center">
+    <div class="col-lg-12 center">
       <%= f.association :sexe, required: false, as: :radio_buttons,
                   input_html: { class: "squaretag-selector center" },
                   item_wrapper_class: 'squaretag-item', label: 'SEXE' %>
-    </div>
-    <div class="center">
-      <%= f.association :activities, as: :check_boxes, label: "Activités",
-                  input_html: { class: "squaretag-selector center" },
-                    item_wrapper_class: 'squaretag-item', label: 'ACTIVITÉ(S)' %>
-    </div>
-    <div class="center">
-      <%= f.input :website, label: "Site Internet" %>
     </div>
     <div class="infos">
       <p class='center'>
         <%= f.button :submit, "Valider", class: "btn btn-ghost bottom" %>
       </p>
     </div>
-  <% end %>
-</div>
-
+  </div>
+<% end %>
 
 

@@ -31,7 +31,7 @@ module.exports = function(api) {
           forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,
-          modules: true,
+          modules: false,
           exclude: ['transform-typeof-symbol']
         }
       ]
@@ -54,12 +54,6 @@ module.exports = function(api) {
         }
       ],
       [
-       '@babel/plugin-proposal-private-methods',
-        {
-         loose: true
-        }
-      ],
-      [
         '@babel/plugin-transform-runtime',
         {
           helpers: false,
@@ -76,4 +70,3 @@ module.exports = function(api) {
     ].filter(Boolean)
   }
 }
-

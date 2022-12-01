@@ -12,7 +12,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4', '>= 5.4.3'
+gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -34,7 +34,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '~> 2.2', '>= 2.2.1'
+gem 'rails_admin', '~> 3.0'
+gem "rails_admin_import", "~> 3.0", '>= 3.0.3'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
