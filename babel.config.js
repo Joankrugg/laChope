@@ -31,7 +31,7 @@ module.exports = function(api) {
           forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,
-          modules: false,
+          modules: true,
           exclude: ['transform-typeof-symbol']
         }
       ]
@@ -42,10 +42,6 @@ module.exports = function(api) {
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
       [
-        "@babel/plugin-proposal-private-property-in-object",
-        { "loose": true }
-      ],
-      [
         '@babel/plugin-proposal-class-properties',
         {
           loose: true
@@ -55,6 +51,12 @@ module.exports = function(api) {
         '@babel/plugin-proposal-object-rest-spread',
         {
           useBuiltIns: true
+        }
+      ],
+      [
+       '@babel/plugin-proposal-private-methods',
+        {
+         loose: true
         }
       ],
       [
