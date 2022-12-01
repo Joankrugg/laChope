@@ -176,22 +176,6 @@
                 </div>
               <% end %>
             </div>
-          <% else %>
-            <% if @user == current_user %>
-              <% if @user.store.present? %>
-                <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-                  <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
-                  <% if @user.design.nil? %>
-                    <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <div class='user-section'>1ère Étape: Remplis ton profil en cliquant sur le bouton profil</div>
-                <% if @user.design.nil? %>
-                  <div class="user" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</div>
-                <% end %>
-              <% end %>
-            <% end %>
           <% end %>
         </div>
         <div class="row col-9 mx-auto icons bottom">
@@ -271,25 +255,33 @@
           <%= link_to 'ENVOYER UN MESSAGE', new_personal_message_path(receiver_id: @user), class: 'admin user' %>
         <% end %>
       </div>
+
       <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content modal-content-black">
             <div class="modal-header">
-              <h5 class="modal-title center" id="exampleModalLabel">Mon Profil</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title-black center" id="exampleModalLabel">Mon Profil</h5>
+              <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bottle-available">
               <%= render 'form'%>
             </div>
           </div>
         </div>
       </div>
+
       <div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content modal-content-black">
             <div class="modal-body">
+              <div class="modal-header">
+                <h5 class="modal-title-black center" id="exampleModalLabel">Code d'accès</h5>
+                <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <%= render 'accesses/form', access: @access %>
             </div>
           </div>
@@ -297,8 +289,14 @@
       </div>
       <div class="modal fade" id="style_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content modal-content-black">
             <div class="modal-body">
+              <div class="modal-header">
+                <h5 class="modal-title-black center" id="exampleModalLabel">Design</h5>
+                <button type="button" class="close cross" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <%= render 'designs/form', design: @design %>
             </div>
           </div>
@@ -672,9 +670,9 @@
 
             <div class="modal fade" id="yeast" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Fermentation</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Fermentation</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -694,9 +692,9 @@
             </div>
             <div class="modal fade" id="alcohol_level" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Niveau d'Alcool</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Niveau d'Alcool</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -716,9 +714,9 @@
             </div>
             <div class="modal fade" id="balance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Équilibre</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Équilibre</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -738,9 +736,9 @@
             </div>
             <div class="modal fade" id="main_taste" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Tendance</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Tendance</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -760,9 +758,9 @@
             </div>
             <div class="modal fade" id="color" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Couleur</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Couleur</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -782,9 +780,9 @@
             </div>
             <div class="modal fade" id="flavour" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Arômes</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Arômes</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -804,9 +802,9 @@
             </div>
             <div class="modal fade" id="feeling" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Apparences</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Apparences</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -829,9 +827,9 @@
 
             <div class="modal fade" id="best" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content modal-content-black">
                   <div class="modal-header">
-                    <h5 class="modal-title center" id="exampleModalLabel">Synthese du Beertrackr</h5>
+                    <h5 class="modal-title-black center" id="exampleModalLabel">Synthese du Beertrackr</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -937,9 +935,9 @@
 
 <div class="modal fade" id="fancies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">Mes Envies</h5>
+        <h5 class="modal-title-black center" id="exampleModalLabel">Mes Envies</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -968,9 +966,9 @@
 
 <div class="modal fade" id="tastings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">Mes Dégustations</h5>
+        <h5 class="modal-title-black center" id="exampleModalLabel">Mes Dégustations</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1000,9 +998,9 @@
 
 <div class="modal fade" id="cave" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">Ma Cave à Bières</h5>
+        <h5 class="modal-title-black center" id="exampleModalLabel">Ma Cave à Bières</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1036,9 +1034,9 @@
 
 <div class="modal fade" id="user-stickers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">Mes Stickers</h5>
+        <h5 class="modal-title-black center" id="exampleModalLabel">Mes Stickers</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1069,9 +1067,9 @@
 
 <div class="modal fade" id="user-projects" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
-        <h5 class="modal-title center" id="exampleModalLabel">Mes Projets</h5>
+        <h5 class="modal-title-black center" id="exampleModalLabel">Mes Projets</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1108,7 +1106,7 @@
 
 <div class="modal fade" id="beer_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -1123,7 +1121,7 @@
 
 <div class="modal fade" id="article_creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-black">
       <div class="modal-header">
         <h5 class="modal-title center" id="exampleModalLabel">CRÉER ARTICLE</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1190,7 +1188,7 @@
     function updateStatus() {
       $( "#beer-roulette" ).load(window.location.href + " #beer-roulette" );
     }
-    setInterval(updateStatus, 5000);
+    setInterval(updateStatus, 15000);
   });
 </script>
 

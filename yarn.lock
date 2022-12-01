@@ -938,7 +938,7 @@
   dependencies:
     regenerator-runtime "^0.13.10"
 
-"@babel/runtime@^7.16.7", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.19.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.19.0.tgz"
   integrity sha512-eR8Lo9hnDS7tqkO7NsV+mKvCmv5boaXFSZ70DnfhcgiEne8hv9oCEd36Klw74EtizEqLsy4YnW8UWwpBVolHZA==
@@ -1009,28 +1009,10 @@
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@fortawesome/fontawesome-free@^6.1.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.1.tgz#344baf6ff9eaad7a73cff067d8c56bfc11ae5304"
-  integrity sha512-viouXhegu/TjkvYQoiRZK3aax69dGXxgEjpvZW81wIJdxm5Fnvp3VVIP4VHKqX4SvFw6qpmkILkD4RJWAdrt7A==
-
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
-
-"@hotwired/turbo-rails@^7.1.0":
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/@hotwired/turbo-rails/-/turbo-rails-7.2.0.tgz"
-  integrity sha512-RxJJGINeLa2lyI078LLSbqZDI7RarxTDMVlgKnsLvtFEn8Pa7ySEcDUxHp5YiLXGbLacAIH/dcfD0JfCWe5Dqw==
-  dependencies:
-    "@hotwired/turbo" "^7.2.0"
-    "@rails/actioncable" "^7.0"
-
-"@hotwired/turbo@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/@hotwired/turbo/-/turbo-7.2.0.tgz"
-  integrity sha512-CYr6N9NfqsjhmZx1xVQ8zYcDo4hTm7sTUpJydbNgMRyG+YfF/9ADIQQ2TtcBdkl2zi/12a3OTWX0UMzNZnAK9w==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
@@ -1151,20 +1133,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@popperjs/core@^2.11.0":
-  version "2.11.6"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
-  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
-
 "@rails/actioncable@^6.0.0":
   version "6.1.7"
   resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-6.1.7.tgz"
   integrity sha512-F6S74NGpxhbbDRFsQFGYqefRfZPgYvePNtz9hHKYOqLturrsqrDoG+UcrxEGHsvqDUorMYfx4Wl3K8smmk/u2g==
-
-"@rails/actioncable@^7.0":
-  version "7.0.4"
-  resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-7.0.4.tgz"
-  integrity sha512-tz4oM+Zn9CYsvtyicsa/AwzKZKL+ITHWkhiu7x+xF77clh2b4Rm+s6xnOgY/sGDWoFWZmtKsE95hxBPkgQQNnQ==
 
 "@rails/activestorage@^6.0.0":
   version "6.1.7"
@@ -1173,7 +1145,7 @@
   dependencies:
     spark-md5 "^3.0.0"
 
-"@rails/ujs@^6.0.0", "@rails/ujs@^6.1.4-1":
+"@rails/ujs@^6.0.0":
   version "6.1.7"
   resolved "https://registry.npmjs.org/@rails/ujs/-/ujs-6.1.7.tgz"
   integrity sha512-0e7WQ4LE/+LEfW2zfAw9ppsB6A8RmxbdAUPAF++UT80epY+7emuQDkKXmaK0a9lp6An50RvzezI0cIQjp1A58w==
@@ -1862,10 +1834,10 @@ bootstrap-icons@^1.4.1:
   resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.9.1.tgz"
   integrity sha512-d4ZkO30MIkAhQ2nNRJqKXJVEQorALGbLWTuRxyCTJF96lRIV6imcgMehWGJUiJMJhglN0o2tqLIeDnMdiQEE9g==
 
-bootstrap@^5.1.3:
-  version "5.2.2"
-  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.2.tgz"
-  integrity sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ==
+bootstrap@^4.6.0:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.2.tgz#8e0cd61611728a5bf65a3a2b8d6ff6c77d5d7479"
+  integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -3260,11 +3232,6 @@ findup-sync@^3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-flatpickr@^4.6.9:
-  version "4.6.13"
-  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz"
-  integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
-
 flatted@^3.2.2:
   version "3.2.7"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
@@ -4155,14 +4122,7 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery-ui@^1.12.1:
-  version "1.13.2"
-  resolved "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.2.tgz"
-  integrity sha512-wBZPnqWs5GaYJmo1Jj0k/mrSkzdQzKDwhXNtHKcBdAcKVxMM3KNYFq+iJ2i1rwiG53Z8M4mTn3Qxrm17uH1D4Q==
-  dependencies:
-    jquery ">=1.8.0 <4.0.0"
-
-"jquery@>=1.8.0 <4.0.0", jquery@^3.6.0:
+jquery@^3.6.0:
   version "3.6.1"
   resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.1.tgz"
   integrity sha512-opJeO4nCucVnsjiXOE+/PcCgYw9Gwpvs/a6B1LL/lQhwWwpbVEVYDZ1FokFr8PRc7ghYlrFPuyHuiiDNTQxmcw==
@@ -5928,21 +5888,6 @@ quickselect@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/quickselect/-/quickselect-2.0.0.tgz"
   integrity sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==
-
-rails_admin@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/rails_admin/-/rails_admin-3.1.0.tgz#49e0d4dd95f5fae84218e059a1b2832ffe92a589"
-  integrity sha512-K7W+b0YlHbxgM/8gx7ma0s+j78D6uieKumkO6bHtwDZ28aa4RfQqnmv/S71BFwRnPwwtwZzTqOrPvS9i54/OdA==
-  dependencies:
-    "@babel/runtime" "^7.16.7"
-    "@fortawesome/fontawesome-free" "^6.1.1"
-    "@hotwired/turbo-rails" "^7.1.0"
-    "@popperjs/core" "^2.11.0"
-    "@rails/ujs" "^6.1.4-1"
-    bootstrap "^5.1.3"
-    flatpickr "^4.6.9"
-    jquery "^3.6.0"
-    jquery-ui "^1.12.1"
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
