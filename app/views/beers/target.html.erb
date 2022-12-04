@@ -12,11 +12,13 @@
       <div class="page-description">
         <p>La démarche de l'atelier c'est de produire des bières en suivant une note d'intention. Aussi, l'atteinte de cet objectif ne se fait pas en une fois et nécessite plusieurs essais pour maîtriser chacun des aspects importants de la cible. La cible n'est pas que la bière ; c'est une sensation.</p>
       </div>
-      <% @beers.each do |b| %>
-        <div class="mx-auto col-6 col-lg-4">
-          <%= render 'beer_card', beer: b %>
-        </div>
-      <% end %>
+      <div class="row">
+        <% @beers.each do |b| %>
+          <div class="mx-auto col-6 col-lg-4">
+            <%= render 'beer_card', beer: b %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
