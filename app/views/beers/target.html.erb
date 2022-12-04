@@ -1,26 +1,22 @@
 <div class="offnavs"></div>
-  <div class="container top bottom">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-8">
-        <div class="head">
-          <h1><%= title "C'est Quoi Une Target Beer ?" %></h1>
-        </div>
-        <div class="page-description">
-          <p>La démarche de l'atelier c'est de produire un objet d'art, traditionnel, qui exprime quelque chose en suivant une note d'intention. Aussi, l'atteinte de cet objectif ne se fait pas en une fois et nécessite des essais pour maîtriser chacun des aspects importants de la cible. La cible n'est pas que la bière ; c'est l'objet bière.</p>
-        </div>
-        <div class="row">
-          <% @beers.each do |b| %>
-            <div class="mx-auto col-6 col-lg-4">
-              <%= render 'beer_card', beer: b %>
-            </div>
-          <% end %>
-        </div>
+<div class="container top">
+  <div class="row">
+    <div class="mx-auto d-none d-lg-block col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'shared/intra_links' %>
+    </div>
+    <div class="col-lg-9">
+      <div class="card shadow" style='margin-bottom: 30px;'>
+        <h1 class='title-top'><%= title 'Target Beers' %></h1>
       </div>
-      <div class="mx-auto col-12 col-lg-3">
-        <%= render 'shared/social-networks' %>
-        <%= render 'articles/articles_side' %>
+      <div class="page-description">
+        <p>La démarche de l'atelier c'est de produire des bières en suivant une note d'intention. Aussi, l'atteinte de cet objectif ne se fait pas en une fois et nécessite plusieurs essais pour maîtriser chacun des aspects importants de la cible. La cible n'est pas que la bière ; c'est une sensation.</p>
       </div>
-      </div>
+      <% @beers.each do |b| %>
+        <div class="mx-auto col-6 col-lg-4">
+          <%= render 'beer_card', beer: b %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
