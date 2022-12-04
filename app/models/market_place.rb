@@ -8,7 +8,7 @@ class MarketPlace < ApplicationRecord
   after_validation :geocode, if: :city_changed?
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :name, :city ],
+    against: [ :name, :city, :zipcode ],
     using: {
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
     }
