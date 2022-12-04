@@ -5,24 +5,19 @@
         <h1><%= title 'Beertrackr' %></h1>
         <%= simple_form_for @public_search do |f| %>
           <div class="center">
-            <%= f.association :category, as: :radio_buttons, required: false,
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'Choisis un type de fermentation.' %>
-          </div>
-          <div class="center">
             <%= f.association :design_color, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: 'Indique la couleur de la bière que tu cherches.' %>
+              item_wrapper_class: 'squaretag-item', label: 'Indique une couleur bière !' %>
           </div>
           <div class="center">
             <%= f.association :alcohol_shape, as: :radio_buttons, required: false,
               input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item', label: "Choisis un niveau d'alcool idéal." %>
+              item_wrapper_class: 'squaretag-item', label: "Choisis un niveau d'alcool !" %>
           </div>
           <div class="center">
             <%= f.association :main_taste, as: :radio_buttons, required: false,
                 input_html: { class: "squaretag-selector" },
-                item_wrapper_class: 'squaretag-item', label: "C'est quoi l'impression générale que tu aimes." %>
+                item_wrapper_class: 'squaretag-item', label: "Impression générale..." %>
           </div>
           <div class="center">
             <%= f.association :balance, as: :radio_buttons, required: false,
@@ -32,12 +27,17 @@
           <div class="center">
             <%= f.association :feelings, as: :check_boxes, required: false,
                           input_html: { class: "squaretag-selector" },
-                          item_wrapper_class: 'squaretag-item', label: 'Indique les caractéristiques que tu recherches' %>
+                          item_wrapper_class: 'squaretag-item', label: 'Indique des caractéristiques !' %>
           </div>
           <div class="center">
             <%= f.association :flavours, as: :check_boxes, required: false,
                           input_html: { class: "squaretag-selector" },
-                          item_wrapper_class: 'squaretag-item', label: 'Choisis les arômes à ton goûts mêmes subtiles' %>
+                          item_wrapper_class: 'squaretag-item', label: 'Et enfin des arômes, mêmes subtiles !' %>
+          </div>
+          <div class="center">
+            <%= f.association :category, as: :radio_buttons, required: false,
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item', label: 'Type de fermentation...' %>
           </div>
           <p class='center'><%= f.button :submit, "Valider", class: "btn validate bottom" %></p>
         <% end %>
