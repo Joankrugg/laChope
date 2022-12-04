@@ -1,37 +1,37 @@
 <div class="offnav"></div>
 <div class="container top bottom">
-  <div class="row">
-    <div class="col-lg-8 mx-auto">
-      <div class="card space shadow">
-        <h1 class='page-title center'><%= title 'Points de vente et Brasseries' %></h1>
-      </div>
-    </div>
-  </div>
-  <div class="row d-lg-none ">
-    <div class="col-6">
-      <%= link_to caves_market_places_path do %>
-        <p class="btn-action-modern center">Caves</p>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <%= link_to bars_market_places_path do %>
-        <p class="btn-action-modern center">Bars</p>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <%= link_to breweries_market_places_path do %>
-        <p class="btn-action-modern center">Brasseries</p>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <%= link_to market_places_path do %>
-        <p class="btn-action-modern center">Tous</p>
-      <% end %>
-    </div>
-  </div>
 
   <div class="row">
-    <div class="col-lg-8 mx-auto">
+    <div class="mx-auto d-none d-lg-block col-lg-3 index">
+      <%= render 'articles/articles_side' %>
+      <%= render 'shared/intra_links' %>
+    </div>
+    <div class="col-lg-9">
+      <div class="card space shadow">
+        <h1 class='page-title center'><%= title 'Bars, Caves & Brasseries' %></h1>
+      </div>
+      <div class="row d-lg-none ">
+        <div class="col-6">
+          <%= link_to caves_market_places_path do %>
+            <p class="btn-action-modern center">Caves</p>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to bars_market_places_path do %>
+            <p class="btn-action-modern center">Bars</p>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to breweries_market_places_path do %>
+            <p class="btn-action-modern center">Brasseries</p>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= link_to market_places_path do %>
+            <p class="btn-action-modern center">Tous</p>
+          <% end %>
+        </div>
+      </div>
       <%= form_tag(market_places_path, method: :get) do %>
         <div class="search-form-control form-group">
           <i class="fas fa-search search-img"></i>
@@ -41,18 +41,9 @@
           </button>
         </div>
       <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-8 mx-auto">
       <%= link_to new_market_place_path do %>
         <p class="btn-action-modern center">Créer un lieu</p>
       <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-8 mx-auto">
       <div class="shadow" id="map"
          style="width: 100%; height: 600px;"
          data-markers="<%= @markers.to_json %>"

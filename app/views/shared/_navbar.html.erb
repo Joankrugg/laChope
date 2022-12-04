@@ -9,10 +9,10 @@
       <%= link_to 'Recherche', new_public_search_path, class: 'second-nav-link', id: 'root' %><i class="fas fa-caret-right" aria-hidden="true"></i>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="beers-link"> Bières <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="styles-link"> Styles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="styles-link"> Styles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="beers-link"> Bières <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="spots-link"> Spots <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -469,32 +469,7 @@
 <script>
   $(document).ready(function(){
     $("#root").hover(function(){
-      $("#beers").hide();
-    });
-  });
-</script>
-
-
-<script>
-  $(document).ready(function(){
-    $("#beers-link").hover(function(){
-      $("#beers").show();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#beers-link").hover(function(){
       $("#styles").hide();
-    });
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $("#beers").on({
-      mouseleave: function(){
-        $(this).hide();
-      },
     });
   });
 </script>
@@ -516,14 +491,39 @@
 </script>
 <script>
   $(document).ready(function(){
-    $("#styles-link").hover(function(){
+    $("#styles").on({
+      mouseleave: function(){
+        $(this).hide();
+      },
+    });
+  });
+</script>
+
+
+<script>
+  $(document).ready(function(){
+    $("#beers-link").hover(function(){
+      $("#beers").show();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#beers-link").hover(function(){
+      $("#styles").hide();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("#beers-link").hover(function(){
       $("#spots").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#styles").on({
+    $("#beers").on({
       mouseleave: function(){
         $(this).hide();
       },
@@ -541,7 +541,7 @@
 <script>
   $(document).ready(function(){
     $("#spots-link").hover(function(){
-      $("#styles").hide();
+      $("#beers").hide();
     });
   });
 </script>

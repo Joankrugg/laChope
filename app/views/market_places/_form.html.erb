@@ -1,17 +1,17 @@
 <div class="offnav"></div>
 <div class="container top bottom">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-lg-4 mx-auto form-login">
+    <div class="col-xs-12 col-sm-8 col-lg-6 mx-auto form-login">
       <h1 class='page-title'><%= title 'Point de vente' %></h1>
-      <%= simple_form_for (@market_place) do |f| %>`
+      <%= simple_form_for (@market_place) do |f| %>
+        <%= f.association :market_style, as: :radio_buttons, required: false, label: "Type d'adresse",
+              input_html: { class: "squaretag-selector" },
+              item_wrapper_class: 'squaretag-item' %>
         <%= f.input :name, required: false, label: 'Nom', input_html: { class: 'center'}  %>
         <%= f.input :city, required: false, label: 'Ville', input_html: { class: 'center'}   %>
         <%= f.input :zipcode, required: false, label: 'Code Postal', input_html: { class: 'center'}   %>
         <%= f.input :website, required: false, label: 'Site Internet', input_html: { class: 'center'}   %>
-        <%= f.association :market_style, as: :radio_buttons, required: false, label: "Type d'adresse",
-              input_html: { class: "squaretag-selector" },
-              item_wrapper_class: 'squaretag-item' %>
-        <%= f.button :submit, 'valider', class: 'btn btn-ghost' %>
+        <%= f.button :submit, 'valider', class: 'btn-action-modern' %>
       <% end %>
     </div>
   </div>
