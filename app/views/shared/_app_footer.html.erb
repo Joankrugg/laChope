@@ -23,19 +23,17 @@
       <p>Stickers</p>
     </div>
   <% end %>
-
+  <%= link_to target_beers_path do %>
+    <div class="mobile-link">
+      <i class="fas fa-bullseye footer-link"></i>
+      <p>Targets</p>
+    </div>
+  <% end %>
   <% if user_signed_in? %>
     <%= link_to publications_path do %>
       <div class="mobile-link">
         <i class="fas fa-users footer-link"></i>
-        <p>Salon</p>
-      </div>
-    <% end %>
-  <% else %>
-    <%= link_to target_beers_path do %>
-      <div class="mobile-link">
-        <i class="fas fa-bullseye footer-link"></i>
-        <p>Targets</p>
+        <p>Bons plans</p>
       </div>
     <% end %>
   <% end %>
