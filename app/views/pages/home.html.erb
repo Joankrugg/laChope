@@ -58,33 +58,32 @@
     <div class="row">
       <div class="col-lg-6 col-12 mx-auto">
         <div class="square-left">
-          <h3 class="home-title"><%= title 'DÉCOUVRE LE BEERIVERSE !' %></h3>
           <div class="row">
-            <div class='col-4 mx-auto'>
+            <div class='col-6 mx-auto'>
+              <%= link_to users_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_1_1_pkzo67.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Les membres</p>
+              <% end %>
+            </div>
+            <div class='col-6 mx-auto'>
               <%= link_to articles_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667335412/teo-do-rio-EUO7L470LXk-unsplash_puxkms.webp', class: 'img-fluid universe' %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_2_1_jdx5m4.webp', class: 'img-fluid universe' %>
                 <p id='universe-legend'>Les articles</p>
               <% end %>
             </div>
-            <div class='col-4 mx-auto'>
-              <%= link_to beers_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667335411/jose-hernandez-uribe-3CM0-XTk2WE-unsplash_dg0iop.webp', class: 'img-fluid universe' %>
+            <div class='col-6 mx-auto'>
+              <%= link_to target_beers_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_3_1_lhi51e.webp', class: 'img-fluid universe' %>
                 <p id='universe-legend'>Les recettes</p>
               <% end %>
             </div>
-            <div class='col-4 mx-auto'>
-              <%= link_to market_places_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667335411/adam-wilson-I2f5BbeXPVY-unsplash_nl72mf.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Le réseau</p>
+            <div class='col-6 mx-auto'>
+              <%= link_to publications_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_4_1_rfarsk.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Bon plans</p>
               <% end %>
             </div>
 
-          </div>
-          <p class="slogan">Il existe forcément une bière à ton goût.</p>
-          <div class="row">
-            <div class="col-6 mx-auto">
-              <%= link_to 'TROUVE TA BIÈRE !', new_public_search_path, class: 'btn btn-mobile' %>
-            </div>
           </div>
         </div>
       </div>
