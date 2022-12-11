@@ -1,0 +1,40 @@
+#share{
+  margin-top: 650px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.images-feed{
+  z-index: 2;
+  border-radius: 6px;
+
+}
+
+.layer{
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 4;
+  visibility: show;
+  width: 100%;
+  height: 720px;
+}
+
+.truth{
+  position: relative;
+}
+
+.truth-layer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+}
+ .feed-place{
+  margin-bottom: 10px;
+ }

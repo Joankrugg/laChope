@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_26_152901) do
+ActiveRecord::Schema.define(version: 2022_12_05_194846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -252,6 +252,14 @@ ActiveRecord::Schema.define(version: 2022_11_26_152901) do
     t.bigint "user_id"
     t.index ["beer_id"], name: "index_fancies_on_beer_id"
     t.index ["user_id"], name: "index_fancies_on_user_id"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string "photo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
   create_table "feelings", force: :cascade do |t|
@@ -638,6 +646,7 @@ ActiveRecord::Schema.define(version: 2022_11_26_152901) do
   add_foreign_key "draftsets", "stores"
   add_foreign_key "fancies", "beers"
   add_foreign_key "fancies", "users"
+  add_foreign_key "feeds", "users"
   add_foreign_key "mail_alerts", "personal_messages"
   add_foreign_key "market_places", "market_styles"
   add_foreign_key "packs", "bottles"

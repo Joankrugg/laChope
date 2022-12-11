@@ -1,0 +1,23 @@
+<div class="container bottom">
+  <div class="row">
+    <div class="col-lg-8 col-12 mx-auto">
+      <div class="form-login">
+        <h1 class='page-title'><%= title "Mets une bière dans l'feed" %></h1>
+        <%= simple_form_for @feed do |f| %>
+          <div class="form-inputs">
+            <div class="row">
+              <div class="col-6 mx-auto">
+                <label class="beer-photo">
+                    Choisir une photo
+                  <span style="display:none;">
+                    <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

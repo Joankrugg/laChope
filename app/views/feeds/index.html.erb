@@ -1,0 +1,45 @@
+<div class="offnavs"></div>
+<div class="container">
+  <div class="layer">
+    <button type="button" class="btn-modern" data-toggle="modal" data-target="#feed-modal" id='share'>
+      Launch demo modal
+    </button>
+  </div>
+
+  <div class="row">
+    <% @feeds.each do |f| %>
+      <div class="col-3 col-sm-3 col-md-2 col-lg-2 mx-auto feed-place">
+        <div class="truth">
+          <%= cl_image_tag f.photo.key, height:300, width:300, crop: :fill, class: 'img-fluid images-feed' %>
+          <div class="truth-layer"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="modal fade" id="feed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class='page-title'><%= title "Mets une bière dans l'feed" %></h1>
+        <%= simple_form_for @feed do |f| %>
+          <div class="form-inputs">
+            <label class="beer-photo">
+                Choisir une photo
+              <span style="display:none;">
+                <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+              </span>
+            </label>
+          </div>
+          <div class="form-actions col-12 col-lg-4 mx-auto">
+            <%= f.button :submit, "VALIDER", class: "btn btn-modern-nav" %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'feeds/index'
   resources :market_places do
     match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
     collection do
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :accesses, only: [:new, :create, :show, :edit, :update]
+  resources :feeds
   resources :stickers
   resources :publications do
     resources :answers
