@@ -22,7 +22,7 @@
         <% @articles.each do |a| %>
           <%= link_to a do %>
             <div class="row article-link card-infos">
-              <div class="col-lg-4"><%= cl_image_tag a.photo.key, height: 100, width: 120, crop: :fill, class: 'card-img-top img-responsive beer-image' %></div>
+              <div class="col-lg-4"><%= cl_image_tag a.photo.key, class: 'card-img-top img-responsive beer-image' %></div>
               <div class="col-lg-8">
                 <p class='article-link-text'><%= a.title %></p>
                 <p class='article-link-text'><%= a.theme.name %></p>
@@ -56,7 +56,7 @@
             <%= link_to u do %>
               <% unless u.photo.present? %>
                 <div class="members">
-                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), height: 200, width: 250, crop: :fill, class: " image img-fluid" %></div>
+                  <div class="user-card"><%= cl_image_tag ('v1598080266/preservation_hall_jazz_band_isixvg.jpg'), class: " image img-fluid" %></div>
                   <div class="middle">
                     <p class='infos center'><%= u.email %></p>
                     <% if u != current_user %>
@@ -66,7 +66,7 @@
                 </div>
               <% else %>
                 <div class="members">
-                  <div class="user-card"><%= cl_image_tag u.photo.key, height: 200, width: 250, crop: :fill, class: "image img-fluid" %></div>
+                  <div class="user-card"><%= cl_image_tag u.photo.key, class: "image img-fluid" %></div>
                   <div class="middle">
                     <p class='infos center'><%= u.email %></p>
                     <% if u != current_user %>
