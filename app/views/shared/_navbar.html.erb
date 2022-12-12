@@ -21,7 +21,7 @@
       <a class="second-nav-link" data-toggle="pill" id="articles-link"> Articles <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
-      <a class="second-nav-link" data-toggle="pill" id="stickers-link"> Stickers <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+      <a class="second-nav-link" data-toggle="pill" id="feed-link"> Feed <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </li>
     <li class="nav-item d-none d-lg-block">
       <a class="second-nav-link" data-toggle="pill" id="targets-link"> Targets <i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -256,13 +256,15 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="stickers">
+  <div class="tab-pane container" id="feed">
     <div class="card p-top">
       <div class="row">
-        <% @stickers.sample(4).each do |f| %>
-          <div class="col-lg-2 mx-auto">
-            <%= cl_image_tag f.photo.key, class: 'img-fluid'%>
-          </div>
+        <% @feeds.sample(4).each do |f| %>
+          <%= link_to feeds_path do %>
+            <div class="col-lg-2 mx-auto">
+              <%= cl_image_tag f.photo.key, class: 'img-fluid'%>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -579,7 +581,7 @@
 <script>
   $(document).ready(function(){
     $("#articles-link").hover(function(){
-      $("#stickers").hide();
+      $("#feed").hide();
     });
   });
 </script>
@@ -595,28 +597,28 @@
 
 <script>
   $(document).ready(function(){
-    $("#stickers-link").hover(function(){
-      $("#stickers").show();
+    $("#feed-link").hover(function(){
+      $("#feed").show();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#stickers-link").hover(function(){
+    $("#feed-link").hover(function(){
       $("#articles").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#stickers-link").hover(function(){
+    $("#feed-link").hover(function(){
       $("#targets").hide();
     });
   });
 </script>
 <script>
   $(document).ready(function(){
-    $("#stickers").on({
+    $("#feed").on({
       mouseleave: function(){
         $(this).hide();
       },
@@ -634,7 +636,7 @@
 <script>
   $(document).ready(function(){
     $("#targets-link").hover(function(){
-      $("#stickers").hide();
+      $("#feed").hide();
     });
   });
 </script>
