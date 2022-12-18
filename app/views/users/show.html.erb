@@ -836,7 +836,7 @@
                             <% if five_stars != [] %>
                               <div class="container">
                                 <div class="row">
-                                  <div class="col-lg-12">
+                                  <div class="col-12">
                                     <p class='shadow p-top p-bottom center'>Bières </p>
                                     <p class='shadow p-top p-bottom center'><%= ('<i class="fa fa-star" aria-hidden="true"></i>' * 5 ).html_safe %> sur Beertrackr</p>
                                     <p class='shadow p-top p-bottom center'>
@@ -849,13 +849,13 @@
                                         <% @beers.each do |b| %>
                                           <% if b.style.present? %>
                                             <% if f == b.style.name %>
-                                              <div class="col-6 index">
+                                              <div class="col-12 index">
                                                 <%= render 'beers/sober_card', beer: b %>
                                               </div>
                                             <% end %>
                                           <% elsif b.typical_beer.style.present? %>
                                             <% if f == b.typical_beer.style.name %>
-                                              <div class="col-6 index">
+                                              <div class="col-12 index">
                                                 <%= render 'beers/sober_card', beer: b %>
                                               </div>
                                             <% end %>
@@ -925,7 +925,7 @@
             <p class='user'>Souhaits de dégustations</p>
             <div class="row">
               <% @user.fancies.each do |uf| %>
-                <div class="mx-auto col-6">
+                <div class="col-12">
                   <%= render 'beers/sober_card', beer: uf.beer %>
                 </div>
               <% end %>
@@ -957,7 +957,7 @@
             <div class="row">
               <% gb = @user.tastings.map {|t|t.beer}.uniq %>
               <% gb.each do |b| %>
-                <div class="mx-auto col-6">
+                <div class="col-12">
                   <%= render 'beers/sober_card', beer: b %>
                 </div>
               <% end %>
