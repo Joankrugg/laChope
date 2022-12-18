@@ -73,9 +73,7 @@
 
 .introduction-data{
   padding-left: 15px;
-  font-size: 22px;
   font-family: 'Oswald';
-  font-weight: bold;
   margin-top: 6px;
   color: #3C3C3C;
 }
@@ -183,6 +181,16 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
 }
-  .design-item-category{
+
+.design-item-category{
   opacity: 1;
+}
+
+.profil-picture{
+  padding: 20px;
+}
+
+.user-actions{
+  margin-top: 20px;
+  margin-right: 20px;
 }

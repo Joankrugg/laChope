@@ -16,6 +16,7 @@
   color: black;
   transform: scale(1.1);
 }
+
 .btn-publication{
   padding: 5px 20px;
   border-radius: 4px;
@@ -26,9 +27,11 @@
   margin-top: 5px;
   transition: all 0.3s ease;
 }
+
 .btn-publication:hover{
   transform: scale(1.1);
 }
+
 .btn-alternative {
   color: white;
   padding: 5px 20px;
@@ -223,6 +226,7 @@
 .btn-nav-modern:hover{
   border: 1px solid white;
   background-color: $my-green;
+  color: white;
   opacity: 0.8;
 }
 
