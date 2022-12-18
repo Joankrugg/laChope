@@ -178,7 +178,74 @@
                 <% end %>
               </div>
             <% end %>
-
+            <div class="col-lg-6 design">
+              <div class='user-section'>Profil</div>
+              <% if @user.username.present? %>
+                <div class="top row">
+                  <div class="col-6">
+                    <div class="introduction-user">Nom d'utilisateur: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.username %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.city.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Ville: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.city %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.sexe.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Genre: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.sexe.name %></div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.age.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Âge: </div>
+                  </div>
+                  <div class="col-6">
+                    <div class= "introduction-data"><%= @user.age %> ans</div>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.activities.present? %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="introduction-user">Activité(s): </div>
+                  </div>
+                  <div class="col-6">
+                    <% @user.activities.each do |a| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="introduction-data"><%= a.name %></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <% if @user.website.present? %>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <%= link_to @user.website, target: :blank do %>
+                      <div class= "introduction-data center p-bottom">Visitez mon site</div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
           <div class="row icons bottom">
             <div class='col-9 mx-auto'>
