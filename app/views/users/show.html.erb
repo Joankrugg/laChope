@@ -160,21 +160,23 @@
                 <% end %>
               </div>
             <% else %>
-              <% if @user == current_user %>
-                <% if @user.store.present? %>
-                  <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
-                    <p class="btn-nav-modern center user-actions">1ère Étape: Remplis ton profil en cliquant sur le bouton profil</p>
+              <div class="col-12 col-lg-6 design">
+                <% if @user == current_user %>
+                  <% if @user.store.present? %>
+                    <% if current_user.access != nil && @user.access.code == @user.store.privacy_code  %>
+                      <p class="btn-nav-modern center user-actions" data-toggle="modal" data-target="#profil">1ère Étape: Remplis ton profil en cliquant sur le bouton profil</p>
+                      <% if @user.design.nil? %>
+                        <p class="btn-nav-modern center user-actions" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</p>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <p class="btn-nav-modern center user-actions" data-toggle="modal" data-target="#profil">1ère Étape: Remplis ton profil en cliquant sur le bouton profil</p>
                     <% if @user.design.nil? %>
                       <p class="btn-nav-modern center user-actions" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</p>
                     <% end %>
                   <% end %>
-                <% else %>
-                  <p class="btn-nav-modern center user-actions">1ère Étape: Remplis ton profil en cliquant sur le bouton profil</p>
-                  <% if @user.design.nil? %>
-                    <p class="btn-nav-modern center user-actions" data-toggle="modal" data-target="#beer_seek">2ème Étape: Décris ton style du moment en appuyant sur design</p>
-                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             <% end %>
 
           </div>
@@ -220,7 +222,7 @@
       </div>
       <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content-black">
+          <div class="modal-content modal-content-black">
             <div class="modal-body">
               <%= render 'form'%>
             </div>
@@ -229,7 +231,7 @@
       </div>
       <div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content modal-content-black">
             <div class="modal-body">
               <%= render 'accesses/form', access: @access %>
             </div>
@@ -238,7 +240,7 @@
       </div>
       <div class="modal fade" id="style_seek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content-black">
+          <div class="modal-content modal-content-black">
             <div class="modal-body">
               <%= render 'designs/form', design: @design %>
             </div>

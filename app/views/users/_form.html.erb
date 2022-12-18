@@ -5,13 +5,11 @@
       <div class="center">
         <%= f.input :username, required: false, label: "Nom d'utilisateur", input_html: { class: "center" } %>
       </div>
-      <div class="row">
-        <div class="center">
-          <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
-        </div>
-        <div class="center">
-          <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
-        </div>
+      <div class="center">
+        <%= f.input :age, collection: 18..81, required: false, input_html: { class: "center" } %>
+      </div>
+      <div class="center">
+        <%= f.input :city, required: false, label: "Ville", input_html: { class: "center" } %>
       </div>
       <div class="center">
         <%= f.association :activities, as: :check_boxes, label: "Activités",
