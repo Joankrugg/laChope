@@ -21,9 +21,9 @@
     </div>
     <div class="col-lg-12 center">
       <label class="photo">
-        <i class="fas fa-camera-retro"></i>
+          Choisir une photo
         <span style="display:none;">
-          <div class="form-group file required user_photo"><label class="file required" for="user_photo">Photo <abbr title="required">*</abbr></label><input class="form-control-file file required" required="required" aria-required="true" type="file" name="user[photo]" id="user_photo" name="image" accept="image/*" capture="environment"></div>
+          <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
         </span>
       </label>
     </div>
@@ -39,5 +39,3 @@
     </div>
   </div>
 <% end %>
-
-
