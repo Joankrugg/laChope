@@ -1,2 +1,4 @@
-<h5><%= place.name %></h5>
-<p><%= place.city %></p>
+<%= link_to edit_market_place_path(place) do %>
+  <h5><%= place.name %></h5>
+  <p><%= place.city %></p>
+<% end %>
