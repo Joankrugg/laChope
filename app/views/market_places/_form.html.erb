@@ -14,7 +14,7 @@
         <fieldset class="form-group radio_buttons optional market_place_beer">
           <legend class="col-form-label pt-0">Style de bière</legend>
           <input type="hidden" name="beer[beer_id]" value="">
-          <% TypicalBeer.all.sort_by(&:name).each do |beer| %>
+          <% Beer.all.sort_by(&:name).each do |beer| %>
             <div class="squaretag-item">
               <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= beer.id %>"  name="beer[beer_id]" id="market_place_beer_id_<%= beer.id %>">
               <label class="form-check-label collection_radio_buttons" for="market_place_beer_id_<%= beer.id %>">
