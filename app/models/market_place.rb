@@ -4,6 +4,8 @@ class MarketPlace < ApplicationRecord
   has_one :store
   belongs_to :market_style, optional: true
   has_many :tasting_places
+  has_many :market_place_beers, dependent: :destroy
+  has_many :beers, through: :market_place_beers
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
   include PgSearch::Model

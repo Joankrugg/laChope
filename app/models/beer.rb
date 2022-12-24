@@ -28,7 +28,8 @@ class Beer < ApplicationRecord
   has_many :beer_feelings, dependent: :destroy
   has_many :feelings, through: :beer_feelings
   has_many :users, through: :ratings
-
+  has_many :market_place_beers, dependent: :destroy
+  has_many :market_places, through: :market_place_beers
 
   include PgSearch::Model
   pg_search_scope :global_search,

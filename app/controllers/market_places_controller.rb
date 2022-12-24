@@ -142,6 +142,6 @@ class MarketPlacesController < ApplicationController
   end
 
   def market_place_params
-    params.require(:market_place).permit(:name, :city, :zipcode, :website, :market_style_id)
+    params.require(:market_place).permit(:name, :city, :zipcode, :website, :market_style_id, beer_ids: [])
   end
 end
