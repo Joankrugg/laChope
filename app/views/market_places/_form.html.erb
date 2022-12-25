@@ -11,23 +11,9 @@
         <%= f.input :city, required: false, label: 'Ville', input_html: { class: 'center'}   %>
         <%= f.input :zipcode, required: false, label: 'Code Postal', input_html: { class: 'center'}   %>
         <%= f.input :website, required: false, label: 'Site Internet', input_html: { class: 'center'}   %>
-        <fieldset class="form-group radio_buttons optional market_place_beer">
-          <legend class="col-form-label pt-0">Style de bière</legend>
-          <input type="hidden" name="beer[beer_id]" value="">
-          <% Beer.all.sort_by(&:name).each do |beer| %>
-            <div class="squaretag-item">
-              <input class="form-check-input radio_buttons optional squaretag-selector" type="radio" value="<%= beer.id %>"  name="beer[beer_id]" id="market_place_beer_id_<%= beer.id %>">
-              <label class="form-check-label collection_radio_buttons" for="market_place_beer_id_<%= beer.id %>">
-                <% if beer.photo.present? %>
-                  <%= cl_image_tag beer.photo.key, height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
-                <% else %>
-                  <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649843769/beertrackr/Black_circle.svg', height: 20, width: 25, crop: :fill, class: 'img-fluid beyond' %>
-                <% end %>
-                <%= beer.name %>
-              </label>
-            </div>
-          <% end %>
-        </fieldset>
+        <%= f.association :beers, as: :check_boxes, required: false,
+                          input_html: { class: "squaretag-selector" },
+                          item_wrapper_class: 'squaretag-item', label: 'Bières disponibles !' %>
         <%= f.button :submit, 'valider', class: 'btn-action-modern' %>
       <% end %>
     </div>
