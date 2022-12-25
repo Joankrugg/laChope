@@ -1,5 +1,9 @@
+.mp-name{
+  color: $my-green;
+}
+
 .mp-beer-name{
-  background: black;
+  border: 1px solid $my-green;
   padding: 4px;
   border-radius:  4px;
   color: $my-green;

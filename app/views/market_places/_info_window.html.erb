@@ -1,5 +1,5 @@
 <%= link_to edit_market_place_path(place) do %>
-  <h5><%= place.name %></h5>
+  <h5 class='mp-name'><%= place.name.upcase %></h5>
 <% end %>
 <p><%= place.city %></p>
 <% if place.beers.present? %>
