@@ -12,7 +12,7 @@ class MarketPlace < ApplicationRecord
   pg_search_scope :global_search,
     against: [ :name, :city, :zipcode ],
     associated_against: {
-      beer: [ :name ]
+      beers: [ :name ]
     },
     using: {
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
