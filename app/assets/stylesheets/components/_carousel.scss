@@ -5,12 +5,62 @@
   bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  top: 25%;
+  top: 35%;
   .home-title{
-    font-size: 24px;
+    font-size: 50px;
     text-align: center;
     color: white;
     text-shadow: 2px 2px 5px black;
   }
 }
 
+@media screen and (max-width: 768px) {
+  .hook{
+    bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    top: 35%;
+    .home-title{
+      font-size: 24px;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+    }
+  }
+}
+
+.btn-carousel{
+  background: $my-green;
+  border: 1px solid $my-green;
+  color: white;
+  font-family: 'Roboto';
+  text-align: center;
+  border-radius: 4px;
+  padding: 6px 24px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  width: 140px;
+  opacity: 0.8;
+  &:hover{
+  background: black;
+  border: 1px solid $my-green;
+  color: $my-green;
+  }
+}
+
+.btn-carousel-2{
+  background: white;
+  border: 1px solid white;
+  color: black;
+  font-family: 'Roboto';
+  text-align: center;
+  border-radius: 25px;
+  padding: 5px 20px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  width: 140px;
+  opacity: 0.7;
+  &:hover{
+  opacity: 1;
+  }
+}

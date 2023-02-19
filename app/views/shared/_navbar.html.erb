@@ -83,56 +83,33 @@
   <div class="tab-pane container" id="beers">
     <div class="card p-top p-bottom shadow">
       <div class="row">
-        <div class="col-2">
+        <div class="col-3 mx-auto">
+          <%= link_to 'Toutes les bières', beers_path, class: 'side-link' %>
+          <%= link_to 'Sans alcool', alcohol_free_beers_path, class: 'side-link' %>
+          <%= link_to 'Légères', light_beers_path, class: 'side-link' %>
+          <%= link_to 'Classiques', regular_beers_path, class: 'side-link' %>
+          <%= link_to 'Fortes', strong_beers_path, class: 'side-link' %>
+          <%= link_to 'Très fortes', very_strong_beers_path, class: 'side-link' %>
+
+
+        </div>
+        <div class="col-3 mx-auto">
           <%= link_to 'Blanches', white_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2">
           <%= link_to 'Blondes', gold_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2">
           <%= link_to 'Ambrées', amber_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2">
           <%= link_to 'Brunes', brown_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2">
           <%= link_to 'Ruby', ruby_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2">
           <%= link_to 'Noires', black_beers_path, class: 'side-link' %>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-2 mx-auto">
-          <%= link_to 'Sans alcool', alcohol_free_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
-          <%= link_to 'Légères', light_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
-          <%= link_to 'Classiques', regular_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
-          <%= link_to 'Fortes', strong_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
-          <%= link_to 'Très fortes', very_strong_beers_path, class: 'side-link' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2 mx-auto">
+        <div class="col-3 mx-auto">
           <%= link_to 'Ales', ales_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
           <%= link_to 'Lagers', lagers_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
           <%= link_to 'Spontanées', spontaneous_beers_path, class: 'side-link' %>
-        </div>
-        <div class="col-2 mx-auto">
           <%= link_to 'Mixtes', mixed_beers_path, class: 'side-link' %>
         </div>
       </div>
+
+
     </div>
   </div>
 
@@ -295,155 +272,154 @@
       <div class="modal-body bottle-available">
         <% if user_signed_in? && current_user.store.nil? %>
           <div class="col-12">
-            <%= link_to market_places_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-store"></i>Créer un Beermarket</p>
-            <% end %>
+            <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAccount" aria-expanded="false" aria-controls="collapsections" id='account-trigger'>
+              Compte
+            </p>
           </div>
-          <div class="col-12">
-            <%= link_to new_beer_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to new_public_search_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Trouve ton style de bière</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to new_store_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Créé ta cave</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to target_beers_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Consulte des recettes</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to publications_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Publications</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to new_sticker_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> BeerStickr</p>
-            <% end %>
-          </div>
-          <div class="col-12">
-            <%= link_to new_project_path do %>
-              <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>
-            <% end %>
-          </div>
-          <div class="col-12">
+          <div class="col-12 collapse" id="collapseAccount">
             <%= link_to user_path(current_user) do %>
               <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
             <% end %>
-          </div>
-          <div class="col-12">
             <%= link_to conversations_path, class: 'admin' do %>
               <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
             <% end %>
-          </div>
-          <div class="col-12">
             <%= link_to destroy_user_session_path, method: :delete do %>
               <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Déconnexion</p>
             <% end %>
-          </div>
-          <% if current_user.admin? %>
-            <div class="col-12">
+            <% if current_user.admin? %>
               <%= link_to rails_admin_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
               <% end %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+
+
+          <div class="col-12">
+            <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseActions" aria-expanded="false" aria-controls="collapsections" id='action-trigger'>
+              Actions
+            </p>
+          </div>
+          <div class="col-12 collapse" id="collapseActions">
+            <%= link_to market_places_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-store"></i>Créer un Beermarket</p>
+            <% end %>
+            <%= link_to new_beer_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
+            <% end %>
+            <%= link_to new_store_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Créé ta cave</p>
+            <% end %>
+            <%= link_to new_public_search_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Trouve ton style de bière</p>
+            <% end %>
+            <%= link_to new_project_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>
+            <% end %>
+            <%= link_to new_sticker_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Créer un BeerStickr</p>
+            <% end %>
+          </div>
+
+          <div class="col-12">
+            <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#consultations" aria-expanded="false" aria-controls="collapsections" id='consultation-trigger'>
+              Consultations
+            </p>
+          </div>
+          <div class="col-12 collapse" id="consultations">
+            <%= link_to target_beers_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Consulte des recettes</p>
+            <% end %>
+            <%= link_to publications_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Publications</p>
+            <% end %>
+            <%= link_to stickers_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> BeerStickr</p>
+            <% end %>
+          </div>
         <% elsif user_signed_in? && current_user.store.present? %>
           <% unless current_user.access != nil && current_user.access.code != current_user.store.privacy_code  %>
             <div class="col-12">
+              <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAccount" aria-expanded="false" aria-controls="collapsections" id='account-trigger'>
+                Compte
+              </p>
+            </div>
+
+            <div class="col-12 collapse" id="collapseAccount">
+              <%= link_to user_path(current_user) do %>
+                <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+              <% end %>
+              <%= link_to conversations_path, class: 'admin' do %>
+                <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Déconnexion</p>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to rails_admin_path do %>
+                  <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="col-12">
+              <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAction" aria-expanded="false" aria-controls="collapsections" id='action-trigger'>
+                Actions
+              </p>
+            </div>
+
+            <div class="col-12 collapse" id="collapseAction">
               <%= link_to market_places_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-store"></i>Créer un Beermarket</p>
               <% end %>
-            </div>
-            <div class="col-12">
               <%= link_to new_beer_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Ajouter une bière au catalogue</p>
               <% end %>
-            </div>
-            <div class="col-12">
               <%= link_to new_public_search_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Trouve ton style de bière</p>
               <% end %>
-            </div>
-            <% if current_user.store.present? %>
-              <div class="col-12">
+              <% if current_user.store.present? %>
                 <%= link_to current_user.store do %>
                   <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Mettre sa cave à jour</p>
                 <% end %>
-              </div>
-            <% end %>
-            <div class="col-12">
-              <%= link_to target_beers_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Consulte des recettes</p>
               <% end %>
-            </div>
-            <div class="col-12">
-              <%= link_to publications_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Publications</p>
-              <% end %>
-            </div>
-            <div class="col-12">
               <%= link_to new_sticker_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-beer"></i> BeerStickr</p>
               <% end %>
-            </div>
-            <div class="col-12">
               <%= link_to new_project_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-list"></i> Créer un Projet Target</p>
               <% end %>
             </div>
+
             <div class="col-12">
-              <%= link_to user_path(current_user) do %>
-                <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+              <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#consultation" aria-expanded="false" aria-controls="collapsections" id='consultation-trigger'>
+                Consultation
+              </p>
+            </div>
+            <div class="col-12 collapse" id="consultation">
+
+              <%= link_to target_beers_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> Consulte des recettes</p>
+              <% end %>
+              <%= link_to publications_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-newspaper"></i> Publications</p>
               <% end %>
             </div>
-            <div class="col-12">
-              <%= link_to conversations_path, class: 'admin' do %>
-                <p class="btn-nav-modern center"><i class="fas fa-envelope"></i> Messagerie</p>
-              <% end %>
-            </div>
-            <div class="col-12">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <p class="btn-nav-modern center"><i class="fas fa-sign-out-alt"></i> Déconnexion</p>
-              <% end %>
-            </div>
-            <% if current_user.admin? %>
-              <div class="col-12">
-                <%= link_to rails_admin_path do %>
-                  <p class="btn-nav-modern center"><i class="fas fa-lock"></i> Administration</p>
-                <% end %>
-              </div>
-            <% end %>
+
+
           <% else %>
-            <div class="col-12">
-              <%= link_to user_path(current_user) do %>
-                <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
-              <% end %>
-            </div>
-            <div class="col-12">
-              <%= link_to new_public_search_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
-              <% end %>
-            </div>
-            <div class="col-12">
-              <%= link_to market_places_path do %>
-                <p class="btn-nav-modern center"><i class="fas fa-store"></i> Beermarkets</p>
-              <% end %>
-            </div>
+            <%= link_to user_path(current_user) do %>
+              <p class="btn-nav-modern center"><i class="fas fa-user"></i> Compte personnel</p>
+            <% end %>
+            <%= link_to new_public_search_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-beer"></i> Beertrackr</p>
+            <% end %>
+            <%= link_to market_places_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-store"></i> Beermarkets</p>
+            <% end %>
             <% if current_user.store.present? %>
-              <div class="col-12">
-                <%= link_to current_user.store do %>
-                  <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> visiter ma cave</p>
-                <% end %>
-              </div>
+              <%= link_to current_user.store do %>
+                <p class="btn-nav-modern center"><i class="fas fa-map-marker-alt"></i> visiter ma cave</p>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -649,3 +625,4 @@
     });
   });
 </script>
+
