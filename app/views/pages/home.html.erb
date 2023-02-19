@@ -6,7 +6,7 @@
     <div class="carousel-item active" data-interval="4000">
       <div class="first-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/da2krghvd/image/upload/c_fill,g_center,h_1000,w_2400/v1667301980/missy-fant-OMIgwm1i_NY-unsplash_c01def.webp);">
         <div class="carousel-caption hook">
-          <h1 class="home-title">BEERTRACKR</h1>
+          <h1 class="home-title" id='first-title'>BEERTRACKR</h1>
           <p>DES BIÈRES ET DES STYLES À EXPLORER</p>
           <div class="couple">
             <%= link_to new_public_search_path do %>
@@ -103,10 +103,13 @@
 <section class="decision">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-6 col-lg-4 mx-auto">
-        <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667337302/brittani-burns-7FOVFdONpYQ-unsplash_rtxxfj.webp', class: 'img-fluid img-decision' %>
+      <div class="col-9 col-sm-8 col-md-6 col-lg-4 mx-auto">
+        <div class="decision-wrapper">
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667337302/brittani-burns-7FOVFdONpYQ-unsplash_rtxxfj.webp', class: 'img-fluid img-decision' %>
+          <div class="img-decision-layer"></div>
+        </div>
       </div>
-      <div class="col-12 col-sm-6 col-lg-6">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-6 mx-auto">
         <h3 class="decision-action-text">AJOUTE TA PREMIÈRE BIÈRE AU CATALOGUE</h3>
         <div class="col-12 col-lg-6 mx-auto">
           <div class="btn btn-mobile">S'INSCRIRE</div>
