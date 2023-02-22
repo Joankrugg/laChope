@@ -236,10 +236,10 @@
   <div class="tab-pane container" id="feed">
     <div class="card p-top">
       <div class="row">
-        <% @feeds.sample(4).each do |f| %>
+        <% @feeds.sample(12).each do |f| %>
           <div class="col-lg-2 mx-auto">
             <%= link_to feeds_path do %>
-              <%= cl_image_tag f.photo.key, height:300, width:300, crop: :fill, class: 'img-fluid images-feed'%>
+              <%= cl_image_tag f.photo.key, height: 150, width: 150, crop: :fill, class: 'img-fluid images-feed'%>
             <% end %>
           </div>
         <% end %>
@@ -249,9 +249,9 @@
   <div class="tab-pane container" id="targets">
     <div class="card p-top">
       <div class="row">
-        <% @beers.where(target: true).sample(4).each do |f| %>
+        <% @beers.where(target: true).sample(6).each do |f| %>
           <div class="col-lg-2 mx-auto">
-            <%= cl_image_tag f.photo.key, height: 86, width: 130, crop: :fill, class: 'img-fluid'%>
+            <%= cl_image_tag f.photo.key, height: 150, width: 150, crop: :fill, class: 'img-fluid images-feed'%>
           </div>
         <% end %>
       </div>
