@@ -53,73 +53,9 @@
   </a>
 </div>
 
-<header class="banner text-white text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-12 mx-auto">
-        <div class="square-left">
-          <div class="row">
-            <div class='col-6 mx-auto'>
-              <%= link_to users_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_1_1_pkzo67.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les membres</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to articles_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_2_1_jdx5m4.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les articles</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to target_beers_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_3_1_lhi51e.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les recettes</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to publications_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_4_1_rfarsk.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Bon plans</p>
-              <% end %>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-1 d-none d-lg-block"></div>
-      <div class="col-lg-5 col-12 mx-auto">
-        <div class="square-right">
-          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667330610/Groupe_10_zc2ivh.webp', class: 'design-element-1' %>
-          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649843769/beertrackr/Black_circle.svg', class: 'design-element-2' %>
-          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649850862/beertrackr/beertracker_model_right.webp', class: 'design-element-3' %>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- Button trigger modal -->
-
-<section class="decision">
-  <div class="container">
-    <div class="row">
-      <div class="col-9 col-sm-8 col-md-6 col-lg-4 mx-auto">
-        <div class="decision-wrapper">
-          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667337302/brittani-burns-7FOVFdONpYQ-unsplash_rtxxfj.webp', class: 'img-fluid img-decision' %>
-          <div class="img-decision-layer"></div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-8 col-md-6 col-lg-6 mx-auto">
-        <h3 class="decision-action-text">AJOUTE TA PREMIÈRE BIÈRE AU CATALOGUE</h3>
-        <div class="col-12 col-lg-6 mx-auto">
-          <div class="btn btn-mobile">S'INSCRIRE</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="home-action">
   <div class="container">
+    <h2>LES UNIVERS DE LA BIERE</h2>
     <div class="row straight" id="projets">
       <div class="column">
         <div class="element">
@@ -172,9 +108,75 @@
     </div>
   </div>
 </section>
+
+<section class="decision">
+  <div class="container">
+    <h2 class='on-black'>REJOINS LA COMMUNAUTÉ</h2>
+    <div class="row">
+      <div class="col-9 col-sm-8 col-md-6 col-lg-4">
+        <div class="decision-wrapper">
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667337302/brittani-burns-7FOVFdONpYQ-unsplash_rtxxfj.webp', class: 'img-fluid img-decision' %>
+          <div class="img-decision-layer"></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-8 col-md-6 col-lg-6 mx-auto">
+        <h3 class="decision-action-text">AJOUTE TA PREMIÈRE BIÈRE AU CATALOGUE</h3>
+        <div class="col-12 col-lg-6 mx-auto">
+          <div class="btn btn-mobile">S'INSCRIRE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<header class="banner text-white text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-12 mx-auto">
+        <div class="square-left">
+          <div class="row">
+            <div class='col-6 mx-auto'>
+              <%= link_to users_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_1_1_pkzo67.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Les membres</p>
+              <% end %>
+            </div>
+            <div class='col-6 mx-auto'>
+              <%= link_to articles_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_2_1_jdx5m4.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Les articles</p>
+              <% end %>
+            </div>
+            <div class='col-6 mx-auto'>
+              <%= link_to target_beers_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_3_1_lhi51e.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Les recettes</p>
+              <% end %>
+            </div>
+            <div class='col-6 mx-auto'>
+              <%= link_to publications_path do %>
+                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_4_1_rfarsk.webp', class: 'img-fluid universe' %>
+                <p id='universe-legend'>Bon plans</p>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1 d-none d-lg-block"></div>
+      <div class="col-lg-5 col-12 mx-auto">
+        <div class="square-right">
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667330610/Groupe_10_zc2ivh.webp', class: 'design-element-1' %>
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649843769/beertrackr/Black_circle.svg', class: 'design-element-2' %>
+          <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1649850862/beertrackr/beertracker_model_right.webp', class: 'design-element-3' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 <%= render 'shared/footer' %>
 
-<!-- Modal -->
 <script>
 $(document).ready(function () {
     $('.element').bind('click', function() {
