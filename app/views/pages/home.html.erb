@@ -60,48 +60,64 @@
       <div class="column">
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1678542752/beertrackr/daniel-lee-c3YF1RU1tis-unsplash.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to new_public_search_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>BEERTRACKER</p>
         </div>
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_fill,g_center,h_667,w_1000/v1678544516/kyle-wagner-RLsSeG9KzL0-unsplash_vibzqm.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to articles_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>ARTICLES</p>
         </div>
       </div>
       <div class="column">
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,h_667,w_1000/v1678542751/beertrackr/tatiana-rodriguez-D_Rfjj3XV8M-unsplash.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to typical_beers_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>STYLES</p>
         </div>
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1677098227/josh-olalde--Ygu9Qx309s-unsplash_zfvkv1.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to publications_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>PUBLICATIONS</p>
         </div>
       </div>
       <div class="column">
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1678542751/beertrackr/george-bakos-83HwuZirc-c-unsplash.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to beers_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>BIERES</p>
         </div>
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1677098227/wil-stewart-UErWoQEoMrc-unsplash_zs1i7x.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to feeds_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>FEED</p>
         </div>
       </div>
       <div class="column">
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1671396091/jdhxxgok05c7ii4r6h9tp9ofqzgi.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to market_places_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>SPOTS</p>
         </div>
         <div class="element">
           <img src="https://res.cloudinary.com/da2krghvd/image/upload/c_scale,w_1000/v1678542751/beertrackr/adam-wilson-6ZZh8kOyW-4-unsplash.webp" style="width:100%">
-          <div class="img-column-layer"></div>
+          <%= link_to target_beers_path do %>
+            <div class="img-column-layer"></div>
+          <% end %>
           <p class='element-text'>RECETTES</p>
         </div>
       </div>
@@ -113,13 +129,13 @@
   <div class="container">
     <h2 class='on-black'>REJOINS LA COMMUNAUTÉ</h2>
     <div class="row">
-      <div class="col-9 col-sm-8 col-md-6 col-lg-4 mx-auto">
+      <div class="col-11 col-sm-8 col-md-6 col-lg-4 mx-auto">
         <div class="decision-wrapper">
           <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1667337302/brittani-burns-7FOVFdONpYQ-unsplash_rtxxfj.webp', class: 'img-fluid img-decision' %>
           <div class="img-decision-layer"></div>
         </div>
       </div>
-      <div class="col-9 col-sm-8 col-md-6 col-lg-4 mx-auto">
+      <div class="col-11 col-sm-8 col-md-6 col-lg-4 mx-auto">
         <div class="decision-wrapper">
           <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1678552841/lorenzo-rui-NfjfNQV47OU-unsplash_eorwp6.webp', class: 'img-fluid img-decision' %>
           <div class="img-decision-layer"></div>
