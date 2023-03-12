@@ -67,7 +67,7 @@
 </div>
 
 <div class="tab-content second-nav">
-  <div class="tab-pane container" id="search">
+  <div class="tab-pane" id="search">
     <div class="card p-top">
       <div class="row">
         <div class="col-lg-1"></div>
@@ -80,7 +80,7 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="beers">
+  <div class="tab-pane" id="beers">
     <div class="card p-top p-bottom shadow">
       <div class="row">
         <div class="col-3 mx-auto">
@@ -113,7 +113,7 @@
     </div>
   </div>
 
-  <div class="tab-pane container" id="styles">
+  <div class="tab-pane" id="styles">
     <div class="card p-top p-bottom shadow">
       <div class="row">
         <div class="col-1">
@@ -173,7 +173,7 @@
     </div>
 
   </div>
-  <div class="tab-pane container" id="spots">
+  <div class="tab-pane" id="spots">
     <div class="card p-top p-bottom">
       <div class="row">
         <div class="col-lg-2"></div>
@@ -185,73 +185,83 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="articles">
+  <div class="tab-pane" id="articles">
     <div class="card p-top">
       <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-auto">
           <%= link_to articles_path do %>
             <div class="link">
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1622019082/fabrication-biere2_scvgnn.webp", alt: 'derniers-articles', class: 'mx-auto avatar-nav' %>
+              <div class="article-layer"></div>
               <p class="text-link-title">Derniers Articles</p>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-auto">
           <%= link_to actu_articles_path do %>
             <div class="link">
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1677098227/josh-olalde--Ygu9Qx309s-unsplash_zfvkv1.webp", alt: 'actualités', class: 'mx-auto avatar-nav' %>
+              <div class="article-layer"></div>
               <p class="text-link-title">Actualités</p>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-2 ">
+        <div class="col-lg-2 mx-auto">
           <%= link_to note_of_intent_articles_path do %>
             <div class="link">
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1677098225/james-lee-iiNiGqYzuN0-unsplash_zo0abr.webp", alt: "notes d'intention", class: 'mx-auto avatar-nav' %>
+              <div class="article-layer"></div>
               <p class="text-link-title">Note d'intention</p>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-auto">
           <%= link_to science_articles_path do %>
             <div class="link">
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1677098224/engin-akyurt-3ORoQEJY9LA-unsplash_wyjsur.webp", alt: 'technique', class: 'mx-auto avatar-nav' %>
+              <div class="article-layer"></div>
               <p class="text-link-title">Technique</p>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-auto">
           <%= link_to history_articles_path do %>
             <div class="link">
               <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1676829432/bwax5r9k6h2tc6lqtfn65d6324g9.webp", alt: 'histoire', class: 'mx-auto avatar-nav'%>
+              <div class="article-layer"></div>
               <p class="text-link-title">Histoire</p>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-1"></div>
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="feed">
+  <div class="tab-pane" id="feed">
     <div class="card p-top">
       <div class="row">
         <% @feeds.sample(6).each do |f| %>
-          <div class=" col-sm-3 col-md-3 col-lg-2 mx-auto">
+          <div class="col-lg-2 mx-auto">
             <%= link_to feeds_path do %>
-              <%= cl_image_tag f.photo.key, height: 150, width: 150, crop: :fill, class: 'img-fluid images-feed'%>
+              <div class="link">
+                <%= cl_image_tag f.photo.key, height: 150, width: 200, crop: :fill, class: 'mx-auto avatar-nav'%>
+                <div class="article-layer"></div>
+              </div>
             <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="tab-pane container" id="targets">
+  <div class="tab-pane" id="targets">
     <div class="card p-top">
       <div class="row">
         <% @beers.where(target: true).sample(6).each do |f| %>
           <div class="col-lg-2 mx-auto">
-            <%= cl_image_tag f.photo.key, height: 150, width: 150, crop: :fill, class: 'img-fluid images-feed'%>
+            <div class="link">
+              <%= cl_image_tag f.photo.key, height: 150, width: 200, crop: :fill, class: 'mx-auto avatar-nav'%>
+              <div class="article-layer"></div>
+              <p class="text-link-title"><%= f.name %></p>
+            </div>
           </div>
         <% end %>
       </div>

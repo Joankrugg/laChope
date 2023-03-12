@@ -80,10 +80,28 @@
 .img-hover-zoom--quick-zoom:hover img {
   transform: scale(2);
 }
+.link{
+  position: relative;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.article-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 150px;
+  background-image: linear-gradient(transparent, black);
+  opacity: 0.6;
+}
 
 .text-link-title{
-  text-align: center;
-  color: black;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
   font-weight: bold;
   font-size: 14px;
 }
@@ -133,7 +151,7 @@
 }
 
 .second-nav{
-  top: 80px;
+  top: 66px;
   width: 100%;
   position: fixed;
   overflow-y:scroll;
