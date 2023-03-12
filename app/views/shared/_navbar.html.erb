@@ -288,11 +288,13 @@
         <div class="row">
           <% @beers.where(target: true).sample(5).each do |f| %>
             <div class="col-lg-2 mx-auto">
-              <div class="link">
-                <%= cl_image_tag f.photo.key, height: 150, width: 200, crop: :fill, class: 'mx-auto avatar-nav'%>
-                <div class="article-layer"></div>
-                <p class="text-link-title"><%= f.name %></p>
-              </div>
+              <%= link_to beer_path (f) do %>
+                <div class="link">
+                  <%= cl_image_tag f.photo.key, height: 150, width: 200, crop: :fill, class: 'mx-auto avatar-nav'%>
+                  <div class="article-layer"></div>
+                  <p class="text-link-title"><%= f.name %></p>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
