@@ -157,38 +157,16 @@
   </div>
 </section>
 
-<header class="banner text-white text-center">
+<header class="banner">
   <div class="container">
+    <h2 class='on-white'>LA PASSION</h2>
     <div class="row">
-      <div class="col-lg-6 col-12 mx-auto">
-        <div class="square-left">
-          <div class="row">
-            <div class='col-6 mx-auto'>
-              <%= link_to users_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_1_1_pkzo67.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les membres</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to articles_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_2_1_jdx5m4.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les articles</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to target_beers_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_3_1_lhi51e.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Les recettes</p>
-              <% end %>
-            </div>
-            <div class='col-6 mx-auto'>
-              <%= link_to publications_path do %>
-                <%= image_tag 'https://res.cloudinary.com/da2krghvd/image/upload/v1670186297/Composant_4_1_rfarsk.webp', class: 'img-fluid universe' %>
-                <p id='universe-legend'>Bon plans</p>
-              <% end %>
-            </div>
-
-          </div>
+      <div class="col-lg-4 col-12">
+        <p>La bière rassemble le monde, c’est une véritable passion qui commence souvent par la découverte de nouvelles saveurs et de nouveaux styles. Si tu aimes explorer les brasseries locales, goûter des bières artisanales et essayer des bières importées de différents pays, tu es au bon endroit. Mais la passion de la bière ne se limite pas à la simple dégustation ; il existe une véritable communauté toujours prête à partager ses découvertes.
+        Si tu veux participer à des événements ou en créer, découvrir des brasseries, des bars ou même brasser ta propre bière, tu es toujours au bon endroit. Alors n'hésite pas.
+        </p>
+        <div class="col-6 mx-auto" style='margin-bottom: 20px;'>
+          <div class="btn btn-mobile">INSCRIS-TOI</div>
         </div>
       </div>
       <div class="col-lg-1 d-none d-lg-block"></div>
@@ -202,14 +180,18 @@
     </div>
   </div>
 </header>
+<section>
+  <div class="container">
+    <div class="newsletter"></div>
+  </div>
+</section>
 
 <%= render 'shared/footer' %>
 
 <script>
-$(document).ready(function () {
-    $('.element').bind('click', function() {
-        // add active class to clicked element
-        $(this).toggleClass('active');
-    });
-});
+  $(document).ready(function () {
+      $('.element').bind('click', function() {
+          $(this).toggleClass('active');
+      });
+  });
 </script>
