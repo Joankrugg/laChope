@@ -126,7 +126,6 @@
         <div class="col-1">
         </div>
         <div class="col-2 mx-auto">
-          <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1678656110/Capture_d_e%CC%81cran_2023-03-12_a%CC%80_22.19.23_vkk2gi.webp", height: 140, width: 180, crop: :fill %>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Allemagne' %>
               <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
@@ -134,7 +133,6 @@
           <% end %>
         </div>
         <div class="col-2 mx-auto">
-          <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1678656110/Capture_d_e%CC%81cran_2023-03-12_a%CC%80_22.19.02_aolz8x.webp", height: 140, width: 180, crop: :fill %>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Belgique' %>
               <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
@@ -142,7 +140,6 @@
           <% end %>
         </div>
         <div class="col-2 mx-auto">
-          <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1678656109/Capture_d_e%CC%81cran_2023-03-12_a%CC%80_22.19.46_reusnk.webp", height: 140, width: 180, crop: :fill %>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Îles Anglo-celtes ' %>
               <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
@@ -150,7 +147,6 @@
           <% end %>
         </div>
         <div class="col-2 mx-auto">
-          <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1678656110/Capture_d_e%CC%81cran_2023-03-12_a%CC%80_22.20.36_f0u9fy.webp", height: 140, width: 180, crop: :fill %>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'U.S.A' %>
               <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
@@ -158,7 +154,6 @@
           <% end %>
         </div>
         <div class="col-2 mx-auto">
-          <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1678656110/Capture_d_e%CC%81cran_2023-03-12_a%CC%80_22.21.23_cwnd2m.png", height: 140, width: 180, crop: :fill %>
           <% @typical_beers.sort_by(&:name).each do |tb| %>
             <% if tb.origin.present? && tb.origin.name == 'Autres' %>
               <%= link_to "#{tb.name}", typical_beer_path(tb), class: 'side-link'  %>
