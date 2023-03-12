@@ -145,3 +145,11 @@
 .email{
   color: white;
 }
+.newsletter-button{
+  margin-top: 55px;
+}
+@media screen and (max-width: 768px) {
+  .newsletter-button{
+    margin-top: 95px;
+  }
+}
