@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @beers = Beer.all
+    @newsletter = Newsletter.new
   end
 
   def concept

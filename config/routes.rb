@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
+  resources :newsletters, only: [:new, :create]
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
   resources :accesses, only: [:new, :create, :show, :edit, :update]
   resources :feeds
