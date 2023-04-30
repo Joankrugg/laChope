@@ -2,7 +2,7 @@
 <div class="container">
   <div class="layer">
     <button type="button" class="btn-modern" data-toggle="modal" data-target="#feed-modal" id='share'>
-      Launch demo modal
+      Partager une photo
     </button>
   </div>
 
@@ -18,28 +18,29 @@
   </div>
 </div>
 <div class="modal fade" id="feed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title center" id="exampleModalLabel"><%= title "Feed" %></h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        <h1 class='page-title'><%= title "Mets une bière dans l'feed" %></h1>
         <%= simple_form_for @feed do |f| %>
-          <div class="form-inputs">
-            <label class="beer-photo">
-                Choisir une photo
-              <span style="display:none;">
-                <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
-              </span>
-            </label>
-          </div>
-          <div class="form-actions col-12 col-lg-4 mx-auto">
-            <%= f.button :submit, "VALIDER", class: "btn btn-modern-nav" %></p>
+          <div class="row">
+            <div class="col-12 col-sm-10 col-lg-8 mx-auto">
+              <label class="beer-photo">
+                  Choisir ou prendre une photo
+                <span style="display:none;">
+                  <%= f.input :photo, as: :file, required: true, multiple: true, name: 'picture' %>
+                </span>
+              </label>
+              <%= f.button :submit, "VALIDER", class: "btn btn-modern" %></p>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
