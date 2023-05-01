@@ -3,8 +3,8 @@ class ChatgptService
 
   attr_reader :api_url, :options, :model, :message
 
-  def initialize(message, model = 'gpt-3.5-turbo')
-    api_key = "<%= ENV['CHATGPT_API_KEY'] %>"
+  def initialize(message, model = 'gpt-3.5-turbo-0301')
+    api_key = "#{ENV['CHATGPT_API_KEY']}"
     @options = {
       headers: {
         'Content-Type' => 'application/json',
@@ -28,8 +28,9 @@ class ChatgptService
   end
 
   class << self
-    def call(message, model = 'gpt-3.5-turbo')
+    def call(message, model = 'gpt-3.5-turbo-0301')
       new(message, model).call
     end
   end
 end
+

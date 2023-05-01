@@ -1,3 +1,4 @@
+require 'csv'
 class Beer < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
@@ -46,6 +47,19 @@ class Beer < ApplicationRecord
     using: {
       tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
     }
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Beer.find_or_create_by(name: row[:name]) do |c|
+        c.name = row[0]
+        c.beer_family.name = row[1]
+        c.typical_beer.name= row[2]
+        c.photo = URI.parse(row[3]).open
+        c.description = row[4]
+        m.user = User.find_by_id(2)
+      end
+    end
+  end
 
   def average_stars
     star_number = tastings.map{ |t| t.global_rating }.select{ |gr|!gr.nil? }
