@@ -167,9 +167,27 @@ class BeersController < ApplicationController
     @articles = Article.all
     @typical_beers = TypicalBeer.all
   end
+
   def import
-    Beer.import(params[:file])
+    file = params[:file]
+    if file.nil?
+      flash[:error] = "Aucun fichier n'a été téléchargé."
+      redirect_to beers_path
+    else
+      CSV.foreach(file.path, headers: true) do |row|
+        user = User.find_or_create_by(id: row['user_id']) do |c|
+          c.beer.name = row[1]
+          c.beer.beer_family.name = row[2]
+          c.beer.typical_beer.name= row[3]
+          c.beer.photo = URI.parse(row[4]).open
+          c.beer.user = user
+          c.beer.save!
+        end
+      end
+      redirect_to root_path
+    end
   end
+
   private
 
   def set_beer

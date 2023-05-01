@@ -112,9 +112,12 @@
     </div>
   </div>
   <div style='margin-bottom: 70px;'>
-    <%= simple_form_for :import, url: import_beers_path, html: { multipart: true } do |f| %>
-      <%= f.input :file, as: :file, label: 'CSV file' %>
-      <%= f.submit 'Import' %>
-    <% end %>
+    <form enctype="multipart/form-data" action="/beers/import" accept-charset="UTF-8" method="post" class="import"><input type="hidden" name="authenticity_token">
+      <label for="file" class="custom-file-upload">
+        'CSV'
+      </label>
+      <input type="file" name="file" id="file">
+      <input type="submit" name="commit" value="importer" class="btn btn-validate" data-disable-with="importer">
+    </form>
   </div>
 </div>
