@@ -32,6 +32,7 @@ gem 'httparty'
 gem "net-http"
 gem 'roo', '~> 2.10'
 gem 'csv-importer'
+gem 'open-uri'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

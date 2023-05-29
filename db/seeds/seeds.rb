@@ -6,26 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "csv"
 require "open-uri"
 
-CSV.foreach(Rails.root.join('db', 'seeds', 'ipa.csv'), headers: true) do |row|
-  beer = Beer.new
-  beer.name = row['name']
-  beer.user = User.find(row['user_id'])
-  beer.beer_family = BeerFamily.find(row['beer_family_id'])
-  beer.typical_beer = TypicalBeer.find(row['typical_beer_id'])
-
-  # Attribuer l'image à la bière
-  image_url = row['image_url']
-  if image_url.present?
-    file = URI.open(image_url)
-    beer.photo.attach(io: file, filename: "#{beer.name.parameterize}.jpg")
-  end
-
-  beer.save!
-end
-
+file = URI.open('https://www.datocms-assets.com/75079/1656563615-upland-petal-to-the-kettle-17-07-19_cbb_issue_21_reviews-038_8x10.jpg?w=30&fp-y=1')
+beer = Beer.new(name: 'Upland Brewing Petal to the Kettle (2019) (86)', user_id: 2, beer_family_id: 1, typical_beer_id: 1)
+beer.photo.attach(io: file, filename: "wheat_try.png", content_type: "image/png")
+beer.save
 
 
 #Category.create({name:'Target'})

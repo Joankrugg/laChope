@@ -2,7 +2,7 @@ require 'csv'
 
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :import]
   def index
     if params[:search].present?
       @beers = Beer.global_search(params[:search])
@@ -177,8 +177,8 @@ class BeersController < ApplicationController
       CSV.foreach(file.path, headers: true) do |row|
         user = User.find_or_create_by(id: row['user_id']) do |c|
           c.beer.name = row[1]
-          c.beer.beer_family.name = row[2]
-          c.beer.typical_beer.name= row[3]
+          c.beer.beer_family_id = row[2]
+          c.beer.typical_beer_id= row[3]
           c.beer.photo = URI.parse(row[4]).open
           c.beer.user = user
           c.beer.save!
