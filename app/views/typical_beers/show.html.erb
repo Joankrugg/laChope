@@ -75,8 +75,26 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-6 col-lg-4">
-        <%= render 'beers/beers_side' %>
+      <% beer_instances = [] %>
+      <% @beers.each do |bi| %>
+        <% if @typical_beer == bi.typical_beer %>
+          <% beer_instances << bi %>
+        <% end %>
+      <% end %>
+      <div class="row">
+        <% beer_instances.each do |t| %>
+          <div class="col-6 col-lg-4">
+            <%= link_to t do %>
+              <div class="card sides top bottom shadow">
+                <div class="col-8 mx-auto p-top"><%= cl_image_tag t.photo.key, height: 400, width: 300, crop: :fill, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %></div>
+                <div class="beer-link card-infos">
+                  <p class='beer-link-text'>Nom : <%= t.name %></p>
+                  <p class="beer-link-text"><%= t.typical_beer.style.name %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
