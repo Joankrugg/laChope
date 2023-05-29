@@ -9,10 +9,12 @@
 require "csv"
 require "open-uri"
 
-CSV.foreach(Rails.root.join('db', 'seeds', 'belgian_ales_4.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('db', 'seeds', 'witbier_total.csv'), headers: true) do |row|
   beer = Beer.new
   beer.name = row['name']
   beer.alcohol_level = row['alcohol_level']
+  beer.design_color = DesignColor.find(row['design_color_id'])
+  beer.main_taste = MainTaste.find(row['main_taste_id'])
   beer.user = User.find(row['user_id'])
   beer.beer_family = BeerFamily.find(row['beer_family_id'])
   beer.typical_beer = TypicalBeer.find(row['typical_beer_id'])
