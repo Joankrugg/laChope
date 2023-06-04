@@ -9,7 +9,7 @@
 require "csv"
 require "open-uri"
 
-CSV.foreach(Rails.root.join('db', 'seeds', 'total.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('db', 'seeds', 'totalbier.csv'), headers: true) do |row|
   beer = Beer.new
   beer.name = row['name']
   beer.alcohol_level = row['alcohol_level']
