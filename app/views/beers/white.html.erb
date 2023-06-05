@@ -1,8 +1,14 @@
 <div class="offnavs"></div>
 <% white = [] %>
 <% @beers.each do |b| %>
-  <% if b.typical_beer.design_color.name == 'Blanche' %>
-    <% white << b %>
+  <% if b.design_color.present? %>
+    <% if b.design_color.name == 'Blanche' %>
+      <% white << b %>
+    <% end %>
+  <% else %>
+    <% if b.typical_beer.design_color.name == 'Blanche' %>
+      <% white << b %>
+    <% end %>
   <% end %>
 <% end %>
 <div class="container top">
