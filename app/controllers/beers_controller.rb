@@ -138,6 +138,12 @@ class BeersController < ApplicationController
     @typical_beers = TypicalBeer.all
   end
 
+  def other
+    @beers = Beer.all
+    @articles = Article.all
+    @typical_beers = TypicalBeer.all
+  end
+
   def alcohol_free
     @beers = Beer.all
     @articles = Article.all

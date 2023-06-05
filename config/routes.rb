@@ -77,6 +77,7 @@ Rails.application.routes.draw do
       get :brown, path: 'brunes'
       get :ruby, path: 'rouges'
       get :black, path: 'noires'
+      get :other, path: 'autres'
       get :alcohol_free, path: 'sans-alcool'
       get :light, path: 'legeres'
       get :regular, path: 'classiques'
