@@ -84,11 +84,15 @@
     <div class="card p-top shadow">
       <div class="container">
         <div class="row">
-          <div class="col-2 mx-auto">
-            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1670870905/32d9cnv7ubpbztej0qc0uxuf3glf.webp", height: 140, width: 180, crop: :fill %>
-          </div>
+          <div class="col-3 mx-auto"></div>
           <div class="col-2 mx-auto">
             <%= link_to 'Toutes les bières', beers_path, class: 'side-link' %>
+            <%= link_to 'Ales', ales_beers_path, class: 'side-link' %>
+            <%= link_to 'Lagers', lagers_beers_path, class: 'side-link' %>
+            <%= link_to 'Spontanées', spontaneous_beers_path, class: 'side-link' %>
+            <%= link_to 'Mixtes', mixed_beers_path, class: 'side-link' %>
+          </div>
+          <div class="col-2 mx-auto">
             <%= link_to 'Sans alcool', alcohol_free_beers_path, class: 'side-link' %>
             <%= link_to 'Légères', light_beers_path, class: 'side-link' %>
             <%= link_to 'Classiques', regular_beers_path, class: 'side-link' %>
@@ -96,25 +100,15 @@
             <%= link_to 'Très fortes', very_strong_beers_path, class: 'side-link' %>
           </div>
           <div class="col-2 mx-auto">
-            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1677098224/engin-akyurt-3ORoQEJY9LA-unsplash_wyjsur.webp", height: 140, width: 180, crop: :fill %>
-          </div>
-          <div class="col-2 mx-auto">
             <%= link_to 'Blanches', white_beers_path, class: 'side-link' %>
             <%= link_to 'Blondes', gold_beers_path, class: 'side-link' %>
             <%= link_to 'Ambrées', amber_beers_path, class: 'side-link' %>
-            <%= link_to 'Brunes', brown_beers_path, class: 'side-link' %>
             <%= link_to 'Ruby', ruby_beers_path, class: 'side-link' %>
+            <%= link_to 'Brunes', brown_beers_path, class: 'side-link' %>
             <%= link_to 'Noires', black_beers_path, class: 'side-link' %>
+            <%= link_to 'Autres', other_beers_path, class: 'side-link' %>
           </div>
-          <div class="col-2 mx-auto">
-            <%= image_tag "https://res.cloudinary.com/da2krghvd/image/upload/v1676829432/bwax5r9k6h2tc6lqtfn65d6324g9.webp", height: 140, width: 180, crop: :fill %>
-          </div>
-          <div class="col-2 mx-auto">
-            <%= link_to 'Ales', ales_beers_path, class: 'side-link' %>
-            <%= link_to 'Lagers', lagers_beers_path, class: 'side-link' %>
-            <%= link_to 'Spontanées', spontaneous_beers_path, class: 'side-link' %>
-            <%= link_to 'Mixtes', mixed_beers_path, class: 'side-link' %>
-          </div>
+          <div class="col-3 mx-auto"></div>
         </div>
       </div>
     </div>
@@ -317,7 +311,7 @@
         <% if user_signed_in? && current_user.store.nil? %>
           <div class="col-12">
             <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAccount" aria-expanded="false" aria-controls="collapsections" id='account-trigger'>
-              Compte
+              Espace personnel
             </p>
           </div>
           <div class="col-12 collapse" id="collapseAccount">
@@ -340,7 +334,7 @@
 
           <div class="col-12">
             <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseActions" aria-expanded="false" aria-controls="collapsections" id='action-trigger'>
-              Actions
+              Espace collaboratif
             </p>
           </div>
           <div class="col-12 collapse" id="collapseActions">
@@ -366,7 +360,7 @@
 
           <div class="col-12">
             <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#consultations" aria-expanded="false" aria-controls="collapsections" id='consultation-trigger'>
-              Consultations
+              Espace savoir
             </p>
           </div>
           <div class="col-12 collapse" id="consultations">
@@ -384,7 +378,7 @@
           <% unless current_user.access != nil && current_user.access.code != current_user.store.privacy_code  %>
             <div class="col-12">
               <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAccount" aria-expanded="false" aria-controls="collapsections" id='account-trigger'>
-                Compte
+                Espace personnel
               </p>
             </div>
 
@@ -407,7 +401,7 @@
 
             <div class="col-12">
               <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#collapseAction" aria-expanded="false" aria-controls="collapsections" id='action-trigger'>
-                Actions
+                Espace collaboratif
               </p>
             </div>
 
@@ -436,7 +430,7 @@
 
             <div class="col-12">
               <p class="btn-nav-modern center section" type="button" data-toggle="collapse" data-target="#consultation" aria-expanded="false" aria-controls="collapsections" id='consultation-trigger'>
-                Consultation
+                Espace savoir
               </p>
             </div>
             <div class="col-12 collapse" id="consultation">

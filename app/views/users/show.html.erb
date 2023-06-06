@@ -925,9 +925,11 @@
             <p class='user'>Souhaits de dégustations</p>
             <div class="row">
               <% @user.fancies.each do |uf| %>
-                <div class="col-12">
-                  <%= render 'beers/sober_card', beer: uf.beer %>
-                </div>
+                <% if uf.heart? %>
+                  <div class="col-12">
+                    <%= render 'beers/sober_card', beer: uf.beer %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -1165,6 +1167,6 @@
     function updateStatus() {
       $( "#beer-roulette" ).load(window.location.href + " #beer-roulette" );
     }
-    setInterval(updateStatus, 5000);
+    setInterval(updateStatus, 15000);
   });
 </script>
