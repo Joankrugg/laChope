@@ -89,7 +89,7 @@
                 <div class="col-8 mx-auto p-top"><%= cl_image_tag t.photo.key, height: 400, width: 300, crop: :fill, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %></div>
                 <div class="beer-link card-infos">
                   <p class='beer-link-text'>Nom : <%= t.name %></p>
-                  <p class="beer-link-text"><%= t.typical_beer.style.name %></p>
+                  <p class="beer-link-text"><%= t.typical_beer.name %></p>
                 </div>
               </div>
             <% end %>
