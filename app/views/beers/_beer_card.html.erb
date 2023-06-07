@@ -20,21 +20,37 @@
       <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
     <% end %>
     <% if user_signed_in? %>
-      <% if beer.fancies.present? %>
-        <% beer.fancies.each do |n| %>
-          <% a = [] %>
-          <% if n.user == current_user %>
-            <% a << n %>
-            <% if a.include?(n) && n.heart == true %>
-              <div class="center">
-                <i class="fas fa-heart wanted" data-toggle="modal" data-target="#heart"></i>
-              </div>
-            <% elsif a.include?(n) && n.heart == false %>
-              <div class="center">
-                <i class="fas fa-heart-broken unwanted" data-toggle="modal" data-target="#heart"></i>
-              </div>
+      <% if beer.fancies.blank? %>
+        <%= simple_form_for ([ beer, @fancy ]) do |f| %>
+          <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+            <input type="hidden" name="fancy[heart]" value="">
+            <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
+            <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
+          </fieldset>
+          <div class="center">
+            <%= f.button :button do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <% elsif beer.fancies.any? %>
+        <% beer.fancies.each do |fancy| %>
+          <% if fancy.user == current_user %>
+            <% if fancy.heart == true %>
+              <%= simple_form_for ([ beer, fancy ]) do |f| %>
+                <fieldset class="form-group radio_buttons optional fancy_heart hidden">
+                  <input type="hidden" name="fancy[heart]" value="">
+                  <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="false" checked="checked" name="fancy[heart]" id="fancy_heart_false">
+                  <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_false"></label>
+                </fieldset>
+                <div class="center">
+                  <%= f.button :button do %>
+                    <i class="fas fa-heart wanted"></i>
+                  <% end %>
+                </div>
+              <% end %>
             <% else %>
-              <%= simple_form_for ([ beer, @fancy ]) do |f| %>
+              <%= simple_form_for ([ beer, fancy ]) do |f| %>
                 <fieldset class="form-group radio_buttons optional fancy_heart hidden">
                   <input type="hidden" name="fancy[heart]" value="">
                   <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
@@ -47,30 +63,6 @@
                 </div>
               <% end %>
             <% end %>
-            <div class="modal fade" id="heart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Wish list</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= simple_form_for([ beer, n ]) do |f| %>
-                      <div class="center">
-                        <%= f.input :heart, as: :radio_buttons, required: false, collection: [['0', 'À éviter'], ['1', 'À goûter']], label_method: :second, value_method: :first,
-                        input_html: { class: "squaretag-selector" },
-                        item_wrapper_class: 'squaretag-item', label: "Autre" %>
-                      </div>
-                      <div class="center">
-                        <%= f.button :submit, "Valider", class: 'btn btn-modern' %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
           <% end %>
         <% end %>
       <% end %>

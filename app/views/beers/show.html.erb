@@ -110,10 +110,8 @@
                       <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
                         <fieldset class="form-group radio_buttons optional fancy_heart hidden">
                           <input type="hidden" name="fancy[heart]" value="">
-
                             <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
                             <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-
                         </fieldset>
                         <div class="center">
                           <%= f.button :button do %>
@@ -151,6 +149,7 @@
                     <% end %>
                   <% end %>
                 <% end %>
+
               </div>
             </div>
           </div>
@@ -300,6 +299,7 @@
                       <% end %>
                     <% end %>
                   <% end %>
+
                 </div>
               </div>
             </div>

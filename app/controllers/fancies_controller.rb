@@ -7,9 +7,15 @@ class FanciesController < ApplicationController
     @fancy.beer = @beer
     @fancy.user = current_user
     if @fancy.save
-      redirect_to beer_path(@beer)
+      respond_to do |format|
+        format.html { redirect_to beers_path }
+        format.js  # <-- will render `app/views/fancys/create.js.erb`
+      end
     else
-      render 'beers/show'
+      respond_to do |format|
+        format.html { render beers_path }
+        format.js  # <-- idem
+      end
     end
   end
 
@@ -20,7 +26,7 @@ class FanciesController < ApplicationController
   def update
     if @fancy.update(fancy_params)
        @fancy.beer = @beer
-      redirect_to beer_path(@beer)
+      redirect_to beers_path
     else
       render :edit
     end
