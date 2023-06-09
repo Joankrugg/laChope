@@ -1,8 +1,8 @@
 <div class="card shadow p-bottom">
   <h5 class='target-top-title center'><%= beer.name.upcase %></h5>
-  <% if user_signed_in? && @beer.user == current_user or current_user.admin? %>
+  <% if user_signed_in? && @beer.user == current_user %>
     <% if current_user.store.present? %>
-      <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code  %>
+      <% if current_user.access != nil && current_user.access.code == current_user.store.privacy_code %>
         <%= link_to edit_beer_path (beer) do  %>
           <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
         <% end %>
@@ -13,6 +13,10 @@
       <%= link_to edit_beer_path (beer) do  %>
         <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
       <% end %>
+    <% end %>
+  <% elsif user_signed_in? && current_user.admin? %>
+    <%= link_to edit_beer_path (beer) do  %>
+      <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
     <% end %>
   <% else %>
     <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
