@@ -56,6 +56,9 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :show]
   resources :designs
   resources :beers do
+    member do
+      post 'toggle_favorite', to: "beers#toggle_favorite"
+    end
     collection {post :import }
     resources :tastings, only: [:create, :edit, :update]
     resources :fancies, only: [:create, :edit, :update]

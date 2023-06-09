@@ -1,6 +1,7 @@
 require 'csv'
 class Beer < ApplicationRecord
   belongs_to :user
+  acts_as_favoritable
   has_one_attached :photo
   belongs_to :category, optional: true
   belongs_to :style, optional: true

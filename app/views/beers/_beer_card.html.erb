@@ -20,51 +20,8 @@
       <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
     <% end %>
     <% if user_signed_in? %>
-      <% if beer.fancies.blank? %>
-        <%= simple_form_for ([ beer, @fancy ]) do |f| %>
-          <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-            <input type="hidden" name="fancy[heart]" value="">
-            <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-            <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-          </fieldset>
-          <div class="center">
-            <%= f.button :button do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-          </div>
-        <% end %>
-      <% elsif beer.fancies.any? %>
-        <% beer.fancies.each do |fancy| %>
-          <% if fancy.user == current_user %>
-            <% if fancy.heart == true %>
-              <%= simple_form_for ([ beer, fancy ]) do |f| %>
-                <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                  <input type="hidden" name="fancy[heart]" value="">
-                  <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="false" checked="checked" name="fancy[heart]" id="fancy_heart_false">
-                  <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_false"></label>
-                </fieldset>
-                <div class="center">
-                  <%= f.button :button do %>
-                    <i class="fas fa-heart wanted"></i>
-                  <% end %>
-                </div>
-              <% end %>
-            <% else %>
-              <%= simple_form_for ([ beer, fancy ]) do |f| %>
-                <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                  <input type="hidden" name="fancy[heart]" value="">
-                  <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-                  <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-                </fieldset>
-                <div class="center">
-                  <%= f.button :button do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
+      <%= link_to toggle_favorite_beer_path(beer), remote: true, method: :post do %>
+        <%= render 'beers/like_button', beer: beer %>
       <% end %>
     <% end %>
   </div>
