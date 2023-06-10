@@ -1,15 +1,20 @@
 <div class="card beers-shadow p-top">
   <%= link_to beer do %>
     <%= cl_image_tag beer.photo.key, height: 250, width: 250, crop: :fill, fetch_format: :auto, class: 'beer-image card-img-top img-responsive' %>
-    <div class="card-body">
-      <h5 class="card-title"><%= beer.name.upcase %></h5>
-      <% if beer.style.present? %>
-        <p class="card-text"><%= beer.style.name %></p>
-      <% else %>
-        <p class="card-text"><%= beer.typical_beer.style.name %></p>
-      <% end %>
-    </div>
   <% end %>
+  <div class="card-body">
+    <% if user_signed_in? %>
+      <%= link_to toggle_favorite_beer_path(beer), remote: true, method: :post do %>
+        <%= render 'beers/like_button', beer: beer %>
+      <% end %>
+    <% end %>
+    <h5 class="card-title"><%= beer.name.upcase %></h5>
+    <% if beer.style.present? %>
+      <p class="card-text"><%= beer.style.name %></p>
+    <% else %>
+      <p class="card-text"><%= beer.typical_beer.style.name %></p>
+    <% end %>
+  </div>
   <% if beer.market_places.present? %>
     <% beer.market_places.each do |n| %>
       <a href="https://maps.google.com/?ll=<%= n.latitude %>,<%= n.longitude %>" target="_blank"><p class="card-text"><%= n.name %></p></a>
@@ -18,11 +23,6 @@
   <div class="card-infos">
     <% if beer.ratings.present? %>
       <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= link_to toggle_favorite_beer_path(beer), remote: true, method: :post do %>
-        <%= render 'beers/like_button', beer: beer %>
-      <% end %>
     <% end %>
   </div>
 </div>

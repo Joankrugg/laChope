@@ -5,19 +5,19 @@ class BeersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :import, :toggle_favorite]
   def index
     if params[:search].present?
-      @beers = Beer.global_search(params[:search]).paginate(page: params[:page], per_page: 10)
+      @beers = Beer.global_search(params[:search]).paginate(page: params[:page], per_page: 12)
       @articles = Article.all
       @typical_beers = TypicalBeer.all
       @fancy = Fancy.new
       @rating = Rating.new
     elsif params[:color_search].present?
-      @beers = Beer.color_search(params[:color_search]).paginate(page: params[:page], per_page: 10)
+      @beers = Beer.color_search(params[:color_search]).paginate(page: params[:page], per_page: 12)
       @articles = Article.all
       @typical_beers = TypicalBeer.all
       @fancy = Fancy.new
       @rating = Rating.new
     else
-      @beers = Beer.all.paginate(page: params[:page], per_page: 10)
+      @beers = Beer.all.paginate(page: params[:page], per_page: 12)
       @articles = Article.all
       @typical_beers = TypicalBeer.all
       @fancy = Fancy.new
