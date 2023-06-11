@@ -15,11 +15,6 @@
       <p class="card-text"><%= beer.typical_beer.style.name %></p>
     <% end %>
   </div>
-  <% if beer.market_places.present? %>
-    <% beer.market_places.each do |n| %>
-      <a href="https://maps.google.com/?ll=<%= n.latitude %>,<%= n.longitude %>" target="_blank"><p class="card-text"><%= n.name %></p></a>
-    <% end %>
-  <% end %>
   <div class="card-infos">
     <% if beer.ratings.present? %>
       <p class='card-text center'>Moyenne des notes: <%= beer.average_stars %></p>

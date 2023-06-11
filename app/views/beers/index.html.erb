@@ -58,7 +58,7 @@
         </div>
         <div class="row">
           <% lagers.each do |b| %>
-            <div class="mx-auto col-6 col-sm-5 col-lg-4 ">
+            <div class="mx-auto col-9 col-sm-5 col-lg-4 ">
               <%= render 'beer_card', beer: b %>
             </div>
           <% end %>
@@ -73,7 +73,7 @@
         </div>
         <div class="row">
           <% ales.each do |b| %>
-            <div class="mx-auto col-6 col-sm-5 col-lg-4">
+            <div class="mx-auto col-9 col-sm-5 col-lg-4">
               <%= render 'beer_card', beer: b %>
             </div>
           <% end %>
@@ -89,7 +89,7 @@
         </div>
         <div class="row">
           <% mixed_styles.each do |b| %>
-            <div class="mx-auto col-6 col-sm-5 col-lg-4">
+            <div class="mx-auto col-9 col-sm-5 col-lg-4">
               <%= render 'beer_card', beer: b %>
             </div>
           <% end %>
@@ -103,7 +103,7 @@
         </div>
         <div class="row">
           <% spontaneous.each do |b| %>
-            <div class="mx-auto col-6 col-sm-5 col-lg-4">
+            <div class="mx-auto col-9 col-sm-5 col-lg-4">
               <%= render 'beer_card', beer: b %>
             </div>
           <% end %>
@@ -111,6 +111,6 @@
       <% end %>
     </div>
   </div>
-  <div class="center"><%= will_paginate @beers %></div>
+  <div class="apple_pagination"><%= will_paginate @beers %></div>
 </div>
 

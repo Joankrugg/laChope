@@ -21,6 +21,11 @@
   <% else %>
     <%= cl_image_tag beer.photo.key, fetch_format: :auto, class: 'card-img-top img-responsive beer-image' %>
   <% end %>
+  <% if beer.market_places.present? %>
+    <% beer.market_places.each do |n| %>
+      <a href="https://maps.google.com/?ll=<%= n.latitude %>,<%= n.longitude %>" target="_blank"><p class="card-text"><%= n.name %></p></a>
+    <% end %>
+  <% end %>
   <% if user_signed_in? %>
     <%= render 'tastings/form' %>
   <% end %>

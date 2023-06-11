@@ -89,55 +89,10 @@
                 <p class='card-text center'>Moyenne des notes: <%= @beer.average_stars %></p>
               <% end %>
 
-              <% if @beer.fancies.present? %>
-                <% @beer.fancies.each do |n| %>
-                  <% a = [] %>
-                  <% if n.user == current_user %>
-                    <% a << n %>
-                    <% if a.include?(n) && n.heart == true %>
-                      <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                        <div class="center top">
-                          <i class="fas fa-heart wanted"></i>
-                        </div>
-                      <% end %>
-                    <% elsif a.include?(n) && n.heart == false %>
-                      <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                        <div class="center top">
-                          <i class="fas fa-heart-broken unwanted"></i>
-                        </div>
-                      <% end %>
-                    <% else %>
-                      <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
-                        <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                          <input type="hidden" name="fancy[heart]" value="">
-                            <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-                            <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-                        </fieldset>
-                        <div class="center">
-                          <%= f.button :button do %>
-                            <i class="far fa-heart"></i>
-                          <% end %>
-                        </div>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
-                  <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                    <input type="hidden" name="fancy[heart]" value="">
-
-                      <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-                      <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-
-                  </fieldset>
-                  <div class="center">
-                    <%= f.button :button do %>
-                      <i class="far fa-heart"></i>
-                    <% end %>
-                  </div>
-                <% end %>
+              <%= link_to toggle_favorite_beer_path(@beer), remote: true, method: :post do %>
+                <%= render 'beers/like_button', beer: @beer %>
               <% end %>
+
               <div class="family">
                 <% if @beer.beer_family.present? %>
                   <p class="center"> Type de bière de la même famille : </p>
@@ -237,56 +192,8 @@
                   <p class='card-text center'>Moyenne des notes: <%= @beer.average_stars %></p>
                 <% end %>
 
-                <% if @beer.fancies.present? %>
-                  <% @beer.fancies.each do |n| %>
-                    <% a = [] %>
-                    <% if n.user == current_user %>
-                      <% a << n %>
-                      <% if a.include?(n) && n.heart == true %>
-                        <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                          <div class="center top">
-                            <i class="fas fa-heart wanted"></i>
-                          </div>
-                        <% end %>
-                      <% elsif a.include?(n) && n.heart == false %>
-                        <%= link_to edit_beer_fancy_path(@beer, n) do %>
-                          <div class="center top">
-                            <i class="fas fa-heart-broken unwanted"></i>
-                          </div>
-                        <% end %>
-                      <% else %>
-                        <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
-                          <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                            <input type="hidden" name="fancy[heart]" value="">
-
-                              <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-                              <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-
-                          </fieldset>
-                          <div class="center">
-                            <%= f.button :button do %>
-                              <i class="far fa-heart"></i>
-                            <% end %>
-                          </div>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <%= simple_form_for ([ @beer, @fancy ]) do |f| %>
-                    <fieldset class="form-group radio_buttons optional fancy_heart hidden">
-                      <input type="hidden" name="fancy[heart]" value="">
-
-                        <input class="form-check-input radio_buttons optional squaretag-selector hidden" type="radio" value="true" checked="checked" name="fancy[heart]" id="fancy_heart_true">
-                        <label class="form-check-label collection_radio_buttons hidden" for="fancy_heart_true"></label>
-
-                    </fieldset>
-                    <div class="center">
-                      <%= f.button :button do %>
-                        <i class="far fa-heart"></i>
-                      <% end %>
-                    </div>
-                  <% end %>
+                <%= link_to toggle_favorite_beer_path(@beer), remote: true, method: :post do %>
+                  <%= render 'beers/like_button', beer: @beer %>
                 <% end %>
                 <div class="family">
                   <% if @beer.beer_family.present? %>
