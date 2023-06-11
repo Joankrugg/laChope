@@ -1,5 +1,13 @@
-<div class="offnavs"></div>
-<div class="container top">
+<%= form_tag(beers_path, method: :get) do %>
+  <div class="beer-search-form-control form-group">
+    <i class="fas fa-search search-img"></i>
+    <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
+    <button name="button" type="submit" class="btn btn-ghost-2">
+      Explorer
+    </button>
+  </div>
+<% end %>
+<div class="container beers-index">
   <% lagers = [] %>
   <% ales = [] %>
   <% mixed_styles = [] %>
@@ -17,8 +25,8 @@
   <% end %>
   <div class="row">
     <div class="mx-auto d-none d-lg-block col-lg-3">
-      <%= render 'articles/articles_side' %>
       <%= render 'shared/intra_links' %>
+      <%= render 'articles/articles_side' %>
       <div class="card sides bottom index-side">
         <% @beers.each do |b| %>
           <% if b.target? %>
@@ -34,28 +42,15 @@
       </div>
     </div>
     <div class="col-12 col-lg-9">
+
       <div class="card shadow">
-        <h1 class='title-top'><%= title 'Toutes Les Bières' %></h1>
+        <h1 class='title-top' data-toggle="modal" data-target="#fermentations"><%= title 'Toutes Les Bières' %></h1>
       </div>
-      <div class="page-description">
-        <p>Le brasseur fait le moût mais c'est la fermentation qui fait la bière. On distingue trois types de fermentation.</p>
-      </div>
-      <%= form_tag(beers_path, method: :get) do %>
-        <div class="search-form-control form-group">
-          <i class="fas fa-search search-img"></i>
-          <%= text_field_tag :search, nil, class: "form-control string required", autocomplete: 'off'%>
-          <button name="button" type="submit" class="btn btn-ghost-2">
-            Allons-y
-          </button>
-        </div>
-      <% end %>
+
+
 
       <% if lagers != [] %>
-        <div class="page-description">
-          <p>
-            La fermentation basse  appelée <%= link_to 'Lager', lagers_beers_path %> nécessite l'ajoût dans le moût de levures dont l'activité est optimale à des températures basses (idéalement 10-15 °C), c'est pour cette raison que cette technique originaire de l'europe centrale est aujourd'hui la plus répandue en brasserie industrielle ; la technologie du siècle dernier a permis le contrôle de la température.
-          </p>
-        </div>
+
         <div class="row">
           <% lagers.each do |b| %>
             <div class="mx-auto col-9 col-sm-5 col-lg-4 ">
@@ -66,11 +61,7 @@
       <% end %>
 
       <% if ales != [] %>
-        <div class="page-description">
-          <p>
-            La fermentation haute appelée <%= link_to 'Ale', ales_beers_path %> se fait avec des levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C). Cette technique est plus courante en brasserie artisanale pour des questions d'équipement mais pas que. Évidemment.
-          </p>
-        </div>
+
         <div class="row">
           <% ales.each do |b| %>
             <div class="mx-auto col-9 col-sm-5 col-lg-4">
@@ -81,12 +72,7 @@
       <% end %>
 
       <% if mixed_styles != [] %>
-        <div class="page-description">
-          <p>
-            La fermentation mixte combine les deux types de fermentation précédent de manière à tirer le meilleur parti de chacun.
-            Il s'agit là d'un technique et non d'un type de fermentation à part entière dites. Les bières issues de cette technique sont dites de fermentations <%= link_to 'mixtes', mixed_beers_path %>.
-          </p>
-        </div>
+
         <div class="row">
           <% mixed_styles.each do |b| %>
             <div class="mx-auto col-9 col-sm-5 col-lg-4">
@@ -96,11 +82,6 @@
         </div>
       <% end %>
       <% if spontaneous != [] %>
-        <div class="page-description">
-          <p>
-            La fermentation <%= link_to 'spontanée', spontaneous_beers_path %> n'est pas faite par des levures de brasserie, mais par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...). La bière finie présente une acidité marquée. Les styles les plus connus sont les lambics..
-          </p>
-        </div>
         <div class="row">
           <% spontaneous.each do |b| %>
             <div class="mx-auto col-9 col-sm-5 col-lg-4">
@@ -112,5 +93,43 @@
     </div>
   </div>
   <div class="apple_pagination"><%= will_paginate @beers %></div>
+  <div class="modal" tabindex="-1" role="dialog" id='fermentations'>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Différents types de fermentation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="page-description">
+            <p>Le brasseur fait le moût mais c'est la fermentation qui fait la bière. On distingue trois types de fermentation.</p>
+          </div>
+          <div class="page-description">
+            <p>
+              La fermentation basse  appelée <%= link_to 'Lager', lagers_beers_path %> nécessite l'ajoût dans le moût de levures dont l'activité est optimale à des températures basses (idéalement 10-15 °C), c'est pour cette raison que cette technique originaire de l'europe centrale est aujourd'hui la plus répandue en brasserie industrielle ; la technologie du siècle dernier a permis le contrôle de la température.
+            </p>
+          </div>
+          <div class="page-description">
+            <p>
+              La fermentation haute appelée <%= link_to 'Ale', ales_beers_path %> se fait avec des levures dont l'activité est optimale à des températures hautes (idéalement 18-21 °C). Cette technique est plus courante en brasserie artisanale pour des questions d'équipement mais pas que. Évidemment.
+            </p>
+          </div>
+          <div class="page-description">
+            <p>
+              La fermentation mixte combine les deux types de fermentation précédent de manière à tirer le meilleur parti de chacun.
+              Il s'agit là d'un technique et non d'un type de fermentation à part entière dites. Les bières issues de cette technique sont dites de fermentations <%= link_to 'mixtes', mixed_beers_path %>.
+            </p>
+          </div>
+          <div class="page-description">
+            <p>
+              La fermentation <%= link_to 'spontanée', spontaneous_beers_path %> n'est pas faite par des levures de brasserie, mais par des organismes divers, souvent qualifiés de "sauvages" (Brettanomyces, Lactobacillus, Pediococcus...). La bière finie présente une acidité marquée. Les styles les plus connus sont les lambics..
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
