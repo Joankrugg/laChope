@@ -9,11 +9,8 @@
       <% end %>
     <% end %>
     <h5 class="card-title"><%= beer.name.upcase %></h5>
-    <% if beer.style.present? %>
-      <p class="card-text"><%= beer.style.name %></p>
-    <% else %>
-      <p class="card-text"><%= beer.typical_beer.style.name %></p>
-    <% end %>
+    <p class="card-text"><%= beer.typical_beer.style.name %></p>
+    <p class="card-text"><%= beer.typical_beer.category.name %></p>
   </div>
   <div class="card-infos">
     <% if beer.ratings.present? %>

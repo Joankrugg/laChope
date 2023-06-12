@@ -8,21 +8,6 @@
   </div>
 <% end %>
 <div class="container beers-index">
-  <% lagers = [] %>
-  <% ales = [] %>
-  <% mixed_styles = [] %>
-  <% spontaneous = [] %>
-  <% @beers.each do |b| %>
-    <% if b.typical_beer.category.name == 'Lagers'%>
-      <% lagers << b %>
-    <% elsif b.typical_beer.category.name == 'Ales'%>
-      <% ales << b %>
-    <% elsif b.typical_beer.category.name == 'Spontaneous'%>
-      <% spontaneous << b %>
-    <% else %>
-      <% mixed_styles << b %>
-    <% end %>
-  <% end %>
   <div class="row">
     <div class="mx-auto d-none d-lg-block col-lg-3">
       <%= render 'shared/intra_links' %>
@@ -42,54 +27,16 @@
       </div>
     </div>
     <div class="col-12 col-lg-9">
-
       <div class="card shadow">
         <h1 class='title-top' data-toggle="modal" data-target="#fermentations"><%= title 'Toutes Les Bières' %></h1>
       </div>
-
-
-
-      <% if lagers != [] %>
-
-        <div class="row">
-          <% lagers.each do |b| %>
-            <div class="mx-auto col-9 col-sm-5 col-lg-4 ">
-              <%= render 'beer_card', beer: b %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if ales != [] %>
-
-        <div class="row">
-          <% ales.each do |b| %>
-            <div class="mx-auto col-9 col-sm-5 col-lg-4">
-              <%= render 'beer_card', beer: b %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if mixed_styles != [] %>
-
-        <div class="row">
-          <% mixed_styles.each do |b| %>
-            <div class="mx-auto col-9 col-sm-5 col-lg-4">
-              <%= render 'beer_card', beer: b %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-      <% if spontaneous != [] %>
-        <div class="row">
-          <% spontaneous.each do |b| %>
-            <div class="mx-auto col-9 col-sm-5 col-lg-4">
-              <%= render 'beer_card', beer: b %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="row">
+        <% @beers.sort_by(&:name).each do |b| %>
+          <div class="mx-auto col-9 col-sm-5 col-lg-4 ">
+            <%= render 'beer_card', beer: b %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="apple_pagination"><%= will_paginate @beers %></div>
