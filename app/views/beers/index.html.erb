@@ -31,7 +31,7 @@
         <h1 class='title-top' data-toggle="modal" data-target="#fermentations"><%= title 'Toutes Les Bières' %></h1>
       </div>
       <div class="row">
-        <% @beers.sort_by(&:name).each do |b| %>
+        <% @beers.each do |b| %>
           <div class="mx-auto col-9 col-sm-5 col-lg-4 ">
             <%= render 'beer_card', beer: b %>
           </div>
