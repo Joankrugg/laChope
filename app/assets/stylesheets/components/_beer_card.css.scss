@@ -4,7 +4,7 @@
   margin-top: 40px;
   margin-bottom: 70px;
   border-radius: 5px;
-  height: 430px;
+  height: 460px;
 }
 .beers-shadow:hover .beer-image {
   opacity: 0.3;
@@ -12,6 +12,19 @@
 
 .beers-shadow:hover .text{
   opacity: 1;
+}
+
+.destroy-icon{
+  text-align: right;
+  margin-right: 26px;
+}
+.fa-window-close{
+  color: #3C3C3C;
+}
+
+.fa-window-close:hover{
+  color: red;
+  cursor: pointer;
 }
 
 .beer-image {

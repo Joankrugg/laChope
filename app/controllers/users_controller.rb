@@ -38,6 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def trial_signup_submit
+    @user = User.new(params[:user])
+    if @user.save
+      redirect_to current_user
+    else
+      render :trial_signup
+    end
+  end
+
   def destroy
     @user.destroy
     redirect_to root_path

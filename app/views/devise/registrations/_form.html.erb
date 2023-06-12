@@ -1,0 +1,24 @@
+<div class="container bottom">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-4 mx-auto form-login shadow">
+      <h1 class='page-title'>Inscription</h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, label: 'Email', input_html: {class: 'center'} %>
+          <%= f.input :password,
+              required: false,label: 'Mot de passe',
+              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+              input_html: {class: 'center'}%>
+          <%= f.input :password_confirmation, label: 'Confirmer mot de passe',
+              required: false,
+              input_html: {class: 'center'}%>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Inscription", class: "btn btn-primary" %>
+        </div>
+        <%= render "devise/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+</div>
