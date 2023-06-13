@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :draftsets
   end
 
-  resources :typical_beers, path: 'familles-de-bieres' do
+  resources :typical_beers, path: 'styles-de-bieres' do
     collection do
       get :wheat_beers, path: 'bieres-de-ble'
       get :lambics
