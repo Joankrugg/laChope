@@ -1,44 +1,33 @@
 <div class="offnav"></div>
-<div class="container bottom">
+<div class="container top bottom">
   <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <div class="blackboard">
-        <h1><%= title 'Tes critères de recherche' %></h1>
+    <div class="col-lg-12 mx-auto">
+      <div class="card center">
+        <h1 class='title-top'><%= title 'Récapitulatif des critères de recherche' %></h1>
         <div class="shadow p-top p-bottom">
           <div class="row">
-            <div class="mx-auto">
-              <p class='center'> Tu veux une bière</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-8 col-lg-4 mx-auto">
+            <div class="col-8 col-lg-2 mx-auto">
               <div class='validate'><%= @public_search.alcohol_shape.name %></div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-8 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-2 mx-auto">
               <div class='validate'><%= @public_search.design_color.name %></div>
             </div>
-            <div class="col-8 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-2 mx-auto">
               <div class='validate'><%= @public_search.main_taste.name %></div>
             </div>
-            <div class="col-8 col-lg-3 mx-auto">
+            <div class="col-8 col-lg-2 mx-auto">
               <div class='validate'><%= @public_search.balance.name %></div>
             </div>
-          </div>
-          <div class="row">
             <% if @public_search.feelings.present? %>
               <% @public_search.feelings.each do |f| %>
-                <div class="col-8 col-lg-3 mx-auto">
+                <div class="col-8 col-lg-2 mx-auto">
                   <div class='validate'><%= f.name %></div>
                 </div>
               <% end %>
             <% end %>
-          </div>
-          <div class="row">
             <% if @public_search.flavours.present? %>
               <% @public_search.flavours.each do |f| %>
-                <div class="col-8 col-lg-3 mx-auto">
+                <div class="col-8 col-lg-2 mx-auto">
                   <div class='validate'><%= f.name %></div>
                 </div>
               <% end %>
@@ -554,15 +543,15 @@
         </div>
       </div>
     <% else %>
-      <div class='center p-top p-bottom'>Mais... malheureusement, nous n'avons pas ce genre de bière en base</div>
+      <div class='center p-bottom'>Mais... malheureusement, nous n'avons pas ce genre de bière en base</div>
     <% end %>
   <% end %>
 <% end %>
 
-<div class="container">
+<div class="container p-top">
   <div class="row">
     <div class="col-lg-12 mx-auto center">
-      <%= link_to 'nouvelle recherche', new_public_search_path, class: 'btn btn-ghost' %>
+      <%= link_to 'nouvelle recherche', new_public_search_path, class: 'btn btn-action-modern' %>
     </div>
   </div>
 </div>
