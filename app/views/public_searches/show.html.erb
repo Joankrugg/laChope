@@ -198,7 +198,7 @@
               <% typical_beer_style << f.typical_beer %>
             <% end %>
             <% typical_beer_style.uniq.each do |f| %>
-              <div class="mx-auto col-6 col-lg-3 index">
+              <div class="mx-auto col-12 col-lg-3 index">
                 <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
               </div>
             <% end %>
@@ -212,7 +212,7 @@
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
-              <div class="mx-auto col-6 col-lg-3 index">
+              <div class="mx-auto col-12 col-lg-3 index">
                 <%= render 'beers/beer_card', beer: f %>
               </div>
             <% end %>
@@ -360,7 +360,7 @@
               <% typical_beer_style << f.typical_beer %>
             <% end %>
             <% typical_beer_style.uniq.each do |f| %>
-              <div class="mx-auto col-6 col-lg-3 index">
+              <div class="mx-auto col-12 col-lg-3 index">
                 <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
               </div>
             <% end %>
@@ -374,7 +374,7 @@
           </div>
           <div class="row">
             <% five_stars.each do |f| %>
-              <div class="mx-auto col-6 col-lg-3 index">
+              <div class="mx-auto col-12 col-lg-3 index">
                 <%= render 'beers/beer_card', beer: f %>
               </div>
             <% end %>
@@ -522,7 +522,7 @@
             <% typical_beer_style << f.typical_beer %>
           <% end %>
           <% typical_beer_style.uniq.each do |f| %>
-            <div class="mx-auto col-6 col-lg-3 index">
+            <div class="mx-auto col-12 col-lg-3 index">
               <%= render 'typical_beers/typical_beer_card', typical_beer: f %>
             </div>
           <% end %>
@@ -536,7 +536,7 @@
         </div>
         <div class="row">
           <% five_stars.each do |f| %>
-            <div class="mx-auto col-6 col-lg-3 index">
+            <div class="mx-auto col-12 col-lg-3 index">
               <%= render 'beers/beer_card', beer: f %>
             </div>
           <% end %>

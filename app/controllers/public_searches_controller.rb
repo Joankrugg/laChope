@@ -17,7 +17,7 @@ class PublicSearchesController < ApplicationController
   def show
     @public_search = PublicSearch.find(params[:id])
     @typical_beers = TypicalBeer.all
-    @beers = Beer.all
+    @beers = Beer.all.paginate(page: params[:page], per_page: 12).order("name ASC")
     @user = current_user
 
   end
