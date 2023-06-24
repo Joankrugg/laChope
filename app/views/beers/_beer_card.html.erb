@@ -7,7 +7,7 @@
     <% end %>
   <% end %>
   <%= link_to beer do %>
-    <%= cl_image_tag beer.photo.key, height: 250, width: 250, crop: :fill, fetch_format: :auto, class: 'beer-image card-img-top img-responsive' %>
+    <%= cl_image_tag beer.photo.key, height: 210, width: 210, crop: :fill, fetch_format: :auto, class: 'beer-image' %>
   <% end %>
   <div class="card-body">
     <% if user_signed_in? %>

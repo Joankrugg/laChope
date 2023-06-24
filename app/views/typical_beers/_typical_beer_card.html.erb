@@ -1,7 +1,7 @@
 <%= link_to typical_beer do  %>
   <div class="card beers-shadow">
     <% if typical_beer.photo.present? %>
-      <%= cl_image_tag typical_beer.photo.key, height: 400, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
+      <%= cl_image_tag typical_beer.photo.key, height: 400, width: 300, crop: :fill ,class: 'beer-image' %>
     <% else %>
       <%= cl_image_tag "https://res.cloudinary.com/da2krghvd/image/upload/s--kTqldfEU--/q_jpegmini/v1617977570/deguster-sa-biere_c1oxoq.jpg", height: 200, width: 300, crop: :fill ,class: 'beer-image card-img-top img-responsive' %>
     <% end %>
