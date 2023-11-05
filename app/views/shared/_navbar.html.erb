@@ -338,6 +338,9 @@
             </p>
           </div>
           <div class="col-12 collapse" id="collapseActions">
+            <%= link_to users_path do %>
+              <p class="btn-nav-modern center"><i class="fas fa-user"></i>Voir les membres</p>
+            <% end %>
             <%= link_to market_places_path do %>
               <p class="btn-nav-modern center"><i class="fas fa-store"></i>Créer un Beermarket</p>
             <% end %>
@@ -406,6 +409,9 @@
             </div>
 
             <div class="col-12 collapse" id="collapseAction">
+              <%= link_to users_path do %>
+                <p class="btn-nav-modern center"><i class="fas fa-user"></i>Voir les membres</p>
+              <% end %>
               <%= link_to market_places_path do %>
                 <p class="btn-nav-modern center"><i class="fas fa-store"></i>Créer un Beermarket</p>
               <% end %>

@@ -109,6 +109,43 @@
   color: black;
 }
 
+.squaretag-block-item {
+  display: block;
+  width: 100%;
+}
+
+.squaretag-block-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.squaretag-block-selector + label {
+  cursor: pointer;
+  display: block;
+  font-size: 22px;
+  font-family: 'Oswald';
+  font-weight: lighter;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: black;
+  color: $light-gray;
+  border: 1px solid $my-green;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  transition: .3s ease-in-out;
+}
+.squaretag-block-selector:hover + label {
+  background-color: $my-green;
+  border: 1px solid $my-green;
+  color: black;
+  transform: scale(1.02);
+}
+
+.squaretag-block-selector:checked + label {
+  background-color: $my-green;
+  color: black;
+}
+
 // Checkboxes design
 .bottle-available {
   display: flex;
