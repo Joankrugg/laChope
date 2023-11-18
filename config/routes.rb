@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'feeds/index'
   resources :market_places, path: 'points-de-vente' do
     match '/scrape', to: 'market_places#scrape', via: :post, on: :collection
