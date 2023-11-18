@@ -134,7 +134,7 @@ GEM
       ffi (>= 1.15.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-sass (6.4.0)
+    font-awesome-sass (6.4.2)
       sassc (~> 2.0)
     geocoder (1.8.1)
     globalid (1.1.0)
@@ -419,7 +419,7 @@ DEPENDENCIES
   csv-importer
   devise
   dotenv-rails
-  font-awesome-sass
+  font-awesome-sass (~> 6.4, >= 6.4.2)
   geocoder
   httparty
   jbuilder (~> 2.7)
