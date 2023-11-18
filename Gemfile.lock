@@ -56,10 +56,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.0.6.1)
       activesupport (= 6.0.6.1)
-    activemodel-serializers-xml (1.0.2)
-      activemodel (> 5.x)
-      activesupport (> 5.x)
-      builder (~> 3.1)
     activerecord (6.0.6.1)
       activemodel (= 6.0.6.1)
       activesupport (= 6.0.6.1)
@@ -102,7 +98,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    charlock_holmes (0.7.7)
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
@@ -158,18 +153,6 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.3)
-    kaminari (1.2.2)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.2)
-      kaminari-activerecord (= 1.2.2)
-      kaminari-core (= 1.2.2)
-    kaminari-actionview (1.2.2)
-      actionview
-      kaminari-core (= 1.2.2)
-    kaminari-activerecord (1.2.2)
-      activerecord
-      kaminari-core (= 1.2.2)
-    kaminari-core (1.2.2)
     launchy (2.5.2)
       addressable (~> 2.8)
     letter_opener (1.8.1)
@@ -206,7 +189,6 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.0)
     multi_xml (0.6.0)
-    nested_form (0.3.2)
     net-http (0.3.2)
       uri
     net-http-persistent (4.0.2)
@@ -277,17 +259,6 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rails_admin (3.1.2)
-      activemodel-serializers-xml (>= 1.0)
-      kaminari (>= 0.14, < 2.0)
-      nested_form (~> 0.3)
-      rails (>= 6.0, < 8)
-      turbo-rails (~> 1.0)
-    rails_admin_import (3.0.3)
-      charlock_holmes (~> 0.7)
-      rails (>= 3.2)
-      rails_admin (>= 3.0.0.beta)
-      simple_xlsx_reader (~> 1.0)
     railties (6.0.6.1)
       actionpack (= 6.0.6.1)
       activesupport (= 6.0.6.1)
@@ -333,9 +304,6 @@ GEM
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    simple_xlsx_reader (1.0.5)
-      nokogiri
-      rubyzip
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -354,10 +322,6 @@ GEM
     time (0.2.2)
       date
     timeout (0.3.2)
-    turbo-rails (1.4.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -436,8 +400,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.5)
-  rails_admin (~> 3.1, >= 3.1.2)
-  rails_admin_import (~> 3.0, >= 3.0.3)
   redactor-rails!
   redis (~> 4.0)
   remotipart!

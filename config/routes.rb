@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get 'mail_alerts/new'
   get 'mail_alerts/create'
   resources :public_searches, path: 'recherches-de-bieres', only: [:new, :create, :show]
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
   resources :newsletters, only: [:new, :create]
