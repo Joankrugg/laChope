@@ -41,7 +41,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '~> 3.1.2'
+gem 'rails_admin', '~> 3.1', '>= 3.1.2'
 gem 'rails_admin_import', '~> 3.0', '>= 3.0.3'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 6.4', '>= 6.4.2'
