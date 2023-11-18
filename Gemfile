@@ -46,6 +46,7 @@ gem 'font-awesome-sass', '~> 6.4', '>= 6.4.2'
 gem 'simple_form'
 gem 'turbolinks_render'
 gem 'link_thumbnailer'
+gem 'rails_admin', '~> 3.1', '>= 3.1.2'
 
 
 group :development, :test do  gem 'pry-byebug'
