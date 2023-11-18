@@ -47,7 +47,7 @@ gem 'simple_form'
 gem 'turbolinks_render'
 gem 'link_thumbnailer'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
-gem 'rails_admin', '~> 2.2', '>= 2.2.1'
+
 
 
 
