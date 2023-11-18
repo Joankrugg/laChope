@@ -24,6 +24,6 @@
     "rails_admin/@fortawesome/fontawesome-free": "^5.15.0"
   },
   "engines": {
-    "node": "16.15.1"
+    "node": "20.9.0"
   }
 }
