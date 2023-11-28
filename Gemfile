@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.6'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.5'
+gem "rails", "~> 7.1.2"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -47,8 +47,8 @@ gem 'simple_form'
 gem 'turbolinks_render'
 gem 'link_thumbnailer'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
-gem 'rails_admin', '~> 2.2', '>= 2.2.1'
-
+gem 'psych', '< 4'
+gem 'rails_admin', '~> 3.1', '>= 3.1.2'
 
 
 group :development, :test do  gem 'pry-byebug'
