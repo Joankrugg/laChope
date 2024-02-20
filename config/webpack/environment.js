@@ -1,5 +1,14 @@
 const { environment } = require('@rails/webpacker');
-const babelLoader = require('./loaders/babel');
+const babelLoader = require.resolve('babel-loader');
 
-environment.loaders.append('babel', babelLoader);
+environment.loaders.append('babel', {
+  test: /\.jsx?$/,
+  use: {
+    loader: babelLoader,
+    options: {
+      presets: ['@babel/preset-env']
+    }
+  }
+});
+
 module.exports = environment;
