@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.1.2"
+gem 'rails', '~> 6.0.6.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -37,7 +37,7 @@ gem 'will_paginate', '~> 4.0'
 gem 'acts_as_favoritor'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem "bootsnap", "~> 1.8.1", require: false
 gem 'geocoder'
 gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
