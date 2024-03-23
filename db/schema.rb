@@ -2,30 +2,31 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `bin/rails
-# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
+ActiveRecord::Schema.define(version: 2023_06_09_213401) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accesses", force: :cascade do |t|
     t.string "code"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_accesses_on_user_id"
   end
 
   create_table "actions", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -33,7 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", precision: nil, null: false
+    t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -45,20 +46,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.text "metadata"
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
-    t.datetime "created_at", precision: nil, null: false
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "alcohol_shapes", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "answers", force: :cascade do |t|
@@ -67,8 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "link"
     t.bigint "user_id", null: false
     t.bigint "publication_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["publication_id"], name: "index_answers_on_publication_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -77,8 +78,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "title"
     t.text "content"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "theme_id"
     t.index ["theme_id"], name: "index_articles_on_theme_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
@@ -86,21 +87,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "balances", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "beer_families", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "beer_feelings", force: :cascade do |t|
     t.bigint "beer_id", null: false
     t.bigint "feeling_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["beer_id"], name: "index_beer_feelings_on_beer_id"
     t.index ["feeling_id"], name: "index_beer_feelings_on_feeling_id"
   end
@@ -108,8 +109,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "beer_flavours", force: :cascade do |t|
     t.bigint "beer_id", null: false
     t.bigint "flavour_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["beer_id"], name: "index_beer_flavours_on_beer_id"
     t.index ["flavour_id"], name: "index_beer_flavours_on_flavour_id"
   end
@@ -121,8 +122,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.integer "bitterness"
     t.text "description"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "style_id"
     t.boolean "target", default: false, null: false
@@ -148,49 +149,49 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "bottle_tops", force: :cascade do |t|
     t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bottles", force: :cascade do |t|
     t.string "name"
     t.integer "centiliter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "contexts", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "conversations", force: :cascade do |t|
     t.integer "author_id"
     t.integer "receiver_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "read", default: false
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
   end
 
   create_table "design_colors", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "design_feelings", force: :cascade do |t|
     t.bigint "design_id", null: false
     t.bigint "feeling_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["design_id"], name: "index_design_feelings_on_design_id"
     t.index ["feeling_id"], name: "index_design_feelings_on_feeling_id"
   end
@@ -198,16 +199,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "design_flavours", force: :cascade do |t|
     t.bigint "design_id", null: false
     t.bigint "flavour_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["design_id"], name: "index_design_flavours_on_design_id"
     t.index ["flavour_id"], name: "index_design_flavours_on_flavour_id"
   end
 
   create_table "designs", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "alcohol_shape_id"
     t.bigint "main_taste_id"
     t.bigint "design_color_id"
@@ -224,29 +225,29 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "draftset_beers", force: :cascade do |t|
     t.bigint "draftset_id", null: false
     t.bigint "beer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["beer_id"], name: "index_draftset_beers_on_beer_id"
     t.index ["draftset_id"], name: "index_draftset_beers_on_draftset_id"
   end
 
   create_table "draftsets", force: :cascade do |t|
     t.bigint "store_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["store_id"], name: "index_draftsets_on_store_id"
   end
 
   create_table "duration_units", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "fancies", force: :cascade do |t|
     t.boolean "heart"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "beer_id"
     t.bigint "user_id"
     t.index ["beer_id"], name: "index_fancies_on_beer_id"
@@ -260,8 +261,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.bigint "favoritor_id", null: false
     t.string "scope", default: "favorite", null: false
     t.boolean "blocked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["blocked"], name: "index_favorites_on_blocked"
     t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
     t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
@@ -274,42 +275,42 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "feeds", force: :cascade do |t|
     t.string "photo"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
   create_table "feelings", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "flavours", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mail_alerts", force: :cascade do |t|
     t.boolean "mail_notification"
     t.bigint "personal_message_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["personal_message_id"], name: "index_mail_alerts_on_personal_message_id"
   end
 
   create_table "main_tastes", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "market_place_beers", force: :cascade do |t|
     t.bigint "market_place_id", null: false
     t.bigint "beer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["beer_id"], name: "index_market_place_beers_on_beer_id"
     t.index ["market_place_id"], name: "index_market_place_beers_on_market_place_id"
   end
@@ -319,8 +320,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "zipcode"
     t.string "city"
     t.string "website"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
     t.bigint "market_style_id"
@@ -329,27 +330,27 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "market_styles", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "newsletters", force: :cascade do |t|
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "origins", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "packs", force: :cascade do |t|
     t.string "name"
     t.integer "bottle_numbers"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "bottle_id"
     t.index ["bottle_id"], name: "index_packs_on_bottle_id"
   end
@@ -358,8 +359,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.text "body"
     t.bigint "conversation_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "read", default: false
     t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
     t.index ["user_id"], name: "index_personal_messages_on_user_id"
@@ -367,8 +368,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "product_types", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -378,8 +379,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.bigint "sticker_id", null: false
     t.bigint "bottle_top_id", null: false
     t.integer "batch"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["bottle_top_id"], name: "index_projects_on_bottle_top_id"
     t.index ["pack_id"], name: "index_projects_on_pack_id"
@@ -391,8 +392,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "public_search_feelings", force: :cascade do |t|
     t.bigint "feeling_id", null: false
     t.bigint "public_search_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["feeling_id"], name: "index_public_search_feelings_on_feeling_id"
     t.index ["public_search_id"], name: "index_public_search_feelings_on_public_search_id"
   end
@@ -400,15 +401,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "public_search_flavours", force: :cascade do |t|
     t.bigint "flavour_id", null: false
     t.bigint "public_search_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["flavour_id"], name: "index_public_search_flavours_on_flavour_id"
     t.index ["public_search_id"], name: "index_public_search_flavours_on_public_search_id"
   end
 
   create_table "public_searches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "balance_id"
     t.bigint "alcohol_shape_id"
@@ -425,15 +426,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "content"
     t.string "link"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "beer_id"
     t.bigint "user_id"
     t.index ["beer_id"], name: "index_ratings_on_beer_id"
@@ -445,8 +446,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.integer "duration"
     t.integer "quantity"
     t.bigint "beer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "temperature"
     t.bigint "unit_id"
     t.bigint "action_id"
@@ -462,23 +463,23 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "sexes", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stickers", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_stickers_on_user_id"
   end
 
   create_table "store_beers", force: :cascade do |t|
     t.bigint "beer_id", null: false
     t.bigint "store_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["beer_id"], name: "index_store_beers_on_beer_id"
     t.index ["store_id"], name: "index_store_beers_on_store_id"
   end
@@ -489,8 +490,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "address"
     t.string "website"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "privacy_code"
     t.boolean "visitor", default: false
     t.bigint "market_place_id"
@@ -500,15 +501,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "styles", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasting_feelings", force: :cascade do |t|
     t.bigint "tasting_id", null: false
     t.bigint "feeling_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["feeling_id"], name: "index_tasting_feelings_on_feeling_id"
     t.index ["tasting_id"], name: "index_tasting_feelings_on_tasting_id"
   end
@@ -516,16 +517,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "tasting_flavours", force: :cascade do |t|
     t.bigint "tasting_id", null: false
     t.bigint "flavour_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["flavour_id"], name: "index_tasting_flavours_on_flavour_id"
     t.index ["tasting_id"], name: "index_tasting_flavours_on_tasting_id"
   end
 
   create_table "tasting_places", force: :cascade do |t|
     t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "beer_id"
     t.bigint "market_place_id"
     t.index ["beer_id"], name: "index_tasting_places_on_beer_id"
@@ -533,10 +534,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   end
 
   create_table "tastings", force: :cascade do |t|
-    t.datetime "date", precision: nil
+    t.datetime "date"
     t.integer "global_rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "beer_id"
     t.bigint "user_id"
     t.bigint "balance_id"
@@ -555,15 +556,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "themes", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "typical_beer_feelings", force: :cascade do |t|
     t.bigint "typical_beer_id", null: false
     t.bigint "feeling_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["feeling_id"], name: "index_typical_beer_feelings_on_feeling_id"
     t.index ["typical_beer_id"], name: "index_typical_beer_feelings_on_typical_beer_id"
   end
@@ -571,8 +572,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
   create_table "typical_beer_flavours", force: :cascade do |t|
     t.bigint "flavour_id", null: false
     t.bigint "typical_beer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["flavour_id"], name: "index_typical_beer_flavours_on_flavour_id"
     t.index ["typical_beer_id"], name: "index_typical_beer_flavours_on_typical_beer_id"
   end
@@ -583,8 +584,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.bigint "category_id", null: false
     t.bigint "style_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "beer_family_id"
     t.string "wiki_link"
     t.bigint "design_color_id"
@@ -605,15 +606,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "units", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_activities", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "activity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_user_activities_on_activity_id"
     t.index ["user_id"], name: "index_user_activities_on_user_id"
   end
@@ -622,10 +623,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false, null: false
     t.string "username"
     t.string "website"
@@ -640,8 +641,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_09_213401) do
 
   create_table "weathers", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "accesses", "users"
