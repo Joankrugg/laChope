@@ -89,7 +89,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     base64 (0.2.0)
     bcrypt (3.1.20)
-    bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.8.1)
       msgpack (~> 1.0)
@@ -99,11 +98,11 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.40.0)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
-      nokogiri (~> 1.11)
+      nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
@@ -205,7 +204,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    meta-tags (2.21.0)
+    meta-tags (2.20.0)
       actionpack (>= 6.0.0, < 7.2)
     method_source (1.1.0)
     mime-types (3.5.2)
@@ -215,8 +214,7 @@ GEM
     mini_portile2 (2.8.6)
     minitest (5.22.3)
     msgpack (1.7.2)
-    multi_xml (0.7.1)
-      bigdecimal (~> 3.1)
+    multi_xml (0.6.0)
     nested_form (0.3.2)
     net-http (0.4.1)
       uri
@@ -234,7 +232,7 @@ GEM
     net_http_timeout_errors (1.0.0)
     netrc (0.11.0)
     nio4r (2.7.3)
-    nokogiri (1.16.4)
+    nokogiri (1.15.6)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oga (3.4)
@@ -332,7 +330,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.10.0)
+    selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -459,7 +457,7 @@ DEPENDENCIES
   will_paginate (~> 4.0)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 2.7.6p219
 
 BUNDLED WITH
    2.3.25
