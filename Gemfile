@@ -49,7 +49,7 @@ gem 'link_thumbnailer'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'psych', '< 4'
 gem 'rails_admin', '~> 3.1', '>= 3.1.2'
-gem "bootstrap", "~> 5.2"
+gem "bootstrap", "~> 4.6.0"
 
 
 group :development, :test do  gem 'pry-byebug'
